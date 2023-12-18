@@ -17,7 +17,7 @@
       <div class="bg-lime-900 absolute top-0 left-0 bg-gradient-to-b from-black via-gray-900 to-lime-600 bottom-0 leading-5 h-full w-full overflow-hidden">
         <div>
           <div class="relative min-h-screen sm:flex sm:flex-row justify-center bg-transparent rounded-3xl shadow-xl">
-            <div class="flex-row flex  self-center lg:px-14 sm:max-w-xs md:max-w-md lg:max-w-xl xl:max-w-2xl 2xl:max-w-2xl z-50">
+            <div class="flex-row flex  self-center lg:px-14 sm:max-w-xs md:max-w-md lg:max-w-xl xl:max-w-2xl 2xl:max-w-2xl z-50 items-center">
               <div>
                 <img src="{{asset("img/logo.png")}}" alt="Imagen Logo" class="min-w-[30rem] ml-[-8rem]" />
               </div>
@@ -41,7 +41,7 @@
                     </div>
                     <div class="flex items-center justify-end mt-4">
                       @if (Route::has('password.request'))
-                      <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('password.request') }}">
+                      <a class="underline text-sm text-gray-600 hover:text-orange-800 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('password.request') }}">
                         {{ __('Forgot your password?') }}
                       </a>
                       @endif
