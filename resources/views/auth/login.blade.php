@@ -4,8 +4,6 @@
       <x-authentication-card-logo />
     </x-slot>
 
-    <x-validation-errors class="mb-4" />
-
     @if (session('status'))
     <div class="mb-4 font-medium text-sm text-green-600 dark:text-green-400">
       {{ session('status') }}
@@ -25,12 +23,13 @@
               <div class="flex justify-center self-center z-10 ml-6">
                 <div class="p-12 bg-white mx-auto rounded-3xl w-96 shadow-2xl shadow-lime-900">
                   <div class="space-y-6">
+                    <x-validation-errors class="mb-4" />
                     <div>
                       <x-label for="email" value="{{ __('Email') }}" class="dark:text-slate-600" />
                       <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" placeholder="{{ __('Email') }}" />
                     </div>
                     <div class="mt-4">
-                      <x-label for="password" value="{{ __('Password') }}"  class="dark:text-slate-600" />
+                      <x-label for="password" value="{{ __('Password') }}" class="dark:text-slate-600" />
                       <x-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password" placeholder="{{ __('Password') }}" />
                     </div>
                     <div class="block mt-4">
