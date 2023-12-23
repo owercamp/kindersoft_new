@@ -25,8 +25,8 @@
                   <div class="space-y-6">
                     <x-validation-errors class="mb-4" />
                     <div>
-                      <x-label for="email" value="{{ __('Email') }}" class="dark:text-slate-600" />
-                      <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" placeholder="{{ __('Email') }}" />
+                      <x-label for="identification" value="{{ __('Identification') }}" class="dark:text-slate-600" />
+                      <x-input id="identification" class="block mt-1 w-full" type="text" name="identification" :value="old('identification')" required autofocus autocomplete="identification" placeholder="{{ __('Identification') }}" />
                     </div>
                     <div class="mt-4">
                       <x-label for="password" value="{{ __('Password') }}" class="dark:text-slate-600" />
