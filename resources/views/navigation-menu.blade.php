@@ -88,6 +88,49 @@
 
           <x-dropdown-first-level>
             <x-slot name="trigger">
+              {{ __('Administrative')}}
+            </x-slot>
+            <x-slot name="content">
+              <x-dropdown-second-level>
+                <x-slot name="trigger">
+                  {{ __('Personnel Selection')}}
+                </x-slot>
+                <x-slot name="content">
+                </x-slot>
+              </x-dropdown-second-level>
+              <x-dropdown-second-level>
+                <x-slot name="trigger">
+                  {{ __('Recruitment of Personnel')}}
+                </x-slot>
+                <x-slot name="content">
+                </x-slot>
+              </x-dropdown-second-level>
+              <x-dropdown-second-level>
+                <x-slot name="trigger">
+                  {{ __('Performance Evaluation')}}
+                </x-slot>
+                <x-slot name="content">
+                </x-slot>
+              </x-dropdown-second-level>
+              <x-dropdown-second-level>
+                <x-slot name="trigger">
+                  {{ __('Payroll Report')}}
+                </x-slot>
+                <x-slot name="content">
+                </x-slot>
+              </x-dropdown-second-level>
+              <x-dropdown-second-level>
+                <x-slot name="trigger">
+                  {{ __('Administrative Reports')}}
+                </x-slot>
+                <x-slot name="content">
+                </x-slot>
+              </x-dropdown-second-level>
+            </x-slot>
+          </x-dropdown-first-level>
+
+          <x-dropdown-first-level>
+            <x-slot name="trigger">
               {{ __('Admissions')}}
             </x-slot>
             <x-slot name="content">
@@ -151,9 +194,9 @@
                   {{ __('School Structure')}}
                 </x-slot>
                 <x-slot name="content">
-                  <x-nav-link>{{  __('Course Assignment')}}</x-nav-link>
-                  <x-nav-link>{{  __('Activity Space')}}</x-nav-link>
-                  <x-nav-link>{{  __('Classes and Activities')}}</x-nav-link>
+                  <x-nav-link>{{ __('Course Assignment')}}</x-nav-link>
+                  <x-nav-link>{{ __('Activity Space')}}</x-nav-link>
+                  <x-nav-link>{{ __('Classes and Activities')}}</x-nav-link>
                 </x-slot>
               </x-dropdown-second-level>
               <x-dropdown-second-level>
@@ -161,10 +204,10 @@
                   {{ __('School Programming')}}
                 </x-slot>
                 <x-slot name="content">
-                  <x-nav-link>{{  __('Academic Periods')}}</x-nav-link>
-                  <x-nav-link>{{  __('Weekly Schedule')}}</x-nav-link>
-                  <x-nav-link>{{  __('Activity Basis')}}</x-nav-link>
-                  <x-nav-link>{{  __('Chronological Planning')}}</x-nav-link>
+                  <x-nav-link>{{ __('Academic Periods')}}</x-nav-link>
+                  <x-nav-link>{{ __('Weekly Schedule')}}</x-nav-link>
+                  <x-nav-link>{{ __('Activity Basis')}}</x-nav-link>
+                  <x-nav-link>{{ __('Chronological Planning')}}</x-nav-link>
                 </x-slot>
               </x-dropdown-second-level>
               <x-dropdown-second-level>
@@ -172,10 +215,10 @@
                   {{ __('School Evaluation')}}
                 </x-slot>
                 <x-slot name="content">
-                  <x-nav-link>{{  __('Weekly Follow-up')}}</x-nav-link>
-                  <x-nav-link>{{  __('Closing Period')}}</x-nav-link>
-                  <x-nav-link>{{  __('Period Report')}}</x-nav-link>
-                  <x-nav-link>{{  __('School Newsletter')}}</x-nav-link>
+                  <x-nav-link>{{ __('Weekly Follow-up')}}</x-nav-link>
+                  <x-nav-link>{{ __('Closing Period')}}</x-nav-link>
+                  <x-nav-link>{{ __('Period Report')}}</x-nav-link>
+                  <x-nav-link>{{ __('School Newsletter')}}</x-nav-link>
                 </x-slot>
               </x-dropdown-second-level>
             </x-slot>
