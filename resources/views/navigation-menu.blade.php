@@ -61,7 +61,7 @@
                 </x-slot>
                 <x-slot name="content">
                   <x-nav-link>{{ __('Admissions') }}</x-nav-link>
-                  <x-nav-link>{{ __('Conference') }}</x-nav-link>
+                  <x-nav-link>{{ __('Journays') }}</x-nav-link>
                   <x-nav-link>{{ __('Feeding') }}</x-nav-link>
                   <x-nav-link>{{ __('Uniforms') }}</x-nav-link>
                   <x-nav-link>{{ __('School Supplies') }}</x-nav-link>
@@ -77,7 +77,7 @@
                 <x-slot name="content">
                   <x-nav-link>{{ __('Grades') }}</x-nav-link>
                   <x-nav-link>{{ __('Courses') }}</x-nav-link>
-                  <x-nav-link>{{ __('Period') }}</x-nav-link>
+                  <x-nav-link>{{ __('Periods') }}</x-nav-link>
                   <x-nav-link>{{ __('Intelligences') }}</x-nav-link>
                   <x-nav-link>{{ __('Achievements') }}</x-nav-link>
                   <x-nav-link>{{ __('Remarks') }}</x-nav-link>
@@ -300,7 +300,7 @@
                   <x-nav-link>{{ __('Debit Notes')}}</x-nav-link>
                   <x-nav-link>{{ __('Credit Notes')}}</x-nav-link>
                   <x-nav-link>{{ __('Revenue Vouchers')}}</x-nav-link>
-                  <x-nav-link>{{ __('Proof of Expenditure')}}</x-nav-link>
+                  <x-nav-link>{{ __('Egress Vouchers')}}</x-nav-link>
                   <x-nav-link>{{ __('Bank Reconciliation')}}</x-nav-link>
                   <x-nav-link>{{ __('Canceled Invoices')}}</x-nav-link>
                   <x-nav-link>{{ __('Sales Statistics')}}</x-nav-link>
