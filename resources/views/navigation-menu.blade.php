@@ -23,11 +23,11 @@
                   {{ __('Kindergarten Information')}}
                 </x-slot>
                 <x-slot name="content">
-                  <x-nav-link class="py-1">{{ __('General Information') }}</x-nav-link>
-                  <x-nav-link class="py-1">{{ __('Tax Information') }}</x-nav-link>
-                  <x-nav-link class="py-1">{{ __('Corporate Images') }}</x-nav-link>
-                  <x-nav-link class="py-1">{{ __('Letterhead') }}</x-nav-link>
-                  <x-nav-link class="py-1">{{ __('Corporate Card') }}</x-nav-link>
+                  <x-nav-link href="{{ route('general-information') }}">{{ __('General Information') }}</x-nav-link>
+                  <x-nav-link>{{ __('Tax Information') }}</x-nav-link>
+                  <x-nav-link>{{ __('Corporate Images') }}</x-nav-link>
+                  <x-nav-link>{{ __('Letterhead') }}</x-nav-link>
+                  <x-nav-link>{{ __('Corporate Card') }}</x-nav-link>
                 </x-slot>
               </x-dropdown-second-level>
               <x-dropdown-second-level>
@@ -96,6 +96,7 @@
                   {{ __('Personnel Selection')}}
                 </x-slot>
                 <x-slot name="content">
+                  <x-nav-link>{{ __('item') }}</x-nav-link>
                 </x-slot>
               </x-dropdown-second-level>
               <x-dropdown-second-level>
@@ -103,6 +104,7 @@
                   {{ __('Recruitment of Personnel')}}
                 </x-slot>
                 <x-slot name="content">
+                  <x-nav-link>{{ __('item') }}</x-nav-link>
                 </x-slot>
               </x-dropdown-second-level>
               <x-dropdown-second-level>
@@ -110,6 +112,7 @@
                   {{ __('Performance Evaluation')}}
                 </x-slot>
                 <x-slot name="content">
+                  <x-nav-link>{{ __('item') }}</x-nav-link>
                 </x-slot>
               </x-dropdown-second-level>
               <x-dropdown-second-level>
@@ -117,6 +120,7 @@
                   {{ __('Payroll Report')}}
                 </x-slot>
                 <x-slot name="content">
+                  <x-nav-link>{{ __('item') }}</x-nav-link>
                 </x-slot>
               </x-dropdown-second-level>
               <x-dropdown-second-level>
@@ -124,6 +128,7 @@
                   {{ __('Administrative Reports')}}
                 </x-slot>
                 <x-slot name="content">
+                  <x-nav-link>{{ __('item') }}</x-nav-link>
                 </x-slot>
               </x-dropdown-second-level>
             </x-slot>
@@ -435,7 +440,7 @@
                     <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
                   </svg>
                   <div class="flex flex-col gap-1">
-                    <p>{{ __('Welcome')}}</p>
+                    <p>{{ __('Welcome')}} (a)</p>
                     <p>{{ Auth::user()->name }}</p>
                   </div>
                   <svg class="ms-2 -me-0.5 h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
