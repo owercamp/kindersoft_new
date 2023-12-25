@@ -346,7 +346,7 @@
     "You may not leave a team that you created.": "No se puede abandonar un equipo que usted creó.",
     "Your email address is unverified.": "Su dirección de correo electrónico no está verificada.",
     "Identification": "Identificación",
-    "Welcome": "Bienvenido(a)",
+    "Welcome": "Bienvenido",
     "Configuration": "Configuración",
     "Kindergarten Information": "Información del Jardin",
     "General Information": "Información General",
@@ -482,5 +482,13 @@
     "Performance Evaluation": "Evaluación de Desempeño",
     "Payroll Report": "Informe de Nómina",
     "Administrative Reports": "Informes Administrativos",
-    "Personnel Selection": "Selección de Personal"
+    "Personnel Selection": "Selección de Personal",
+    "Company Name": "Razón Social",
+    "Commercial Name": "Nombre Comercial",
+    "NIT": "NIT",
+    "DV": "DV",
+    "Email address": "Correo Eletrónico",
+    "Website": "Sitio Web",
+    "How many locations does the kindergarten have?": "¿Cuantas sedes tiene el jardin?",
+    "Only numbers are allowed": "Solo se permiten números"
 }
