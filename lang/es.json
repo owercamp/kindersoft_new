@@ -490,5 +490,8 @@
     "Email address": "Correo Eletrónico",
     "Website": "Sitio Web",
     "How many locations does the kindergarten have?": "¿Cuantas sedes tiene el jardin?",
-    "Only numbers are allowed": "Solo se permiten números"
+    "Only numbers are allowed": "Solo se permiten números",
+    "Headquarters": "Sede",
+    "Name Headquarters": "Nombre Sede",
+    "Country": "Pais"
 }
