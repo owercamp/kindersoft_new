@@ -23,15 +23,30 @@
             <div class="flex items-center text-gray-800 dark:text-gray-200">
               {{ __('How many locations does the kindergarten have?')}}
             </div>
-            <x-input type="number" name="numbers" id="numbers" min="0" class="border p-2 rounded basis-2" />
           </div>
-          <div class="flex flex-row gap-4" id="locations">
+          <div x-data="{ count: 0 }">
+            <!-- Input de tipo número -->
+            <x-input type="number" x-model="count" @input="updateCount" min="0" class="border p-2 rounded basis-2 mb-3" id="selections" />
+
+            <!-- Contenedor padre donde se agregarán los divs -->
+            <div x-ref="container" class="flex flex-col gap-3">
+              <!-- Contenido dinámico generado por Alpine.js -->
+              <template x-for="i in Array.from({ length: count }, (_, index) => index + 1)" :key="i">
+                <div class="flex flex-row w-full border border-red-700 px-3 py-4">
+                  <x-label x-text="' {{ __('Headquarters') }} N° '+ i +':'" class="flex items-center mx-3"></x-label>
+                  <x-input type="text" placeholder="{{ __('Name Headquarters') }}" class="border p-2 rounded" />
+                  <x-label x-text="' {{ __('Country') }}:'" class="flex items-center mx-3"></x-label>
+                  <x-select-options title="country">
+                  </x-select-options>
+                </div>
+              </template>
+            </div>
           </div>
           <div class="flex flex-row justify-center gap-4 w-full pt-4">
-            <x-button class="dark:bg-sky-800 dark:text-zinc-50 dark:hover:bg-sky-600">
+            <x-button type="button" class="dark:bg-sky-800 dark:text-zinc-50 dark:hover:bg-sky-600">
               {{ __('Save') }}
             </x-button>
-            <x-button class="dark:bg-emerald-800 dark:text-zinc-50 dark:hover:bg-emerald-600">
+            <x-button type="button" class="dark:bg-emerald-800 dark:text-zinc-50 dark:hover:bg-emerald-600">
               {{ __('Edit') }}
             </x-button>
           </div>
@@ -39,4 +54,12 @@
       </div>
     </div>
   </div>
+  <script>
+    function updateCount() {
+      const container = Alpine.find('[x-ref="container"]');
+      container.__x.updateElements(container);
+    }
+
+    Alpine.addMagicProperty('updateCount', () => updateCount);
+  </script>
 </div>
