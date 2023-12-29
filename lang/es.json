@@ -493,5 +493,10 @@
     "Only numbers are allowed": "Solo se permiten números",
     "Headquarters": "Sede",
     "Name Headquarters": "Nombre Sede",
-    "Country": "Pais"
+    "Country": "Pais",
+    "Admissions Templates": "Plantillas de Admisiones",
+    "Administrative Templates": "Plantillas Administrativas",
+    "Academic Templates": "Plantillas Académicas",
+    "Logistics Templates": "Plantillas Logística",
+    "Financial Templates": "Plantillas Financiera"
 }
