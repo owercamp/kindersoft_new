@@ -26,7 +26,7 @@
                   <x-nav-link href="{{ route('general-information') }}">{{ __('General Information') }}</x-nav-link>
                   <x-nav-link>{{ __('Tax Information') }}</x-nav-link>
                   <x-nav-link>{{ __('Corporate Images') }}</x-nav-link>
-                  <x-nav-link>{{ __('Letterhead') }}</x-nav-link>
+                  <x-nav-link>{{ __('Printing Templates') }}</x-nav-link>
                   <x-nav-link>{{ __('Corporate Card') }}</x-nav-link>
                 </x-slot>
               </x-dropdown-second-level>
