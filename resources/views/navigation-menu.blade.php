@@ -66,7 +66,19 @@
                           <x-nav-link>{{ __('School Newsletter') }}</x-nav-link>
                         </x-slot>
                       </x-dropdown-second-level>
-                      <x-nav-link>{{ __('Logistics Templates') }}</x-nav-link>
+                      <x-dropdown-second-level>
+                        <x-slot name="trigger">
+                          {{ __('Logistics Templates') }}
+                        </x-slot>
+                        <x-slot name="content">
+                          <x-nav-link>{{ __('Attendance Control') }}</x-nav-link>
+                          <x-nav-link>{{ __('Daily News') }}</x-nav-link>
+                          <x-nav-link>{{ __('Growth and Development') }}</x-nav-link>
+                          <x-nav-link>{{ __('Special Reports') }}</x-nav-link>
+                          <x-nav-link>{{ __('Informative Circulars') }}</x-nav-link>
+                          <x-nav-link>{{ __('School Agenda') }}</x-nav-link>
+                        </x-slot>
+                      </x-dropdown-second-level>
                       <x-nav-link>{{ __('Financial Templates') }}</x-nav-link>
                     </x-slot>
                   </x-dropdown-second-level>
