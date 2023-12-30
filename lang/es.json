@@ -508,5 +508,10 @@
     "Administrative Report": "Informe Administrativo",
     "School Certification": "Certificación Escolar",
     "Weekly Planning": "Planificación Semanal",
-    "School Agenda": "Agenda Escolar"
+    "School Agenda": "Agenda Escolar",
+    "Electronic Invoice": "Factura Eletrónica",
+    "Debit Note": "Nota Debito",
+    "Credit Note": "Nota Credito",
+    "Proof of Expenditure": "Comprobantes de Egreso",
+    "Income Voucher": "Comprobantes de Ingresos"
 }
