@@ -93,7 +93,18 @@
                       </x-dropdown-second-level>
                     </x-slot>
                   </x-dropdown-second-level>
-                  <x-nav-link>{{ __('Notifications and Mail') }}</x-nav-link>
+                  <x-dropdown-second-level>
+                    <x-slot name="trigger">
+                      {{ __('Notifications and Mail') }}
+                    </x-slot>
+                    <x-slot name="content">
+                      <x-nav-link>{{ __('Administrative Notifications') }}</x-nav-link>
+                      <x-nav-link>{{ __('Notifications Admissions') }}</x-nav-link>
+                      <x-nav-link>{{ __('Academic Notifications') }}</x-nav-link>
+                      <x-nav-link>{{ __('Logistics Notifications') }}</x-nav-link>
+                      <x-nav-link>{{ __('Financial Notifications') }}</x-nav-link>
+                    </x-slot>
+                  </x-dropdown-second-level>
                 </x-slot>
               </x-dropdown-second-level>
               <x-dropdown-second-level>
