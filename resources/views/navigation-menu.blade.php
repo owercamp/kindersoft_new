@@ -42,7 +42,19 @@
                           <x-nav-link>{{ __('Data Processing Authorization') }}</x-nav-link>
                         </x-slot>
                       </x-dropdown-second-level>
-                      <x-nav-link>{{ __('Administrative Templates') }}</x-nav-link>
+                      <x-dropdown-second-level>
+                        <x-slot name="trigger">
+                          {{ __('Administrative Templates') }}
+                        </x-slot>
+                        <x-slot name="content">
+                          <x-nav-link>{{ __('Indefinite Term Contract') }}</x-nav-link>
+                          <x-nav-link>{{ __('Fixed Term Contract') }}</x-nav-link>
+                          <x-nav-link>{{ __('Contract Work or Labor') }}</x-nav-link>
+                          <x-nav-link>{{ __('Performance Evaluation') }}</x-nav-link>
+                          <x-nav-link>{{ __('Payroll Report') }}</x-nav-link>
+                          <x-nav-link>{{ __('Administrative Report') }}</x-nav-link>
+                        </x-slot>
+                      </x-dropdown-second-level>
                       <x-nav-link>{{ __('Academic Templates') }}</x-nav-link>
                       <x-nav-link>{{ __('Logistics Templates') }}</x-nav-link>
                       <x-nav-link>{{ __('Financial Templates') }}</x-nav-link>
