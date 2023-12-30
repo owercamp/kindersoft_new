@@ -514,5 +514,10 @@
     "Credit Note": "Nota Credito",
     "Proof of Expenditure": "Comprobantes de Egreso",
     "Income Voucher": "Comprobantes de Ingresos",
-    "Notifications and Mail": "Notificaciones y Correo"
+    "Notifications and Mail": "Notificaciones y Correo",
+    "Administrative Notifications": "Notificaciones Administrativas",
+    "Notifications Admissions": "Notificaciones Admisiones",
+    "Academic Notifications": "Notificaciones Académicas",
+    "Logistics Notifications": "Notificaciones Logística",
+    "Financial Notifications": "Notificaciones Financieras"
 }
