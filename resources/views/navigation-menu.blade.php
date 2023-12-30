@@ -79,7 +79,18 @@
                           <x-nav-link>{{ __('School Agenda') }}</x-nav-link>
                         </x-slot>
                       </x-dropdown-second-level>
-                      <x-nav-link>{{ __('Financial Templates') }}</x-nav-link>
+                      <x-dropdown-second-level>
+                        <x-slot name="trigger">
+                          {{ __('Financial Templates') }}
+                        </x-slot>
+                        <x-slot name="content">
+                          <x-nav-link>{{ __('Electronic Invoice') }}</x-nav-link>
+                          <x-nav-link>{{ __('Debit Note') }}</x-nav-link>
+                          <x-nav-link>{{ __('Credit Note') }}</x-nav-link>
+                          <x-nav-link>{{ __('Income Voucher') }}</x-nav-link>
+                          <x-nav-link>{{ __('Proof of Expenditure') }}</x-nav-link>
+                        </x-slot>
+                      </x-dropdown-second-level>
                     </x-slot>
                   </x-dropdown-second-level>
                   <x-nav-link>{{ __('Corporate Card') }}</x-nav-link>
