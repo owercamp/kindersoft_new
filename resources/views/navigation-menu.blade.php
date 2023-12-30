@@ -93,7 +93,7 @@
                       </x-dropdown-second-level>
                     </x-slot>
                   </x-dropdown-second-level>
-                  <x-nav-link>{{ __('Corporate Card') }}</x-nav-link>
+                  <x-nav-link>{{ __('Notifications and Mail') }}</x-nav-link>
                 </x-slot>
               </x-dropdown-second-level>
               <x-dropdown-second-level>
