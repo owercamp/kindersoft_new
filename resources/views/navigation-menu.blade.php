@@ -55,7 +55,17 @@
                           <x-nav-link>{{ __('Administrative Report') }}</x-nav-link>
                         </x-slot>
                       </x-dropdown-second-level>
-                      <x-nav-link>{{ __('Academic Templates') }}</x-nav-link>
+                      <x-dropdown-second-level>
+                        <x-slot name="trigger">
+                          {{ __('Academic Templates') }}
+                        </x-slot>
+                        <x-slot name="content">
+                          <x-nav-link>{{ __('School Certification') }}</x-nav-link>
+                          <x-nav-link>{{ __('Weekly Planning') }}</x-nav-link>
+                          <x-nav-link>{{ __('Period Report') }}</x-nav-link>
+                          <x-nav-link>{{ __('School Newsletter') }}</x-nav-link>
+                        </x-slot>
+                      </x-dropdown-second-level>
                       <x-nav-link>{{ __('Logistics Templates') }}</x-nav-link>
                       <x-nav-link>{{ __('Financial Templates') }}</x-nav-link>
                     </x-slot>
