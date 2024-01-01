@@ -519,5 +519,10 @@
     "Notifications Admissions": "Notificaciones Admisiones",
     "Academic Notifications": "Notificaciones Académicas",
     "Logistics Notifications": "Notificaciones Logística",
-    "Financial Notifications": "Notificaciones Financieras"
+    "Financial Notifications": "Notificaciones Financieras",
+    "State / Municipality": "Departamento / Municipio",
+    "Location / Neighborhood": "Localidad / Barrio",
+    "Zip Code": "Código Postal",
+    "Address": "Dirección",
+    "Phone": "Telefóno"
 }
