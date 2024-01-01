@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\GeneralInformationController;
 use App\Livewire\Configurations\GeneralInformation;
 use Illuminate\Support\Facades\Route;
 
@@ -28,4 +29,5 @@ Route::middleware([
     })->name('dashboard');
 
     Route::get('/general-information', GeneralInformation::class)->name('general-information');
+    Route::post('/general-information', [GeneralInformationController::class, 'store'])->name('general-information.store');
 });
