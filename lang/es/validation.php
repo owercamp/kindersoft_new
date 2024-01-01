@@ -231,5 +231,8 @@ return [
         'user'                     => 'usuario',
         'username'                 => 'usuario',
         'year'                     => 'año',
+        'company_name'             => 'razón social',
+        'commercial_name'          => 'nombre comercial',
+        'website'                  => 'sitio web',
     ],
 ];
