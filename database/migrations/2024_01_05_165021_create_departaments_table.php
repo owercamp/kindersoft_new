@@ -11,9 +11,9 @@ return new class extends Migration
    */
   public function up(): void
   {
-    Schema::create('states', function (Blueprint $table) {
+    Schema::create('departaments', function (Blueprint $table) {
       $table->id();
-      $table->foreignId('country_id')->nullable()->constrained('countries','id')->onUpdate('cascade')->onDelete('set null');
+      $table->foreignId('country_id')->nullable()->constrained('countries', 'id')->onUpdate('cascade')->onDelete('set null');
       $table->string('name');
       $table->timestamps();
     });
@@ -24,6 +24,6 @@ return new class extends Migration
    */
   public function down(): void
   {
-    Schema::dropIfExists('states');
+    Schema::dropIfExists('departaments');
   }
 };
