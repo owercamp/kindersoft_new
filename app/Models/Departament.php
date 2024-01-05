@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
-class States extends Model
+class Departament extends Model
 {
   use HasFactory;
 
@@ -42,8 +42,8 @@ class States extends Model
    */
   public $timestamps = true;
 
-  public function country() : HasOne
+  public function country(): HasOne
   {
-    return $this->hasOne(Countries::class, 'id', 'country_id');
+    return $this->hasOne(Country::class, 'id', 'country_id');
   }
 }
