@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Departament;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Country extends Model
 {
@@ -29,4 +31,14 @@ class Country extends Model
    * @var bool
    */
   public $timestamps = true;
+
+  /**
+   * Retrieve the associated departaments.
+   *
+   * @return HasMany The associated departaments.
+   */
+  public function departament(): HasMany
+  {
+    return $this->hasMany(Departament::class, 'country_id', 'id');
+  }
 }
