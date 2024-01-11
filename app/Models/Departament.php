@@ -2,9 +2,12 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Country;
+use App\Models\Municipality;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Departament extends Model
 {
@@ -42,8 +45,23 @@ class Departament extends Model
    */
   public $timestamps = true;
 
+  /**
+   * Retrieve the associated country for this model.
+   *
+   * @return \Illuminate\Database\Eloquent\Relations\HasOne
+   */
   public function country(): HasOne
   {
     return $this->hasOne(Country::class, 'id', 'country_id');
+  }
+
+  /**
+   * Retrieves the municipalities associated with this departament.
+   *
+   * @return HasMany The municipalities associated with this departament.
+   */
+  public function municipality(): HasMany
+  {
+    return $this->hasMany(Municipality::class, 'departament_id', 'id');
   }
 }
