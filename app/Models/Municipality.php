@@ -2,9 +2,12 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\City;
+use App\Models\Departament;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Municipality extends Model
 {
@@ -42,8 +45,23 @@ class Municipality extends Model
    */
   public $timestamps = true;
 
-  public function municipality(): HasOne
+  /**
+   * Retrieves the department associated with this model.
+   *
+   * @return \Illuminate\Database\Eloquent\Relations\HasOne The department relation.
+   */
+  public function departament(): HasOne
   {
     return $this->hasOne(Departament::class, 'id', 'departament_id');
+  }
+
+  /**
+   * Retrieves the cities associated with this municipality.
+   *
+   * @return HasMany The relationship between the municipality and its cities.
+   */
+  public function city(): HasMany
+  {
+    return $this->hasMany(City::class, 'municipality_id', 'id');
   }
 }
