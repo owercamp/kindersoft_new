@@ -11,7 +11,7 @@
         <form action="{{ route('general-information.store') }}" method="POST">
           @csrf
           <div class="flex flex-row gap-4 mb-4">
-            <x-input type="text" placeholder="{{  __('Company Name') }}" class="border p-2 rounded w-full" name="company_name" value="{{ $company }}" value="{{ old('company_name', $company) }}" />
+            <x-input type="text" placeholder="{{  __('Company Name') }}" class="border p-2 rounded w-full" name="company_name" value="{{ old('company_name', $company) }}" />
             <x-input type="text" placeholder="{{ __('Commercial Name') }}" class="border p-2 rounded w-full basis-10/12" name="commercial_name" value="{{ old('commercial_name', $commercial) }}" />
             <x-input type="text" placeholder="{{ __('NIT') }}" pattern="[0-9]{1,8}" maxlength="8" title="{{ __('Only numbers are allowed') }}" class="border p-2 rounded w-full basis-3/6" name="nit" value="{{ old('nit', $nit) }}" />
             <x-input type="text" placeholder="{{ __('DV') }}" pattern="[0-9]{1}" maxlength="1" title="{{ __('Only numbers are allowed') }}" class="border p-2 rounded w-full basis-48" name="dv" value="{{ old('dv', $dv) }}" />
@@ -26,14 +26,14 @@
             </div>
           </div>
           @php
-            $count = $count ?? 0
+          $count = $count ?? 0
           @endphp
           <div x-data="{ count: {{ $count }} }">
             <!-- Input de tipo número -->
-            <x-input type="number" x-model="count" min="0" class="border p-2 rounded basis-2 mb-3" id="selections" name="selections" value="{{ old('selections', $count) }}"/>
+            <x-input type="number" x-model="count" min="0" class="border p-2 rounded basis-2 mb-3" id="selections" name="selections" value="{{ old('selections', $count) }}" />
 
             <!-- Contenedor padre donde se agregarán los divs -->
-            <div x-ref="container" class="flex flex-col gap-3">
+            <div x-ref="container" class="flex flex-col gap-3" x-data="information">
               <!-- Contenido dinámico generado por Alpine.js -->
               <template x-for="i in Array.from({ length: count }, (_, index) => index + 1)" :key="i">
                 <div class="flex flex-col w-full border border-red-700 px-3 py-4">
@@ -41,29 +41,32 @@
                     <x-label x-text="' {{ __('Headquarters') }} N° '+ i +':'" class="flex items-center mx-3"></x-label>
                     <x-input type="text" placeholder="{{ __('Name Headquarters') }}" class="border p-2 rounded basis-80" name="headquarters[]" required />
                     @error('headquarters[]')
-                      <span class="text-red-500">{{ $message }}</span>
+                    <span class="text-red-500">{{ $message }}</span>
                     @enderror
                     <x-label x-text="' {{ __('Country') }}:'" class="flex items-center mx-3"></x-label>
-                    <x-select-options title="countrys" name="country[]" required>
-                      <option value="Colombia">Colombia</option>
+                    <x-select-options title="countrys" name="country[]" required @change="country(i, $event)">
+                      <option value="">{{ __('Select') }}...</option>
+                      @foreach ($countrys as $key => $country)
+                      <option value="{{ $key }}">{{ $country }}</option>
+                      @endforeach
                     </x-select-options>
                     <x-label x-text="' {{ __('State / Municipality') }}:'" class="flex items-center mx-3"></x-label>
                     <x-select-options title="states" name="states[]" required>
-                      <option value="Cundinamarca">Cundinamarca</option>
+                      <option value="">{{ __('Select') }}...</option>
                     </x-select-options>
                   </div>
                   <div class="flex flex-row w-full py-2">
                     <x-label x-text="' {{ __('City') }}:'" class="flex items-center mx-3"></x-label>
                     <x-select-options title="cities" name="cities[]" required>
-                      <option value="Soacha">Soacha</option>
+                      <option value="">{{ __('Select') }}...</option>
                     </x-select-options>
                     <x-label x-text="' {{ __('Location / Neighborhood') }}:'" class="flex items-center mx-3"></x-label>
                     <x-select-options title="neighborhoods" name="neighborhoods[]" required>
-                      <option value="Ciudad Verde">Ciudad Verde</option>
+                      <option value="">{{ __('Select') }}...</option>
                     </x-select-options>
                     <x-label x-text="' {{ __('Zip Code') }}:'" class="flex items-center mx-3"></x-label>
                     <x-select-options title="zipcodes" name="zipcodes[]" required>
-                      <option value="012457">012457</option>
+                      <option value="">{{ __('Select') }}...</option>
                     </x-select-options>
                   </div>
                   <div class="flex flex-row w-full py-2">
@@ -88,4 +91,43 @@
       </div>
     </div>
   </div>
+  <script>
+    document.addEventListener('alpine:init', () => {
+      Alpine.data('information', () => ({
+        countrySelected: '',
+        country(index, selected) {
+          let element = selected.target.value;
+          let token = "{{ csrf_token() }}";
+          let data = axios.create();
+
+          data.post("{{ route('departaments') }}", {
+              id_country: element
+            }, {
+              headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json",
+                "X-CSRF-Token": token
+              }
+            })
+            .then(response => {
+              let departaments = response.data;
+              let data = Object.entries(departaments);
+
+              data.forEach(element => {
+                departament.push({
+                  id: element[0],
+                  name: element[1]
+                });
+              });
+              this.states = departament;
+            })
+            .catch(error => {
+              console.log(error);
+            })
+
+          console.log(`index: ${index}, country: ${element}`);
+        }
+      }))
+    })
+  </script>
 </div>
