@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Departament;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,3 +18,8 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::post('/departaments',function(Request $request){
+    $departaments = Departament::where('country_id',$request->id_country)->pluck('name','id');
+    return $departaments;
+})->name('departaments');
