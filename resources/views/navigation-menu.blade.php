@@ -24,7 +24,7 @@
                 </x-slot>
                 <x-slot name="content">
                   <x-nav-link href="{{ route('general-information') }}">{{ __('General Information') }}</x-nav-link>
-                  <x-nav-link>{{ __('Tax Information') }}</x-nav-link>
+                  <x-nav-link href="{{ route('tax-information') }}">{{ __('Tax Information') }}</x-nav-link>
                   <x-nav-link>{{ __('Corporate Images') }}</x-nav-link>
                   <x-dropdown-second-level>
                     <x-slot name="trigger">
