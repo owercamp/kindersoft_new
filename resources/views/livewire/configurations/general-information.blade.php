@@ -53,6 +53,9 @@
                     <x-label x-text="' {{ __('State / Municipality') }}:'" class="flex items-center mx-3"></x-label>
                     <x-select-options title="states" name="states[]" required>
                       <option value="">{{ __('Select') }}...</option>
+                      <template x-for="(state, index) in states">
+                        <option x-value="state.id" x-text="state.name"></option>
+                      </template>
                     </x-select-options>
                   </div>
                   <div class="flex flex-row w-full py-2">
@@ -94,9 +97,10 @@
   <script>
     document.addEventListener('alpine:init', () => {
       Alpine.data('information', () => ({
-        countrySelected: '',
+        states: [],
         country(index, selected) {
           let element = selected.target.value;
+          let departament = [];
           let token = "{{ csrf_token() }}";
           let data = axios.create();
 
@@ -119,13 +123,12 @@
                   name: element[1]
                 });
               });
+              let ref_name = `states${index}`;
               this.states = departament;
             })
             .catch(error => {
               console.log(error);
             })
-
-          console.log(`index: ${index}, country: ${element}`);
         }
       }))
     })
