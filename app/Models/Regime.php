@@ -21,7 +21,7 @@ class Regime extends Model
      *
      * @var array
      */
-    protected $fillable = ['name'];
+    protected $fillable = ['name', 'description'];
 
     /**
      * Indicates if the model should be timestamped.
@@ -38,5 +38,6 @@ class Regime extends Model
     protected $casts = [
       'id' => 'integer',
       'name' => 'string',
+      'description' => 'string'
     ];
 }
