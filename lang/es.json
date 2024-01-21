@@ -524,5 +524,7 @@
     "Location / Neighborhood": "Localidad / Barrio",
     "Zip Code": "Código Postal",
     "Address": "Dirección",
-    "Phone": "Telefóno"
+    "Phone": "Telefóno",
+    "Regime": "Regimen",
+    "Description": "Descripción"
 }
