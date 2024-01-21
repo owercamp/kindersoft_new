@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\GeneralInformationController;
 use App\Livewire\Configurations\GeneralInformation;
+use App\Livewire\TaxInformation;
 use Illuminate\Support\Facades\Route;
+use Livewire\Livewire;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +16,14 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+Livewire::setScriptRoute(function ($handle){
+  return Route::get('/kindersoft_new/public/livewire/livewire.js', $handle);
+});
+
+Livewire::setUpdateRoute(function ($handle){
+  return Route::get('/kindersoft_new/public/livewire/update', $handle);
+});
 
 Route::get('/', function () {
     return view('auth.login');
@@ -30,4 +40,5 @@ Route::middleware([
 
     Route::get('/general-information', GeneralInformation::class)->name('general-information');
     Route::post('/general-information', [GeneralInformationController::class, 'store'])->name('general-information.store');
+    Route::get('/tax-information', TaxInformation::class)->name('tax-information');
 });
