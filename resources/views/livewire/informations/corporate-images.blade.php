@@ -44,13 +44,11 @@
             <img class="object-cover w-full rounded-tl-lg rounded-bl-lg" style="height: 250px!important;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmUmWHXPIc0Z3x1m0EF13NQmf_Tmor8xp9az21M0PoxA&s" alt="">
             <div class="flex flex-col justify-between p-4 leading-normal">
               <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{ __('QR Code Virtual Platform') }}</h5>
-              <input type="file"class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+              <input type="file" class="mb-3 font-normal text-gray-700 dark:text-gray-400">
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
-
 </div>
