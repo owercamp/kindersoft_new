@@ -537,5 +537,10 @@
     "Validity Until": "Vigencia Hasta",
     "Additional Note": "Nota Adicional",
     "Registration Successfully Updated": "Registro Actualizado Correctamente",
-    "Successfully Created Record": "Registro Creado Correctamente"
+    "Successfully Created Record": "Registro Creado Correctamente",
+    "QR Code Virtual Platform": "Código QR Plataforma Virtual",
+    "QR Code School Agenda": "Código QR Agenda Escolar",
+    "QR Code Admission Form": "Código QR Formulario de Admision",
+    "QR Code Web Page": "Código QR Página Web",
+    "Corporate Logo": "Logo Corporativo"
 }
