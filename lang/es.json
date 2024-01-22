@@ -526,5 +526,14 @@
     "Address": "Dirección",
     "Phone": "Telefóno",
     "Regime": "Regimen",
-    "Description": "Descripción"
+    "Description": "Descripción",
+    "Tax Liability": "Responsabilidad Tributaria",
+    "Form Number": "Número de Formulario",
+    "Numbering Prefix": "Prefijo de Numeración",
+    "Next Invoice": "Próxima Factura",
+    "From Number": "Desde el Número",
+    "Up to Number": "Hasta el Número",
+    "Effective From": "Vigencia Desde",
+    "Validity Until": "Vigencia Hasta",
+    "Additional Note": "Nota Adicional"
 }
