@@ -16,7 +16,7 @@
             <div class="flex flex-col justify-center">
               @foreach ($taxInformation as $tax => $value)
               <x-label class="flex flex-row gap-1 p-1 align-middle">
-                <x-input type="radio" name="tax_liability" wire:model="taxSelected" class="border p-2 rounded text-gray-800 dark:text-gray-200" />
+                <x-input type="radio" name="tax_liability" wire:model="taxSelected" value="{{ $tax }}" class="border p-2 rounded text-gray-800 dark:text-gray-200" />
                 {{ $value }}
               </x-label>
               @endforeach
@@ -27,30 +27,30 @@
           <div class="flex flex-col min-w-[14rem]">
             <div class="flex flex-col">
               <x-label>{{ __('Form Number') }}:</x-label>
-              <x-input type="text" name="form_number" wire:model="form_number" pattern="[0-9]{1,20}" maxlength="20" title="{{ __('Only numbers are allowed') }}" />
+              <x-input type="text" name="form_number" wire:model="form_number" minlength="20" maxlength="20" />
               <x-input-error for="form_number" />
             </div>
             <div class="flex flex-col">
               <x-label>{{ __('Numbering Prefix') }}:</x-label>
-              <x-input type="text" name="prefix_number" wire:model="prefix_number" pattern="[0-9a-zA-Z]{1,3}" maxlength="20" />
+              <x-input type="text" name="prefix_number" wire:model="prefix_number" pattern="[0-9a-zA-Z]{1,3}" maxlength="6" minlength="6" />
               <x-input-error for="prefix_number" />
             </div>
           </div>
           <div class="flex flex-col min-w-[14rem]">
             <x-label>{{ __('Next Invoice') }}:</x-label>
-            <x-input type="text" name="next_invoice" wire:model="next_invoice" pattern="[0-9]{1,6}" maxlength="6" />
+            <x-input type="text" name="next_invoice" wire:model="next_invoice" pattern="[0-9]{1,6}" maxlength="6" minlength="6" />
             <x-input-error for="next_invoice" />
           </div>
           <div class="border border-sky-600 dark:border-sky-700"></div>
           <div class="flex flex-col">
             <div class="flex flex-col">
               <x-label>{{ __('From Number') }}:</x-label>
-              <x-input type="text" name="from_number" wire:model="from_number" pattern="[0-9]{1,6}" maxlength="6" />
+              <x-input type="text" name="from_number" wire:model="from_number" pattern="[0-9]{1,6}" maxlength="6" minlength="6" />
               <x-input-error for="from_number" />
             </div>
             <div class="flex flex-col">
               <x-label>{{ __('Up to Number') }}:</x-label>
-              <x-input type="text" name="up_to_number" wire:model="up_to_number" pattern="[0-9]{1,6}" maxlength="6" />
+              <x-input type="text" name="up_to_number" wire:model="up_to_number" pattern="[0-9]{1,6}" maxlength="6" minlength="6" />
               <x-input-error for="up_to_number" />
             </div>
           </div>
@@ -85,3 +85,25 @@
       </div>
     </div>
   </div>
+  <script>
+    window.addEventListener('swal:modal', event => {
+      let bgColor;
+      let theme = document.getElementsByTagName('html')[0].classList.contains('dark') ? 'dark' : 'light';
+      console.log(theme);
+
+      if (theme === 'dark') {
+        bgColor = '#e9f1f6';
+      } else {
+        bgColor = '#9cbfff';
+      }
+
+      Swal.fire({
+        icon: event.detail[0].type,
+        title: event.detail[0].message,
+        showConfirmButton: event.detail[0].showConfirmButton,
+        timer: event.detail[0].timer,
+        background: bgColor
+      });
+    })
+  </script>
+</div>
