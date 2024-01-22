@@ -3,6 +3,7 @@
 use Livewire\Livewire;
 use App\Livewire\Informations\Regime;
 use Illuminate\Support\Facades\Route;
+use App\Livewire\Informations\CorporateImages;
 use App\Livewire\Configurations\TaxInformation;
 use App\Livewire\Configurations\GeneralInformation;
 use App\Http\Controllers\GeneralInformationController;
@@ -43,4 +44,5 @@ Route::middleware([
     Route::post('/general-information', [GeneralInformationController::class, 'store'])->name('general-information.store');
     Route::get('/tax-information', TaxInformation::class)->name('tax-information');
     Route::get('/regime-type', Regime::class)->name('regime-type');
+    Route::get('/corporate-images', CorporateImages::class)->name('corporate-images');
 });
