@@ -234,5 +234,10 @@ return [
         'company_name'             => 'razón social',
         'commercial_name'          => 'nombre comercial',
         'website'                  => 'sitio web',
+        'logoCompanies'            => __('Corporate Logo'),
+        'qrCodeWebPage'            => __('Corporate QR Code'),
+        'qrCodeAdmissionForm'      => __('Admission Form QR Code'),
+        'qrCodeSchoolAgenda'       => __('School Agenda QR Code'),
+        'qrCodeVirtualPlatform'    => __('Virtual Platform QR Code'),
     ],
 ];
