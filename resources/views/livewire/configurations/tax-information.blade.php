@@ -89,7 +89,6 @@
     window.addEventListener('swal:modal', event => {
       let bgColor;
       let theme = document.getElementsByTagName('html')[0].classList.contains('dark') ? 'dark' : 'light';
-      console.log(theme);
 
       if (theme === 'dark') {
         bgColor = '#e9f1f6';
