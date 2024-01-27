@@ -43,7 +43,7 @@ class GeneralInformationController extends Controller
       'website' => 'required|url'
     ]);
 
-    dd($request->all());
+    return back()->with('info', 'Seccion en proceso de creación');
   }
 
   /**
