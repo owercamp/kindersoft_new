@@ -5,6 +5,11 @@
     </h2>
   </x-slot>
   <div class="py-8">
+    @if (session('info'))
+    <div class="max-w-7xl mx-auto p-4 mb-4 text-sm text-yellow-800 rounded-lg bg-yellow-50 dark:bg-gray-800 dark:text-yellow-300" role="alert">
+      <span class="font-medium">{{ session('info') }}</span>
+    </div>
+    @endif
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
       <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-xl sm:rounded-lg py-8 px-5">
         <x-validation-errors class="mb-4" />
