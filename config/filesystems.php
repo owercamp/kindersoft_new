@@ -44,6 +44,15 @@ return [
             'throw' => false,
         ],
 
+        // configuracion disk para el servidor
+        // 'public' => [
+        //     'driver' => 'local',
+        //     'root' => dirname('./public/storage'),
+        //     'url' => env('APP_URL').'/storage',
+        //     'visibility' => 'public',
+        //     'throw' => false,
+        // ],
+
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),
