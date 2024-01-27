@@ -19,30 +19,38 @@ use App\Http\Controllers\GeneralInformationController;
 |
 */
 
-Livewire::setScriptRoute(function ($handle){
-  return Route::get('/kindersoft_new/public/livewire/livewire.js', $handle);
+Livewire::setScriptRoute(function ($handle) {
+  if (config('app.env') === 'prod') {
+    return Route::get('/kindersoft/livewire/livewire.js', $handle);
+  } else {
+    return Route::get('/kindersoft_new/public/livewire/livewire.js', $handle);
+  }
 });
 
-Livewire::setUpdateRoute(function ($handle){
-  return Route::get('/kindersoft_new/public/livewire/update', $handle);
+Livewire::setUpdateRoute(function ($handle) {
+  if (config('app.env') === 'prod') {
+    return Route::get('/kindersoft/livewire/update', $handle);
+  } else {
+    return Route::get('/kindersoft_new/public/livewire/update', $handle);
+  }
 });
 
 Route::get('/', function () {
-    return view('auth.login');
+  return view('auth.login');
 });
 
 Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified',
+  'auth:sanctum',
+  config('jetstream.auth_session'),
+  'verified',
 ])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+  Route::get('/dashboard', function () {
+    return view('dashboard');
+  })->name('dashboard');
 
-    Route::get('/general-information', GeneralInformation::class)->name('general-information');
-    Route::post('/general-information', [GeneralInformationController::class, 'store'])->name('general-information.store');
-    Route::get('/tax-information', TaxInformation::class)->name('tax-information');
-    Route::get('/regime-type', Regime::class)->name('regime-type');
-    Route::get('/corporate-images', CorporateImages::class)->name('corporate-images');
+  Route::get('/general-information', GeneralInformation::class)->name('general-information');
+  Route::post('/general-information', [GeneralInformationController::class, 'store'])->name('general-information.store');
+  Route::get('/tax-information', TaxInformation::class)->name('tax-information');
+  Route::get('/regime-type', Regime::class)->name('regime-type');
+  Route::get('/corporate-images', CorporateImages::class)->name('corporate-images');
 });
