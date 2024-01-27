@@ -58,6 +58,13 @@ class CorporateImages extends Component
   {
     $this->validate();
 
+    $pointInit = '';
+    if (config('app.env') == 'prod') {
+      $pointInit = 'public';
+    }else {
+      $pointInit = 'storage';
+    }
+
     if ($this->logoCompanies) {
       $name_logo = __('Corporate Logo');
       $exists = ModelsCorporateImages::where('name', $name_logo)->first();
@@ -65,16 +72,22 @@ class CorporateImages extends Component
 
 
       if (isset($exists)) {
-        $url = explode('storage/',str_replace('\\','/',$exists->url_image))[1];
-        Storage::delete($url);
+        if(config('app.env') == 'prod'){
+          $url_full = str_replace('/storage/','',Storage::disk('public')->url($exists->url_image));
+          $url = explode('public/',str_replace('\\','/',$url_full))[1];
+          Storage::delete($url);
+        } else {
+          $url = explode('storage/',str_replace('\\','/',$exists->url_image))[1];
+          Storage::delete($url);
+        }
         $exists->name = $name_logo;
-        $exists->url_image = 'storage' . DIRECTORY_SEPARATOR . $this->logoCompanies->storeAs(path: 'images', name: $name);
+        $exists->url_image = $pointInit . DIRECTORY_SEPARATOR . $this->logoCompanies->storeAs(path: 'images', name: $name);
         $exists->save();
         $messages = __('Registration Successfully Updated');
       } else {
         $register = new ModelsCorporateImages();
         $register->name = $name_logo;
-        $register->url_image = 'storage' . DIRECTORY_SEPARATOR . $this->logoCompanies->storeAs(path: 'images', name: $name);
+        $register->url_image = $pointInit . DIRECTORY_SEPARATOR . $this->logoCompanies->storeAs(path: 'images', name: $name);
         $register->save();
         $messages = __('Successfully Created Record');
       }
@@ -86,16 +99,22 @@ class CorporateImages extends Component
       $name = 'logos' . DIRECTORY_SEPARATOR . uniqid() . '.' . $this->qrCodeWebPage->extension();
 
       if (isset($exists)) {
-        $url = explode('storage/',str_replace('\\','/',$exists->url_image))[1];
-        Storage::delete($url);
+        if(config('app.env') == 'prod'){
+          $url_full = str_replace('/storage/','',Storage::disk('public')->url($exists->url_image));
+          $url = explode('public/',str_replace('\\','/',$url_full))[1];
+          Storage::delete($url);
+        } else {
+          $url = explode('storage/',str_replace('\\','/',$exists->url_image))[1];
+          Storage::delete($url);
+        }
         $exists->name = $name_logo;
-        $exists->url_image = 'storage' . DIRECTORY_SEPARATOR . $this->qrCodeWebPage->storeAs(path: 'images', name: $name);
+        $exists->url_image = $pointInit . DIRECTORY_SEPARATOR . $this->qrCodeWebPage->storeAs(path: 'images', name: $name);
         $exists->save();
         $messages = __('Registration Successfully Updated');
       } else {
         $register = new ModelsCorporateImages();
         $register->name = $name_logo;
-        $register->url_image = 'storage' . DIRECTORY_SEPARATOR . $this->qrCodeWebPage->storeAs(path: 'images', name: $name);
+        $register->url_image = $pointInit . DIRECTORY_SEPARATOR . $this->qrCodeWebPage->storeAs(path: 'images', name: $name);
         $register->save();
         $messages = __('Successfully Created Record');
       }
@@ -107,16 +126,22 @@ class CorporateImages extends Component
       $name = 'logos' . DIRECTORY_SEPARATOR . uniqid() . '.' . $this->qrCodeAdmissionForm->extension();
 
       if (isset($exists)) {
-        $url = explode('storage/',str_replace('\\','/',$exists->url_image))[1];
-        Storage::delete($url);
+        if(config('app.env') == 'prod'){
+          $url_full = str_replace('/storage/','',Storage::disk('public')->url($exists->url_image));
+          $url = explode('public/',str_replace('\\','/',$url_full))[1];
+          Storage::delete($url);
+        } else {
+          $url = explode('storage/',str_replace('\\','/',$exists->url_image))[1];
+          Storage::delete($url);
+        }
         $exists->name = $name_logo;
-        $exists->url_image = 'storage' . DIRECTORY_SEPARATOR . $this->qrCodeAdmissionForm->storeAs(path: 'images', name: $name);
+        $exists->url_image = $pointInit . DIRECTORY_SEPARATOR . $this->qrCodeAdmissionForm->storeAs(path: 'images', name: $name);
         $exists->save();
         $messages = __('Registration Successfully Updated');
       } else {
         $register = new ModelsCorporateImages();
         $register->name = $name_logo;
-        $register->url_image = 'storage' . DIRECTORY_SEPARATOR . $this->qrCodeAdmissionForm->storeAs(path: 'images', name: $name);
+        $register->url_image = $pointInit . DIRECTORY_SEPARATOR . $this->qrCodeAdmissionForm->storeAs(path: 'images', name: $name);
         $register->save();
         $messages = __('Successfully Created Record');
       }
@@ -128,16 +153,22 @@ class CorporateImages extends Component
       $name = 'logos' . DIRECTORY_SEPARATOR . uniqid() . '.' . $this->qrCodeSchoolAgenda->extension();
 
       if (isset($exists)) {
-        $url = explode('storage/',str_replace('\\','/',$exists->url_image))[1];
-        Storage::delete($url);
+        if(config('app.env') == 'prod'){
+          $url_full = str_replace('/storage/','',Storage::disk('public')->url($exists->url_image));
+          $url = explode('public/',str_replace('\\','/',$url_full))[1];
+          Storage::delete($url);
+        } else {
+          $url = explode('storage/',str_replace('\\','/',$exists->url_image))[1];
+          Storage::delete($url);
+        }
         $exists->name = $name_logo;
-        $exists->url_image = 'storage' . DIRECTORY_SEPARATOR . $this->qrCodeSchoolAgenda->storeAs(path: 'images', name: $name);
+        $exists->url_image = $pointInit . DIRECTORY_SEPARATOR . $this->qrCodeSchoolAgenda->storeAs(path: 'images', name: $name);
         $exists->save();
         $messages = __('Registration Successfully Updated');
       } else {
         $register = new ModelsCorporateImages();
         $register->name = $name_logo;
-        $register->url_image = 'storage' . DIRECTORY_SEPARATOR . $this->qrCodeSchoolAgenda->storeAs(path: 'images', name: $name);
+        $register->url_image = $pointInit . DIRECTORY_SEPARATOR . $this->qrCodeSchoolAgenda->storeAs(path: 'images', name: $name);
         $register->save();
         $messages = __('Successfully Created Record');
       }
@@ -149,16 +180,22 @@ class CorporateImages extends Component
       $name = 'logos' . DIRECTORY_SEPARATOR . uniqid() . '.' . $this->qrCodeVirtualPlatform->extension();
 
       if (isset($exists)) {
-        $url = explode('storage/',str_replace('\\','/',$exists->url_image))[1];
-        Storage::delete($url);
+        if(config('app.env') == 'prod'){
+          $url_full = str_replace('/storage/','',Storage::disk('public')->url($exists->url_image));
+          $url = explode('public/',str_replace('\\','/',$url_full))[1];
+          Storage::delete($url);
+        } else {
+          $url = explode('storage/',str_replace('\\','/',$exists->url_image))[1];
+          Storage::delete($url);
+        }
         $exists->name = $name_logo;
-        $exists->url_image = 'storage' . DIRECTORY_SEPARATOR . $this->qrCodeVirtualPlatform->storeAs(path: 'images', name: $name);
+        $exists->url_image = $pointInit . DIRECTORY_SEPARATOR . $this->qrCodeVirtualPlatform->storeAs(path: 'images', name: $name);
         $exists->save();
         $messages = __('Registration Successfully Updated');
       } else {
         $register = new ModelsCorporateImages();
         $register->name = $name_logo;
-        $register->url_image = 'storage' . DIRECTORY_SEPARATOR . $this->qrCodeVirtualPlatform->storeAs(path: 'images', name: $name);
+        $register->url_image = $pointInit . DIRECTORY_SEPARATOR . $this->qrCodeVirtualPlatform->storeAs(path: 'images', name: $name);
         $register->save();
         $messages = __('Successfully Created Record');
       }
