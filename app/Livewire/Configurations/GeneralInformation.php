@@ -29,6 +29,11 @@ class GeneralInformation extends Component
     $this->countrys = Country::pluck('name', 'id')->sort()->toArray();
   }
 
+  public function save()
+  {
+    dd($this->company, $this->commercial, $this->nit, $this->dv, $this->email, $this->website);
+  }
+
   public function render()
   {
     return view('livewire.configurations.general-information');
