@@ -13,17 +13,17 @@
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
       <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-xl sm:rounded-lg py-8 px-5">
         <x-validation-errors class="mb-4" />
-        <form action="{{ route('general-information.store') }}" method="POST">
+        <form wire:submit.prevent="save">
           @csrf
           <div class="flex flex-row gap-4 mb-4">
-            <x-input type="text" placeholder="{{  __('Company Name') }}" class="border p-2 rounded w-full" name="company_name" value="{{ old('company_name', $company) }}" />
-            <x-input type="text" placeholder="{{ __('Commercial Name') }}" class="border p-2 rounded w-full basis-10/12" name="commercial_name" value="{{ old('commercial_name', $commercial) }}" />
-            <x-input type="text" placeholder="{{ __('NIT') }}" pattern="[0-9]{1,8}" maxlength="8" title="{{ __('Only numbers are allowed') }}" class="border p-2 rounded w-full basis-3/6" name="nit" value="{{ old('nit', $nit) }}" />
-            <x-input type="text" placeholder="{{ __('DV') }}" pattern="[0-9]{1}" maxlength="1" title="{{ __('Only numbers are allowed') }}" class="border p-2 rounded w-full basis-48" name="dv" value="{{ old('dv', $dv) }}" />
+            <x-input type="text" placeholder="{{  __('Company Name') }}" class="border p-2 rounded w-full" wire:model="company" />
+            <x-input type="text" placeholder="{{ __('Commercial Name') }}" class="border p-2 rounded w-full basis-10/12" wire:model="commercial" />
+            <x-input type="text" placeholder="{{ __('NIT') }}" pattern="[0-9]{1,8}" maxlength="8" title="{{ __('Only numbers are allowed') }}" class="border p-2 rounded w-full basis-3/6" wire:model="nit" />
+            <x-input type="text" placeholder="{{ __('DV') }}" pattern="[0-9]{1}" maxlength="1" title="{{ __('Only numbers are allowed') }}" class="border p-2 rounded w-full basis-48" wire:model="dv" />
           </div>
           <div class="flex flex-row gap-4 mb-4">
-            <x-input type="email" placeholder="{{ __('Email address') }}" class="border p-2 rounded w-full" name="email" value="{{ old('email', $email) }}" />
-            <x-input type="url" placeholder="{{ __('Website') }}" class="border p-2 rounded w-full" name="website" value="{{ old('website', $website) }}" />
+            <x-input type="email" placeholder="{{ __('Email address') }}" class="border p-2 rounded w-full" wire:model="email" />
+            <x-input type="url" placeholder="{{ __('Website') }}" class="border p-2 rounded w-full" wire:model="website" />
           </div>
           <div class="flex flex-row gap-4 w-full py-2">
             <div class="flex items-center text-gray-800 dark:text-gray-200">
