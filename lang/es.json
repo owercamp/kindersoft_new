@@ -543,5 +543,8 @@
     "QR Code Admission Form": "Código QR Formulario de Admision",
     "QR Code Web Page": "Código QR Página Web",
     "Corporate Logo": "Logo Corporativo",
-    "Storage Performed Correctly": "Almacenamiento Realizado Correctamente"
+    "Storage Performed Correctly": "Almacenamiento Realizado Correctamente",
+    "Department": "Departamento",
+    "Municipality": "Municipio",
+    "City": "Ciudad"
 }
