@@ -51,4 +51,9 @@ class Neighborhood extends Model
   {
     return $this->hasOne(City::class, 'city_id', 'id');
   }
+
+  public function postal()
+  {
+    return $this->belongsTo(Postal::class, 'id', 'neighborhood_id');
+  }
 }
