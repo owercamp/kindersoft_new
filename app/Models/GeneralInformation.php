@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class GeneralInformation extends Model
 {
@@ -45,4 +46,9 @@ class GeneralInformation extends Model
    * @var bool
    */
   public $timestamps = true;
+
+  public function headquarters(): HasMany
+  {
+    return $this->hasMany(Headquarter::class, 'company_id', 'id');
+  }
 }
