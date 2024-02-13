@@ -80,7 +80,7 @@
           </div>
         </div>
         <div class="flex flex-col mt-3">
-          <button wire:click="save" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">{{ __('Save') }}</button>
+          <x-button wire:click="save" class="bg-green-800 hover:bg-green-700 dark:bg-sky-800 dark:hover:bg-sky-600 text-white font-bold py-2 px-4 rounded w-full">{{ __('Save') }}</x-button>
         </div>
       </div>
     </div>
