@@ -546,5 +546,6 @@
     "Storage Performed Correctly": "Almacenamiento Realizado Correctamente",
     "Department": "Departamento",
     "Municipality": "Municipio",
-    "City": "Ciudad"
+    "City": "Ciudad",
+    "The number of HEADQUARTERS cannot be less than the number of registered Headquarters.": "La cantidad de SEDES no pueden ser menor a las registradas."
 }
