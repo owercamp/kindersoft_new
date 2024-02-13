@@ -47,4 +47,9 @@ class Headquarter extends Model
      * @var bool
      */
     public $timestamps = true;
+
+    public function company()
+    {
+      return $this->hasOne(GeneralInformation::class, 'id', 'company_id');
+    }
 }
