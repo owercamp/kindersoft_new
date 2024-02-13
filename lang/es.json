@@ -547,5 +547,6 @@
     "Department": "Departamento",
     "Municipality": "Municipio",
     "City": "Ciudad",
-    "The number of HEADQUARTERS cannot be less than the number of registered Headquarters.": "La cantidad de SEDES no pueden ser menor a las registradas."
+    "The number of HEADQUARTERS cannot be less than the number of registered Headquarters.": "La cantidad de SEDES no pueden ser menor a las registradas.",
+    "Email is not valid": "El correo electrónico no es válido"
 }
