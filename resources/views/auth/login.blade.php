@@ -45,7 +45,7 @@
                       </a>
                       @endif
 
-                      <x-button class="ms-4 dark:bg-sky-800 dark:text-zinc-50 dark:hover:bg-sky-600">
+                      <x-button class="ms-4 bg-green-800 hover:bg-green-700 dark:bg-sky-800 dark:hover:bg-sky-600 text-white font-bold py-2">
                         {{ __('Log in') }}
                       </x-button>
                     </div>
