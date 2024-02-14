@@ -254,7 +254,7 @@ class GeneralInformation extends Component
     }
 
     $this->dispatch('deleted', [
-      "counter" => $counter
+      "counter" => (isset($counter)) ? $counter : $this->count
     ]);
   }
 
