@@ -14,6 +14,573 @@ class PostalSeeder extends Seeder
   public function run(): void
   {
     Postal::create([
+      'neighborhood_id' => 1,
+      'name' => '111511',
+      'created_at' => now(),
+      'updated_at' => now()
+    ]);
+    
+    Postal::create([
+      'neighborhood_id' => 2,
+      'name' => '111211',
+      'created_at' => now(),
+      'updated_at' => now()
+    ]);
+    
+    Postal::create([
+      'neighborhood_id' => 2,
+      'name' => '111221',
+      'created_at' => now(),
+      'updated_at' => now()
+    ]);
+    
+    Postal::create([
+      'neighborhood_id' => 3,
+      'name' => '110711',
+      'created_at' => now(),
+      'updated_at' => now()
+    ]);
+    
+    Postal::create([
+      'neighborhood_id' => 3,
+      'name' => '110721',
+      'created_at' => now(),
+      'updated_at' => now()
+    ]);
+    
+    Postal::create([
+      'neighborhood_id' => 3,
+      'name' => '110731',
+      'created_at' => now(),
+      'updated_at' => now()
+    ]);
+    
+    Postal::create([
+      'neighborhood_id' => 3,
+      'name' => '110741',
+      'created_at' => now(),
+      'updated_at' => now()
+    ]);
+    
+    Postal::create([
+      'neighborhood_id' => 4,
+      'name' => '111711',
+      'created_at' => now(),
+      'updated_at' => now()
+    ]);
+    
+    Postal::create([
+      'neighborhood_id' => 5,
+      'name' => '110211',
+      'created_at' => now(),
+      'updated_at' => now()
+    ]);
+    
+    Postal::create([
+      'neighborhood_id' => 5,
+      'name' => '110221',
+      'created_at' => now(),
+      'updated_at' => now()
+    ]);
+    
+    Postal::create([
+      'neighborhood_id' => 5,
+      'name' => '110231',
+      'created_at' => now(),
+      'updated_at' => now()
+    ]);
+    
+    Postal::create([
+      'neighborhood_id' => 6,
+      'name' => '111911',
+      'created_at' => now(),
+      'updated_at' => now()
+    ]);
+    
+    Postal::create([
+      'neighborhood_id' => 6,
+      'name' => '111921',
+      'created_at' => now(),
+      'updated_at' => now()
+    ]);
+    
+    Postal::create([
+      'neighborhood_id' => 6,
+      'name' => '111931',
+      'created_at' => now(),
+      'updated_at' => now()
+    ]);
+    
+    Postal::create([
+      'neighborhood_id' => 6,
+      'name' => '111941',
+      'created_at' => now(),
+      'updated_at' => now()
+    ]);
+    
+    Postal::create([
+      'neighborhood_id' => 6,
+      'name' => '111951',
+      'created_at' => now(),
+      'updated_at' => now()
+    ]);
+    
+    Postal::create([
+      'neighborhood_id' => 6,
+      'name' => '111961',
+      'created_at' => now(),
+      'updated_at' => now()
+    ]);
+    
+    Postal::create([
+      'neighborhood_id' => 6,
+      'name' => '111971',
+      'created_at' => now(),
+      'updated_at' => now()
+    ]);
+    
+    Postal::create([
+      'neighborhood_id' => 6,
+      'name' => '111981',
+      'created_at' => now(),
+      'updated_at' => now()
+    ]);
+    
+    Postal::create([
+      'neighborhood_id' => 7,
+      'name' => '111011',
+      'created_at' => now(),
+      'updated_at' => now()
+    ]);
+    
+    Postal::create([
+      'neighborhood_id' => 7,
+      'name' => '111021',
+      'created_at' => now(),
+      'updated_at' => now()
+    ]);
+    
+    Postal::create([
+      'neighborhood_id' => 7,
+      'name' => '111031',
+      'created_at' => now(),
+      'updated_at' => now()
+    ]);
+    
+    Postal::create([
+      'neighborhood_id' => 7,
+      'name' => '111041',
+      'created_at' => now(),
+      'updated_at' => now()
+    ]);
+    
+    Postal::create([
+      'neighborhood_id' => 7,
+      'name' => '111051',
+      'created_at' => now(),
+      'updated_at' => now()
+    ]);
+    
+    Postal::create([
+      'neighborhood_id' => 7,
+      'name' => '111061',
+      'created_at' => now(),
+      'updated_at' => now()
+    ]);
+    
+    Postal::create([
+      'neighborhood_id' => 7,
+      'name' => '111071',
+      'created_at' => now(),
+      'updated_at' => now()
+    ]);
+    
+    Postal::create([
+      'neighborhood_id' => 8,
+      'name' => '110911',
+      'created_at' => now(),
+      'updated_at' => now()
+    ]);
+    
+    Postal::create([
+      'neighborhood_id' => 8,
+      'name' => '110921',
+      'created_at' => now(),
+      'updated_at' => now()
+    ]);
+    
+    Postal::create([
+      'neighborhood_id' => 8,
+      'name' => '110931',
+      'created_at' => now(),
+      'updated_at' => now()
+    ]);
+    
+    Postal::create([
+      'neighborhood_id' => 9,
+      'name' => '110811',
+      'created_at' => now(),
+      'updated_at' => now()
+    ]);
+    
+    Postal::create([
+      'neighborhood_id' => 9,
+      'name' => '110821',
+      'created_at' => now(),
+      'updated_at' => now()
+    ]);
+    
+    Postal::create([
+      'neighborhood_id' => 9,
+      'name' => '110831',
+      'created_at' => now(),
+      'updated_at' => now()
+    ]);
+    
+    Postal::create([
+      'neighborhood_id' => 9,
+      'name' => '110841',
+      'created_at' => now(),
+      'updated_at' => now()
+    ]);
+    
+    Postal::create([
+      'neighborhood_id' => 9,
+      'name' => '110851',
+      'created_at' => now(),
+      'updated_at' => now()
+    ]);
+    
+    Postal::create([
+      'neighborhood_id' => 9,
+      'name' => '110861',
+      'created_at' => now(),
+      'updated_at' => now()
+    ]);
+    
+    Postal::create([
+      'neighborhood_id' => 9,
+      'name' => '110871',
+      'created_at' => now(),
+      'updated_at' => now()
+    ]);
+    
+    Postal::create([
+      'neighborhood_id' => 9,
+      'name' => '110881',
+      'created_at' => now(),
+      'updated_at' => now()
+    ]);
+    
+    Postal::create([
+      'neighborhood_id' => 10,
+      'name' => '111411',
+      'created_at' => now(),
+      'updated_at' => now()
+    ]);
+    
+    Postal::create([
+      'neighborhood_id' => 11,
+      'name' => '111611',
+      'created_at' => now(),
+      'updated_at' => now()
+    ]);
+    
+    Postal::create([
+      'neighborhood_id' => 11,
+      'name' => '111621',
+      'created_at' => now(),
+      'updated_at' => now()
+    ]);
+    
+    Postal::create([
+      'neighborhood_id' => 11,
+      'name' => '111631',
+      'created_at' => now(),
+      'updated_at' => now()
+    ]);
+    
+    Postal::create([
+      'neighborhood_id' => 12,
+      'name' => '111811',
+      'created_at' => now(),
+      'updated_at' => now()
+    ]);
+    
+    Postal::create([
+      'neighborhood_id' => 12,
+      'name' => '111821',
+      'created_at' => now(),
+      'updated_at' => now()
+    ]);
+    
+    Postal::create([
+      'neighborhood_id' => 12,
+      'name' => '111831',
+      'created_at' => now(),
+      'updated_at' => now()
+    ]);
+    
+    Postal::create([
+      'neighborhood_id' => 12,
+      'name' => '111841',
+      'created_at' => now(),
+      'updated_at' => now()
+    ]);
+    
+    Postal::create([
+      'neighborhood_id' => 13,
+      'name' => '110411',
+      'created_at' => now(),
+      'updated_at' => now()
+    ]);
+    
+    Postal::create([
+      'neighborhood_id' => 13,
+      'name' => '110421',
+      'created_at' => now(),
+      'updated_at' => now()
+    ]);
+    
+    Postal::create([
+      'neighborhood_id' => 13,
+      'name' => '110431',
+      'created_at' => now(),
+      'updated_at' => now()
+    ]);
+    
+    Postal::create([
+      'neighborhood_id' => 13,
+      'name' => '110441',
+      'created_at' => now(),
+      'updated_at' => now()
+    ]);
+    
+    Postal::create([
+      'neighborhood_id' => 14,
+      'name' => '110311',
+      'created_at' => now(),
+      'updated_at' => now()
+    ]);
+    
+    Postal::create([
+      'neighborhood_id' => 14,
+      'name' => '110321',
+      'created_at' => now(),
+      'updated_at' => now()
+    ]);
+    
+    Postal::create([
+      'neighborhood_id' => 15,
+      'name' => '111111',
+      'created_at' => now(),
+      'updated_at' => now()
+    ]);
+    
+    Postal::create([
+      'neighborhood_id' => 15,
+      'name' => '111121',
+      'created_at' => now(),
+      'updated_at' => now()
+    ]);
+    
+    Postal::create([
+      'neighborhood_id' => 15,
+      'name' => '111131',
+      'created_at' => now(),
+      'updated_at' => now()
+    ]);
+    
+    Postal::create([
+      'neighborhood_id' => 15,
+      'name' => '111141',
+      'created_at' => now(),
+      'updated_at' => now()
+    ]);
+    
+    Postal::create([
+      'neighborhood_id' => 15,
+      'name' => '111151',
+      'created_at' => now(),
+      'updated_at' => now()
+    ]);
+    
+    Postal::create([
+      'neighborhood_id' => 15,
+      'name' => '111156',
+      'created_at' => now(),
+      'updated_at' => now()
+    ]);
+    
+    Postal::create([
+      'neighborhood_id' => 15,
+      'name' => '111161',
+      'created_at' => now(),
+      'updated_at' => now()
+    ]);
+    
+    Postal::create([
+      'neighborhood_id' => 15,
+      'name' => '111166',
+      'created_at' => now(),
+      'updated_at' => now()
+    ]);
+    
+    Postal::create([
+      'neighborhood_id' => 15,
+      'name' => '111171',
+      'created_at' => now(),
+      'updated_at' => now()
+    ]);
+    
+    Postal::create([
+      'neighborhood_id' => 15,
+      'name' => '111176',
+      'created_at' => now(),
+      'updated_at' => now()
+    ]);
+    
+    Postal::create([
+      'neighborhood_id' => 16,
+      'name' => '112011',
+      'created_at' => now(),
+      'updated_at' => now()
+    ]);
+    
+    Postal::create([
+      'neighborhood_id' => 16,
+      'name' => '112021',
+      'created_at' => now(),
+      'updated_at' => now()
+    ]);
+    
+    Postal::create([
+      'neighborhood_id' => 16,
+      'name' => '112031',
+      'created_at' => now(),
+      'updated_at' => now()
+    ]);
+    
+    Postal::create([
+      'neighborhood_id' => 16,
+      'name' => '112041',
+      'created_at' => now(),
+      'updated_at' => now()
+    ]);
+    
+    Postal::create([
+      'neighborhood_id' => 17,
+      'name' => '111311',
+      'created_at' => now(),
+      'updated_at' => now()
+    ]);
+    
+    Postal::create([
+      'neighborhood_id' => 17,
+      'name' => '111321',
+      'created_at' => now(),
+      'updated_at' => now()
+    ]);
+    
+    Postal::create([
+      'neighborhood_id' => 18,
+      'name' => '110611',
+      'created_at' => now(),
+      'updated_at' => now()
+    ]);
+    
+    Postal::create([
+      'neighborhood_id' => 18,
+      'name' => '110621',
+      'created_at' => now(),
+      'updated_at' => now()
+    ]);
+    
+    Postal::create([
+      'neighborhood_id' => 19,
+      'name' => '110111',
+      'created_at' => now(),
+      'updated_at' => now()
+    ]);
+    
+    Postal::create([
+      'neighborhood_id' => 19,
+      'name' => '110121',
+      'created_at' => now(),
+      'updated_at' => now()
+    ]);
+    
+    Postal::create([
+      'neighborhood_id' => 19,
+      'name' => '110131',
+      'created_at' => now(),
+      'updated_at' => now()
+    ]);
+    
+    Postal::create([
+      'neighborhood_id' => 19,
+      'name' => '110141',
+      'created_at' => now(),
+      'updated_at' => now()
+    ]);
+    
+    Postal::create([
+      'neighborhood_id' => 19,
+      'name' => '110151',
+      'created_at' => now(),
+      'updated_at' => now()
+    ]);
+    
+    Postal::create([
+      'neighborhood_id' => 20,
+      'name' => '110511',
+      'created_at' => now(),
+      'updated_at' => now()
+    ]);
+    
+    Postal::create([
+      'neighborhood_id' => 20,
+      'name' => '110521',
+      'created_at' => now(),
+      'updated_at' => now()
+    ]);
+    
+    Postal::create([
+      'neighborhood_id' => 20,
+      'name' => '110531',
+      'created_at' => now(),
+      'updated_at' => now()
+    ]);
+    
+    Postal::create([
+      'neighborhood_id' => 20,
+      'name' => '110541',
+      'created_at' => now(),
+      'updated_at' => now()
+    ]);
+    
+    Postal::create([
+      'neighborhood_id' => 20,
+      'name' => '110551',
+      'created_at' => now(),
+      'updated_at' => now()
+    ]);
+    
+    Postal::create([
+      'neighborhood_id' => 20,
+      'name' => '110561',
+      'created_at' => now(),
+      'updated_at' => now()
+    ]);
+    
+    Postal::create([
+      'neighborhood_id' => 20,
+      'name' => '110571',
+      'created_at' => now(),
+      'updated_at' => now()
+    ]);
+        
+    Postal::create([
       'neighborhood_id' => 21,
       'name' => '913010',
       'created_at' => now(),
