@@ -55,5 +55,6 @@ Route::middleware([
   Route::get('/tax-information', TaxInformation::class)->name('tax-information');
   Route::get('/regime-type', Regime::class)->name('regime-type');
   Route::get('/corporate-images', CorporateImages::class)->name('corporate-images');
-  Route::get('/downloadPDF', [HandlingPDF::class, 'pdf_admissions'])->name('downloadPDF');
+  Route::get('/downloadPDF-commercial', [HandlingPDF::class, 'pdf_commercial'])->name('downloadCommercial');
+  Route::get('downloadPDF-coperative',[HandlingPDF::class, 'pdf_cooperative'])->name('downloadCooperative');
 });
