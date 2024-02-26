@@ -57,4 +57,5 @@ Route::middleware([
   Route::get('/corporate-images', CorporateImages::class)->name('corporate-images');
   Route::get('/downloadPDF-commercial', [HandlingPDF::class, 'pdf_commercial'])->name('downloadCommercial');
   Route::get('downloadPDF-coperative',[HandlingPDF::class, 'pdf_cooperative'])->name('downloadCooperative');
+  Route::get('/downloadPDF-legal',[HandlingPDF::class, 'pdf_legal'])->name('downloadLegal');
 });
