@@ -58,4 +58,5 @@ Route::middleware([
   Route::get('/downloadPDF-commercial', [HandlingPDF::class, 'pdf_commercial'])->name('downloadCommercial');
   Route::get('downloadPDF-coperative',[HandlingPDF::class, 'pdf_cooperative'])->name('downloadCooperative');
   Route::get('/downloadPDF-legal',[HandlingPDF::class, 'pdf_legal'])->name('downloadLegal');
+  Route::get('/downloadPDF-authorization', [HandlingPDF::class, 'pdf_authorization'])->name('downloadAuthorization');
 });
