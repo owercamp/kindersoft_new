@@ -1,6 +1,8 @@
 <?php
 
 use Livewire\Livewire;
+use App\Exceptions\Handler;
+use App\Http\Controllers\HandlingPDF;
 use App\Livewire\Informations\Regime;
 use Illuminate\Support\Facades\Route;
 use App\Livewire\Informations\CorporateImages;
@@ -53,4 +55,5 @@ Route::middleware([
   Route::get('/tax-information', TaxInformation::class)->name('tax-information');
   Route::get('/regime-type', Regime::class)->name('regime-type');
   Route::get('/corporate-images', CorporateImages::class)->name('corporate-images');
+  Route::get('/downloadPDF', [HandlingPDF::class, 'pdf_admissions'])->name('downloadPDF');
 });
