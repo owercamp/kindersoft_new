@@ -548,5 +548,7 @@
     "Municipality": "Municipio",
     "City": "Ciudad",
     "The number of HEADQUARTERS cannot be less than the number of registered Headquarters.": "La cantidad de SEDES no pueden ser menor a las registradas.",
-    "Email is not valid": "El correo electrónico no es válido"
+    "Email is not valid": "El correo electrónico no es válido",
+    "Number": "Número",
+    "Consecutive not found": "Consecutivo no encontrado"
 }
