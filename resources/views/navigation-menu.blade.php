@@ -36,7 +36,7 @@
                           {{ __('Admissions Templates') }}
                         </x-slot>
                         <x-slot name="content">
-                          <x-nav-link>{{ __('Commercial Proposal') }}</x-nav-link>
+                          <x-nav-link href="{{ route('downloadPDF') }}">{{ __('Commercial Proposal') }}</x-nav-link>
                           <x-nav-link>{{ __('Educational Cooperation Contract') }}</x-nav-link>
                           <x-nav-link>{{ __('Guarantee Document Promissory Note') }}</x-nav-link>
                           <x-nav-link>{{ __('Data Processing Authorization') }}</x-nav-link>
