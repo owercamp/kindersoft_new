@@ -59,4 +59,10 @@ Route::middleware([
   Route::get('downloadPDF-coperative',[HandlingPDF::class, 'pdf_cooperative'])->name('downloadCooperative');
   Route::get('/downloadPDF-legal',[HandlingPDF::class, 'pdf_legal'])->name('downloadLegal');
   Route::get('/downloadPDF-authorization', [HandlingPDF::class, 'pdf_authorization'])->name('downloadAuthorization');
+  Route::get('/downloadPDF-indefinite-term-contract',[HandlingPDF::class, 'pdf_indefinite_term_contract'])->name('downloadIndefiniteTermContract');
+  Route::get('/downloadPDF-fixed-term-contract',[HandlingPDF::class, 'pdf_fixed_term_contract'])->name('downloadFixedTermContract');
+  Route::get('/downloadPDF-contract-terminal-work-labor-contract', [HandlingPDF::class, 'pdf_contract_terminal_work_labor_contract'])->name('downloadContractTerminalWorkLaborContract');
+  Route::get('/downloadPDF-performance-evaluation',[HandlingPDF::class, 'pdf_performance_evaluation'])->name('downloadPerformaneEvaluation');
+  Route::get('/downloadPDF-payroll-report',[HandlingPDF::class, 'pdf_payroll_report'])->name('downloadPayrollReport');
+  Route::get('/downloadPDF-administrative-report',[HandlingPDF::class, 'pdf_administrative_report'])->name('downloadAdministrativeReport');
 });
