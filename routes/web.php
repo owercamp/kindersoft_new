@@ -69,4 +69,10 @@ Route::middleware([
   Route::get('/downloadPDF-planning-weekly', [HandlingPDF::class, 'pdf_planning_weekly'])->name('downloadPlanningWeekly');
   Route::get('/downloadPDF-period-report', [HandlingPDF::class, 'pdf_period_report'])->name('downloadPeriodReport');
   Route::get('/downloadPDF-school-bulletin', [HandlingPDF::class, 'pdf_school_bulletin'])->name('downloadSchoolBulletin');
+  Route::get('/downloadPDF-attendance-control', [HandlingPDF::class, 'pdf_attendance_control'])->name('downloadAttendanceControl');
+  Route::get('/downloadPDF-news-daily', [HandlingPDF::class, 'pdf_news_daily'])->name('downloadNewsDaily');
+  Route::get('/downloadPDF-growth-and-development', [HandlingPDF::class, 'pdf_growth_and_development'])->name('downloadGrowthAndDevelopment');
+  Route::get('/downloadPDF-special-reports', [HandlingPDF::class, 'pdf_special_reports'])->name('downloadSpecialReports');
+  Route::get('/downloadPDF-informative-circulars', [HandlingPDF::class, 'pdf_informative_circulars'])->name('downloadInformativeCirculars');
+  Route::get('/downloadPDF-school-agenda', [HandlingPDF::class, 'pdf_school_agenda'])->name('downloadSchoolAgenda');
 });
