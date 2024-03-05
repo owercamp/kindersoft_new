@@ -60,10 +60,10 @@
                           {{ __('Academic Templates') }}
                         </x-slot>
                         <x-slot name="content">
-                          <x-nav-link>{{ __('School Certification') }}</x-nav-link>
-                          <x-nav-link>{{ __('Weekly Planning') }}</x-nav-link>
-                          <x-nav-link>{{ __('Period Report') }}</x-nav-link>
-                          <x-nav-link>{{ __('School Newsletter') }}</x-nav-link>
+                          <x-nav-link href="{{ route('downloadCertificationSchool') }}">{{ __('School Certification') }}</x-nav-link>
+                          <x-nav-link href="{{ route('downloadPlanningWeekly') }}">{{ __('Weekly Planning') }}</x-nav-link>
+                          <x-nav-link href="{{ route('downloadPeriodReport') }}">{{ __('Period Report') }}</x-nav-link>
+                          <x-nav-link href="{{ route('downloadSchoolBulletin') }}">{{ __('School Newsletter') }}</x-nav-link>
                         </x-slot>
                       </x-dropdown-second-level>
                       <x-dropdown-second-level>
