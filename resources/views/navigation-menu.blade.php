@@ -47,12 +47,12 @@
                           {{ __('Administrative Templates') }}
                         </x-slot>
                         <x-slot name="content">
-                          <x-nav-link>{{ __('Indefinite Term Contract') }}</x-nav-link>
-                          <x-nav-link>{{ __('Fixed Term Contract') }}</x-nav-link>
-                          <x-nav-link>{{ __('Contract Work or Labor') }}</x-nav-link>
-                          <x-nav-link>{{ __('Performance Evaluation') }}</x-nav-link>
-                          <x-nav-link>{{ __('Payroll Report') }}</x-nav-link>
-                          <x-nav-link>{{ __('Administrative Report') }}</x-nav-link>
+                          <x-nav-link href="{{ route('downloadIndefiniteTermContract') }}">{{ __('Indefinite Term Contract') }}</x-nav-link>
+                          <x-nav-link href="{{ route('downloadFixedTermContract') }}">{{ __('Fixed Term Contract') }}</x-nav-link>
+                          <x-nav-link href="{{ route('downloadContractTerminalWorkLaborContract') }}">{{ __('Contract Work or Labor') }}</x-nav-link>
+                          <x-nav-link href="{{ route('downloadPerformaneEvaluation') }}">{{ __('Performance Evaluation') }}</x-nav-link>
+                          <x-nav-link href="{{ route('downloadPayrollReport') }}">{{ __('Payroll Report') }}</x-nav-link>
+                          <x-nav-link href="{{ route('downloadAdministrativeReport') }}">{{ __('Administrative Report') }}</x-nav-link>
                         </x-slot>
                       </x-dropdown-second-level>
                       <x-dropdown-second-level>
