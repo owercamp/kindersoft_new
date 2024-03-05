@@ -293,4 +293,124 @@ class HandlingPDF extends Controller
     $pdf->loadView('templatePDF.administrativePDF', compact('image', 'reason', 'proposal', 'date', 'consecutive', 'headquarters'))->setPaper('a4', 'landscape');
     return $pdf->stream();
   }
+
+  public function pdf_attendance_control() 
+  {
+    $logo = filter_var(CorporateImages::where('name', 'Logo Corporativo')->value('url_image'), FILTER_SANITIZE_URL);
+    if (config('app.env') == 'prod') {
+      $image = str_replace('\\', '/', str_replace('/storage/', '', Storage::disk('public')->url($logo)));
+    } else {
+      $image = str_replace('\\', '/', str_replace('/storage/', '/', Storage::disk('public')->url($logo)));
+    }
+    $reason = GeneralInformation::where('id', 1)->select('company', 'commercial')->get();
+    $headquarters = Headquarter::where('company_id', 1)->select('headquarters')->get();
+    $proposal = __('Attendance Control');
+    $locale = config('app.locale', 'en');
+    $now = Carbon::now();
+    $date = ucfirst(Carbon::parse($now)->locale($locale)->isoFormat('dddd')) . ', ' . Carbon::parse($now)->locale($locale)->isoFormat('DD') . ' ' . __('of') . ' ' . Carbon::parse($now)->locale($locale)->isoFormat('MMMM') . ' ' . __('of') . ' ' . Carbon::parse($now)->locale($locale)->isoFormat('YYYY');
+    $consecutive = TaxInformation::where('id', 1)->value('next_invoice');
+    $pdf = App::make('dompdf.wrapper');
+    $pdf->loadView('templatePDF.administrativePDF', compact('image', 'reason', 'proposal', 'date', 'consecutive', 'headquarters'))->setPaper('a4', 'landscape');
+    return $pdf->stream();  
+  }
+
+  public function pdf_news_daily()
+  {
+    $logo = filter_var(CorporateImages::where('name', 'Logo Corporativo')->value('url_image'), FILTER_SANITIZE_URL);
+    if (config('app.env') == 'prod') {
+      $image = str_replace('\\', '/', str_replace('/storage/', '', Storage::disk('public')->url($logo)));
+    } else {
+      $image = str_replace('\\', '/', str_replace('/storage/', '/', Storage::disk('public')->url($logo)));
+    }
+    $reason = GeneralInformation::where('id', 1)->select('company', 'commercial')->get();
+    $headquarters = Headquarter::where('company_id', 1)->select('headquarters')->get();
+    $proposal = __('Daily News');
+    $locale = config('app.locale', 'en');
+    $now = Carbon::now();
+    $date = ucfirst(Carbon::parse($now)->locale($locale)->isoFormat('dddd')) . ', ' . Carbon::parse($now)->locale($locale)->isoFormat('DD') . ' ' . __('of') . ' ' . Carbon::parse($now)->locale($locale)->isoFormat('MMMM') . ' ' . __('of') . ' ' . Carbon::parse($now)->locale($locale)->isoFormat('YYYY');
+    $consecutive = TaxInformation::where('id', 1)->value('next_invoice');
+    $pdf = App::make('dompdf.wrapper');
+    $pdf->loadView('templatePDF.administrativePDF', compact('image', 'reason', 'proposal', 'date', 'consecutive', 'headquarters'))->setPaper('a4', 'landscape');
+    return $pdf->stream();
+  }
+
+  public function pdf_growth_and_development()
+  {
+    $logo = filter_var(CorporateImages::where('name', 'Logo Corporativo')->value('url_image'), FILTER_SANITIZE_URL);
+    if (config('app.env') == 'prod') {
+      $image = str_replace('\\', '/', str_replace('/storage/', '', Storage::disk('public')->url($logo)));
+    } else {
+      $image = str_replace('\\', '/', str_replace('/storage/', '/', Storage::disk('public')->url($logo)));
+    }
+    $reason = GeneralInformation::where('id', 1)->select('company', 'commercial')->get();
+    $headquarters = Headquarter::where('company_id', 1)->select('headquarters')->get();
+    $proposal = __('Growth and Development');
+    $locale = config('app.locale', 'en');
+    $now = Carbon::now();
+    $date = ucfirst(Carbon::parse($now)->locale($locale)->isoFormat('dddd')) . ', ' . Carbon::parse($now)->locale($locale)->isoFormat('DD') . ' ' . __('of') . ' ' . Carbon::parse($now)->locale($locale)->isoFormat('MMMM') . ' ' . __('of') . ' ' . Carbon::parse($now)->locale($locale)->isoFormat('YYYY');
+    $consecutive = TaxInformation::where('id', 1)->value('next_invoice');
+    $pdf = App::make('dompdf.wrapper');
+    $pdf->loadView('templatePDF.administrativePDF', compact('image', 'reason', 'proposal', 'date', 'consecutive', 'headquarters'))->setPaper('a4', 'landscape');
+    return $pdf->stream();
+  }
+
+  public function pdf_special_reports()
+  {
+    $logo = filter_var(CorporateImages::where('name', 'Logo Corporativo')->value('url_image'), FILTER_SANITIZE_URL);
+    if (config('app.env') == 'prod') {
+      $image = str_replace('\\', '/', str_replace('/storage/', '', Storage::disk('public')->url($logo)));
+    } else {
+      $image = str_replace('\\', '/', str_replace('/storage/', '/', Storage::disk('public')->url($logo)));
+    }
+    $reason = GeneralInformation::where('id', 1)->select('company', 'commercial')->get();
+    $headquarters = Headquarter::where('company_id', 1)->select('headquarters')->get();
+    $proposal = __('Special Reports');
+    $locale = config('app.locale', 'en');
+    $now = Carbon::now();
+    $date = ucfirst(Carbon::parse($now)->locale($locale)->isoFormat('dddd')) . ', ' . Carbon::parse($now)->locale($locale)->isoFormat('DD') . ' ' . __('of') . ' ' . Carbon::parse($now)->locale($locale)->isoFormat('MMMM') . ' ' . __('of') . ' ' . Carbon::parse($now)->locale($locale)->isoFormat('YYYY');
+    $consecutive = TaxInformation::where('id', 1)->value('next_invoice');
+    $pdf = App::make('dompdf.wrapper');
+    $pdf->loadView('templatePDF.administrativePDF', compact('image', 'reason', 'proposal', 'date', 'consecutive', 'headquarters'))->setPaper('a4', 'landscape');
+    return $pdf->stream();
+  }
+
+  public function pdf_informative_circulars()
+  {
+    $logo = filter_var(CorporateImages::where('name', 'Logo Corporativo')->value('url_image'), FILTER_SANITIZE_URL);
+    if (config('app.env') == 'prod') {
+      $image = str_replace('\\', '/', str_replace('/storage/', '', Storage::disk('public')->url($logo)));
+    } else {
+      $image = str_replace('\\', '/', str_replace('/storage/', '/', Storage::disk('public')->url($logo)));
+    }
+    $reason = GeneralInformation::where('id', 1)->select('company', 'commercial')->get();
+    $headquarters = Headquarter::where('company_id', 1)->select('headquarters')->get();
+    $proposal = __('Informative Circulars');
+    $locale = config('app.locale', 'en');
+    $now = Carbon::now();
+    $date = ucfirst(Carbon::parse($now)->locale($locale)->isoFormat('dddd')) . ', ' . Carbon::parse($now)->locale($locale)->isoFormat('DD') . ' ' . __('of') . ' ' . Carbon::parse($now)->locale($locale)->isoFormat('MMMM') . ' ' . __('of') . ' ' . Carbon::parse($now)->locale($locale)->isoFormat('YYYY');
+    $consecutive = TaxInformation::where('id', 1)->value('next_invoice');
+    $pdf = App::make('dompdf.wrapper');
+    $pdf->loadView('templatePDF.administrativePDF', compact('image', 'reason', 'proposal', 'date', 'consecutive', 'headquarters'))->setPaper('a4', 'landscape');
+    return $pdf->stream();
+  }
+
+  public function pdf_school_agenda()
+  {
+    $logo = filter_var(CorporateImages::where('name', 'Logo Corporativo')->value('url_image'), FILTER_SANITIZE_URL);
+    if (config('app.env') == 'prod') {
+      $image = str_replace('\\', '/', str_replace('/storage/', '', Storage::disk('public')->url($logo)));
+    } else {
+      $image = str_replace('\\', '/', str_replace('/storage/', '/', Storage::disk('public')->url($logo)));
+    }
+    $reason = GeneralInformation::where('id', 1)->select('company', 'commercial')->get();
+    $headquarters = Headquarter::where('company_id', 1)->select('headquarters')->get();
+    $proposal = __('School Agenda');
+    $locale = config('app.locale', 'en');
+    $now = Carbon::now();
+    $date = ucfirst(Carbon::parse($now)->locale($locale)->isoFormat('dddd')) . ', ' . Carbon::parse($now)->locale($locale)->isoFormat('DD') . ' ' . __('of') . ' ' . Carbon::parse($now)->locale($locale)->isoFormat('MMMM') . ' ' . __('of') . ' ' . Carbon::parse($now)->locale($locale)->isoFormat('YYYY');
+    $consecutive = TaxInformation::where('id', 1)->value('next_invoice');
+    $pdf = App::make('dompdf.wrapper');
+    $pdf->loadView('templatePDF.administrativePDF', compact('image', 'reason', 'proposal', 'date', 'consecutive', 'headquarters'))->setPaper('a4', 'landscape');
+    return $pdf->stream();
+  }
 }
