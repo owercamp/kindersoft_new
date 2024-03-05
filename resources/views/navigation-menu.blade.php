@@ -71,12 +71,12 @@
                           {{ __('Logistics Templates') }}
                         </x-slot>
                         <x-slot name="content">
-                          <x-nav-link>{{ __('Attendance Control') }}</x-nav-link>
-                          <x-nav-link>{{ __('Daily News') }}</x-nav-link>
-                          <x-nav-link>{{ __('Growth and Development') }}</x-nav-link>
-                          <x-nav-link>{{ __('Special Reports') }}</x-nav-link>
-                          <x-nav-link>{{ __('Informative Circulars') }}</x-nav-link>
-                          <x-nav-link>{{ __('School Agenda') }}</x-nav-link>
+                          <x-nav-link href="{{ route('downloadAttendanceControl') }}">{{ __('Attendance Control') }}</x-nav-link>
+                          <x-nav-link href="{{ route('downloadNewsDaily') }}">{{ __('Daily News') }}</x-nav-link>
+                          <x-nav-link href="{{ route('downloadGrowthAndDevelopment') }}">{{ __('Growth and Development') }}</x-nav-link>
+                          <x-nav-link href="{{ route('downloadSpecialReports') }}">{{ __('Special Reports') }}</x-nav-link>
+                          <x-nav-link href="{{ route('downloadInformativeCirculars') }}">{{ __('Informative Circulars') }}</x-nav-link>
+                          <x-nav-link href="{{ route('downloadSchoolAgenda') }}">{{ __('School Agenda') }}</x-nav-link>
                         </x-slot>
                       </x-dropdown-second-level>
                       <x-dropdown-second-level>
