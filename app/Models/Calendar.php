@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Calendar extends Model
 {
@@ -41,4 +42,9 @@ class Calendar extends Model
      * @var bool
      */
     public $timestamps = true;
+
+    public function headquarter() :HasOne
+    {
+      return $this->hasOne(CalendarHeadquarter::class, 'calendar_id', 'id');
+    }
 }
