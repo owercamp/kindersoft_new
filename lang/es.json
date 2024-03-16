@@ -538,6 +538,7 @@
     "Additional Note": "Nota Adicional",
     "Registration Successfully Updated": "Registro Actualizado Correctamente",
     "Successfully Created Record": "Registro Creado Correctamente",
+    "Successfully Deleted Record": "Registro Eliminado Correctamente",
     "QR Code Virtual Platform": "Código QR Plataforma Virtual",
     "QR Code School Agenda": "Código QR Agenda Escolar",
     "QR Code Admission Form": "Código QR Formulario de Admision",
@@ -551,5 +552,13 @@
     "Email is not valid": "El correo electrónico no es válido",
     "Number": "Número",
     "Consecutive not found": "Consecutivo no encontrado",
-    "Guarantee Promissory note": "Garantiá Pagaré"
+    "Guarantee Promissory note": "Garantiá Pagaré",
+    "Start Date": "Fecha de Inicio",
+    "End Date": "Fecha de Culminación",
+    "Calendar": "Calendario",
+    "Active": "Activo",
+    "Inactive": "Inactivo",
+    "Status": "Estado",
+    "the selected date is less than the current date, so the status will be:": "la fecha seleccionada es menor a la fecha actual, por lo tanto el estado es:",
+    "Selection not allowed end date must be greater than initial date": "Selección no permitida. La fecha de Culminación debe ser mayor a la fecha de Inicio"
 }
