@@ -113,7 +113,7 @@
                 </x-slot>
                 <x-slot name="content">
                   <x-nav-link>{{ __('Access Security') }}</x-nav-link>
-                  <x-nav-link>{{ __('School Calendar') }}</x-nav-link>
+                  <x-nav-link href="{{ route('structure.calendar') }}">{{ __('School Calendar') }}</x-nav-link>
                   <x-nav-link>{{ __('Document Creation') }}</x-nav-link>
                   <x-nav-link>{{ __('Health Care Provider') }}</x-nav-link>
                   <x-nav-link>{{ __('Employment Positions') }}</x-nav-link>
