@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Headquarter extends Model
 {
@@ -48,8 +49,13 @@ class Headquarter extends Model
      */
     public $timestamps = true;
 
-    public function company()
+    public function company() : HasOne
     {
       return $this->hasOne(GeneralInformation::class, 'id', 'company_id');
+    }
+
+    public function calendar() : HasOne
+    {
+      return $this->hasOne(CalendarHeadquarter::class, 'headquarter_id', 'id');
     }
 }
