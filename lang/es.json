@@ -561,5 +561,6 @@
     "Status": "Estado",
     "the selected date is less than the current date, so the status will be:": "la fecha seleccionada es menor a la fecha actual, por lo tanto el estado es:",
     "Selection not allowed end date must be greater than initial date": "Selección no permitida. La fecha de Culminación debe ser mayor a la fecha de Inicio",
-    "Document Name": "Nombre Documento"
+    "Document Name": "Nombre Documento",
+    "An error has occurred": "Se ha producido un error"
 }
