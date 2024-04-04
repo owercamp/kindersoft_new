@@ -10,6 +10,7 @@ use App\Livewire\Configurations\TaxInformation;
 use App\Livewire\Configurations\GeneralInformation;
 use App\Http\Controllers\GeneralInformationController;
 use App\Livewire\Configurations\CreationDocument;
+use App\Livewire\Configurations\HealthCareProvider;
 use App\Livewire\Configurations\SchoolCalendar;
 
 /*
@@ -79,4 +80,5 @@ Route::middleware([
   Route::get('/downloadPDF-informative-circulars', [HandlingPDF::class, 'pdf_informative_circulars'])->name('downloadInformativeCirculars');
   Route::get('/downloadPDF-school-agenda', [HandlingPDF::class, 'pdf_school_agenda'])->name('downloadSchoolAgenda');
   Route::get('/configurations/databases/creation-document', CreationDocument::class)->name('configurations.databases.creation-document');
+  Route::get('/configurations/databases/health-care-provider', HealthCareProvider::class)->name('configurations.databases.health-care-provider');
 });

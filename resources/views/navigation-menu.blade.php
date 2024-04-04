@@ -115,7 +115,7 @@
                   <x-nav-link>{{ __('Access Security') }}</x-nav-link>
                   <x-nav-link href="{{ route('structure.calendar') }}">{{ __('School Calendar') }}</x-nav-link>
                   <x-nav-link href="{{ route('configurations.databases.creation-document') }}">{{ __('Document Creation') }}</x-nav-link>
-                  <x-nav-link>{{ __('Health Care Provider') }}</x-nav-link>
+                  <x-nav-link href="{{ route('configurations.databases.health-care-provider') }}">{{ __('Health Care Provider') }}</x-nav-link>
                   <x-nav-link>{{ __('Employment Positions') }}</x-nav-link>
                   <x-nav-link>{{ __('School Contract Minutes') }}</x-nav-link>
                   <x-nav-link>{{ __('Transportation Contract Minutes') }}</x-nav-link>
