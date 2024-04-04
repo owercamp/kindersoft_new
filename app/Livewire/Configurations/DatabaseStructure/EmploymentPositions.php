@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Configurations;
+namespace App\Livewire\Configurations\DatabaseStructure;
 
 use App\Models\EmploymentPosition;
 use Illuminate\Support\Facades\DB;
@@ -107,6 +107,6 @@ class EmploymentPositions extends Component
   public function render()
   {
     $registers = DB::table('employment_positions')->orderBy('register')->paginate(10);
-    return view('livewire.configurations.employment-positions', compact('registers'));
+    return view('livewire.configurations.database-structure.employment-positions', compact('registers'));
   }
 }
