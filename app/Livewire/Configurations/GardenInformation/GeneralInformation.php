@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Configurations;
+namespace App\Livewire\Configurations\GardenInformation;
 
 use App\Models\City;
 use App\Models\Postal;
@@ -381,6 +381,6 @@ class GeneralInformation extends Component
 
   public function render()
   {
-    return view('livewire.configurations.general-information');
+    return view('livewire.configurations.garden-information.general-information');
   }
 }
