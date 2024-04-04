@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Configurations;
+namespace App\Livewire\Configurations\DatabaseStructure;
 
 use App\Models\DocumentCreation;
 use Livewire\Component;
@@ -107,6 +107,6 @@ class CreationDocument extends Component
   public function render()
   {
     $registers = DocumentCreation::orderby('register', 'asc')->paginate(10);
-    return view('livewire.configurations.creation-document', compact('registers'));
+    return view('livewire.configurations.database-structure.creation-document', compact('registers'));
   }
 }
