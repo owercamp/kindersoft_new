@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Configurations;
+namespace App\Livewire\Configurations\GardenInformation;
 
 use App\Models\Regime;
 use App\Models\TaxInformation as ModelsTaxInformation;
@@ -118,6 +118,6 @@ class TaxInformation extends Component
   }
   public function render()
   {
-    return view('livewire.configurations.tax-information');
+    return view('livewire.configurations.garden-information.tax-information');
   }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Configurations;
+namespace App\Livewire\Configurations\DatabaseStructure;
 
 use App\Models\HealthCareProvider as ModelsHealthCareProvider;
 use Illuminate\Support\Facades\DB;
@@ -99,6 +99,6 @@ class HealthCareProvider extends Component
   public function render()
   {
     $providers = ModelsHealthCareProvider::orderby('register', 'asc')->paginate(10);
-    return view('livewire.configurations.health-care-provider', compact('providers'));
+    return view('livewire.configurations.database-structure.health-care-provider', compact('providers'));
   }
 }
