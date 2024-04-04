@@ -6,11 +6,11 @@ use App\Livewire\Informations\Regime;
 use Illuminate\Support\Facades\Route;
 use App\Livewire\Informations\CorporateImages;
 use App\Livewire\Configurations\SchoolCalendar;
-use App\Livewire\Configurations\TaxInformation;
 use App\Livewire\Configurations\CreationDocument;
 use App\Livewire\Configurations\HealthCareProvider;
 use App\Livewire\Configurations\EmploymentPositions;
 use App\Http\Controllers\GeneralInformationController;
+use App\Livewire\Configurations\GardenInformation\TaxInformation;
 use App\Livewire\Configurations\GardenInformation\GeneralInformation;
 
 /*
