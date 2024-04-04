@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Informations;
+namespace App\Livewire\Configurations\GardenInformation;
 
 use Livewire\Component;
 use Livewire\Attributes\Rule;
@@ -216,6 +216,6 @@ class CorporateImages extends Component
 
   public function render()
   {
-    return view('livewire.informations.corporate-images');
+    return view('livewire.configurations.garden-information.corporate-images');
   }
 }
