@@ -15,17 +15,23 @@
 
           <x-dropdown-first-level>
             <x-slot name="trigger">
-              {{ __('Configuration')}}
+              {{ __('Configuration') }}
             </x-slot>
             <x-slot name="content">
               <x-dropdown-second-level>
                 <x-slot name="trigger">
-                  {{ __('Kindergarten Information')}}
+                  {{ __('Kindergarten Information') }}
                 </x-slot>
                 <x-slot name="content">
-                  <x-nav-link href="{{ route('general-information') }}">{{ __('General Information') }}</x-nav-link>
-                  <x-nav-link href="{{ route('tax-information') }}">{{ __('Tax Information') }}</x-nav-link>
-                  <x-nav-link href="{{ route('corporate-images') }}">{{ __('Corporate Images') }}</x-nav-link>
+                  <x-nav-link href="{{ route('general-information') }}">
+                    {{ __('General Information') }}
+                  </x-nav-link>
+                  <x-nav-link href="{{ route('tax-information') }}">
+                    {{ __('Tax Information') }}
+                  </x-nav-link>
+                  <x-nav-link href="{{ route('corporate-images') }}">
+                    {{ __('Corporate Images') }}
+                  </x-nav-link>
                   <x-dropdown-second-level>
                     <x-slot name="trigger">
                       {{ __('Printing Templates') }}
@@ -36,10 +42,18 @@
                           {{ __('Admissions Templates') }}
                         </x-slot>
                         <x-slot name="content">
-                          <x-nav-link href="{{ route('downloadCommercial') }}">{{ __('Commercial Proposal') }}</x-nav-link>
-                          <x-nav-link href="{{ route('downloadCooperative') }}">{{ __('Educational Cooperation Contract') }}</x-nav-link>
-                          <x-nav-link href="{{ route('downloadLegal') }}">{{ __('Guarantee Document Promissory Note') }}</x-nav-link>
-                          <x-nav-link href="{{ route('downloadAuthorization') }}">{{ __('Data Processing Authorization') }}</x-nav-link>
+                          <x-nav-link href="{{ route('downloadCommercial') }}">
+                            {{ __('Commercial Proposal') }}
+                          </x-nav-link>
+                          <x-nav-link href="{{ route('downloadCooperative') }}">
+                            {{ __('Educational Cooperation Contract') }}
+                          </x-nav-link>
+                          <x-nav-link href="{{ route('downloadLegal') }}">
+                            {{ __('Guarantee Document Promissory Note') }}
+                          </x-nav-link>
+                          <x-nav-link href="{{ route('downloadAuthorization') }}">
+                            {{ __('Data Processing Authorization') }}
+                          </x-nav-link>
                         </x-slot>
                       </x-dropdown-second-level>
                       <x-dropdown-second-level>
@@ -47,12 +61,24 @@
                           {{ __('Administrative Templates') }}
                         </x-slot>
                         <x-slot name="content">
-                          <x-nav-link href="{{ route('downloadIndefiniteTermContract') }}">{{ __('Indefinite Term Contract') }}</x-nav-link>
-                          <x-nav-link href="{{ route('downloadFixedTermContract') }}">{{ __('Fixed Term Contract') }}</x-nav-link>
-                          <x-nav-link href="{{ route('downloadContractTerminalWorkLaborContract') }}">{{ __('Contract Work or Labor') }}</x-nav-link>
-                          <x-nav-link href="{{ route('downloadPerformaneEvaluation') }}">{{ __('Performance Evaluation') }}</x-nav-link>
-                          <x-nav-link href="{{ route('downloadPayrollReport') }}">{{ __('Payroll Report') }}</x-nav-link>
-                          <x-nav-link href="{{ route('downloadAdministrativeReport') }}">{{ __('Administrative Report') }}</x-nav-link>
+                          <x-nav-link href="{{ route('downloadIndefiniteTermContract') }}">
+                            {{ __('Indefinite Term Contract') }}
+                          </x-nav-link>
+                          <x-nav-link href="{{ route('downloadFixedTermContract') }}">
+                            {{ __('Fixed Term Contract') }}
+                          </x-nav-link>
+                          <x-nav-link href="{{ route('downloadContractTerminalWorkLaborContract') }}">
+                            {{ __('Contract Work or Labor') }}
+                          </x-nav-link>
+                          <x-nav-link href="{{ route('downloadPerformaneEvaluation') }}">
+                            {{ __('Performance Evaluation') }}
+                          </x-nav-link>
+                          <x-nav-link href="{{ route('downloadPayrollReport') }}">
+                            {{ __('Payroll Report') }}
+                          </x-nav-link>
+                          <x-nav-link href="{{ route('downloadAdministrativeReport') }}">
+                            {{ __('Administrative Report') }}
+                          </x-nav-link>
                         </x-slot>
                       </x-dropdown-second-level>
                       <x-dropdown-second-level>
@@ -60,10 +86,18 @@
                           {{ __('Academic Templates') }}
                         </x-slot>
                         <x-slot name="content">
-                          <x-nav-link href="{{ route('downloadCertificationSchool') }}">{{ __('School Certification') }}</x-nav-link>
-                          <x-nav-link href="{{ route('downloadPlanningWeekly') }}">{{ __('Weekly Planning') }}</x-nav-link>
-                          <x-nav-link href="{{ route('downloadPeriodReport') }}">{{ __('Period Report') }}</x-nav-link>
-                          <x-nav-link href="{{ route('downloadSchoolBulletin') }}">{{ __('School Newsletter') }}</x-nav-link>
+                          <x-nav-link href="{{ route('downloadCertificationSchool') }}">
+                            {{ __('School Certification') }}
+                          </x-nav-link>
+                          <x-nav-link href="{{ route('downloadPlanningWeekly') }}">
+                            {{ __('Weekly Planning') }}
+                          </x-nav-link>
+                          <x-nav-link href="{{ route('downloadPeriodReport') }}">
+                            {{ __('Period Report') }}
+                          </x-nav-link>
+                          <x-nav-link href="{{ route('downloadSchoolBulletin') }}">
+                            {{ __('School Newsletter') }}
+                          </x-nav-link>
                         </x-slot>
                       </x-dropdown-second-level>
                       <x-dropdown-second-level>
@@ -71,12 +105,24 @@
                           {{ __('Logistics Templates') }}
                         </x-slot>
                         <x-slot name="content">
-                          <x-nav-link href="{{ route('downloadAttendanceControl') }}">{{ __('Attendance Control') }}</x-nav-link>
-                          <x-nav-link href="{{ route('downloadNewsDaily') }}">{{ __('Daily News') }}</x-nav-link>
-                          <x-nav-link href="{{ route('downloadGrowthAndDevelopment') }}">{{ __('Growth and Development') }}</x-nav-link>
-                          <x-nav-link href="{{ route('downloadSpecialReports') }}">{{ __('Special Reports') }}</x-nav-link>
-                          <x-nav-link href="{{ route('downloadInformativeCirculars') }}">{{ __('Informative Circulars') }}</x-nav-link>
-                          <x-nav-link href="{{ route('downloadSchoolAgenda') }}">{{ __('School Agenda') }}</x-nav-link>
+                          <x-nav-link href="{{ route('downloadAttendanceControl') }}">
+                            {{ __('Attendance Control') }}
+                          </x-nav-link>
+                          <x-nav-link href="{{ route('downloadNewsDaily') }}">
+                            {{ __('Daily News') }}
+                          </x-nav-link>
+                          <x-nav-link href="{{ route('downloadGrowthAndDevelopment') }}">
+                            {{ __('Growth and Development') }}
+                          </x-nav-link>
+                          <x-nav-link href="{{ route('downloadSpecialReports') }}">
+                            {{ __('Special Reports') }}
+                          </x-nav-link>
+                          <x-nav-link href="{{ route('downloadInformativeCirculars') }}">
+                            {{ __('Informative Circulars') }}
+                          </x-nav-link>
+                          <x-nav-link href="{{ route('downloadSchoolAgenda') }}">
+                            {{ __('School Agenda') }}
+                          </x-nav-link>
                         </x-slot>
                       </x-dropdown-second-level>
                       <x-dropdown-second-level>
@@ -84,11 +130,21 @@
                           {{ __('Financial Templates') }}
                         </x-slot>
                         <x-slot name="content">
-                          <x-nav-link>{{ __('Electronic Invoice') }}</x-nav-link>
-                          <x-nav-link>{{ __('Debit Note') }}</x-nav-link>
-                          <x-nav-link>{{ __('Credit Note') }}</x-nav-link>
-                          <x-nav-link>{{ __('Income Voucher') }}</x-nav-link>
-                          <x-nav-link>{{ __('Proof of Expenditure') }}</x-nav-link>
+                          <x-nav-link>
+                            {{ __('Electronic Invoice') }}
+                          </x-nav-link>
+                          <x-nav-link>
+                            {{ __('Debit Note') }}
+                          </x-nav-link>
+                          <x-nav-link>
+                            {{ __('Credit Note') }}
+                          </x-nav-link>
+                          <x-nav-link>
+                            {{ __('Income Voucher') }}
+                          </x-nav-link>
+                          <x-nav-link>
+                            {{ __('Proof of Expenditure') }}
+                          </x-nav-link>
                         </x-slot>
                       </x-dropdown-second-level>
                     </x-slot>
@@ -98,27 +154,51 @@
                       {{ __('Notifications and Mail') }}
                     </x-slot>
                     <x-slot name="content">
-                      <x-nav-link>{{ __('Administrative Notifications') }}</x-nav-link>
-                      <x-nav-link>{{ __('Notifications Admissions') }}</x-nav-link>
-                      <x-nav-link>{{ __('Academic Notifications') }}</x-nav-link>
-                      <x-nav-link>{{ __('Logistics Notifications') }}</x-nav-link>
-                      <x-nav-link>{{ __('Financial Notifications') }}</x-nav-link>
+                      <x-nav-link>
+                        {{ __('Administrative Notifications') }}
+                      </x-nav-link>
+                      <x-nav-link>
+                        {{ __('Notifications Admissions') }}
+                      </x-nav-link>
+                      <x-nav-link>
+                        {{ __('Academic Notifications') }}
+                      </x-nav-link>
+                      <x-nav-link>
+                        {{ __('Logistics Notifications') }}
+                      </x-nav-link>
+                      <x-nav-link>
+                        {{ __('Financial Notifications') }}
+                      </x-nav-link>
                     </x-slot>
                   </x-dropdown-second-level>
                 </x-slot>
               </x-dropdown-second-level>
               <x-dropdown-second-level>
                 <x-slot name="trigger">
-                  {{ __('Database Structure')}}
+                  {{ __('Database Structure') }}
                 </x-slot>
                 <x-slot name="content">
-                  <x-nav-link>{{ __('Access Security') }}</x-nav-link>
-                  <x-nav-link href="{{ route('structure.calendar') }}">{{ __('School Calendar') }}</x-nav-link>
-                  <x-nav-link href="{{ route('configurations.databases.creation-document') }}">{{ __('Document Creation') }}</x-nav-link>
-                  <x-nav-link href="{{ route('configurations.databases.health-care-provider') }}">{{ __('Health Care Provider') }}</x-nav-link>
-                  <x-nav-link>{{ __('Employment Positions') }}</x-nav-link>
-                  <x-nav-link>{{ __('School Contract Minutes') }}</x-nav-link>
-                  <x-nav-link>{{ __('Transportation Contract Minutes') }}</x-nav-link>
+                  <x-nav-link>
+                    {{ __('Access Security') }}
+                  </x-nav-link>
+                  <x-nav-link href="{{ route('structure.calendar') }}">
+                    {{ __('School Calendar') }}
+                  </x-nav-link>
+                  <x-nav-link href="{{ route('configurations.databases.creation-document') }}">
+                    {{ __('Document Creation') }}
+                  </x-nav-link>
+                  <x-nav-link href="{{ route('configurations.databases.health-care-provider') }}">
+                    {{ __('Health Care Provider') }}
+                  </x-nav-link>
+                  <x-nav-link href="{{ route('configurations.databases.employment-positions') }}">
+                    {{ __('Employment Positions') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ __('School Contract Minutes') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ __('Transportation Contract Minutes') }}
+                  </x-nav-link>
                 </x-slot>
               </x-dropdown-second-level>
               <x-dropdown-second-level>
@@ -126,10 +206,18 @@
                   {{ __('Human Resources')}}
                 </x-slot>
                 <x-slot name="content">
-                  <x-nav-link>{{ __('Collaborators') }}</x-nav-link>
-                  <x-nav-link>{{ __('Attendees') }}</x-nav-link>
-                  <x-nav-link>{{ __('Students') }}</x-nav-link>
-                  <x-nav-link>{{ __('Suppliers') }}</x-nav-link>
+                  <x-nav-link>
+                    {{ __('Collaborators') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ __('Attendees') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ __('Students') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ __('Suppliers') }}
+                  </x-nav-link>
                 </x-slot>
               </x-dropdown-second-level>
               <x-dropdown-second-level>
@@ -137,14 +225,30 @@
                   {{ __('Products and Services')}}
                 </x-slot>
                 <x-slot name="content">
-                  <x-nav-link>{{ __('Admissions') }}</x-nav-link>
-                  <x-nav-link>{{ __('Journays') }}</x-nav-link>
-                  <x-nav-link>{{ __('Feeding') }}</x-nav-link>
-                  <x-nav-link>{{ __('Uniforms') }}</x-nav-link>
-                  <x-nav-link>{{ __('School Supplies') }}</x-nav-link>
-                  <x-nav-link>{{ __('Additional Time') }}</x-nav-link>
-                  <x-nav-link>{{ __('Extracurricular') }}</x-nav-link>
-                  <x-nav-link>{{ __('Transportation') }}</x-nav-link>
+                  <x-nav-link>
+                    {{ __('Admissions') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ __('Journays') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ __('Feeding') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ __('Uniforms') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ __('School Supplies') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ __('Additional Time') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ __('Extracurricular') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ __('Transportation') }}
+                  </x-nav-link>
                 </x-slot>
               </x-dropdown-second-level>
               <x-dropdown-second-level>
@@ -152,12 +256,24 @@
                   {{ __('Academic Programs')}}
                 </x-slot>
                 <x-slot name="content">
-                  <x-nav-link>{{ __('Grades') }}</x-nav-link>
-                  <x-nav-link>{{ __('Courses') }}</x-nav-link>
-                  <x-nav-link>{{ __('Periods') }}</x-nav-link>
-                  <x-nav-link>{{ __('Intelligences') }}</x-nav-link>
-                  <x-nav-link>{{ __('Achievements') }}</x-nav-link>
-                  <x-nav-link>{{ __('Remarks') }}</x-nav-link>
+                  <x-nav-link>
+                    {{ __('Grades') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ __('Courses') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ __('Periods') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ __('Intelligences') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ __('Achievements') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ __('Remarks') }}
+                  </x-nav-link>
                 </x-slot>
               </x-dropdown-second-level>
             </x-slot>
@@ -165,47 +281,57 @@
 
           <x-dropdown-first-level>
             <x-slot name="trigger">
-              {{ __('Administrative')}}
+              {{ __('Administrative') }}
             </x-slot>
             <x-slot name="content">
               <x-dropdown-second-level>
                 <x-slot name="trigger">
-                  {{ __('Personnel Selection')}}
+                  {{ __('Personnel Selection') }}
                 </x-slot>
                 <x-slot name="content">
-                  <x-nav-link>{{ __('item') }}</x-nav-link>
+                  <x-nav-link>
+                    {{ __('item') }}
+                  </x-nav-link>
                 </x-slot>
               </x-dropdown-second-level>
               <x-dropdown-second-level>
                 <x-slot name="trigger">
-                  {{ __('Recruitment of Personnel')}}
+                  {{ __('Recruitment of Personnel') }}
                 </x-slot>
                 <x-slot name="content">
-                  <x-nav-link>{{ __('item') }}</x-nav-link>
+                  <x-nav-link>
+                    {{ __('item') }}
+                  </x-nav-link>
                 </x-slot>
               </x-dropdown-second-level>
               <x-dropdown-second-level>
                 <x-slot name="trigger">
-                  {{ __('Performance Evaluation')}}
+                  {{ __('Performance Evaluation') }}
                 </x-slot>
                 <x-slot name="content">
-                  <x-nav-link>{{ __('item') }}</x-nav-link>
+                  <x-nav-link>
+                    {{ __('item') }}
+                  </x-nav-link>
                 </x-slot>
               </x-dropdown-second-level>
               <x-dropdown-second-level>
                 <x-slot name="trigger">
-                  {{ __('Payroll Report')}}
+                  {{ __('Payroll Report') }}
                 </x-slot>
                 <x-slot name="content">
-                  <x-nav-link>{{ __('item') }}</x-nav-link>
+                  <x-nav-link>
+                    {{ __('item') }}
+                  </x-nav-link>
                 </x-slot>
               </x-dropdown-second-level>
               <x-dropdown-second-level>
                 <x-slot name="trigger">
-                  {{ __('Administrative Reports')}}
+                  {{ __('Administrative Reports') }}
                 </x-slot>
                 <x-slot name="content">
-                  <x-nav-link>{{ __('item') }}</x-nav-link>
+                  <x-nav-link>
+                    {{ __('item') }}
+                  </x-nav-link>
                 </x-slot>
               </x-dropdown-second-level>
             </x-slot>
@@ -213,54 +339,92 @@
 
           <x-dropdown-first-level>
             <x-slot name="trigger">
-              {{ __('Admissions')}}
+              {{ __('Admissions') }}
             </x-slot>
             <x-slot name="content">
               <x-dropdown-second-level>
                 <x-slot name="trigger">
-                  {{ __('Potential Customer')}}
+                  {{ __('Potential Customer') }}
                 </x-slot>
                 <x-slot name="content">
-                  <x-nav-link>{{ __('Registration')}}</x-nav-link>
-                  <x-nav-link>{{ __('Scheduling')}}</x-nav-link>
-                  <x-nav-link>{{ __('Programming')}}</x-nav-link>
-                  <x-nav-link>{{ __('Statistics')}}</x-nav-link>
+                  <x-nav-link>
+                    {{ __('Registration') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ __('Scheduling') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ __('Programming') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ __('Statistics') }}
+                  </x-nav-link>
                 </x-slot>
               </x-dropdown-second-level>
               <x-dropdown-second-level>
                 <x-slot name="trigger">
-                  {{ __('Commercial Proposal')}}
+                  {{ __('Commercial Proposal') }}
                 </x-slot>
                 <x-slot name="content">
-                  <x-nav-link>{{ __('Customers')}}</x-nav-link>
-                  <x-nav-link>{{ __('Quote')}}</x-nav-link>
-                  <x-nav-link>{{ __('Follow-up')}}</x-nav-link>
-                  <x-nav-link>{{ __('Archive')}}</x-nav-link>
-                  <x-nav-link>{{ __('Statistics')}}</x-nav-link>
+                  <x-nav-link>
+                    {{ __('Customers') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ __('Quote') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ __('Follow-up') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ __('Archive') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ __('Statistics') }}
+                  </x-nav-link>
                 </x-slot>
               </x-dropdown-second-level>
               <x-dropdown-second-level>
                 <x-slot name="trigger">
-                  {{ __('Enrollment Form')}}
+                  {{ __('Enrollment Form') }}
                 </x-slot>
                 <x-slot name="content">
-                  <x-nav-link>{{ __('Registration')}}</x-nav-link>
-                  <x-nav-link>{{ __('Approval')}}</x-nav-link>
-                  <x-nav-link>{{ __('Payment Support')}}</x-nav-link>
-                  <x-nav-link>{{ __('Migration')}}</x-nav-link>
-                  <x-nav-link>{{ __('Archive')}}</x-nav-link>
+                  <x-nav-link>
+                    {{ __('Registration') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ __('Approval') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ __('Payment Support') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ __('Migration') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ __('Archive') }}
+                  </x-nav-link>
                 </x-slot>
               </x-dropdown-second-level>
               <x-dropdown-second-level>
                 <x-slot name="trigger">
-                  {{ __('Enrollment Process')}}
+                  {{ __('Enrollment Process') }}
                 </x-slot>
                 <x-slot name="content">
-                  <x-nav-link>{{ __('Order of Enrollment')}}</x-nav-link>
-                  <x-nav-link>{{ __('Legalization of Registration')}}</x-nav-link>
-                  <x-nav-link>{{ __('Contract Generation')}}</x-nav-link>
-                  <x-nav-link>{{ __('School Certifications')}}</x-nav-link>
-                  <x-nav-link>{{ __('Archive')}}</x-nav-link>
+                  <x-nav-link>
+                    {{ __('Order of Enrollment') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ __('Legalization of Registration') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ __('Contract Generation') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ __('School Certifications') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ __('Archive') }}
+                  </x-nav-link>
                 </x-slot>
               </x-dropdown-second-level>
             </x-slot>
@@ -268,39 +432,61 @@
 
           <x-dropdown-first-level>
             <x-slot name="trigger">
-              {{ __('Academic')}}
+              {{ __('Academic') }}
             </x-slot>
             <x-slot name="content">
               <x-dropdown-second-level>
                 <x-slot name="trigger">
-                  {{ __('School Structure')}}
+                  {{ __('School Structure') }}
                 </x-slot>
                 <x-slot name="content">
-                  <x-nav-link>{{ __('Course Assignment')}}</x-nav-link>
-                  <x-nav-link>{{ __('Activity Space')}}</x-nav-link>
-                  <x-nav-link>{{ __('Classes and Activities')}}</x-nav-link>
+                  <x-nav-link>
+                    {{ __('Course Assignment') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ __('Activity Space') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ __('Classes and Activities') }}
+                  </x-nav-link>
                 </x-slot>
               </x-dropdown-second-level>
               <x-dropdown-second-level>
                 <x-slot name="trigger">
-                  {{ __('School Programming')}}
+                  {{ __('School Programming') }}
                 </x-slot>
                 <x-slot name="content">
-                  <x-nav-link>{{ __('Academic Periods')}}</x-nav-link>
-                  <x-nav-link>{{ __('Weekly Schedule')}}</x-nav-link>
-                  <x-nav-link>{{ __('Activity Basis')}}</x-nav-link>
-                  <x-nav-link>{{ __('Chronological Planning')}}</x-nav-link>
+                  <x-nav-link>
+                    {{ __('Academic Periods') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ __('Weekly Schedule') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ __('Activity Basis') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ __('Chronological Planning') }}
+                  </x-nav-link>
                 </x-slot>
               </x-dropdown-second-level>
               <x-dropdown-second-level>
                 <x-slot name="trigger">
-                  {{ __('School Evaluation')}}
+                  {{ __('School Evaluation') }}
                 </x-slot>
                 <x-slot name="content">
-                  <x-nav-link>{{ __('Weekly Follow-up')}}</x-nav-link>
-                  <x-nav-link>{{ __('Closing Period')}}</x-nav-link>
-                  <x-nav-link>{{ __('Period Report')}}</x-nav-link>
-                  <x-nav-link>{{ __('School Newsletter')}}</x-nav-link>
+                  <x-nav-link>
+                    {{ __('Weekly Follow-up') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ __('Closing Period') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ __('Period Report') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ __('School Newsletter') }}
+                  </x-nav-link>
                 </x-slot>
               </x-dropdown-second-level>
             </x-slot>
@@ -308,84 +494,140 @@
 
           <x-dropdown-first-level>
             <x-slot name="trigger">
-              {{ __('Logistics')}}
+              {{ __('Logistics') }}
             </x-slot>
             <x-slot name="content">
               <x-dropdown-second-level>
                 <x-slot name="trigger">
-                  {{ __('Attendance Control')}}
+                  {{ __('Attendance Control') }}
                 </x-slot>
                 <x-slot name="content">
-                  <x-nav-link>{{ __('Attendance Record')}}</x-nav-link>
-                  <x-nav-link>{{ __('Absence Record')}}</x-nav-link>
-                  <x-nav-link>{{ __('Statistics')}}</x-nav-link>
+                  <x-nav-link>
+                    {{ __('Attendance Record') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ __('Absence Record') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ __('Statistics') }}
+                  </x-nav-link>
                 </x-slot>
               </x-dropdown-second-level>
               <x-dropdown-second-level>
                 <x-slot name="trigger">
-                  {{ __('Daily News')}}
+                  {{ __('Daily News') }}
                 </x-slot>
                 <x-slot name="content">
-                  <x-nav-link>{{ __('Additional Control')}}</x-nav-link>
-                  <x-nav-link>{{ __('Food Control')}}</x-nav-link>
-                  <x-nav-link>{{ __('Sphincter Control')}}</x-nav-link>
-                  <x-nav-link>{{ __('Nursing Control')}}</x-nav-link>
-                  <x-nav-link>{{ __('Closing Daily Report')}}</x-nav-link>
+                  <x-nav-link>
+                    {{ __('Additional Control') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ __('Food Control') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ __('Sphincter Control') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ __('Nursing Control') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ __('Closing Daily Report') }}
+                  </x-nav-link>
                 </x-slot>
               </x-dropdown-second-level>
               <x-dropdown-second-level>
                 <x-slot name="trigger">
-                  {{ __('Event Programming')}}
+                  {{ __('Event Programming') }}
                 </x-slot>
                 <x-slot name="content">
-                  <x-nav-link>{{ __('Event Creation')}}</x-nav-link>
-                  <x-nav-link>{{ __('Event Scheduling')}}</x-nav-link>
-                  <x-nav-link>{{ __('Event Tracking')}}</x-nav-link>
-                  <x-nav-link>{{ __('Statistics')}}</x-nav-link>
+                  <x-nav-link>
+                    {{ __('Event Creation') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ __('Event Scheduling') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ __('Event Tracking') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ __('Statistics') }}
+                  </x-nav-link>
                 </x-slot>
               </x-dropdown-second-level>
               <x-dropdown-second-level>
                 <x-slot name="trigger">
-                  {{ __('Growth and Development')}}
+                  {{ __('Growth and Development') }}
                 </x-slot>
                 <x-slot name="content">
-                  <x-nav-link>{{ __('Healthcare Professional')}}</x-nav-link>
-                  <x-nav-link>{{ __('Health Observations')}}</x-nav-link>
-                  <x-nav-link>{{ __('Vaccination Scheme')}}</x-nav-link>
-                  <x-nav-link>{{ __('Periodic Valuations')}}</x-nav-link>
-                  <x-nav-link>{{ __('Statistics')}}</x-nav-link>
+                  <x-nav-link>
+                    {{ __('Healthcare Professional') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ __('Health Observations') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ __('Vaccination Scheme') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ __('Periodic Valuations') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ __('Statistics') }}
+                  </x-nav-link>
                 </x-slot>
               </x-dropdown-second-level>
               <x-dropdown-second-level>
                 <x-slot name="trigger">
-                  {{ __('Special Reports')}}
+                  {{ __('Special Reports') }}
                 </x-slot>
                 <x-slot name="content">
-                  <x-nav-link>{{ __('Report Configuration')}}</x-nav-link>
-                  <x-nav-link>{{ __('List of Courses')}}</x-nav-link>
-                  <x-nav-link>{{ __('Customer Reports')}}</x-nav-link>
-                  <x-nav-link>{{ __('Carnetization')}}</x-nav-link>
+                  <x-nav-link>
+                    {{ __('Report Configuration') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ __('List of Courses') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ __('Customer Reports') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ __('Carnetization') }}
+                  </x-nav-link>
                 </x-slot>
               </x-dropdown-second-level>
               <x-dropdown-second-level>
                 <x-slot name="trigger">
-                  {{ __('Informative Circulars')}}
+                  {{ __('Informative Circulars') }}
                 </x-slot>
                 <x-slot name="content">
-                  <x-nav-link>{{ __('Body Creation')}}</x-nav-link>
-                  <x-nav-link>{{ __('Creation of Circular')}}</x-nav-link>
-                  <x-nav-link>{{ __('Archive')}}</x-nav-link>
+                  <x-nav-link>
+                    {{ __('Body Creation') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ __('Creation of Circular') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ __('Archive') }}
+                  </x-nav-link>
                 </x-slot>
               </x-dropdown-second-level>
               <x-dropdown-second-level>
                 <x-slot name="trigger">
-                  {{ __('School Diary')}}
+                  {{ __('School Diary') }}
                 </x-slot>
                 <x-slot name="content">
-                  <x-nav-link>{{ __('Greeting Template')}}</x-nav-link>
-                  <x-nav-link>{{ __('Subject Template')}}</x-nav-link>
-                  <x-nav-link>{{ __('Daily Information')}}</x-nav-link>
-                  <x-nav-link>{{ __('Archive')}}</x-nav-link>
+                  <x-nav-link>
+                    {{ __('Greeting Template') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ __('Subject Template') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ __('Daily Information') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ __('Archive') }}
+                  </x-nav-link>
                 </x-slot>
               </x-dropdown-second-level>
             </x-slot>
@@ -393,54 +635,106 @@
 
           <x-dropdown-first-level>
             <x-slot name="trigger">
-              {{ __('Financial')}}
+              {{ __('Financial') }}
             </x-slot>
             <x-slot name="content">
               <x-dropdown-second-level>
                 <x-slot name="trigger">
-                  {{ __('Statement of Account')}}
+                  {{ __('Statement of Account') }}
                 </x-slot>
                 <x-slot name="content">
-                  <x-nav-link>{{ __('January')}}</x-nav-link>
-                  <x-nav-link>{{ __('February')}}</x-nav-link>
-                  <x-nav-link>{{ __('March')}}</x-nav-link>
-                  <x-nav-link>{{ __('April')}}</x-nav-link>
-                  <x-nav-link>{{ __('May')}}</x-nav-link>
-                  <x-nav-link>{{ __('June')}}</x-nav-link>
-                  <x-nav-link>{{ __('July')}}</x-nav-link>
-                  <x-nav-link>{{ __('August')}}</x-nav-link>
-                  <x-nav-link>{{ __('September')}}</x-nav-link>
-                  <x-nav-link>{{ __('October')}}</x-nav-link>
-                  <x-nav-link>{{ __('November')}}</x-nav-link>
-                  <x-nav-link>{{ __('December')}}</x-nav-link>
+                  <x-nav-link>
+                    {{ __('January') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ __('February') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ __('March') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ __('April') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ __('May') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ __('June') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ __('July') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ __('August') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ __('September') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ __('October') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ __('November') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ __('December') }}
+                  </x-nav-link>
                 </x-slot>
               </x-dropdown-second-level>
               <x-dropdown-second-level>
                 <x-slot name="trigger">
-                  {{ __('Accounting')}}
+                  {{ __('Accounting') }}
                 </x-slot>
                 <x-slot name="content">
-                  <x-nav-link>{{ __('Electronic Invoicing')}}</x-nav-link>
-                  <x-nav-link>{{ __('Accounts Receivable')}}</x-nav-link>
-                  <x-nav-link>{{ __('Debit Notes')}}</x-nav-link>
-                  <x-nav-link>{{ __('Credit Notes')}}</x-nav-link>
-                  <x-nav-link>{{ __('Revenue Vouchers')}}</x-nav-link>
-                  <x-nav-link>{{ __('Egress Vouchers')}}</x-nav-link>
-                  <x-nav-link>{{ __('Bank Reconciliation')}}</x-nav-link>
-                  <x-nav-link>{{ __('Canceled Invoices')}}</x-nav-link>
-                  <x-nav-link>{{ __('Sales Statistics')}}</x-nav-link>
+                  <x-nav-link>
+                    {{ __('Electronic Invoicing') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ __('Accounts Receivable') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ __('Debit Notes') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ __('Credit Notes') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ __('Revenue Vouchers') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ __('Egress Vouchers') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ __('Bank Reconciliation') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ __('Canceled Invoices') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ __('Sales Statistics') }}
+                  </x-nav-link>
                 </x-slot>
               </x-dropdown-second-level>
               <x-dropdown-second-level>
                 <x-slot name="trigger">
-                  {{ __('Budget')}}
+                  {{ __('Budget') }}
                 </x-slot>
                 <x-slot name="content">
-                  <x-nav-link>{{ __('Cost Structure')}}</x-nav-link>
-                  <x-nav-link>{{ __('Description of Costs')}}</x-nav-link>
-                  <x-nav-link>{{ __('Annual Budget')}}</x-nav-link>
-                  <x-nav-link>{{ __('Monthly Follow-Up')}}</x-nav-link>
-                  <x-nav-link>{{ __('Annual Closing')}}</x-nav-link>
+                  <x-nav-link>
+                    {{ __('Cost Structure') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ __('Description of Costs') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ __('Annual Budget') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ __('Monthly Follow-Up') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ __('Annual Closing') }}
+                  </x-nav-link>
                 </x-slot>
               </x-dropdown-second-level>
             </x-slot>

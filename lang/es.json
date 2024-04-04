@@ -565,5 +565,6 @@
     "An error has occurred": "Se ha producido un error",
     "Document": "Documento",
     "Consulting...": "Consultando...",
-    "Removing...":"Eliminando..."
+    "Removing...":"Eliminando...",
+    "Position": "Cargo"
 }
