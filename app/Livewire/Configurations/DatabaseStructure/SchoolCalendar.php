@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Configurations;
+namespace App\Livewire\Configurations\DatabaseStructure;
 
 use Livewire\Component;
 use App\Models\Calendar;
@@ -121,6 +121,6 @@ class SchoolCalendar extends Component
 
   public function render()
   {
-    return view('livewire.configurations.school-calendar');
+    return view('livewire.configurations.database-structure.school-calendar');
   }
 }
