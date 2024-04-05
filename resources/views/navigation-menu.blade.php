@@ -206,7 +206,7 @@
                   {{ __('Human Resources')}}
                 </x-slot>
                 <x-slot name="content">
-                  <x-nav-link>
+                  <x-nav-link href="{{ route('configurations.human-resources.collaborators') }}">
                     {{ __('Collaborators') }}
                   </x-nav-link>
                   <x-nav-link>
