@@ -568,5 +568,9 @@
   "Removing...": "Eliminando...",
   "Position": "Cargo",
   "Collaborator": "Colaborador",
-  "Document Type": "Tipo de Documento"
+  "Document Type": "Tipo de Documento",
+  "First Name": "Primer Nombre",
+  "Middle Name": "Segundo Nombre",
+  "Last Name": "Primer Apellido",
+  "Middle Last Name": "Segundo Apellido"
 }
