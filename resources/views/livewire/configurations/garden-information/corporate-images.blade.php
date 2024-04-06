@@ -21,7 +21,7 @@
                 <div class="p-8">
                   <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white p-1">{{ __('Corporate Logo') }}</h5>
                   <div x-data="{ uploading: false, progress: 0 }" x-on:livewire-upload-start="uploading = true" x-on:livewire-upload-finish="uploading = false" x-on:livewire-upload-cancel="uploading = false" x-on:livewire-upload-error="uploading = false" x-on:livewire-upload-progress="progress = $event.detail.progress">
-                    <input wire:model='logoCompanies' wire:key="logoCompaniesKey" type="file" class="mb-3 font-normal text-gray-700 dark:text-gray-400" accept="image/jpeg">
+                    <x-input-file wire:model='logoCompanies' wire:key="logoCompaniesKey" id="logoCompaniesKey" accept="image/jpeg" />
                     <div x-show="uploading">
                       <progress max="100" x-bind:value="progress" class="w-[90%] h-2 mx-6"></progress>
                     </div>
@@ -42,7 +42,7 @@
                 <div class="p-8">
                   <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white p-1">{{ __('QR Code Web Page') }}</h5>
                   <div x-data="{ uploading: false, progress: 0 }" x-on:livewire-upload-start="uploading = true" x-on:livewire-upload-finish="uploading = false" x-on:livewire-upload-cancel="uploading = false" x-on:livewire-upload-error="uploading = false" x-on:livewire-upload-progress="progress = $event.detail.progress">
-                    <input wire:model='qrCodeWebPage' wire:key="qrCodeWebPageKey" type="file" class="mb-3 font-normal text-gray-700 dark:text-gray-400" accept="image/jpeg">
+                  <x-input-file wire:model='qrCodeWebPage' wire:key="qrCodeWebPageKey" id="qrCodeWebPageKey" accept="image/jpeg" />
                     <div x-show="uploading">
                       <progress max="100" x-bind:value="progress" class="w-[90%] h-2 mx-6"></progress>
                     </div>
@@ -65,7 +65,7 @@
                 <div class="p-8">
                   <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white p-1">{{ __('QR Code Admission Form') }}</h5>
                   <div x-data="{ uploading: false, progress: 0 }" x-on:livewire-upload-start="uploading = true" x-on:livewire-upload-finish="uploading = false" x-on:livewire-upload-cancel="uploading = false" x-on:livewire-upload-error="uploading = false" x-on:livewire-upload-progress="progress = $event.detail.progress">
-                    <input wire:model='qrCodeAdmissionForm' wire:key="qrCodeAdmissionFormKey" type="file" class="mb-3 font-normal text-gray-700 dark:text-gray-400" accept="image/jpeg">
+                    <x-input-file wire:model='qrCodeAdmissionForm' wire:key="qrCodeAdmissionFormKey" id="qrCodeAdmissionFormKey" accept="image/jpeg" />
                     <div x-show="uploading">
                       <progress max="100" x-bind:value="progress" class="w-[90%] h-2 mx-6"></progress>
                     </div>
@@ -86,7 +86,7 @@
                 <div class="p-8">
                   <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white p-1">{{ __('QR Code School Agenda') }}</h5>
                   <div x-data="{ uploading: false, progress: 0 }" x-on:livewire-upload-start="uploading = true" x-on:livewire-upload-finish="uploading = false" x-on:livewire-upload-cancel="uploading = false" x-on:livewire-upload-error="uploading = false" x-on:livewire-upload-progress="progress = $event.detail.progress">
-                    <input wire:model='qrCodeSchoolAgenda' wire:key="qrCodeSchoolAgendaKey" type="file" class="mb-3 font-normal text-gray-700 dark:text-gray-400" accept="image/jpeg">
+                    <x-input-file wire:model='qrCodeSchoolAgenda' wire:key="qrCodeSchoolAgendaKey" id="qrCodeSchoolAgendaKey" accept="image/jpeg" />
                     <div x-show="uploading">
                       <progress max="100" x-bind:value="progress" class="w-[90%] h-2 mx-6"></progress>
                     </div>
@@ -109,7 +109,7 @@
                 <div class="p-8">
                   <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white p-1">{{ __('QR Code Virtual Platform') }}</h5>
                   <div x-data="{ uploading: false, progress: 0 }" x-on:livewire-upload-start="uploading = true" x-on:livewire-upload-finish="uploading = false" x-on:livewire-upload-cancel="uploading = false" x-on:livewire-upload-error="uploading = false" x-on:livewire-upload-progress="progress = $event.detail.progress">
-                    <input wire:model='qrCodeVirtualPlatform' wire:key="qrCodeVirtualPlatformKey" type="file" class="mb-3 font-normal text-gray-700 dark:text-gray-400" accept="image/jpeg">
+                    <x-input-file wire:model='qrCodeVirtualPlatform' wire:key="qrCodeVirtualPlatformKey" id="qrCodeVirtualPlatform" accept="image/jpeg" />
                     <div x-show="uploading">
                       <progress max="100" x-bind:value="progress" class="w-[90%] h-2 mx-6"></progress>
                     </div>
