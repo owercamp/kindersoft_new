@@ -156,7 +156,7 @@ class Collaborator extends Model
    */
   public function getFullNameAttribute()
   {
-    return "$this->firtname $this->middlename $this->lastname $this->middlelastname";
+    return "$this->firstname $this->middlename $this->lastname $this->middlelastname";
   }
 
   /**
