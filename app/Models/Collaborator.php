@@ -67,8 +67,8 @@ class Collaborator extends Model
     'address' => 'string',
     'phone' => 'string',
     'email' => 'string',
-    'curriculum' => 'text',
-    'photo' => 'text'
+    'curriculum' => 'string',
+    'photo' => 'string'
   ];
 
   /**
