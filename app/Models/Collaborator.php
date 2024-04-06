@@ -76,7 +76,7 @@ class Collaborator extends Model
    *
    * return \Illuminate\Database\Eloquent\Casts\Attribute
    */
-  public function firtname(): Attribute
+  public function firstname(): Attribute
   {
     return Attribute::make(
       get: fn ($value) => trim($value),
