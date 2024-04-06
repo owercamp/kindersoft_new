@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Collaborator extends Model
 {
@@ -78,8 +79,8 @@ class Collaborator extends Model
   public function firtname(): Attribute
   {
     return Attribute::make(
-      get: fn ( $value) => trim($value),
-      set: fn ( $value) => trim(ucfirst(strtolower($value))),
+      get: fn ($value) => trim($value),
+      set: fn ($value) => trim(ucfirst(strtolower($value))),
     );
   }
 
@@ -91,8 +92,8 @@ class Collaborator extends Model
   public function middlename(): Attribute
   {
     return Attribute::make(
-      get: fn ( $value) => trim($value),
-      set: fn ( $value) => trim(ucfirst(strtolower($value))),
+      get: fn ($value) => trim($value),
+      set: fn ($value) => trim(ucfirst(strtolower($value))),
     );
   }
 
@@ -104,8 +105,8 @@ class Collaborator extends Model
   public function lastname(): Attribute
   {
     return Attribute::make(
-      get: fn ( $value) => trim($value),
-      set: fn ( $value) => trim(ucfirst(strtolower($value))),
+      get: fn ($value) => trim($value),
+      set: fn ($value) => trim(ucfirst(strtolower($value))),
     );
   }
 
@@ -117,8 +118,8 @@ class Collaborator extends Model
   public function middlelastname(): Attribute
   {
     return Attribute::make(
-      get: fn ( $value) => trim($value),
-      set: fn ( $value) => trim(ucfirst(strtolower($value))),
+      get: fn ($value) => trim($value),
+      set: fn ($value) => trim(ucfirst(strtolower($value))),
     );
   }
 
@@ -130,8 +131,8 @@ class Collaborator extends Model
   public function address(): Attribute
   {
     return Attribute::make(
-      get: fn ( $value) => trim($value),
-      set: fn ( $value) => trim(ucwords(strtolower($value))),
+      get: fn ($value) => trim($value),
+      set: fn ($value) => trim(ucwords(strtolower($value))),
     );
   }
 
@@ -143,8 +144,8 @@ class Collaborator extends Model
   public function email(): Attribute
   {
     return Attribute::make(
-      get: fn ( $value) => trim($value),
-      set: fn ( $value) => trim(strtolower($value)),
+      get: fn ($value) => trim($value),
+      set: fn ($value) => trim(strtolower($value)),
     );
   }
 
@@ -156,6 +157,76 @@ class Collaborator extends Model
   public function getFullNameAttribute()
   {
     return "$this->firtname $this->middlename $this->lastname $this->middlelastname";
+  }
+
+  /**
+   * relations with the model country
+   *
+   * @return HasOne
+   */
+  public function country(): HasOne
+  {
+    return $this->hasOne(Country::class, 'id', 'country_id');
+  }
+
+  /**
+   * relations with the model department
+   *
+   * @return HasOne
+   */
+  public function department(): HasOne
+  {
+    return $this->hasOne(Departament::class, 'id', 'department_id');
+  }
+
+  /**
+   * relations with the model municipality
+   *
+   * @return HasOne
+   */
+  public function municipality(): HasOne
+  {
+    return $this->hasOne(Municipality::class, 'id', 'municipality_id');
+  }
+
+  /**
+   * relations with the model city
+   *
+   * @return HasOne
+   */
+  public function city(): HasOne
+  {
+    return $this->hasOne(City::class, 'id', 'city_id');
+  }
+
+  /**
+   * relations with the model neighborhood
+   *
+   * @return HasOne
+   */
+  public function neighborhood(): HasOne
+  {
+    return $this->hasOne(Neighborhood::class, 'id', 'neighborhood_id');
+  }
+
+  /**
+   * relations with the model zip code
+   *
+   * @return HasOne
+   */
+  public function postal(): HasOne
+  {
+    return $this->hasOne(Postal::class, 'id', 'postal_id');
+  }
+
+  /**
+   * relations with the model type identification
+   *
+   * @return HasOne
+   */
+  public function type_identification(): HasOne
+  {
+    return $this->hasOne(TypeIdentification::class, 'id', 'type_identification_id');
   }
 
   /**
