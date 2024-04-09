@@ -12,6 +12,7 @@ use App\Livewire\Configurations\DatabaseStructure\CreationDocument;
 use App\Livewire\Configurations\DatabaseStructure\HealthCareProvider;
 use App\Livewire\Configurations\GardenInformation\GeneralInformation;
 use App\Livewire\Configurations\DatabaseStructure\EmploymentPositions;
+use App\Livewire\Configurations\HumanResources\Collaborators;
 
 /*
 |--------------------------------------------------------------------------
@@ -82,4 +83,5 @@ Route::middleware([
   Route::get('/configurations/databases/creation-document', CreationDocument::class)->name('configurations.databases.creation-document');
   Route::get('/configurations/databases/health-care-provider', HealthCareProvider::class)->name('configurations.databases.health-care-provider');
   Route::get('configurations/databases/employment-positions', EmploymentPositions::class)->name('configurations.databases.employment-positions');
+  Route::get('configurations/human-resources/collaborators', Collaborators::class)->name('configurations.human-resources.collaborators');
 });
