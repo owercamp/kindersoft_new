@@ -444,7 +444,7 @@
                     <figure class="max-w-lg flex flex-col justify-center mx-auto items-center">
                       @if ($photo)
                       <img class="rounded-full w-48 h-48 hover:cursor-pointer" id="imaview_edit" src="{{ $photo->temporaryUrl()}}" alt="image description">
-                      @elseif($editArray['photo'])
+                      @elseif(isset($editArray['photo']))
                       <img class="rounded-full w-48 h-48 hover:cursor-pointer" id="imaview_edit" src="{{ asset($editArray['photo']) }}" alt="image description">
                       @else
                       <img class="rounded-full w-48 h-48 hover:cursor-pointer" id="imaview_edit" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmUmWHXPIc0Z3x1m0EF13NQmf_Tmor8xp9az21M0PoxA&s" alt="image description">
@@ -601,6 +601,24 @@
       });
       if (event.detail[0].success == true) {
         document.getElementById('closedModal').click();
+        document.getElementById('identification').value = "";
+        document.getElementById('number_document').value = "";
+        document.getElementById('firstname').value = "";
+        document.getElementById('middlename').value = "";
+        document.getElementById('lastname').value = "";
+        document.getElementById('middlelastname').value = "";
+        document.getElementById('country').value = "";
+        document.getElementById('department').value = "";
+        document.getElementById('municipality').value = "";
+        document.getElementById('city').value = "";
+        document.getElementById('location').value = "";
+        document.getElementById('postal').value = "";
+        document.getElementById('address').value = "";
+        document.getElementById('phone').value = "";
+        document.getElementById('email').value = "";
+        document.getElementById('curriculum').value = "";
+        document.getElementById('image').value = "";
+        document.getElementById('image_edit').value = "";
       }
     })
   </script>

@@ -204,6 +204,26 @@ class Collaborators extends Component
         'success' => true
       ]);
 
+      $this->reset(
+        'identification',
+        'number_document',
+        'firstname',
+        'middlename',
+        'lastname',
+        'middlelastname',
+        'country',
+        'department',
+        'municipality',
+        'city',
+        'location',
+        'postal',
+        'address',
+        'phone',
+        'email',
+        'photo',
+        'curriculum',
+      );
+
       $this->dispatch('changes_data');
     }
   }
@@ -345,11 +365,55 @@ class Collaborators extends Component
 
       $this->dispatch('changes_data');
       $this->modal = false;
+
+      $this->reset(
+        'editArray.register',
+        'editArray.identification',
+        'editArray.number_document',
+        'editArray.firstname',
+        'editArray.middlename',
+        'editArray.lastname',
+        'editArray.middlelastname',
+        'editArray.country',
+        'editArray.countryorigin',
+        'editArray.department',
+        'editArray.municipality',
+        'editArray.city',
+        'editArray.location',
+        'editArray.postal',
+        'editArray.address',
+        'editArray.phone',
+        'editArray.email',
+        'editArray.photo',
+        'photo',
+        'editArray.curriculum',
+      );
     }
   }
 
   public function openModal($register)
   {
+    $this->editArray['register'] = '';
+    $this->editArray['identification'] = '';
+    $this->editArray['number_document'] = '';
+    $this->editArray['firstname'] = '';
+    $this->editArray['middlename'] = '';
+    $this->editArray['lastname'] = '';
+    $this->editArray['middlelastname'] = '';
+    $this->editArray['country'] = '';
+    $this->editArray['countryorigin'] = '';
+    $this->editArray['department'] = '';
+    $this->editArray['municipality'] = '';
+    $this->editArray['city'] = '';
+    $this->editArray['location'] = '';
+    $this->editArray['postal'] = '';
+    $this->editArray['address'] = '';
+    $this->editArray['phone'] = '';
+    $this->editArray['email'] = '';
+    $this->editArray['id'] = '';
+    $this->editArray['photo'] = '';
+    $this->editArray['curriculum'] = '';
+
     $collaborator = Collaborator::with('country:id,name', 'department:id,name', 'municipality:id,name', 'city:id,name', 'neighborhood:id,name', 'postal:id,name', 'type_identification:id,name')->where('id', $register)->get();
     // dd($collaborator);
     $this->editArray['register'] = str_pad($collaborator[0]->register, 4, "0", STR_PAD_LEFT);
