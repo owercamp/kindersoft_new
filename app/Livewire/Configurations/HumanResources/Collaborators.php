@@ -128,9 +128,9 @@ class Collaborators extends Component
       'identification' => 'required|numeric|exists:type_identifications,id',
       'number_document' => 'required|numeric|max_digits:15',
       'firstname' => 'required|string',
-      'middlename' => 'required|string',
+      'middlename' => 'nullable|string',
       'lastname' => 'required|string',
-      'middlelastname' => 'required|string',
+      'middlelastname' => 'nullable|string',
       'country' => 'required|numeric|exists:countries,id',
       'department' => 'required|numeric|exists:departaments,id',
       'municipality' => 'required|numeric|exists:municipalities,id',
@@ -193,8 +193,8 @@ class Collaborators extends Component
     $newRegister->address = trim($this->address);
     $newRegister->phone = trim($this->phone);
     $newRegister->email = trim($this->email);
-    $newRegister->curriculum = $pointInit . DIRECTORY_SEPARATOR . $this->curriculum->storeAs(path: 'documents', name: $curriculum_name);
-    $newRegister->photo = $pointInit . DIRECTORY_SEPARATOR . $this->photo->storeAs(path: 'photos', name: $photo_name);
+    $newRegister->curriculum = $pointInit . DIRECTORY_SEPARATOR . $this->curriculum->storeAs('documents', $curriculum_name);
+    $newRegister->photo = $pointInit . DIRECTORY_SEPARATOR . $this->photo->storeAs('photos', $photo_name);
     if ($newRegister->save()) {
       $this->dispatch('swal:modal', [
         'type' => 'success',
@@ -312,7 +312,7 @@ class Collaborators extends Component
         $url_curruculum = explode('storage/', str_replace('\\', '/', $this->editArray['curriculum']))[1];
         Storage::delete($url_curruculum);
       }
-      $register->curriculum = $pointInit . DIRECTORY_SEPARATOR . $this->curriculum->storeAs(path: 'documents', name: $curriculum_name);
+      $register->curriculum = $pointInit . DIRECTORY_SEPARATOR . $this->curriculum->storeAs('documents', $curriculum_name);
     } else {
       $register->curriculum = $this->editArray['curriculum'];
     }
@@ -328,7 +328,7 @@ class Collaborators extends Component
         $url_photo = explode('storage/', str_replace('\\', '/', $this->editArray['photo']))[1];
         Storage::delete($url_photo);
       }
-      $register->photo = $pointInit . DIRECTORY_SEPARATOR . $this->photo->storeAs(path: 'photos', name: $photo_name);
+      $register->photo = $pointInit . DIRECTORY_SEPARATOR . $this->photo->storeAs('photos', $photo_name);
     } else {
       $register->photo = $this->editArray['photo'];
     }
