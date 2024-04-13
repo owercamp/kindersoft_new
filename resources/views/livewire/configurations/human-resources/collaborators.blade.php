@@ -200,7 +200,7 @@
                     </div>
                     <div class="flex flex-col basis-3/6">
                       <x-label class="ml-1">{{ __('Curriculum Vitae') }}:</x-label>
-                      <x-input-file id="curriculum" wire:model="curriculum" accept=".pdf" />
+                      <x-input-file id="curriculum" wire:model="curriculum" required accept=".pdf" />
                       <x-input-error for="curriculum" />
                     </div>
                   </div>
@@ -214,7 +214,7 @@
                       @endif
 
                       <div x-data="{ uploading: false, progress: 0 }" x-on:livewire-upload-start="uploading = true" x-on:livewire-upload-finish="uploading = false" x-on:livewire-upload-cancel="uploading = false" x-on:livewire-upload-error="uploading = false" x-on:livewire-upload-progress="progress = $event.detail.progress">
-                        <input type="file" name="images" id="image" wire:model="photo" hidden accept="image/jpeg">
+                        <input type="file" name="images" id="image" wire:model="photo" required hidden accept="image/jpeg">
                         <div x-show="uploading">
                           <progress max="100" x-bind:value="progress" class="w-[90%] h-2 mx-6"></progress>
                         </div>
