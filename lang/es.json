@@ -575,5 +575,18 @@
   "Last Name": "Primer Apellido",
   "Middle Last Name": "Segundo Apellido",
   "Curriculum Vitae": "Hoja de Vida",
-  "Current": "Actual"
+  "Current": "Actual",
+  "Nationality": "Nacionalidad",
+  "Genre": "Genero",
+  "Bloodtype": "Tipo de Sangre",
+  "Which": "Cual",
+  "Academic level": "Nivel Académico",
+  "Labor Information": "Información Laboral",
+  "Dependent": "Dependiente",
+  "Independent": "Independiente",
+  "Company": "Empresa",
+  "Date of Entry": "Fecha de Ingreso",
+  "What is your source of income?": "¿Cual es su fuente de ingresos?",
+  "Please fill in the text box for gender": "Por favor diligencie el cuadro de texto para el sexo",
+  "Please enter the title obtained": "Por favor ingresar el título obtenido"
 }
