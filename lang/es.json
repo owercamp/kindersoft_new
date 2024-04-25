@@ -577,5 +577,14 @@
   "Curriculum Vitae": "Hoja de Vida",
   "Current": "Actual",
   "Nationality": "Nacionalidad",
-  "Genre": "Genero"
+  "Genre": "Genero",
+  "Bloodtype": "Tipo de Sangre",
+  "Which": "Cual",
+  "Academic level": "Nivel Académico",
+  "Labor Information": "Información Laboral",
+  "Dependent": "Dependiente",
+  "Independent": "Independiente",
+  "Company": "Empresa",
+  "Date of Entry": "Fecha de Ingreso",
+  "What is your source of income?": "¿Cual es su fuente de ingresos?"
 }
