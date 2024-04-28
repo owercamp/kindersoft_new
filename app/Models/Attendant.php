@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\DependentContract;
+use App\Models\IndependentContract;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Relations\HasOne;
@@ -158,10 +159,24 @@ class Attendant extends Model
       set: fn ($value) => trim(ucfirst(strtolower($value))),
     );
   }
-
+  /**
+   * Retrieve the dependent contract associated with the attendant.
+   *
+   * @return \Illuminate\Database\Eloquent\Relations\HasOne
+   */
   public function contract_dependent(): HasOne
   {
     return $this->hasOne(DependentContract::class, 'attendant_id', 'id');
+  }
+
+  /**
+   * Retrieve the independent contract associated with the attendant.
+   *
+   * @return \Illuminate\Database\Eloquent\Relations\HasOne
+   */
+  public function contract_independent(): HasOne
+  {
+    return $this->hasOne(IndependentContract::class, 'attendant_id', 'id');
   }
 
   /**
