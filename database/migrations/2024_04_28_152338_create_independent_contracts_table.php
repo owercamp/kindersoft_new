@@ -13,7 +13,7 @@ return new class extends Migration
   {
     Schema::create('independent_contracts', function (Blueprint $table) {
       $table->id();
-      $table->foreignId('attendant_id')->nullable()->constrained('attendants', 'id')->onUpdate('cascade')->onDelete('set null');
+      $table->foreignId('attendant_id')->nullable()->constrained('attendants', 'id')->onUpdate('cascade')->onDelete('cascade');
       $table->text('description')->nullable();
       $table->timestamps();
     });
