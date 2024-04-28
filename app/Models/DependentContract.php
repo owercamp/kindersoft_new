@@ -55,4 +55,11 @@ class DependentContract extends Model
   {
     return $this->hasOne(Attendant::class, 'id', 'attendant_id');
   }
+
+  /**
+   * Indicates if the model should be timestamped.
+   *
+   * @var bool
+   */
+  public $timestamps = true;
 }
