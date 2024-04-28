@@ -33,7 +33,7 @@ return new class extends Migration
       $table->foreignId('genre_id')->nullable()->constrained('genres', 'id')->onUpdate('cascade')->onDelete('set null');
       $table->string('genre_text')->nullable();
       $table->foreignId('academic_id')->nullable()->constrained('academic_levels', 'id')->onUpdate('cascade')->onDelete('set null');
-      $table->string('academic_text');
+      $table->string('academic_text')->nullable();
       $table->foreignId('bloodtype_id')->nullable()->constrained('bloodtypes', 'id')->onUpdate('cascade')->onDelete('set null');
       $table->enum('contract', ['DEPENDIENTE', 'INDEPENDIENTE']);
       $table->timestamps();
