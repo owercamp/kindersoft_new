@@ -13,7 +13,7 @@ return new class extends Migration
   {
     Schema::create('dependent_contracts', function (Blueprint $table) {
       $table->id();
-      $table->foreignId('attendant_id')->nullable()->constrained('attendants', 'id')->onUpdate('cascade')->onDelete('set null');
+      $table->foreignId('attendant_id')->nullable()->constrained('attendants', 'id')->onUpdate('cascade')->onDelete('cascade');
       $table->string('company');
       $table->string('nit');
       $table->foreignId('position_id')->nullable()->constrained('employment_positions', 'id')->onUpdate('cascade')->onDelete('set null');
