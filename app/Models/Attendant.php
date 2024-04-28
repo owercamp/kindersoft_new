@@ -159,6 +159,18 @@ class Attendant extends Model
       set: fn ($value) => trim(ucfirst(strtolower($value))),
     );
   }
+
+  /**
+   * Retrieve the full name attribute for the attendant.
+   *
+   * @return mixed
+   */
+  public function getFullNameAttribute()
+  {
+    return "$this->firstname $this->middlename $this->lastname $this->middlelastname
+    ";
+  }
+
   /**
    * Retrieve the dependent contract associated with the attendant.
    *
