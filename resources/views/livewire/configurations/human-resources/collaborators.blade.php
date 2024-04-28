@@ -17,9 +17,9 @@
             {{ __('Create') }}</x-button>
 
           <!-- Modal -->
-          <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50" x-show="showModal" id="modal">
+          <div class="fixed inset-0 z-50 flex items-center justify-center overflow-auto bg-black bg-opacity-50" x-show="showModal" id="modal">
             <!-- Modal inner -->
-            <div class="max-w-3xl max-h-[49rem] px-6 py-4 mx-auto text-left text-gray-800 dark:text-gray-200 bg-white dark:bg-gray-800 rounded shadow-lg w-9/12 overflow-y-auto" @click.away="showModal = false" x-transition:enter="motion-safe:ease-out duration-300" x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100">
+            <div class="max-w-3xl max-h-[42rem] px-6 py-4 mx-auto text-left text-gray-800 dark:text-gray-200 bg-white dark:bg-gray-800 rounded shadow-lg w-9/12 overflow-y-auto" @click.away="showModal = false" x-transition:enter="motion-safe:ease-out duration-300" x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100">
               <!-- Title / Close-->
               <div class="flex items-center justify-between my-4">
                 <h5 class="mr-3 text-gray-800 dark:text-gray-200 max-w-none"> {{ __('Create') }} {{ __('Collaborator') }} </h5>
@@ -200,7 +200,7 @@
                     </div>
                     <div class="flex flex-col basis-3/6">
                       <x-label class="ml-1">{{ __('Curriculum Vitae') }}:</x-label>
-                      <x-input-file id="curriculum" wire:model="curriculum" accept=".pdf" />
+                      <x-input-file id="curriculum" wire:model="curriculum" required accept=".pdf" />
                       <x-input-error for="curriculum" />
                     </div>
                   </div>
@@ -214,7 +214,7 @@
                       @endif
 
                       <div x-data="{ uploading: false, progress: 0 }" x-on:livewire-upload-start="uploading = true" x-on:livewire-upload-finish="uploading = false" x-on:livewire-upload-cancel="uploading = false" x-on:livewire-upload-error="uploading = false" x-on:livewire-upload-progress="progress = $event.detail.progress">
-                        <input type="file" name="images" id="image" wire:model="photo" hidden accept="image/jpeg">
+                        <input type="file" name="images" id="image" wire:model="photo" required hidden accept="image/jpeg">
                         <div x-show="uploading">
                           <progress max="100" x-bind:value="progress" class="w-[90%] h-2 mx-6"></progress>
                         </div>
@@ -233,9 +233,9 @@
         </div>
 
         <div x-data="{ modal: $wire.entangle('modal').live }">
-          <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50" x-show="modal" id="edit">
+          <div class="fixed inset-0 z-50 flex items-center justify-center overflow-auto bg-black bg-opacity-50" x-show="modal" id="edit">
             <!-- Modal inner -->
-            <div class="max-w-3xl max-h-[49rem] px-6 py-4 mx-auto text-left text-gray-800 dark:text-gray-200 bg-white dark:bg-gray-800 rounded shadow-lg w-9/12 overflow-y-auto" @click.away="showModal = false" x-transition:enter="motion-safe:ease-out duration-300" x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100">
+            <div class="max-w-3xl max-h-[42rem] px-6 py-4 mx-auto text-left text-gray-800 dark:text-gray-200 bg-white dark:bg-gray-800 rounded shadow-lg w-9/12 overflow-y-auto" @click.away="showModal = false" x-transition:enter="motion-safe:ease-out duration-300" x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100">
               <!-- Title / Close-->
               <div class="flex items-center justify-between my-4">
                 <h5 class="mr-3 text-gray-800 dark:text-gray-200 max-w-none">{{ __('Edit') }} {{ __('Collaborator') }}</h5>
