@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
+use App\Models\DependentContract;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Attendant extends Model
@@ -155,6 +157,11 @@ class Attendant extends Model
       get: fn ($value) => trim($value),
       set: fn ($value) => trim(ucfirst(strtolower($value))),
     );
+  }
+
+  public function contract_dependent(): HasOne
+  {
+    return $this->hasOne(DependentContract::class, 'attendant_id', 'id');
   }
 
   /**
