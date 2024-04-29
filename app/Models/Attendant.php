@@ -2,7 +2,17 @@
 
 namespace App\Models;
 
+use App\Models\City;
+use App\Models\Genre;
+use App\Models\Postal;
+use App\Models\Country;
+use App\Models\Bloodtype;
+use App\Models\Departament;
+use App\Models\Municipality;
+use App\Models\Neighborhood;
+use App\Models\AcademicLevel;
 use App\Models\DependentContract;
+use App\Models\TypeIdentification;
 use App\Models\IndependentContract;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Casts\Attribute;
@@ -190,6 +200,121 @@ class Attendant extends Model
   {
     return $this->hasOne(IndependentContract::class, 'attendant_id', 'id');
   }
+
+  /**
+   * Retrieve the identification associated with the model.
+   *
+   * @return \Illuminate\Database\Eloquent\Relations\HasOne
+   */
+  public function identification(): HasOne
+  {
+    return $this->hasOne(TypeIdentification::class, 'id', 'type_identification_id');
+  }
+
+
+  /**
+   * Retrieve the country associated with the model.
+   *
+   * @return \Illuminate\Database\Eloquent\Relations\HasOne
+   */
+  public function country(): HasOne
+  {
+    return $this->hasOne(Country::class, 'id', 'country_id');
+  }
+
+  /**
+   * Retrieve the department associated with the model.
+   *
+   * @return \Illuminate\Database\Eloquent\Relations\HasOne
+   */
+  public function department(): HasOne
+  {
+    return $this->hasOne(Departament::class, 'id', 'department_id');
+  }
+
+  /**
+   * Retrieve the municipality associated with the model.
+   *
+   * @return \Illuminate\Database\Eloquent\Relations\HasOne
+   */
+  public function municipality(): HasOne
+  {
+    return $this->hasOne(Municipality::class, 'id', 'municipality_id');
+  }
+
+
+  /**
+   * Retrieve the city associated with the model.
+   *
+   * @return \Illuminate\Database\Eloquent\Relations\HasOne
+   */
+  public function city(): HasOne
+  {
+    return $this->hasOne(City::class, 'id', 'city_id');
+  }
+
+
+  /**
+   * Retrieve the neighborhood associated with the model.
+   *
+   * @return \Illuminate\Database\Eloquent\Relations\HasOne
+   */
+  public function neighborhood(): HasOne
+  {
+    return $this->hasOne(Neighborhood::class, 'id', 'location_id');
+  }
+
+    /**
+     * Retrieve the postal associated with this model.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne The postal relation.
+     */
+  public function postal(): HasOne
+  {
+    return $this->hasOne(Postal::class, 'id', 'postal_id');
+  }
+
+
+  /**
+   * Retrieve the nationality associated with the model.
+   *
+   * @return \Illuminate\Database\Eloquent\Relations\HasOne The nationality relation.
+   */
+  public function nationality(): HasOne
+  {
+    return $this->hasOne(Country::class, 'id', 'nationality_id');
+  }
+
+  /**
+   * Retrieve the genre associated with the model.
+   *
+   * @return \Illuminate\Database\Eloquent\Relations\HasOne The genre relation.
+   */
+  public function genre(): HasOne
+  {
+    return $this->hasOne(Genre::class, 'id', 'genre_id');
+  }
+
+  /**
+   * Retrieve the academic level associated with this model.
+   *
+   * @return \Illuminate\Database\Eloquent\Relations\HasOne The academic level relation.
+   */
+  public function academic(): HasOne
+  {
+    return $this->hasOne(AcademicLevel::class, 'id', 'academic_id');
+  }
+
+  /**
+   * Retrieve the blood type associated with this model.
+   *
+   * @return \Illuminate\Database\Eloquent\Relations\HasOne The blood type relation.
+   */
+  public function bloodtype(): HasOne
+  {
+    return $this->hasOne(Bloodtype::class, 'id', 'bloodtype_id');
+  }
+
 
   /**
    * Indicates if the model should be timestamped.
