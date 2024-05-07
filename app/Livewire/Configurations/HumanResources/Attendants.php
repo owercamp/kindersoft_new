@@ -544,34 +544,83 @@ class Attendants extends Component
     }
     $register = Attendant::with('academic', 'neighborhood', 'country', 'department', 'municipality', 'city', 'postal', 'contract_dependent', 'contract_independent', 'bloodtype', 'genre', 'nationality', 'identification')->find($this->arrayEdit['id']);
 
-    dd($register);
 
-    $register->register = $this->arrayEdit['register'];
-    $register->type_identification_id = $this->arrayEdit['identification'];
-    $register->number_document = $this->arrayEdit['number_document'];
-    $register->firstname = $this->arrayEdit['firstname'];
-    $register->middlename = $this->arrayEdit['middlename'];
-    $register->lastname = $this->arrayEdit['lastname'];
-    $register->middlelastname = $this->arrayEdit['middlelastname'];
-    $register->country_id = ($this->arrayEdit['country']) ? $this->arrayEdit['country'] : $this->current_country_id;
-    $register->department_id = $this->arrayEdit['department'];
-    $register->municipality_id = $this->arrayEdit['municipality'];
-    $register->city_id = $this->arrayEdit['city'];
-    $register->location_id = $this->arrayEdit['location'];
-    $register->postal_id = $this->arrayEdit['postal'];
-    $register->address = $this->arrayEdit['address'];
-    $register->phone = $this->arrayEdit['phone'];
-    $register->email = $this->arrayEdit['email'];
-    $register->nationality_id = $this->arrayEdit['nationality'];
-    $register->genre = $this->arrayEdit['genre'];
-    if ($this->arrayEdit['genre'] != 3) {
-      $register->other_genre = '';
-    } elseif ($this->arrayEdit['genre'] == 3) {
-      $register->other_genre = $this->arrayEdit['other_genre'];
+    DB::beginTransaction();
+    try {
+      $register->register = $this->arrayEdit['register'];
+      $register->type_identification_id = $this->arrayEdit['identification'];
+      $register->number_document = $this->arrayEdit['number_document'];
+      $register->firstname = $this->arrayEdit['firstname'];
+      $register->middlename = $this->arrayEdit['middlename'];
+      $register->lastname = $this->arrayEdit['lastname'];
+      $register->middlelastname = $this->arrayEdit['middlelastname'];
+      $register->country_id = ($this->arrayEdit['country']) ? $this->arrayEdit['country'] : $this->current_country_id;
+      $register->department_id = $this->arrayEdit['department'];
+      $register->municipality_id = $this->arrayEdit['municipality'];
+      $register->city_id = $this->arrayEdit['city'];
+      $register->location_id = $this->arrayEdit['location'];
+      $register->postal_id = $this->arrayEdit['postal'];
+      $register->address = $this->arrayEdit['address'];
+      $register->phone = $this->arrayEdit['phone'];
+      $register->email = $this->arrayEdit['email'];
+      $register->nationality_id = $this->arrayEdit['nationality'];
+      $register->genre_id = $this->arrayEdit['genre'];
+      if ($this->arrayEdit['genre'] != 3) {
+        $register->genre_text = '';
+      } elseif ($this->arrayEdit['genre'] == 3) {
+        $register->genre_text = $this->arrayEdit['other_genre'];
+      }
+
+      $register->academic_id = $this->arrayEdit['academic'];
+      if ($this->arrayEdit['academic'] != 4) {
+        $register->academic_text = '';
+      } elseif ($this->arrayEdit['academic'] == 4) {
+        $register->academic_text = $this->arrayEdit['title_academic'];
+      }
+
+      if ($this->arrayEdit['contract'] == "DEPENDIENTE") {
+        $register->contract = "DEPENDIENTE";
+        $register->save();
+        if (isset($register->contract_independent->id)) {
+          IndependentContract::destroy($register->contract_independent->id);
+        }
+        DependentContract::UpdateOrCreate(
+          ['attendant_id' => $register->id],
+          ['company' => $this->arrayEdit['dep_company']],
+          ['nit' => $this->arrayEdit['dep_nit']],
+          ['position_id' => $this->arrayEdit['dep_position']],
+          ['date_entry' => $this->arrayEdit['dep_date_entry']]
+        );
+      } elseif ($this->arrayEdit['contract'] == "INDEPENDIENTE") {
+        $register->contract = "INDEPENDIENTE";
+        $register->save();
+        if (isset($register->contract_dependent->id)) {
+          DependentContract::destroy($register->contract_dependent->id);
+        }
+        IndependentContract::UpdateOrCreate(
+          ['attendant_id' => $register->id],
+          ['description' => $this->arrayEdit['indep_text']]
+        );
+      }
+      DB::commit();
+      $this->dispatch('swal:modal', [
+        'type' => 'success',
+        'message' => __('Registration Successfully Updated'),
+        'timer' => 1500,
+        'showConfirmButton' => false,
+        'success' => true
+      ]);
+      $this->dispatch('changes_data');
+      $this->modal = false;
+    } catch (\Throwable $th) {
+      DB::rollBack();
+      $this->dispatch('swal:modal', [
+        'type' => 'error',
+        'message' => $th->getMessage(),
+        'timer' => 4000,
+        'showConfirmButton' => true
+      ]);
     }
-
-
-    dd($register);
   }
 
   public function render()
