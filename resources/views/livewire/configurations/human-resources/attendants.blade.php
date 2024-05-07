@@ -481,7 +481,7 @@
                   <div class="flex flex-row gap-4 mb-4 w-full">
                     <div class="flex flex-col basis-3/6">
                       <x-label class="ml-1 w-full">{{ __('Country') }}:</x-label>
-                      <x-select-options title="country" wire:model="arrayEdit.country" wire:change="change_country">
+                      <x-select-options title="country" wire:model="arrayEdit.country" wire:change="change_country('edit')">
                         <option value="">
                           {{ __('Select') }}...
                         </option>
@@ -491,11 +491,14 @@
                         </option>
                         @endforeach
                       </x-select-options>
+                      <span class="inline-block whitespace-nowrap rounded-[0.27rem] bg-secondary-100 px-[0.65em] pb-[0.25em] pt-[0.35em] text-center align-baseline text-[0.75em] font-bold leading-none text-secondary-800 dark:bg-stone-700 dark:text-secondary-400">
+                        {{ __('Current') }}: {{ $current_country }}
+                      </span>
                       <x-input-error for="arrayEdit.country" />
                     </div>
                     <div class="flex flex-col basis-3/6">
                       <x-label class="ml-1">{{ __('Department') }}:</x-label>
-                      <x-select-options title="department" wire:model="arrayEdit.department" wire:change="change_department">
+                      <x-select-options title="department" wire:model="arrayEdit.department" wire:change="change_department('edit')">
                         <option value="">
                           {{ __('Select') }}
                         </option>
@@ -505,13 +508,16 @@
                         </option>
                         @endforeach
                       </x-select-options>
+                      <span class="inline-block whitespace-nowrap rounded-[0.27rem] bg-secondary-100 px-[0.65em] pb-[0.25em] pt-[0.35em] text-center align-baseline text-[0.75em] font-bold leading-none text-secondary-800 dark:bg-stone-700 dark:text-secondary-400">
+                        {{ __('Current') }}: {{ $current_department }}
+                      </span>
                       <x-input-error for="arrayEdit.department" />
                     </div>
                   </div>
                   <div class="flex flex-row gap-4 mb-4 w-full">
                     <div class="flex flex-col basis-3/6">
                       <x-label class="ml-1 w-full">{{ __('Municipality') }}:</x-label>
-                      <x-select-options title="municipality" wire:model="arrayEdit.municipality" wire:change="change_municipality">
+                      <x-select-options title="municipality" wire:model="arrayEdit.municipality" wire:change="change_municipality('edit')">
                         <option value="">
                           {{ __('Select') }}...
                         </option>
@@ -521,11 +527,14 @@
                         </option>
                         @endforeach
                       </x-select-options>
+                      <span class="inline-block whitespace-nowrap rounded-[0.27rem] bg-secondary-100 px-[0.65em] pb-[0.25em] pt-[0.35em] text-center align-baseline text-[0.75em] font-bold leading-none text-secondary-800 dark:bg-stone-700 dark:text-secondary-400">
+                        {{ __('Current') }}: {{ $current_municipality }}
+                      </span>
                       <x-input-error for="arrayEdit.municipality" />
                     </div>
                     <div class="flex flex-col basis-3/6">
                       <x-label class="ml-1">{{ __('City') }}:</x-label>
-                      <x-select-options title="city" wire:model="arrayEdit.city" wire:change="change_city">
+                      <x-select-options title="city" wire:model="arrayEdit.city" wire:change="change_city('edit')">
                         <option value="">
                           {{ __('Select') }}
                         </option>
@@ -535,13 +544,16 @@
                         </option>
                         @endforeach
                       </x-select-options>
+                      <span class="inline-block whitespace-nowrap rounded-[0.27rem] bg-secondary-100 px-[0.65em] pb-[0.25em] pt-[0.35em] text-center align-baseline text-[0.75em] font-bold leading-none text-secondary-800 dark:bg-stone-700 dark:text-secondary-400">
+                        {{ __('Current') }}: {{ $current_city }}
+                      </span>
                       <x-input-error for="arrayEdit.city" />
                     </div>
                   </div>
                   <div class="flex flex-row gap-4 mb-4 w-full">
                     <div class="flex flex-col basis-3/6">
                       <x-label class="ml-1 w-full">{{ __('Location / Neighborhood') }}:</x-label>
-                      <x-select-options title="location" wire:model="arrayEdit.location" wire:change="change_location">
+                      <x-select-options title="location" wire:model="arrayEdit.location" wire:change="change_location('edit')">
                         <option value="">
                           {{ __('Select') }}...
                         </option>
@@ -551,11 +563,14 @@
                         </option>
                         @endforeach
                       </x-select-options>
+                      <span class="inline-block whitespace-nowrap rounded-[0.27rem] bg-secondary-100 px-[0.65em] pb-[0.25em] pt-[0.35em] text-center align-baseline text-[0.75em] font-bold leading-none text-secondary-800 dark:bg-stone-700 dark:text-secondary-400">
+                        {{ __('Current') }}: {{ $current_location }}
+                      </span>
                       <x-input-error for="arrayEdit.location" />
                     </div>
                     <div class="flex flex-col basis-3/6">
                       <x-label class="ml-1">{{ __('Zip Code') }}:</x-label>
-                      <x-select-options title="postal" wire:model="arrayEdit.postal">
+                      <x-select-options title="postal" wire:model="arrayEdit.postal('edit')">
                         <option value="">
                           {{ __('Select') }}
                         </option>
@@ -565,6 +580,9 @@
                         </option>
                         @endforeach
                       </x-select-options>
+                      <span class="inline-block whitespace-nowrap rounded-[0.27rem] bg-secondary-100 px-[0.65em] pb-[0.25em] pt-[0.35em] text-center align-baseline text-[0.75em] font-bold leading-none text-secondary-800 dark:bg-stone-700 dark:text-secondary-400">
+                        {{ __('Current') }}: {{ $current_postal }}
+                      </span>
                       <x-input-error for="arrayEdit.postal" />
                     </div>
                   </div>
@@ -719,6 +737,9 @@
                               {{ __('Date of Entry') }}
                             </x-label>
                             <x-input type="date" class="w-full" wire:model="arrayEdit.dep_date_entry" />
+                            <span class="inline-block whitespace-nowrap rounded-[0.27rem] bg-secondary-100 px-[0.65em] pb-[0.25em] pt-[0.35em] text-center align-baseline text-[0.75em] font-bold leading-none text-secondary-800 dark:bg-stone-700 dark:text-secondary-400">
+                              {{ __('Current') }}: {{ date_format(date_create($arrayEdit['dep_date_entry']),'d-m-Y') }}
+                            </span>
                             <x-input-error for="arrayEdit.dep_date_entry" />
                           </div>
                         </div>
