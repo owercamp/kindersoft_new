@@ -108,15 +108,15 @@ class Attendants extends Component
   public function savePosition()
   {
     $this->validate([
-      'register' => 'required|numeric',
+      'registerPosition' => 'required|numeric',
       'document' => 'required|string|max:30'
     ], [], [
-      'register' => __('Registration'),
+      'registerPosition' => __('Registration'),
       'document' => __('Document Name')
     ]);
 
     $register = new EmploymentPosition();
-    $register->register = $this->register;
+    $register->register = $this->registerPosition;
     $register->name = $this->document;
     if ($register->save()) {
       $this->dispatch('swal:modal', [
@@ -422,7 +422,6 @@ class Attendants extends Component
     $this->arrayEdit['location'] = $register->location_id;
     $this->arrayEdit['postal'] = $register->postal_id;
     $this->arrayEdit['phone'] = $register->phone;
-    $this->arrayEdit['position'] = $register->contract_dependent->position_id;
     $this->arrayEdit['email'] = $register->email;
     $this->arrayEdit['nationality'] = $register->nationality_id;
     $this->arrayEdit['genre'] = $register->genre_id;
