@@ -640,6 +640,20 @@ class Attendants extends Component
     }
   }
 
+  public function delete($id)
+  {
+    if (Attendant::where('id', $id)->delete()) {
+      $this->dispatch('swal:modal', [
+        'type' => 'success',
+        'message' => __('Successfully Deleted Record'),
+        'timer' => 1500,
+        'showConfirmButton' => false
+      ]);
+
+      $this->dispatch('changes_data');
+    }
+  }
+
   public function render()
   {
     $attendants = Attendant::with('academic', 'neighborhood')->paginate(15);
