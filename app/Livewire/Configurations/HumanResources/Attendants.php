@@ -584,23 +584,40 @@ class Attendants extends Component
         if (isset($register->contract_independent->id)) {
           IndependentContract::destroy($register->contract_independent->id);
         }
-        DependentContract::UpdateOrCreate(
-          ['attendant_id' => $register->id],
-          ['company' => $this->arrayEdit['dep_company']],
-          ['nit' => $this->arrayEdit['dep_nit']],
-          ['position_id' => $this->arrayEdit['dep_position']],
-          ['date_entry' => $this->arrayEdit['dep_date_entry']]
-        );
+
+        if (!isset($register->contract_dependent->id)) {
+          $newRegister = new DependentContract();
+          $newRegister->attendant_id = $register->id;
+          $newRegister->company = $this->arrayEdit['dep_company'];
+          $newRegister->nit = $this->arrayEdit['dep_nit'];
+          $newRegister->position_id = $this->arrayEdit['dep_position'];
+          $newRegister->date_entry = $this->arrayEdit['dep_date_entry'];
+          $newRegister->save();
+        } else {
+          $update_register = DependentContract::find($register->contract_dependent->id);
+          $update_register->company = $this->arrayEdit['dep_company'];
+          $update_register->nit = $this->arrayEdit['dep_nit'];
+          $update_register->position_id = $this->arrayEdit['dep_position'];
+          $update_register->date_entry = $this->arrayEdit['dep_date_entry'];
+          $update_register->save();
+        }
       } elseif ($this->arrayEdit['contract'] == "INDEPENDIENTE") {
         $register->contract = "INDEPENDIENTE";
         $register->save();
         if (isset($register->contract_dependent->id)) {
           DependentContract::destroy($register->contract_dependent->id);
         }
-        IndependentContract::UpdateOrCreate(
-          ['attendant_id' => $register->id],
-          ['description' => $this->arrayEdit['indep_text']]
-        );
+
+        if (!isset($register->independent->id)) {
+          $newRegister = new IndependentContract();
+          $newRegister->attendant_id = $register->id;
+          $newRegister->description = $this->arrayEdit['indep_text'];
+          $newRegister->save();
+        } else {
+          $update_register = IndependentContract::find($register->independent->id);
+          $update_register->description = $this->arrayEdit['indep_text'];
+          $update_register->save();
+        }
       }
       DB::commit();
       $this->dispatch('swal:modal', [
