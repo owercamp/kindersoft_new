@@ -212,7 +212,7 @@
                   <x-nav-link href="{{ route('configurations.human-resources.attendants') }}">
                     {{ __('Attendees') }}
                   </x-nav-link>
-                  <x-nav-link>
+                  <x-nav-link href="{{ route('configurations.human-resources.students') }}">
                     {{ __('Students') }}
                   </x-nav-link>
                   <x-nav-link>
