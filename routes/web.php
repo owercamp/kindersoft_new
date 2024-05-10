@@ -14,6 +14,7 @@ use App\Livewire\Configurations\GardenInformation\GeneralInformation;
 use App\Livewire\Configurations\DatabaseStructure\EmploymentPositions;
 use App\Livewire\Configurations\HumanResources\Attendants;
 use App\Livewire\Configurations\HumanResources\Collaborators;
+use App\Livewire\Students;
 
 /*
 |--------------------------------------------------------------------------
@@ -86,4 +87,5 @@ Route::middleware([
   Route::get('configurations/databases/employment-positions', EmploymentPositions::class)->name('configurations.databases.employment-positions');
   Route::get('configurations/human-resources/collaborators', Collaborators::class)->name('configurations.human-resources.collaborators');
   Route::get('/configurations/human-resources/attendants',Attendants::class)->name('configurations.human-resources.attendants');
+  Route::get('/configurations/human-resources/students', Students::class)->name('configurations.human-resources.students');
 });
