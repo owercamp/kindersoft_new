@@ -5,6 +5,9 @@ use App\Http\Controllers\HandlingPDF;
 use App\Livewire\Informations\Regime;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GeneralInformationController;
+use App\Livewire\Configurations\HumanResources\Students;
+use App\Livewire\Configurations\HumanResources\Attendants;
+use App\Livewire\Configurations\HumanResources\Collaborators;
 use App\Livewire\Configurations\DatabaseStructure\SchoolCalendar;
 use App\Livewire\Configurations\GardenInformation\TaxInformation;
 use App\Livewire\Configurations\GardenInformation\CorporateImages;
@@ -12,9 +15,6 @@ use App\Livewire\Configurations\DatabaseStructure\CreationDocument;
 use App\Livewire\Configurations\DatabaseStructure\HealthCareProvider;
 use App\Livewire\Configurations\GardenInformation\GeneralInformation;
 use App\Livewire\Configurations\DatabaseStructure\EmploymentPositions;
-use App\Livewire\Configurations\HumanResources\Attendants;
-use App\Livewire\Configurations\HumanResources\Collaborators;
-use App\Livewire\Students;
 
 /*
 |--------------------------------------------------------------------------
