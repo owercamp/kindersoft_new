@@ -5,7 +5,6 @@ namespace App\Models;
 use App\Models\Genre;
 use App\Models\Country;
 use App\Models\Bloodtype;
-use Psy\Command\HistoryCommand;
 use App\Models\HealthCareProvider;
 use App\Models\TypeIdentification;
 use Illuminate\Database\Eloquent\Model;
