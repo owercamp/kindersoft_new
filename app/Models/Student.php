@@ -91,6 +91,17 @@ class Student extends Model
   ];
 
   /**
+   * Get the fullname attribute.
+   *
+   * @param  string  $value
+   * @return string
+   */
+  public function getFullNameAttribute()
+  {
+    return "$this->firstname $this->middlename $this->lastname $this->middlelastname";
+  }
+
+  /**
    * Interact with the firstname attribute.
    *
    * return \Illuminate\Database\Eloquent\Casts\Attribute
@@ -149,7 +160,7 @@ class Student extends Model
    */
   public function type_identification(): HasOne
   {
-    return $this->hasOne(TypeIdentification::class, 'id', 'identification');
+    return $this->hasOne(TypeIdentification::class, 'id', 'identification_id');
   }
 
   /**
@@ -159,7 +170,7 @@ class Student extends Model
    */
   public function bloodtype(): HasOne
   {
-    return $this->hasOne(Bloodtype::class, 'id', 'blood');
+    return $this->hasOne(Bloodtype::class, 'id', 'blood_id');
   }
 
   /**
@@ -169,7 +180,7 @@ class Student extends Model
    */
   public function nationality(): HasOne
   {
-    return $this->hasOne(Country::class, 'id', 'nationality');
+    return $this->hasOne(Country::class, 'id', 'nationality_id');
   }
 
   /**
@@ -179,7 +190,7 @@ class Student extends Model
    */
   public function genre(): HasOne
   {
-    return $this->hasOne(Genre::class, 'id', 'genre');
+    return $this->hasOne(Genre::class, 'id', 'genre_id');
   }
 
   /**
@@ -189,6 +200,6 @@ class Student extends Model
    */
   public function eps(): HasOne
   {
-    return $this->hasOne(HealthCareProvider::class, 'id', 'eps');
+    return $this->hasOne(HealthCareProvider::class, 'id', 'eps_id');
   }
 }
