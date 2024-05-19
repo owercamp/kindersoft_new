@@ -248,7 +248,7 @@ class Students extends Component
       'create.eps' => __('Health Care Provider')
     ]);
 
-    if ($this->create['genre'] == 3) {
+    if ($this->create['genre'] == 3 && isset($this->create['genre'])) {
       $this->validate([
         'create.other_genre' => 'required|string'
       ], [], [
@@ -288,71 +288,85 @@ class Students extends Component
       ]);
     }
 
-    $newStudent = new Student();
-    $newStudent->register = $this->create['register'];
-    $newStudent->identification_id = $this->create['identification'];
-    $newStudent->number_identification = $this->create['number_identification'];
-    $newStudent->firstname = $this->create['firstname'];
-    $newStudent->middlename = $this->create['middlename'];
-    $newStudent->lastname = $this->create['lastname'];
-    $newStudent->middlelastname = $this->create['middlelastname'];
-    $newStudent->nationality_id = $this->create['nationality'];
-    $newStudent->blood_id = $this->create['blood'];
-    $newStudent->genre_id = $this->create['genre'];
-    $newStudent->other_genre = $this->create['other_genre'];
-    $newStudent->gestation = $this->create['gestation'];
-    $newStudent->velivery = $this->create['velivery'];
-    $newStudent->sibling = $this->create['sibling'];
-    $newStudent->place = $this->create['place'];
-    $newStudent->allergy = $this->create['allergy'];
-    $newStudent->allergys = $this->create['allergys'];
-    $newStudent->therapy = $this->create['therapy'];
-    $newStudent->therapies = $this->create['therapies'];
-    $newStudent->prepaid = $this->create['prepaid'];
-    $newStudent->prepaids = $this->create['prepaids'];
-    $newStudent->special = $this->create['special'];
-    $newStudent->specials = $this->create['specials'];
-    $newStudent->lives = $this->create['lives'];
-    $newStudent->eps_id = $this->create['eps'];
-    if ($newStudent->save()) {
+    $exists = Student::where('number_identification', $this->create['number_identification'])->get()->count();
+
+    if ($exists > 0) {
       $this->dispatch('swal:modal', [
-        'type' => 'success',
-        'message' => __('Successfully Created Record'),
-        'timer' => 1500,
-        'showConfirmButton' => false,
+        'type' => 'warning',
+        'title' => 'Error',
+        'message' => __('The Document Number Already Exists'),
+        'showConfirmButton' => true,
+        'timer' => 5000,
+        'icon' => 'error',
         'success' => 'completed'
       ]);
+    } else {
+      $newStudent = new Student();
+      $newStudent->register = $this->create['register'];
+      $newStudent->identification_id = $this->create['identification'];
+      $newStudent->number_identification = $this->create['number_identification'];
+      $newStudent->firstname = $this->create['firstname'];
+      $newStudent->middlename = $this->create['middlename'];
+      $newStudent->lastname = $this->create['lastname'];
+      $newStudent->middlelastname = $this->create['middlelastname'];
+      $newStudent->nationality_id = $this->create['nationality'];
+      $newStudent->blood_id = $this->create['blood'];
+      $newStudent->genre_id = $this->create['genre'];
+      $newStudent->other_genre = $this->create['other_genre'];
+      $newStudent->gestation = $this->create['gestation'];
+      $newStudent->velivery = $this->create['velivery'];
+      $newStudent->sibling = $this->create['sibling'];
+      $newStudent->place = $this->create['place'];
+      $newStudent->allergy = $this->create['allergy'];
+      $newStudent->allergys = $this->create['allergys'];
+      $newStudent->therapy = $this->create['therapy'];
+      $newStudent->therapies = $this->create['therapies'];
+      $newStudent->prepaid = $this->create['prepaid'];
+      $newStudent->prepaids = $this->create['prepaids'];
+      $newStudent->special = $this->create['special'];
+      $newStudent->specials = $this->create['specials'];
+      $newStudent->lives = $this->create['lives'];
+      $newStudent->eps_id = $this->create['eps'];
+      if ($newStudent->save()) {
+        $this->dispatch('swal:modal', [
+          'type' => 'success',
+          'message' => __('Successfully Created Record'),
+          'timer' => 1500,
+          'showConfirmButton' => false,
+          'success' => 'completed'
+        ]);
 
-      $this->reset([
-        'create.register',
-        'create.identification',
-        'create.number_identification',
-        'create.firstname',
-        'create.middlename',
-        'create.lastname',
-        'create.middlelastname',
-        'create.nationality',
-        'create.blood',
-        'create.genre',
-        'create.other_genre',
-        'create.gestation',
-        'create.velivery',
-        'create.sibling',
-        'create.place',
-        'create.allergy',
-        'create.allergys',
-        'create.therapy',
-        'create.therapies',
-        'create.prepaid',
-        'create.prepaids',
-        'create.special',
-        'create.specials',
-        'create.lives',
-        'create.eps'
-      ]);
+        $this->reset([
+          'create.register',
+          'create.identification',
+          'create.number_identification',
+          'create.firstname',
+          'create.middlename',
+          'create.lastname',
+          'create.middlelastname',
+          'create.nationality',
+          'create.blood',
+          'create.genre',
+          'create.other_genre',
+          'create.gestation',
+          'create.velivery',
+          'create.sibling',
+          'create.place',
+          'create.allergy',
+          'create.allergys',
+          'create.therapy',
+          'create.therapies',
+          'create.prepaid',
+          'create.prepaids',
+          'create.special',
+          'create.specials',
+          'create.lives',
+          'create.eps'
+        ]);
 
-      $this->dispatch('changes_data');
-    };
+        $this->dispatch('changes_data');
+      };
+    }
   }
 
   public function openModal($register)
@@ -413,13 +427,23 @@ class Students extends Component
     $this->modal = true;
   }
 
-  public function delete()
+  public function delete(Student $register)
   {
+    if ($register->deleteOrFail()) {
+      $this->dispatch('swal:modal', [
+        'type' => 'success',
+        'message' => __('Successfully Deleted Record'),
+        'timer' => 1500,
+        'showConfirmButton' => false
+      ]);
+
+      $this->dispatch('changes_data');
+    }
   }
 
   public function render()
   {
-    $students = Student::with('type_identification:id,name', 'bloodtype:id,name', 'genre:id,name', 'eps:id,name', 'nationality:id,name')->paginate(15);
+    $students = Student::with('type_identification:id,name', 'bloodtype:id,name', 'genre:id,name', 'eps:id,name', 'nationality:id,name')->orderBy('number_identification','desc')->paginate(15);
     return view('livewire.configurations.human-resources.students', compact('students'));
   }
 }
