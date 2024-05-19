@@ -18,9 +18,12 @@ use App\Models\EmploymentPosition;
 use App\Models\TypeIdentification;
 use Illuminate\Support\Facades\DB;
 use App\Models\IndependentContract;
+use Livewire\WithPagination;
 
 class Attendants extends Component
 {
+
+  use WithPagination;
 
   public $register, $type_ids, $identification, $number_document, $firstname, $middlename, $lastname, $middlelastname, $email;
   public $academic, $academics, $other_title, $title_academic;
