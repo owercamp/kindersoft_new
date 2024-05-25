@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Models\Genre;
 use App\Models\Country;
 use App\Models\Bloodtype;
+use App\Models\StatesNames;
 use App\Models\HealthCareProvider;
 use App\Models\TypeIdentification;
 use Illuminate\Database\Eloquent\Model;
@@ -53,7 +54,8 @@ class Student extends Model
     'special',
     'specials',
     'lives',
-    'eps_id'
+    'eps_id',
+    'status_id'
   ];
 
   /**
@@ -87,7 +89,8 @@ class Student extends Model
     'special' => 'boolean',
     'specials' => 'string',
     'lives' => 'string',
-    'eps_id' => 'integer'
+    'eps_id' => 'integer',
+    'status_id' => 'integer'
   ];
 
   /**
@@ -201,5 +204,15 @@ class Student extends Model
   public function eps(): HasOne
   {
     return $this->hasOne(HealthCareProvider::class, 'id', 'eps_id');
+  }
+
+    /**
+     * Retrieve the status of the student.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+  public function status(): HasOne
+  {
+    return $this->hasOne(StatesNames::class, 'id', 'status_id');
   }
 }

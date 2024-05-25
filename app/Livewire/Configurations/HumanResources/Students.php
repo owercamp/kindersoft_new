@@ -7,10 +7,11 @@ use App\Models\Country;
 use App\Models\Student;
 use Livewire\Component;
 use App\Models\Bloodtype;
+use App\Models\StatesNames;
+use Livewire\WithPagination;
 use App\Models\HealthCareProvider;
 use App\Models\TypeIdentification;
 use Illuminate\Support\Facades\DB;
-use Livewire\WithPagination;
 
 class Students extends Component
 {
@@ -70,9 +71,10 @@ class Students extends Component
     'specials' => '',
     'lives' => '',
     'eps' => '',
-    'id' => ''
+    'id' => '',
+    'status' => ''
   ];
-  public $countrys, $type_ids;
+  public $countrys, $type_ids, $status;
   public $genres, $type_bloods, $genre;
   public $other, $health, $modal = false;
 
@@ -86,6 +88,7 @@ class Students extends Component
     $this->type_bloods = Bloodtype::pluck('name', 'id');
     $this->other = false;
     $this->health = HealthCareProvider::pluck('name', 'id');
+    $this->status = StatesNames::pluck('name', 'id');
   }
 
   public function change_genre()
@@ -120,7 +123,8 @@ class Students extends Component
       'edit.sibling' => 'required|numeric',
       'edit.place' => 'required|string',
       'edit.lives' => 'required|string',
-      'edit.eps' => 'required|numeric|exists:health_care_providers,id'
+      'edit.eps' => 'required|numeric|exists:health_care_providers,id',
+      'edit.status' => 'required|numeric|exists:states_names,id'
     ], [], [
       'edit.register' => __('Registration'),
       'edit.identification' => __('Document Type'),
@@ -134,7 +138,8 @@ class Students extends Component
       'edit.sibling' => __('Number of siblings'),
       'edit.place' => __('Place Occupied'),
       'edit.lives' => __('Who do you live with?'),
-      'edit.eps' => __('Health Care Provider')
+      'edit.eps' => __('Health Care Provider'),
+      'edit.status' => __('Status')
     ]);
 
     if ($this->edit['genre'] == 3) {
@@ -202,6 +207,7 @@ class Students extends Component
     $student->specials = $this->edit['specials'];
     $student->lives = $this->edit['lives'];
     $student->eps_id = $this->edit['eps'];
+    $student->status_id = $this->edit['status'];
     if ($student->save()) {
       $this->dispatch('swal:modal', [
         'type' => 'success',
@@ -396,6 +402,7 @@ class Students extends Component
     $this->edit['specials'] = '';
     $this->edit['lives'] = '';
     $this->edit['eps'] = '';
+    $this->edit['status'] = '';
 
     $student = Student::where('id', $register)->first();
     $this->edit['register'] = str_pad($student->register, 4, "0", STR_PAD_LEFT);
@@ -423,6 +430,7 @@ class Students extends Component
     $this->edit['specials'] = $student->specials;
     $this->edit['lives'] = $student->lives;
     $this->edit['eps'] = $student->eps_id;
+    $this->edit['status'] = $student->status_id;
     $this->edit['id'] = $student->id;
     $this->modal = true;
   }
@@ -443,7 +451,7 @@ class Students extends Component
 
   public function render()
   {
-    $students = Student::with('type_identification:id,name', 'bloodtype:id,name', 'genre:id,name', 'eps:id,name', 'nationality:id,name')->orderBy('number_identification','desc')->paginate(15);
+    $students = Student::with('type_identification:id,name', 'bloodtype:id,name', 'genre:id,name', 'eps:id,name', 'nationality:id,name', 'status:id,name')->orderBy('number_identification', 'desc')->paginate(15);
     return view('livewire.configurations.human-resources.students', compact('students'));
   }
 }
