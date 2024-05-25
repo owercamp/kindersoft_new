@@ -360,6 +360,20 @@
                       <x-input type="text" min="0" maxlength="15" class="border p-2 rounded w-full" wire:model="edit.number_identification" id="number_identification" />
                       <x-input-error for="edit.number_identification" />
                     </div>
+                    <div class="flex flex-col basis-3/6">
+                      <x-label class="ml-1">{{ __('Status') }}:</x-label>
+                      <x-select-options title="status" wire:model="edit.status">
+                        <option value="">
+                          {{ __('Select') }}...
+                        </option>
+                        @foreach ($status as $key => $status)
+                        <option value="{{ $key }}">
+                          {{ __($status) }}
+                        </option>
+                        @endforeach
+                      </x-select-options>
+                      <x-input-error for="edit.status" />
+                    </div>
                   </div>
                   <hr class="mb-3">
                   <div class="flex flex-row gap-4 mb-4 w-full">
@@ -629,6 +643,9 @@
                     {{ __('Affiliated to EPS') }}
                   </th>
                   <th scope="col" class="px-6 py-3 text-center">
+                    {{ __('Status') }}
+                  </th>
+                  <th scope="col" class="px-6 py-3 text-center">
                     {{ __('Genre') }}
                   </th>
                   <th scope="col" class="px-6 py-3 text-center w-[250px]">
@@ -653,6 +670,11 @@
                   </td>
                   <td class="text-center">
                     {{ $register->eps->name }}
+                  </td>
+                  <td class="text-center">
+                    <x-badge status="{{ $register->status->name }}">
+                      {{ __($register->status->name) }}
+                    </x-badge>
                   </td>
                   <td class="text-center">
                     {{ $register->genre->name }}
