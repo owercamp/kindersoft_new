@@ -451,6 +451,20 @@
                       <x-input type="text" min="0" maxlength="15" class="border p-2 rounded w-full" wire:model="arrayEdit.number_document" id="number_document" />
                       <x-input-error for="arrayEdit.number_document" />
                     </div>
+                    <div class="flex flex-col basis-3/6">
+                      <x-label class="ml-1">{{ __('Status') }}:</x-label>
+                      <x-select-options title="status" wire:model="arrayEdit.status">
+                        <option value="">
+                          {{ __('Select') }}...
+                        </option>
+                        @foreach ($status as $key => $status)
+                        <option value="{{ $key }}">
+                          {{ __($status) }}
+                        </option>
+                        @endforeach
+                      </x-select-options>
+                      <x-input-error for="arrayEdit.status" />
+                    </div>
                   </div>
                   <hr class="mb-3">
                   <div class="flex flex-row gap-4 mb-4 w-full">
@@ -790,6 +804,9 @@
                     {{ __('Academic level') }}
                   </th>
                   <th scope="col" class="px-6 py-3">
+                    {{ __('Status') }}
+                  </th>
+                  <th scope="col" class="px-6 py-3">
                     {{ __('Action') }}
                   </th>
                 </tr>
@@ -811,6 +828,11 @@
                   </td>
                   <td class="px-6 py-4">
                     {{ $attendant->academic->name }}
+                  </td>
+                  <td class="py-4 mx-auto text-center">
+                    <x-badge status="{{ $attendant->status->name }}">
+                    {{ __($attendant->status->name) }}
+                    </x-badge>
                   </td>
                   <td scope="row" class="flex justify-around justify-items-center">
                     <x-button class="bg-green-800 hover:bg-green-700 my-2 flex flex-row" wire:click="openModal({{ $attendant->id }})" wire:loading.class="opacity-50" wire:loading.attr="disabled">
@@ -871,6 +893,7 @@
         document.getElementById('document').value = "";
       }
       if (event.detail[0].success == 'completed') {
+        document.getElementById('closedModal').click();
         document.getElementById('identification').value = "";
         document.getElementById('number_document').value = "";
         document.getElementById('firstname').value = "";

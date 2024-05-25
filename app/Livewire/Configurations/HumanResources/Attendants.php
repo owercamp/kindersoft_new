@@ -18,6 +18,7 @@ use App\Models\EmploymentPosition;
 use App\Models\TypeIdentification;
 use Illuminate\Support\Facades\DB;
 use App\Models\IndependentContract;
+use App\Models\StatesNames;
 use Livewire\WithPagination;
 
 class Attendants extends Component
@@ -36,7 +37,7 @@ class Attendants extends Component
   public $genres, $genre, $type_bloods, $other_genre, $other, $blood;
   public $contract, $dependent, $independent, $address, $phone, $nationality, $indep_text;
   public $positions, $dep_company, $dep_nit, $dep_position, $dep_date_entry;
-  public $registerPosition, $document;
+  public $registerPosition, $document, $status;
   public $modal = false;
   public $arrayEdit = [
     'register' => '',
@@ -94,6 +95,7 @@ class Attendants extends Component
     $this->other_title = false;
     $this->dependent = false;
     $this->independent = false;
+    $this->status = StatesNames::pluck('name', 'id');
   }
 
   public function increment()
@@ -426,6 +428,7 @@ class Attendants extends Component
     $this->arrayEdit['postal'] = $register->postal_id;
     $this->arrayEdit['phone'] = $register->phone;
     $this->arrayEdit['email'] = $register->email;
+    $this->arrayEdit['status'] = $register->status_id;
     $this->arrayEdit['nationality'] = $register->nationality_id;
     $this->arrayEdit['genre'] = $register->genre_id;
     $this->arrayEdit['id'] = $register->id;
@@ -485,6 +488,7 @@ class Attendants extends Component
       'arrayEdit.genre' => 'required|numeric|exists:genres,id',
       'arrayEdit.academic' => 'required|numeric|exists:academic_levels,id',
       'arrayEdit.blood' => 'required|numeric|exists:bloodtypes,id',
+      'arrayEdit.status' => 'required|numeric|exists:states_names,id',
       'arrayEdit.contract' => 'required|string'
     ], [], [
       'arrayEdit.register' => __('Registration'),
@@ -507,6 +511,7 @@ class Attendants extends Component
       'arrayEdit.genre' => __('Genre'),
       'arrayEdit.academic' => __('Academic level'),
       'arrayEdit.blood' => __('Bloodtype'),
+      'arrayEdit.status' => __('Status'),
       'arrayEdit.contract' => __('Contract Work or Labor')
     ]);
 
@@ -567,6 +572,7 @@ class Attendants extends Component
       $register->phone = $this->arrayEdit['phone'];
       $register->email = $this->arrayEdit['email'];
       $register->nationality_id = $this->arrayEdit['nationality'];
+      $register->status_id = $this->arrayEdit['status'];
       $register->genre_id = $this->arrayEdit['genre'];
       if ($this->arrayEdit['genre'] != 3) {
         $register->genre_text = '';

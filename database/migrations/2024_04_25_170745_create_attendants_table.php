@@ -35,6 +35,7 @@ return new class extends Migration
       $table->foreignId('academic_id')->nullable()->constrained('academic_levels', 'id')->onUpdate('cascade')->onDelete('set null');
       $table->string('academic_text')->nullable();
       $table->foreignId('bloodtype_id')->nullable()->constrained('bloodtypes', 'id')->onUpdate('cascade')->onDelete('set null');
+      $table->foreignId('status_id')->constrained('status_names','id')->onUpdate('cascade')->onDelete('no action')->default(1);
       $table->enum('contract', ['DEPENDIENTE', 'INDEPENDIENTE']);
       $table->timestamps();
     });

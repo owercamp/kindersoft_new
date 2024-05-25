@@ -58,6 +58,7 @@ class Attendant extends Model
     'academic_id',
     'academic_text',
     'bloodtype_id',
+    'status_id',
     'contract'
   ];
 
@@ -89,6 +90,7 @@ class Attendant extends Model
     'academic_id' => 'integer',
     'academic_text' => 'string',
     'bloodtype_id' => 'integer',
+    'status_id' => 'integer',
     'contract' => 'string'
   ];
 
@@ -313,6 +315,16 @@ class Attendant extends Model
   public function bloodtype(): HasOne
   {
     return $this->hasOne(Bloodtype::class, 'id', 'bloodtype_id');
+  }
+
+    /**
+     * Retrieve the status associated with this model.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne The status relation.
+     */
+  public function status(): HasOne
+  {
+    return $this->hasOne(StatesNames::class, 'id', 'status_id');
   }
 
 
