@@ -215,7 +215,7 @@
                   <x-nav-link href="{{ route('configurations.human-resources.students') }}">
                     {{ __('Students') }}
                   </x-nav-link>
-                  <x-nav-link>
+                  <x-nav-link href="{{ route('configurations.human-resources.providers') }}">
                     {{ __('Suppliers') }}
                   </x-nav-link>
                 </x-slot>
