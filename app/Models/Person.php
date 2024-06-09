@@ -51,7 +51,8 @@ class Person extends Model
     'city_id',
     'neighborhood_id',
     'postal_id',
-    'email'
+    'email',
+    'provider_id'
   ];
 
   /**
@@ -75,7 +76,8 @@ class Person extends Model
     'city_id' => 'integer',
     'neighborhood_id' => 'integer',
     'postal_id' => 'integer',
-    'email' => 'string'
+    'email' => 'string',
+    'provider_id' => 'integer'
   ];
 
   /**
@@ -205,5 +207,15 @@ class Person extends Model
   function postal(): HasOne
   {
     return $this->hasOne(Postal::class, 'id', 'postal_id');
+  }
+
+  /**
+   * Retrieve the provider associated with the model.
+   *
+   * @return \Illuminate\Database\Eloquent\Relations\HasOne The provider relation.
+   */
+  public function provider(): HasOne
+  {
+    return $this->hasOne(Provider::class, 'id', 'provider_id');
   }
 }
