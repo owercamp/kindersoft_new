@@ -1,7 +1,7 @@
 <div class="flex flex-row gap-4 mb-4 w-full">
   <div class="flex flex-col basis-3/6">
     <x-label class="ml-1">{{ __('Registration') }}:</x-label>
-    <x-input type="text" min="0" maxlength="4" class="border p-2 rounded w-full" wire:model="data.register" id="register" value="{{ isset($data['register']) }}" />
+    <x-input type="text" min="0" maxlength="4" class="border p-2 rounded w-full" wire:model="data.register" id="register" value="{{ isset($data['register']) }}" disabled />
     <x-input-error for="data.register" />
   </div>
   <div class="flex flex-col basis-3/6">
