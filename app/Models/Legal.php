@@ -40,7 +40,8 @@ class Legal extends Model
     'neighborhood_id',
     'postal_id',
     'phone',
-    'email'
+    'email',
+    'provider_id'
   ];
 
   /**
@@ -60,7 +61,8 @@ class Legal extends Model
     'address' => 'string',
     'phone' => 'string',
     'email' => 'string',
-    'nit' => 'string'
+    'nit' => 'string',
+    'provider_id' => 'integer'
   ];
 
   /**
@@ -147,5 +149,15 @@ class Legal extends Model
   public function postal(): HasOne
   {
     return $this->hasOne(Postal::class, 'id', 'postal_id');
+  }
+
+  /**
+   * Retrieve the associated provider for this model.
+   *
+   * @return \Illuminate\Database\Eloquent\Relations\HasOne The associated provider.
+   */
+  public function provider(): HasOne
+  {
+    return $this->hasOne(Providers::class, 'id', 'provider_id');
   }
 }
