@@ -218,4 +218,14 @@ class Person extends Model
   {
     return $this->hasOne(Provider::class, 'id', 'provider_id');
   }
+
+    /**
+     * Retrieves the full name of the person.
+     *
+     * @return string The full name of the person, including the first name, middle name, last name, and middle last name.
+     */
+  public function getFullNameAttribute()
+  {
+    return "$this->first_name $this->middle_name $this->last_name $this->middle_last_name";
+  }
 }
