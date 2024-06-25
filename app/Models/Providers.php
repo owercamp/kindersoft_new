@@ -7,10 +7,18 @@ use App\Models\Person;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Providers extends Model
 {
   use HasFactory;
+
+  /**
+   * The table associated with the model.
+   *
+   * @var string
+   */
+  protected $table = 'providers';
 
   /**
    * The primary key for the model.
@@ -49,9 +57,9 @@ class Providers extends Model
    *
    * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
    */
-  public function person(): BelongsTo
+  public function personal(): HasOne
   {
-    return $this->belongsTo(Person::class, 'id', 'provider_id');
+    return $this->hasOne(Person::class, 'provider_id', 'id');
   }
 
   /**
@@ -59,8 +67,8 @@ class Providers extends Model
    *
    * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
    */
-  public function legal(): BelongsTo
+  public function legal(): HasOne
   {
-    return $this->belongsTo(Legal::class, 'id', 'provider_id');
+    return $this->hasOne(Legal::class, 'provider_id', 'id');
   }
 }
