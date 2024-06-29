@@ -212,6 +212,13 @@
           <x-input-error for="data.phone" />
         </div>
       </div>
+      <div class="flex flex-row gap-4 mb-4 w-full">
+        <div class="flex flex-col basis-3/6">
+          <x-label class="ml-1 w-full">{{ __('Email address') }}:</x-label>
+          <x-input type="text" min="0" maxlength="50" class="border p-2 rounded w-full" wire:model="data.email" id="email" />
+          <x-input-error for="data.email" />
+        </div>
+      </div>
     </div>
   </div>
   <div x-data="{ open: $wire.entangle('legal').live }">
