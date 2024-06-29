@@ -50,7 +50,7 @@
         </div>
         <div class="flex flex-col basis-3/6">
           <x-label class="ml-1">{{ __('Document') }} {{ __('Number') }}:</x-label>
-          <x-input type="text" min="0" maxlength="4" class="border p-2 rounded w-full" wire:model="data.number" id="number" value="{{ isset($data['number']) }}" />
+          <x-input type="text" min="0" maxlength="15" class="border p-2 rounded w-full" wire:model="data.number" id="number" value="{{ isset($data['number']) }}" />
           <x-input-error for="data.number" />
         </div>
       </div>
@@ -58,24 +58,24 @@
       <div class="flex flex-row gap-4 mb-4 w-full">
         <div class="flex flex-col basis-3/6">
           <x-label class="ml-1">{{ __('First Name') }}:</x-label>
-          <x-input type="text" min="0" maxlength="15" class="border p-2 rounded w-full" wire:model.live="data.firstname" id="firstname" />
+          <x-input type="text" class="border p-2 rounded w-full" wire:model="data.firstname" id="firstname" />
           <x-input-error for="data.firstname" />
         </div>
         <div class="flex flex-col basis-3/6">
           <x-label class="ml-1">{{ __('Middle Name') }}:</x-label>
-          <x-input type="text" min="0" maxlength="15" class="border p-2 rounded w-full" wire:model.live="data.middlename" id="middlename" />
+          <x-input type="text" class="border p-2 rounded w-full" wire:model="data.middlename" id="middlename" />
           <x-input-error for="data.middlename" />
         </div>
       </div>
       <div class="flex flex-row gap-4 mb-4 w-full">
         <div class="flex flex-col basis-3/6">
           <x-label class="ml-1">{{ __('Last Name') }}:</x-label>
-          <x-input type="text" min="0" maxlength="15" class="border p-2 rounded w-full" wire:model.live="data.lastname" id="lastname" />
+          <x-input type="text" class="border p-2 rounded w-full" wire:model="data.lastname" id="lastname" />
           <x-input-error for="data.lastname" />
         </div>
         <div class="flex flex-col basis-3/6">
           <x-label class="ml-1">{{ __('Middle Last Name') }}:</x-label>
-          <x-input type="text" min="0" maxlength="15" class="border p-2 rounded w-full" wire:model.live="data.middlelastname" id="middlelastname" />
+          <x-input type="text" class="border p-2 rounded w-full" wire:model="data.middlelastname" id="middlelastname" />
           <x-input-error for="data.middlelastname" />
         </div>
       </div>
@@ -94,10 +94,15 @@
             @endforeach
           </x-select-options>
           <x-input-error for="country" />
+          @if (!empty($current_country))
+          <span class="block whitespace-nowrap rounded-[0.27rem] bg-secondary-100 px-[0.65em] pb-[0.25em] pt-[0.35em] text-center align-baseline text-[0.75em] font-bold leading-none text-secondary-800 dark:bg-stone-700 dark:text-secondary-400">
+            {{ __('Current') }}: {{ $current_country }}
+          </span>
+          @endif
         </div>
         <div class="flex flex-col basis-3/6">
           <x-label class="ml-1">{{ __('Department') }}:</x-label>
-          <x-select-options title="department" wire:model="department" wire:change="change_department">
+          <x-select-options title="department" wire:model.live="department" wire:change="change_department">
             <option value="">
               {{ __('Select') }}
             </option>
@@ -108,6 +113,11 @@
             @endforeach
           </x-select-options>
           <x-input-error for="department" />
+          @if (!empty($current_department))
+          <span class="inline-block whitespace-nowrap rounded-[0.27rem] bg-secondary-100 px-[0.65em] pb-[0.25em] pt-[0.35em] text-center align-baseline text-[0.75em] font-bold leading-none text-secondary-800 dark:bg-stone-700 dark:text-secondary-400">
+            {{ __('Current') }}: {{ $current_department }}
+          </span>
+          @endif
         </div>
       </div>
       <div class="flex flex-row gap-4 mb-4 w-full">
@@ -124,6 +134,11 @@
             @endforeach
           </x-select-options>
           <x-input-error for="municipality" />
+          @if (!empty($current_municipality))
+          <span class="inline-block whitespace-nowrap rounded-[0.27rem] bg-secondary-100 px-[0.65em] pb-[0.25em] pt-[0.35em] text-center align-baseline text-[0.75em] font-bold leading-none text-secondary-800 dark:bg-stone-700 dark:text-secondary-400">
+            {{ __('Current') }}: {{ $current_municipality }}
+          </span>
+          @endif
         </div>
         <div class="flex flex-col basis-3/6">
           <x-label class="ml-1">{{ __('City') }}:</x-label>
@@ -138,6 +153,11 @@
             @endforeach
           </x-select-options>
           <x-input-error for="city" />
+          @if (!empty($current_city))
+          <span class="inline-block whitespace-nowrap rounded-[0.27rem] bg-secondary-100 px-[0.65em] pb-[0.25em] pt-[0.35em] text-center align-baseline text-[0.75em] font-bold leading-none text-secondary-800 dark:bg-stone-700 dark:text-secondary-400">
+            {{ __('Current') }}: {{ $current_city }}
+          </span>
+          @endif
         </div>
       </div>
       <div class="flex flex-row gap-4 mb-4 w-full">
@@ -154,6 +174,11 @@
             @endforeach
           </x-select-options>
           <x-input-error for="location" />
+          @if (!empty($current_location))
+          <span class="inline-block whitespace-nowrap rounded-[0.27rem] bg-secondary-100 px-[0.65em] pb-[0.25em] pt-[0.35em] text-center align-baseline text-[0.75em] font-bold leading-none text-secondary-800 dark:bg-stone-700 dark:text-secondary-400">
+            {{ __('Current') }}: {{ $current_location }}
+          </span>
+          @endif
         </div>
         <div class="flex flex-col basis-3/6">
           <x-label class="ml-1">{{ __('Zip Code') }}:</x-label>
@@ -168,6 +193,11 @@
             @endforeach
           </x-select-options>
           <x-input-error for="postal" />
+          @if (!empty($current_postal))
+          <span class="inline-block whitespace-nowrap rounded-[0.27rem] bg-secondary-100 px-[0.65em] pb-[0.25em] pt-[0.35em] text-center align-baseline text-[0.75em] font-bold leading-none text-secondary-800 dark:bg-stone-700 dark:text-secondary-400">
+            {{ __('Current') }}: {{ $current_postal }}
+          </span>
+          @endif
         </div>
       </div>
       <div class="flex flex-row gap-4 mb-4 w-full">
@@ -189,12 +219,12 @@
       <div class="flex flex-row gap-4 mb-4 w-full">
         <div class="flex flex-col basis-3/6">
           <x-label class="ml-1">{{ __('NIT') }}:</x-label>
-          <x-input type="text" min="0" maxlength="4" class="border p-2 rounded w-full" wire:model="data.nit" id="nit" value="{{ isset($data['nit']) }}" />
+          <x-input type="text" min="0" maxlength="17" class="border p-2 rounded w-full" wire:model="data.nit" id="nit" value="{{ isset($data['nit']) }}" />
           <x-input-error for="data.nit" />
         </div>
         <div class="flex flex-col basis-3/6">
           <x-label class="ml-1">{{ __('Company Name') }}:</x-label>
-          <x-input type="text" min="0" maxlength="4" class="border p-2 rounded w-full" wire:model="data.company" id="company" value="{{ isset($data['company']) }}" />
+          <x-input type="text" min="0" maxlength="50" class="border p-2 rounded w-full" wire:model="data.company" id="company" value="{{ isset($data['company']) }}" />
           <x-input-error for="data.company" />
         </div>
       </div>
@@ -213,6 +243,11 @@
             @endforeach
           </x-select-options>
           <x-input-error for="country" />
+          @if (!empty($current_country))
+          <span class="block whitespace-nowrap rounded-[0.27rem] bg-secondary-100 px-[0.65em] pb-[0.25em] pt-[0.35em] text-center align-baseline text-[0.75em] font-bold leading-none text-secondary-800 dark:bg-stone-700 dark:text-secondary-400">
+            {{ __('Current') }}: {{ $current_country }}
+          </span>
+          @endif
         </div>
         <div class="flex flex-col basis-3/6">
           <x-label class="ml-1">{{ __('Department') }}:</x-label>
@@ -227,6 +262,11 @@
             @endforeach
           </x-select-options>
           <x-input-error for="department" />
+          @if (!empty($current_department))
+          <span class="inline-block whitespace-nowrap rounded-[0.27rem] bg-secondary-100 px-[0.65em] pb-[0.25em] pt-[0.35em] text-center align-baseline text-[0.75em] font-bold leading-none text-secondary-800 dark:bg-stone-700 dark:text-secondary-400">
+            {{ __('Current') }}: {{ $current_department }}
+          </span>
+          @endif
         </div>
       </div>
       <div class="flex flex-row gap-4 mb-4 w-full">
@@ -243,6 +283,11 @@
             @endforeach
           </x-select-options>
           <x-input-error for="municipality" />
+          @if (!empty($current_municipality))
+          <span class="inline-block whitespace-nowrap rounded-[0.27rem] bg-secondary-100 px-[0.65em] pb-[0.25em] pt-[0.35em] text-center align-baseline text-[0.75em] font-bold leading-none text-secondary-800 dark:bg-stone-700 dark:text-secondary-400">
+            {{ __('Current') }}: {{ $current_municipality }}
+          </span>
+          @endif
         </div>
         <div class="flex flex-col basis-3/6">
           <x-label class="ml-1">{{ __('City') }}:</x-label>
@@ -257,6 +302,11 @@
             @endforeach
           </x-select-options>
           <x-input-error for="city" />
+          @if (!empty($current_city))
+          <span class="inline-block whitespace-nowrap rounded-[0.27rem] bg-secondary-100 px-[0.65em] pb-[0.25em] pt-[0.35em] text-center align-baseline text-[0.75em] font-bold leading-none text-secondary-800 dark:bg-stone-700 dark:text-secondary-400">
+            {{ __('Current') }}: {{ $current_city }}
+          </span>
+          @endif
         </div>
       </div>
       <div class="flex flex-row gap-4 mb-4 w-full">
@@ -273,6 +323,11 @@
             @endforeach
           </x-select-options>
           <x-input-error for="location" />
+          @if (!empty($current_location))
+          <span class="inline-block whitespace-nowrap rounded-[0.27rem] bg-secondary-100 px-[0.65em] pb-[0.25em] pt-[0.35em] text-center align-baseline text-[0.75em] font-bold leading-none text-secondary-800 dark:bg-stone-700 dark:text-secondary-400">
+            {{ __('Current') }}: {{ $current_location }}
+          </span>
+          @endif
         </div>
         <div class="flex flex-col basis-3/6">
           <x-label class="ml-1">{{ __('Zip Code') }}:</x-label>
@@ -287,6 +342,11 @@
             @endforeach
           </x-select-options>
           <x-input-error for="postal" />
+          @if (!empty($current_postal))
+          <span class="inline-block whitespace-nowrap rounded-[0.27rem] bg-secondary-100 px-[0.65em] pb-[0.25em] pt-[0.35em] text-center align-baseline text-[0.75em] font-bold leading-none text-secondary-800 dark:bg-stone-700 dark:text-secondary-400">
+            {{ __('Current') }}: {{ $current_postal }}
+          </span>
+          @endif
         </div>
       </div>
       <div class="flex flex-row gap-4 mb-4 w-full">
