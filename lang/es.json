@@ -603,5 +603,8 @@
   "Do you have any special care?": "¿Tiene alguna atención especial?",
   "Affiliated to EPS": "Afiliado a EPS",
   "Who do you live with?": "¿Con quien vive?",
-  "The Document Number Already Exists": "El Número de Documento ya existe"
+  "The Document Number Already Exists": "El Número de Documento ya existe",
+  "Type of Person": "Tipo de Persona",
+  "Legal": "Jurídica",
+  "Provider": "Proveedor"
 }

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class TypeIdentification extends Model
 {
@@ -50,4 +51,14 @@ class TypeIdentification extends Model
    * @var bool
    */
   public $timestamps = true;
+
+  /**
+   * Retrieve the associated Person model for this TypeIdentification model.
+   *
+   * @return \Illuminate\Database\Eloquent\Relations\HasOne
+   */
+  public function person(): HasOne
+  {
+    return $this->hasOne(Person::class, 'type_identification_id', 'id');
+  }
 }
