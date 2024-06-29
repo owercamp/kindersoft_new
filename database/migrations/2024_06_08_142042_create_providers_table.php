@@ -15,6 +15,7 @@ return new class extends Migration
       $table->id();
       $table->unsignedBigInteger('register');
       $table->enum('person', ['natural', 'juridica']);
+      $table->foreignId('status_id')->constrained('status_names','id')->onUpdate('cascade')->onDelete('no action')->default(1);
       $table->timestamps();
     });
   }
