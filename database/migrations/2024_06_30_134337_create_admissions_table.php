@@ -13,10 +13,10 @@ return new class extends Migration
   {
     Schema::create('admissions', function (Blueprint $table) {
       $table->id();
-      $table->string('register');
+      $table->unsignedBigInteger('register');
       $table->string('description',35);
-      $table->string('price');
-      $table->foreignId('status_id')->constrained('states_names', 'id')->onUpdate('cascade')->default(1);
+      $table->unsignedBigInteger('price');
+      $table->foreignId('status_id')->default(1)->constrained('states_names', 'id')->onUpdate('cascade');
       $table->timestamps();
     });
   }
