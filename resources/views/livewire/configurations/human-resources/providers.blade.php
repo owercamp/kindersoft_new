@@ -169,6 +169,10 @@
                 @endforeach
               </tbody>
             </table>
+            <hr class="h-1 mx-auto mb-3 bg-blue-400 border-0 rounded dark:bg-gray-700">
+            <div class="mt-1">
+              {{ $providers->links() }}
+            </div>
           </div>
         </div>
       </div>
