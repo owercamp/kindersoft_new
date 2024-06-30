@@ -225,7 +225,7 @@
                   {{ __('Products and Services')}}
                 </x-slot>
                 <x-slot name="content">
-                  <x-nav-link>
+                  <x-nav-link href="{{ route('configurations.proudcts-and-services.admissions') }}">
                     {{ __('Admissions') }}
                   </x-nav-link>
                   <x-nav-link>
