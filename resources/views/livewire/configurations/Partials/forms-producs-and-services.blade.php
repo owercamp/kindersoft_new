@@ -14,8 +14,8 @@
   <div class="flex flex-row gap-4 mb-4 w-full">
     <div class="flex flex-col w-full">
       <x-label class="ml-1">{{ __('Description') }} {{ __('of') }} {{ $description }}:</x-label>
-      <x-input type="text" min="0" maxlength="35" class="border p-2 rounded w-full" wire:model="data.description" id="register" />
-      <x-input-error for="data.register" />
+      <x-input type="text" min="0" maxlength="35" class="border p-2 rounded w-full" wire:model="data.description" id="description" />
+      <x-input-error for="data.description" />
     </div>
   </div>
 </div>
