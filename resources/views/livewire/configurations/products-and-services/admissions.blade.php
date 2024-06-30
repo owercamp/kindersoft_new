@@ -1,7 +1,7 @@
 <div>
   <x-slot name="header">
     <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight text-end px-4">
-      {{ __('Configuration') }} > {{ __('Human Resources') }} > {{ __('Suppliers') }}
+      {{ __('Configuration') }} > {{ __('Human Resources') }} > {{ __('Admissions') }}
     </h2>
   </x-slot>
   <div class="py-8">
@@ -22,7 +22,7 @@
             <div class="max-w-3xl max-h-[42rem] px-6 py-4 mx-auto text-left text-gray-800 dark:text-gray-200 bg-white dark:bg-gray-800 rounded shadow-lg w-9/12 overflow-y-auto" x-transition:enter="motion-safe:ease-out duration-300" x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100">
               <!-- Title / Close-->
               <div class="flex items-center justify-between my-4">
-                <h5 class="mr-3 text-gray-800 dark:text-gray-200 max-w-none"> {{ __('Create') }} {{ __('Provider') }} </h5>
+                <h5 class="mr-3 text-gray-800 dark:text-gray-200 max-w-none"> {{ __('Create') }} {{ __('Admissions') }} </h5>
 
                 <button type="button" class="z-50 cursor-pointer" @click="showModal = false" id="closedModal">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
@@ -37,7 +37,7 @@
                 <form wire:submit.prevent="save">
                   @csrf
                   @method('POST')
-                  @include('livewire.configurations.Partials.forms-provider')
+                  @include('livewire.configurations.Partials.forms-producs-and-services',['description' => __('Admissions')])
                   <div class="flex justify-end mt-1">
                     <x-button class="bg-green-800 hover:bg-green-700 dark:bg-sky-800 dark:hover:bg-sky-600 w-full" type="submit">{{ __('Save') }}</x-button>
                   </div>
@@ -67,7 +67,7 @@
                   <form wire:submit.prevent="edit">
                     @csrf
                     @method('PUT')
-                    @include('livewire.configurations.Partials.forms-provider')
+                    @include('livewire.configurations.Partials.forms-producs-and-services',['description' => __('Admissions')])
                     <div class="flex flex-col basis-3/6">
                       <x-label class="ml-1">{{ __('Status') }}:</x-label>
                       <x-select-options title="status" wire:model="data.status">
@@ -101,13 +101,13 @@
                     {{ __('Registration') }}
                   </th>
                   <th scope="col" class="px-6 py-3 text-center">
-                    {{ __('Type of Person') }}
+                    {{ __('Description') }}
                   </th>
                   <th scope="col" class="px-6 py-3 text-center">
-                    {{ __('Identification') }}
+                    {{ __('Price') }}
                   </th>
                   <th scope="col" class="px-6 py-3 text-center">
-                    {{ __('Name') }}
+                    {{ __('Status') }}
                   </th>
                   <th scope="col" class="px-6 py-3 text-center">
                     {{ __('Actions') }}
@@ -115,52 +115,42 @@
                 </tr>
               </thead>
               <tbody>
-                @foreach ($providers as $provider)
-                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600" wire:key="doc-{{ $provider->id }}">
+                @foreach ($admissions as $admission)
+                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600" wire:key="doc-{{ $admission->id }}">
                   <td scope="row" class="text-center px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    {{ str_pad($provider->register, 4, '0', STR_PAD_LEFT) }}
+                    {{ str_pad($admission->register, 4, '0', STR_PAD_LEFT) }}
                   </td>
                   <td class="text-center">
-                    {{ ucfirst( $provider->person) }}
+                    {{ ucfirst($admission->description) }}
                   </td>
-                  @if ($provider->person == 'natural')
                   <td class="text-center">
-                    {{ $provider->personal->identification->name }}: {{ $provider->personal->document_number }}
+                    {{ number_format($admission->price,0, ',', '.') }}
                   </td>
-                  @else
                   <td class="text-center">
-                    {{ __('NIT') }}: {{ $provider->legal->nit }}
+                    <x-badge status="{{ $admission->status->name }}">
+                      {{ __($admission->status->name) }}
+                    </x-badge>
                   </td>
-                  @endif
-                  @if ($provider->person == 'natural')
-                  <td class="text-center">
-                    {{ strtoupper($provider->personal->full_name) }}
-                  </td>
-                  @else
-                  <td class="text-center">
-                    {{ strtoupper($provider->legal->company_name) }}
-                  </td>
-                  @endif
                   <td scope="row" class="flex justify-around justify-items-center">
-                    <x-button class="bg-green-800 hover:bg-green-700 my-2 flex flex-row" wire:click="openModal({{ $provider->id }})" wire:loading.class="opacity-50" wire:loading.attr="disabled">
+                    <x-button class="bg-green-800 hover:bg-green-700 my-2 flex flex-row" wire:click="openModal({{ $admission->id }})" wire:loading.class="opacity-50" wire:loading.attr="disabled">
                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 mr-1">
                         <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
                       </svg>
-                      <div wire:loading.class="hidden" wire:target="openModal({{ $provider->id }})">
+                      <div wire:loading.class="hidden" wire:target="openModal({{ $admission->id }})">
                         {{ __('Edit') }}
                       </div>
-                      <div wire:loading wire:target="openModal({{ $provider->id }})">
+                      <div wire:loading wire:target="openModal({{ $admission->id }})">
                         {{ __('Consulting...') }}
                       </div>
                     </x-button>
-                    <x-button class="bg-red-800 hover:bg-red-700 my-2 flex flex-row" wire:click="delete({{ $provider->id }})">
+                    <x-button class="bg-red-800 hover:bg-red-700 my-2 flex flex-row" wire:click="delete({{ $admission->id }})">
                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 mr-1">
                         <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
                       </svg>
-                      <div wire:loading.class="hidden" wire:target="delete({{ $provider->id }})">
+                      <div wire:loading.class="hidden" wire:target="delete({{ $admission->id }})">
                         {{ __('Delete') }}
                       </div>
-                      <div wire:loading wire:target="delete({{ $provider->id }})">
+                      <div wire:loading wire:target="delete({{ $admission->id }})">
                         {{ __('Removing...') }}
                       </div>
                     </x-button>
@@ -171,7 +161,7 @@
             </table>
             <hr class="h-1 mx-auto mb-3 bg-blue-400 border-0 rounded dark:bg-gray-700">
             <div class="mt-1">
-              {{ $providers->links() }}
+              {{ $admissions->links() }}
             </div>
           </div>
         </div>
@@ -202,24 +192,8 @@
       if (event.detail[0].success == 'completed') {
         document.getElementById('closedModal').click();
         document.getElementById('register').value = "";
-        document.getElementById('person').value = "";
-        document.getElementById('identification').value = "";
-        document.getElementById('number').value = "";
-        document.getElementById('firstname').value = "";
-        document.getElementById('middlename').value = "";
-        document.getElementById('lastname').value = "";
-        document.getElementById('middlelastname').value = "";
-        document.getElementById('country').value = "";
-        document.getElementById('department').value = "";
-        document.getElementById('municipality').value = "";
-        document.getElementById('city').value = "";
-        document.getElementById('location').value = "";
-        document.getElementById('postal').value = "";
-        document.getElementById('address').value = "";
-        document.getElementById('phone').value = "";
-        document.getElementById('nit').value = "";
-        document.getElementById('company').value = "";
-        document.getElementById('email').value = "";
+        document.getElementById('description').value = "";
+        document.getElementById('price').value = 0;
       }
     })
   </script>
