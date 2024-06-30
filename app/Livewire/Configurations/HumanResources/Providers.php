@@ -411,7 +411,7 @@ class Providers extends Component
           'message' => __('Registration Successfully Updated'),
           'timer' => 1500,
           'showConfirmButton' => false,
-          'success' => true
+          'success' => 'completed'
         ]);
 
         $this->dispatch('save');
@@ -442,7 +442,7 @@ class Providers extends Component
           'message' => __('Registration Successfully Updated'),
           'timer' => 1500,
           'showConfirmButton' => false,
-          'success' => true
+          'success' => 'completed'
         ]);
 
         $this->dispatch('save');
@@ -467,7 +467,7 @@ class Providers extends Component
           'message' => __('Registration Successfully Updated'),
           'timer' => 1500,
           'showConfirmButton' => false,
-          'success' => true
+          'success' => 'completed'
         ]);
 
         $this->dispatch('save');
@@ -496,7 +496,7 @@ class Providers extends Component
           'message' => __('Registration Successfully Updated'),
           'timer' => 1500,
           'showConfirmButton' => false,
-          'success' => true
+          'success' => 'completed'
         ]);
 
         $this->dispatch('save');
