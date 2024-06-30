@@ -16,6 +16,7 @@ use App\Livewire\Configurations\DatabaseStructure\HealthCareProvider;
 use App\Livewire\Configurations\GardenInformation\GeneralInformation;
 use App\Livewire\Configurations\DatabaseStructure\EmploymentPositions;
 use App\Livewire\Configurations\HumanResources\Providers;
+use App\Livewire\Configurations\ProductsAndServices\Admissions;
 
 /*
 |--------------------------------------------------------------------------
@@ -90,4 +91,5 @@ Route::middleware([
   Route::get('/configurations/human-resources/attendants',Attendants::class)->name('configurations.human-resources.attendants');
   Route::get('/configurations/human-resources/students', Students::class)->name('configurations.human-resources.students');
   Route::get('/configurations/human-resources/providers', Providers::class)->name('configurations.human-resources.providers');
+  Route::get('/configurations/proudcts-and-services/admissions', Admissions::class)->name('configurations.proudcts-and-services.admissions');
 });
