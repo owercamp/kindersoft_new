@@ -606,5 +606,6 @@
   "The Document Number Already Exists": "El Número de Documento ya existe",
   "Type of Person": "Tipo de Persona",
   "Legal": "Jurídica",
-  "Provider": "Proveedor"
+  "Provider": "Proveedor",
+  "The Price cannot be less than or equal to 0.": "El Precio no puede ser menor o igual a 0."
 }
