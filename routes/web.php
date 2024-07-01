@@ -18,6 +18,7 @@ use App\Livewire\Configurations\DatabaseStructure\CreationDocument;
 use App\Livewire\Configurations\DatabaseStructure\HealthCareProvider;
 use App\Livewire\Configurations\GardenInformation\GeneralInformation;
 use App\Livewire\Configurations\DatabaseStructure\EmploymentPositions;
+use App\Livewire\Configurations\ProductsAndServices\Foods;
 
 /*
 |--------------------------------------------------------------------------
@@ -94,4 +95,5 @@ Route::middleware([
   Route::get('/configurations/human-resources/providers', Providers::class)->name('configurations.human-resources.providers');
   Route::get('/configurations/products-and-services/admissions', Admissions::class)->name('configurations.products-and-services.admissions');
   Route::get('/configurations/products-and-services/journays', Journays::class)->name('configurations.products-and-services.journays');
+  Route::get('/configurations/products-and-services/feeding', Foods::class)->name('configurations.products-and-services.feeding');
 });
