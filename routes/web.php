@@ -8,8 +8,10 @@ use App\Http\Controllers\GeneralInformationController;
 use App\Livewire\Configurations\HumanResources\Students;
 use App\Livewire\Configurations\HumanResources\Providers;
 use App\Livewire\Configurations\HumanResources\Attendants;
+use App\Livewire\Configurations\ProductsAndServices\Foods;
 use App\Livewire\Configurations\HumanResources\Collaborators;
 use App\Livewire\Configurations\ProductsAndServices\Journays;
+use App\Livewire\Configurations\ProductsAndServices\Uniforms;
 use App\Livewire\Configurations\ProductsAndServices\Admissions;
 use App\Livewire\Configurations\DatabaseStructure\SchoolCalendar;
 use App\Livewire\Configurations\GardenInformation\TaxInformation;
@@ -18,7 +20,6 @@ use App\Livewire\Configurations\DatabaseStructure\CreationDocument;
 use App\Livewire\Configurations\DatabaseStructure\HealthCareProvider;
 use App\Livewire\Configurations\GardenInformation\GeneralInformation;
 use App\Livewire\Configurations\DatabaseStructure\EmploymentPositions;
-use App\Livewire\Configurations\ProductsAndServices\Foods;
 
 /*
 |--------------------------------------------------------------------------
@@ -96,4 +97,5 @@ Route::middleware([
   Route::get('/configurations/products-and-services/admissions', Admissions::class)->name('configurations.products-and-services.admissions');
   Route::get('/configurations/products-and-services/journays', Journays::class)->name('configurations.products-and-services.journays');
   Route::get('/configurations/products-and-services/feeding', Foods::class)->name('configurations.products-and-services.feeding');
+  Route::get('/configurations/products-and-services/uniforms', Uniforms::class)->name('configurations.products-and-services.uniforms');
 });

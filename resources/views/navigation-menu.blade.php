@@ -234,7 +234,7 @@
                   <x-nav-link href="{{ route('configurations.products-and-services.feeding') }}">
                     {{ __('Feeding') }}
                   </x-nav-link>
-                  <x-nav-link>
+                  <x-nav-link href="{{ route('configurations.products-and-services.uniforms') }}">
                     {{ __('Uniforms') }}
                   </x-nav-link>
                   <x-nav-link>
