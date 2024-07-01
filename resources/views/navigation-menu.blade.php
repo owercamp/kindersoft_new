@@ -225,10 +225,10 @@
                   {{ __('Products and Services')}}
                 </x-slot>
                 <x-slot name="content">
-                  <x-nav-link href="{{ route('configurations.proudcts-and-services.admissions') }}">
+                  <x-nav-link href="{{ route('configurations.products-and-services.admissions') }}">
                     {{ __('Admissions') }}
                   </x-nav-link>
-                  <x-nav-link>
+                  <x-nav-link href="{{ route('configurations.products-and-services.journays') }}">
                     {{ __('Journays') }}
                   </x-nav-link>
                   <x-nav-link>
