@@ -19,6 +19,7 @@ use App\Livewire\Configurations\GardenInformation\CorporateImages;
 use App\Livewire\Configurations\DatabaseStructure\CreationDocument;
 use App\Livewire\Configurations\ProductsAndServices\AdditionalTime;
 use App\Livewire\Configurations\ProductsAndServices\SchoolSupplies;
+use App\Livewire\Configurations\ProductsAndServices\Transportation;
 use App\Livewire\Configurations\DatabaseStructure\HealthCareProvider;
 use App\Livewire\Configurations\GardenInformation\GeneralInformation;
 use App\Livewire\Configurations\ProductsAndServices\Extracurriculars;
@@ -104,4 +105,5 @@ Route::middleware([
   Route::get('/configurations/products-and-services/school-supplies', SchoolSupplies::class)->name('configurations.products-and-services.school-supplies');
   Route::get('/configurations/products-and-services/extratimes', AdditionalTime::class)->name('configurations.products-and-services.extratimes');
   Route::get('/configurations/products-and-services/extracurriculars', Extracurriculars::class)->name('configurations.products-and-services.extracurriculars');
+  Route::get('/configurations/products-and-services/transportation', Transportation::class)->name('configurations.products-and-services.transportation');
 });
