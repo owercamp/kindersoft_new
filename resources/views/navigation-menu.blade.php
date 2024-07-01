@@ -243,7 +243,7 @@
                   <x-nav-link href="{{ route('configurations.products-and-services.extratimes') }}">
                     {{ __('Additional Time') }}
                   </x-nav-link>
-                  <x-nav-link>
+                  <x-nav-link href="{{ route('configurations.products-and-services.extracurriculars') }}">
                     {{ __('Extracurricular') }}
                   </x-nav-link>
                   <x-nav-link>
