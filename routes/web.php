@@ -20,6 +20,7 @@ use App\Livewire\Configurations\DatabaseStructure\CreationDocument;
 use App\Livewire\Configurations\DatabaseStructure\HealthCareProvider;
 use App\Livewire\Configurations\GardenInformation\GeneralInformation;
 use App\Livewire\Configurations\DatabaseStructure\EmploymentPositions;
+use App\Livewire\Configurations\ProductsAndServices\AdditionalTime;
 use App\Livewire\Configurations\ProductsAndServices\SchoolSupplies;
 
 /*
@@ -100,4 +101,5 @@ Route::middleware([
   Route::get('/configurations/products-and-services/feeding', Foods::class)->name('configurations.products-and-services.feeding');
   Route::get('/configurations/products-and-services/uniforms', Uniforms::class)->name('configurations.products-and-services.uniforms');
   Route::get('/configurations/products-and-services/school-supplies', SchoolSupplies::class)->name('configurations.products-and-services.school-supplies');
+  Route::get('/configurations/products-and-services/extratimes', AdditionalTime::class)->name('configurations.products-and-services.extratimes');
 });
