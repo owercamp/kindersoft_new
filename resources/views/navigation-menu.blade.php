@@ -237,7 +237,7 @@
                   <x-nav-link href="{{ route('configurations.products-and-services.uniforms') }}">
                     {{ __('Uniforms') }}
                   </x-nav-link>
-                  <x-nav-link>
+                  <x-nav-link href="{{ route('configurations.products-and-services.school-supplies') }}">
                     {{ __('School Supplies') }}
                   </x-nav-link>
                   <x-nav-link>
