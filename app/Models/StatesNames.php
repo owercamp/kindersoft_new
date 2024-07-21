@@ -2,11 +2,12 @@
 
 namespace App\Models;
 
+use App\Models\Grade;
 use App\Models\States;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class StatesNames extends Model
 {
@@ -68,11 +69,11 @@ class StatesNames extends Model
     return $this->hasMany(Student::class, 'status_id', 'id');
   }
 
-    /**
-     * Returns a HasMany relationship between the StatesNames model and the Providers model.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
+  /**
+   * Returns a HasMany relationship between the StatesNames model and the Providers model.
+   *
+   * @return \Illuminate\Database\Eloquent\Relations\HasMany
+   */
   public function provider(): HasMany
   {
     return $this->hasMany(Providers::class, 'status_id', 'id');
@@ -87,5 +88,15 @@ class StatesNames extends Model
   public function admission(): HasMany
   {
     return $this->hasMany(Admissions::class, 'status_id', 'id');
+  }
+
+  /**
+   * A description of the entire PHP function.
+   *
+   * @return HasMany
+   */
+  public function grade(): HasMany
+  {
+    return $this->hasMany(Grade::class, 'status', 'id');
   }
 }
