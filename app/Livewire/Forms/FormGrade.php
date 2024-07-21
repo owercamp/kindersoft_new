@@ -8,13 +8,13 @@ use Livewire\Form;
 class FormGrade extends Form
 {
   public string $register = '';
-  public string $description = '';
+  public string $grade = '';
 
   public function rules()
   {
     return [
       'register' => 'required',
-      'description' => 'required|string|max:35',
+      'grade' => 'required|string|max:35',
     ];
   }
 
@@ -27,7 +27,7 @@ class FormGrade extends Form
   {
     return [
       'register' => __('Registration'),
-      'description' => __('Description'),
+      'grade' => __('Grade'),
     ];
   }
 }
