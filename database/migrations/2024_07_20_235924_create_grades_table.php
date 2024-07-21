@@ -14,7 +14,7 @@ return new class extends Migration
     Schema::create('grades', function (Blueprint $table) {
       $table->id();
       $table->unsignedBigInteger('register');
-      $table->string('description', 35);
+      $table->string('name', 35);
       $table->timestamps();
     });
   }
