@@ -21,7 +21,7 @@ class Grade extends Model
    *
    * @var array<string>
    */
-  protected $fillable = ['register', 'description'];
+  protected $fillable = ['register', 'description', 'status'];
 
   /**
    * Indicates if the model should be timestamped.
@@ -29,4 +29,9 @@ class Grade extends Model
    * @var bool
    */
   public $timestamps = true;
+
+  public function status()
+  {
+    return $this->hasOne(StatesNames::class, 'id', 'status');
+  }
 }
