@@ -107,5 +107,5 @@ Route::middleware([
   Route::get('/configurations/products-and-services/extratimes', AdditionalTime::class)->name('configurations.products-and-services.extratimes');
   Route::get('/configurations/products-and-services/extracurriculars', Extracurriculars::class)->name('configurations.products-and-services.extracurriculars');
   Route::get('/configurations/products-and-services/transportation', Transportation::class)->name('configurations.products-and-services.transportation');
-  Route::get('/configurations/Academic-programs/grades', AcademicGrade::class)->name('configurations.Academic-programs.grades');
+  Route::get('/configurations/academic-programs/grades', AcademicGrade::class)->name('configurations.academic-programs.grades');
 });
