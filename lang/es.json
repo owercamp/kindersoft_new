@@ -614,5 +614,6 @@
   "Period": "Periodo",
   "Course": "Curso",
   "Intelligence": "Inteligencia",
-  "Record Already Exists": "Registro ya existe"
+  "Record Already Exists": "Registro ya existe",
+  "The field is required": "El campo es obligatorio"
 }
