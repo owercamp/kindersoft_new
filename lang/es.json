@@ -613,5 +613,6 @@
   "Grade": "Grado",
   "Period": "Periodo",
   "Course": "Curso",
-  "Intelligence": "Inteligencia"
+  "Intelligence": "Inteligencia",
+  "Record Already Exists": "Registro ya existe"
 }
