@@ -256,7 +256,7 @@
                   {{ __('Academic Programs')}}
                 </x-slot>
                 <x-slot name="content">
-                  <x-nav-link href="{{ route('configurations.Academic-programs.grades') }}">
+                  <x-nav-link href="{{ route('configurations.academic-programs.grades') }}">
                     {{ __('Grades') }}
                   </x-nav-link>
                   <x-nav-link>
