@@ -608,5 +608,12 @@
   "Legal": "Jurídica",
   "Provider": "Proveedor",
   "The Price cannot be less than or equal to 0.": "El Precio no puede ser menor o igual a 0.",
-  "Successfully Updated Record": "Registro Actualizado Correctamente"
+  "Successfully Updated Record": "Registro Actualizado Correctamente",
+  "Creation": "Creación",
+  "Grade": "Grado",
+  "Period": "Periodo",
+  "Course": "Curso",
+  "Intelligence": "Inteligencia",
+  "Record Already Exists": "Registro ya existe",
+  "The field is required": "El campo es obligatorio"
 }

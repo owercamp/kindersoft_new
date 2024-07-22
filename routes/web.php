@@ -5,6 +5,7 @@ use App\Http\Controllers\HandlingPDF;
 use App\Livewire\Informations\Regime;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GeneralInformationController;
+use App\Livewire\Configurations\AcademicPrograms\AcademicGrade;
 use App\Livewire\Configurations\HumanResources\Students;
 use App\Livewire\Configurations\HumanResources\Providers;
 use App\Livewire\Configurations\HumanResources\Attendants;
@@ -106,4 +107,5 @@ Route::middleware([
   Route::get('/configurations/products-and-services/extratimes', AdditionalTime::class)->name('configurations.products-and-services.extratimes');
   Route::get('/configurations/products-and-services/extracurriculars', Extracurriculars::class)->name('configurations.products-and-services.extracurriculars');
   Route::get('/configurations/products-and-services/transportation', Transportation::class)->name('configurations.products-and-services.transportation');
+  Route::get('/configurations/academic-programs/grades', AcademicGrade::class)->name('configurations.academic-programs.grades');
 });
