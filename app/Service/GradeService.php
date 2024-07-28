@@ -11,7 +11,7 @@ class GradeService
 {
   public static function incrementRegister(): string
   {
-    $register = DB::table('grades')->latest('register')->value('register') + 1;
+    $register = ConsultingServices::get_consulting('grades', 'register');
     return $register;
   }
 
@@ -29,7 +29,7 @@ class GradeService
 
   public static function exists($name): bool
   {
-    $exists = DB::table('grades')->where('name', $name)->exists();
+    $exists = ConsultingServices::get_exists('grades', 'name', $name);
     return $exists;
   }
 
