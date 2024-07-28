@@ -80,7 +80,7 @@ class StatesNames extends Model
   }
 
   /**
-   * Returns a HasMany relationship between the StatesNames model and the 
+   * Returns a HasMany relationship between the StatesNames model and the
    * Admissions model, where the foreign key is 'status_id' and the local key is 'id'.
    *
    * @return \Illuminate\Database\Eloquent\Relations\HasMany
@@ -98,5 +98,16 @@ class StatesNames extends Model
   public function grade(): HasMany
   {
     return $this->hasMany(Grade::class, 'status', 'id');
+  }
+
+  /**
+   * Returns a HasMany relationship between the StatesNames model and the Course model,
+   * where the foreign key is 'status_id' and the local key is 'id'.
+   *
+   * @return \Illuminate\Database\Eloquent\Relations\HasMany
+   */
+  public function course(): HasMany
+  {
+    return $this->hasMany(Course::class, 'status_id', 'id');
   }
 }

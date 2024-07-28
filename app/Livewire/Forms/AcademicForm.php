@@ -5,29 +5,31 @@ namespace App\Livewire\Forms;
 use Livewire\Attributes\Validate;
 use Livewire\Form;
 
-class FormGrade extends Form
+class AcademicForm extends Form
 {
   public string $register = '';
-  public string $grade = '';
+  public string $description = '';
 
   public function rules()
   {
     return [
       'register' => 'required',
-      'grade' => 'required|string|max:35',
+      'description' => 'required|string|max:35',
     ];
   }
 
   public function messages()
   {
-    return [];
+    return [
+      'description.required' => __('The field is required'),
+    ];
   }
 
   public function validationAttributes()
   {
     return [
       'register' => __('Registration'),
-      'grade' => __('Grade'),
+      'description' => __('Description'),
     ];
   }
 }

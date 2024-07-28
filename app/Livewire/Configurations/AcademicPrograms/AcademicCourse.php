@@ -3,15 +3,13 @@
 namespace App\Livewire\Configurations\AcademicPrograms;
 
 use App\Livewire\Forms\AcademicForm;
-use Livewire\Component;
 use App\Service\AlertService;
-use App\Service\GradeService;
-use Livewire\Attributes\Validate;
+use App\Service\CourseService;
+use Livewire\Component;
 use Livewire\WithPagination;
 
-class AcademicGrade extends Component
+class AcademicCourse extends Component
 {
-
   use WithPagination;
   public AcademicForm $academicForm;
   public $status_list;
@@ -25,7 +23,7 @@ class AcademicGrade extends Component
 
   public function increment()
   {
-    $this->academicForm->register = str_pad(GradeService::incrementRegister(), 4, '0', STR_PAD_LEFT);
+    $this->academicForm->register = str_pad(CourseService::incrementRegister(), 4, '0', STR_PAD_LEFT);
     $this->academicForm->description = '';
   }
 
@@ -33,10 +31,10 @@ class AcademicGrade extends Component
   {
     $this->academicForm->validate();
 
-    $exists = GradeService::exists($this->academicForm->description);
+    $exists = CourseService::exists($this->academicForm->description);
 
     if (!$exists) {
-      $saved = GradeService::store($this->academicForm);
+      $saved = CourseService::store($this->academicForm);
       if ($saved) {
         $this->dispatch('swal:modal', AlertService::success());
       } else {
@@ -52,7 +50,7 @@ class AcademicGrade extends Component
   {
     $this->reset('academicForm.register', 'academicForm.description', 'status');
     $this->id = $id;
-    $register = GradeService::information($id);
+    $register = CourseService::information($id);
     $this->academicForm->register = str_pad($register->register, 4, '0', STR_PAD_LEFT);;
     $this->academicForm->description = $register->name;
     $this->status = $register->status_id;
@@ -64,7 +62,7 @@ class AcademicGrade extends Component
   public function edit()
   {
     $this->validate();
-    $edited = GradeService::edit($this->academicForm, $this->id, $this->status);
+    $edited = CourseService::edit($this->academicForm, $this->id, $this->status);
     $this->dispatch('swal:modal', $edited);
     $this->modal = false;
     $this->dispatch('saved');
@@ -72,7 +70,7 @@ class AcademicGrade extends Component
 
   public function delete(int $id)
   {
-    $deleted = GradeService::destroy($id);
+    $deleted = CourseService::destroy($id);
     $this->dispatch('swal:modal', $deleted);
     $this->modal = false;
     $this->dispatch('saved');
@@ -80,12 +78,12 @@ class AcademicGrade extends Component
 
   public function mount()
   {
-    $this->status_list = GradeService::status();
+    $this->status_list = CourseService::status();
   }
 
   public function render()
   {
-    $grades = GradeService::all();
-    return view('livewire.configurations.academic-programs.academic-grade', compact('grades'));
+    $courses = CourseService::all();
+    return view('livewire.configurations.academic-programs.academic-course', compact('courses'));
   }
 }
