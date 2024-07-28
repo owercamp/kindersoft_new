@@ -110,4 +110,16 @@ class StatesNames extends Model
   {
     return $this->hasMany(Course::class, 'status_id', 'id');
   }
+
+
+  /**
+   * Returns a HasMany relationship between the StatesNames model and the Period model,
+   * where the foreign key is 'status_id' and the local key is 'id'.
+   *
+   * @return \Illuminate\Database\Eloquent\Relations\HasMany
+   */
+  public function period(): HasMany
+  {
+    return $this->hasMany(Period::class, 'status_id', 'id');
+  }
 }
