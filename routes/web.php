@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GeneralInformationController;
 use App\Livewire\Configurations\AcademicPrograms\AcademicCourse;
 use App\Livewire\Configurations\AcademicPrograms\AcademicGrade;
+use App\Livewire\Configurations\AcademicPrograms\AcademicPeriod;
 use App\Livewire\Configurations\HumanResources\Students;
 use App\Livewire\Configurations\HumanResources\Providers;
 use App\Livewire\Configurations\HumanResources\Attendants;
@@ -110,4 +111,5 @@ Route::middleware([
   Route::get('/configurations/products-and-services/transportation', Transportation::class)->name('configurations.products-and-services.transportation');
   Route::get('/configurations/academic-programs/grades', AcademicGrade::class)->name('configurations.academic-programs.grades');
   Route::get('/configurations/academic-programs/courses', AcademicCourse::class)->name('configurations.academic-programs.courses');
+  Route::get('/configurations/academic-programs/periods', AcademicPeriod::class)->name('configurations.academic-programs.periods');
 });
