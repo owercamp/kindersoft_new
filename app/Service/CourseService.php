@@ -74,7 +74,7 @@ class CourseService
 
   public static function all()
   {
-    $courses = Course::with('status')->paginate(15);
+    $courses = Course::with('status')->paginate(10);
     return $courses;
   }
 }

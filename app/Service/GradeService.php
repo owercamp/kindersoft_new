@@ -40,7 +40,7 @@ class GradeService
 
   public static function all()
   {
-    $grades = Grade::with('status')->paginate();
+    $grades = Grade::with('status')->paginate(10);
     return $grades;
   }
 
