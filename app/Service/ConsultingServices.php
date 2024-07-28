@@ -2,6 +2,7 @@
 
 namespace App\Service;
 
+use App\Models\StatesNames;
 use Illuminate\Support\Facades\DB;
 
 class ConsultingServices
@@ -16,5 +17,11 @@ class ConsultingServices
   {
     $exists = DB::table($table)->where($field, $param)->exists();
     return $exists;
+  }
+
+  public static function status()
+  {
+    $status = StatesNames::pluck('name', 'id');
+    return $status;
   }
 }
