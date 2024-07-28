@@ -1,5 +1,5 @@
 <div>
-<x-slot name="header">
+  <x-slot name="header">
     <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight text-end px-4">
       {{ __('Configuration') }} > {{ __('Academic Programs') }} > {{ __('Grades') }}
     </h2>
@@ -70,8 +70,8 @@
                     @include('livewire.configurations.Partials.forms-academic-programs',['description' => __('Grade')])
                     <div class="flex flex-col basis-3/6">
                       <x-label class="ml-1">{{ __('Status') }}:</x-label><x-badge status="{{ $status_name }}">
-                      {{ __($status_name) }}
-                    </x-badge>
+                        {{ __($status_name) }}
+                      </x-badge>
                       <x-select-options title="status" wire:model="status">
                         <option value="">
                           {{ __('Select') }}...
