@@ -57,7 +57,7 @@ class Course extends Model
   {
     return Attribute::make(
       get: fn ($value) => trim($value),
-      set: fn ($value) => trim(ucfirst(strtolower($value))),
+      set: fn ($value) => trim(strtoupper(strtolower($value))),
     );
   }
 
