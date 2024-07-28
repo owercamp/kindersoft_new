@@ -94,10 +94,6 @@
           </div>
         </div>
 
-
-
-
-
         <div class="flex flex-row mt-3">
           <div class="w-full">
             <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
