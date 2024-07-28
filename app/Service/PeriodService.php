@@ -3,33 +3,34 @@
 namespace App\Service;
 
 use App\Livewire\Forms\AcademicForm;
-use App\Models\Grade;
-use App\Models\StatesNames;
+use App\Models\Period;
+use App\Service\AlertService;
+use App\Service\ConsultingServices;
 
-class GradeService
+class PeriodService
 {
   public static function incrementRegister(): string
   {
-    $register = ConsultingServices::get_consulting_increment('grades', 'register');
+    $register = ConsultingServices::get_consulting_increment('periods', 'register');
     return $register;
-  }
-
-  public static function store(AcademicForm $academicForm)
-  {
-    $grade = new Grade();
-    $grade->register = $academicForm->register;
-    $grade->name = $academicForm->description;
-    if ($grade->save()) {
-      return true;
-    }
-
-    return false;
   }
 
   public static function exists($name): bool
   {
-    $exists = ConsultingServices::get_exists('grades', 'name', $name);
+    $exists = ConsultingServices::get_exists('periods', 'name', $name);
     return $exists;
+  }
+
+  public static function store(AcademicForm $academicForm)
+  {
+    $period = new Period();
+    $period->register = $academicForm->register;
+    $period->name = $academicForm->description;
+    if ($period->save()) {
+      return true;
+    }
+
+    return false;
   }
 
   public static function status()
@@ -40,18 +41,18 @@ class GradeService
 
   public static function all()
   {
-    $grades = Grade::with('status')->paginate(10);
-    return $grades;
+    $periods = Period::with('status')->paginate(10);
+    return $periods;
   }
 
   public static function information($id)
   {
-    return Grade::find($id);
+    return Period::find($id);
   }
 
   public static function edit(AcademicForm $academicForm, int $id, int $status)
   {
-    $register = GradeService::information($id);
+    $register = PeriodService::information($id);
 
     if ($register) {
       $register->register = $academicForm->register;
@@ -67,7 +68,7 @@ class GradeService
 
   public static function destroy(int $id)
   {
-    $register = GradeService::information($id);
+    $register = PeriodService::information($id);
     if ($register) {
       if ($register->delete()) {
         return AlertService::deleted();

@@ -262,7 +262,7 @@
                   <x-nav-link href="{{ route('configurations.academic-programs.courses') }}">
                     {{ __('Courses') }}
                   </x-nav-link>
-                  <x-nav-link>
+                  <x-nav-link href="{{ route('configurations.academic-programs.periods') }}">
                     {{ __('Periods') }}
                   </x-nav-link>
                   <x-nav-link>
