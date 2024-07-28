@@ -2,10 +2,9 @@
 
 namespace App\Service;
 
+use App\Livewire\Forms\AcademicForm;
 use App\Models\Grade;
 use App\Models\StatesNames;
-use App\Livewire\Forms\FormGrade;
-use Illuminate\Support\Facades\DB;
 
 class GradeService
 {
@@ -15,11 +14,11 @@ class GradeService
     return $register;
   }
 
-  public static function store(FormGrade $formGrade)
+  public static function store(AcademicForm $academicForm)
   {
     $grade = new Grade();
-    $grade->register = $formGrade->register;
-    $grade->name = $formGrade->grade;
+    $grade->register = $academicForm->register;
+    $grade->name = $academicForm->description;
     if ($grade->save()) {
       return true;
     }
@@ -50,13 +49,13 @@ class GradeService
     return Grade::find($id);
   }
 
-  public static function edit(FormGrade $formGrade, int $id, int $status)
+  public static function edit(AcademicForm $academicForm, int $id, int $status)
   {
     $register = GradeService::information($id);
 
     if ($register) {
-      $register->register = $formGrade->register;
-      $register->name = $formGrade->grade;
+      $register->register = $academicForm->register;
+      $register->name = $academicForm->description;
       $register->status_id = $status;
       if ($register->save()) {
         return AlertService::info();

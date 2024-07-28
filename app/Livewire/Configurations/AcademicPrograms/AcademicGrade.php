@@ -2,11 +2,10 @@
 
 namespace App\Livewire\Configurations\AcademicPrograms;
 
-
+use App\Livewire\Forms\AcademicForm;
 use Livewire\Component;
 use App\Service\AlertService;
 use App\Service\GradeService;
-use App\Livewire\Forms\FormGrade;
 use Livewire\Attributes\Validate;
 use Livewire\WithPagination;
 
@@ -14,7 +13,7 @@ class AcademicGrade extends Component
 {
 
   use WithPagination;
-  public FormGrade $formGrade;
+  public AcademicForm $academicForm;
   public $status_list;
   #[Validate('required|exists:states_names,id', 'Estado')]
   public int $status;
@@ -26,18 +25,18 @@ class AcademicGrade extends Component
 
   public function increment()
   {
-    $this->formGrade->register = str_pad(GradeService::incrementRegister(), 4, '0', STR_PAD_LEFT);
-    $this->formGrade->grade = '';
+    $this->academicForm->register = str_pad(GradeService::incrementRegister(), 4, '0', STR_PAD_LEFT);
+    $this->academicForm->description = '';
   }
 
   public function save()
   {
-    $this->formGrade->validate();
+    $this->academicForm->validate();
 
-    $exists = GradeService::exists($this->formGrade->grade);
+    $exists = GradeService::exists($this->academicForm->description);
 
     if (!$exists) {
-      $saved = GradeService::store($this->formGrade);
+      $saved = GradeService::store($this->academicForm);
       if ($saved) {
         $this->dispatch('swal:modal', AlertService::success());
       } else {
@@ -51,11 +50,11 @@ class AcademicGrade extends Component
 
   public function openModal($id)
   {
-    $this->reset('formGrade.register', 'formGrade.grade', 'status');
+    $this->reset('academicForm.register', 'academicForm.description', 'status');
     $this->id = $id;
     $register = GradeService::information($id);
-    $this->formGrade->register = str_pad($register->register, 4, '0', STR_PAD_LEFT);;
-    $this->formGrade->grade = $register->name;
+    $this->academicForm->register = str_pad($register->register, 4, '0', STR_PAD_LEFT);;
+    $this->academicForm->description = $register->name;
     $this->status = $register->status_id;
     $this->status_name = $register->status->name;
 
@@ -65,7 +64,7 @@ class AcademicGrade extends Component
   public function edit()
   {
     $this->validate();
-    $edited = GradeService::edit($this->formGrade, $this->id, $this->status);
+    $edited = GradeService::edit($this->academicForm, $this->id, $this->status);
     $this->dispatch('swal:modal', $edited);
     $this->modal = false;
     $this->dispatch('saved');
