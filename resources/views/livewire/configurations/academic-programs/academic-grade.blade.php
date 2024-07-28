@@ -187,7 +187,7 @@
       if (event.detail[0].success == 'completed') {
         document.getElementById('closedModal').click();
         document.getElementById('register').value = "";
-        document.getElementById('grade').value = "";
+        document.getElementById('description').value = "";
         document.getElementById('status').value = "";
       }
     })
