@@ -179,8 +179,6 @@
         bgColor = '#9cbfff';
       }
 
-      console.log(event.detail[0]);
-
       Swal.fire({
         icon: event.detail[0].type,
         title: event.detail[0].message,
