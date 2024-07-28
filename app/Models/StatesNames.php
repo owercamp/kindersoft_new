@@ -2,12 +2,18 @@
 
 namespace App\Models;
 
+use App\Models\Admissions;
+use App\Models\Attendant;
+use App\Models\Course;
 use App\Models\Grade;
+use App\Models\Period;
+use App\Models\Providers;
 use App\Models\States;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasOne;
-use Illuminate\Database\Eloquent\Relations\HasMany;
+use App\Models\Student;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class StatesNames extends Model
 {
