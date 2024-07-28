@@ -11,7 +11,7 @@ class GradeService
 {
   public static function incrementRegister(): string
   {
-    $register = ConsultingServices::get_consulting('grades', 'register');
+    $register = ConsultingServices::get_consulting_increment('grades', 'register');
     return $register;
   }
 

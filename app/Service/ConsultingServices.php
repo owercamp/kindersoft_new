@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\DB;
 
 class ConsultingServices
 {
-  public static function get_consulting($table, $field): string
+  public static function get_consulting_increment($table, $field): string
   {
     $register = DB::table($table)->latest($field)->value($field) + 1;
     return $register;
