@@ -20,12 +20,10 @@ class FormGrade extends Form
 
   public function messages()
   {
-    return [
-      'grade.required' => __('The field is required'),
-    ];
+    return [];
   }
 
-  public function attributes()
+  public function validationAttributes()
   {
     return [
       'register' => __('Registration'),
