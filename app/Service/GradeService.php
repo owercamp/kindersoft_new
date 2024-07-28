@@ -34,7 +34,7 @@ class GradeService
 
   public static function status()
   {
-    $status = StatesNames::pluck('name', 'id');
+    $status = ConsultingServices::status();
     return $status;
   }
 
