@@ -32,7 +32,7 @@ class AcademicGrade extends Component
 
   public function save()
   {
-    $this->validate();
+    $this->formGrade->validate();
 
     $exists = GradeService::exists($this->formGrade->grade);
 
