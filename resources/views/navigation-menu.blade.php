@@ -265,7 +265,7 @@
                   <x-nav-link href="{{ route('configurations.academic-programs.periods') }}">
                     {{ __('Periods') }}
                   </x-nav-link>
-                  <x-nav-link>
+                  <x-nav-link href="{{ route('configurations.academic-programs.intelligence') }}">
                     {{ __('Intelligences') }}
                   </x-nav-link>
                   <x-nav-link>
