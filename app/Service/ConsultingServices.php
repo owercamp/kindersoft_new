@@ -32,7 +32,7 @@ class ConsultingServices implements IConsultingServices, IGetExistsServices, ISt
 
   public static function get_consulting($table, $params): object
   {
-    $achievements = DB::table($table)->where($params['field'], $params['value'])->pluck('name', 'id');
-    return $achievements;
+    $information = DB::table($table)->where($params['field'], $params['value'])->pluck('name', 'id');
+    return $information;
   }
 }
