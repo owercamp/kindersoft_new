@@ -2,7 +2,7 @@
   <div class="flex flex-col gap-4 mb-4 w-full">
     <div class="flex flex-row w-full">
       <div class="flex flex-col basis-3/6">
-        <x-label class="ml-1">{{ __('actions.select') }} {{ $description }}:</x-label>
+        <x-label class="ml-1">{{ __('actions.select') }} {{ $description_list }}:</x-label>
         <x-select-options title="achievements" wire:model="achievementForm.intelligence">
           <option value="">{{ __('Select') }}...</option>
           @foreach ($searching as $key => $search)
