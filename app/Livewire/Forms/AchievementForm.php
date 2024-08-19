@@ -30,7 +30,7 @@ class AchievementForm extends Form
     return [
       'intelligence' => __('Intelligence'),
       'register' => __('Registration'),
-      'description' => __('Description'),
+      'description' => __('Achievements'),
     ];
   }
 }
