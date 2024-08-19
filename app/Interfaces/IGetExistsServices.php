@@ -4,5 +4,5 @@ namespace App\Interfaces;
 
 interface IGetExistsServices
 {
-  public static function get_exists($table, $field, $param): bool;
+  public static function get_exists($table, $param): bool;
 }
