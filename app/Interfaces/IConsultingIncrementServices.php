@@ -2,7 +2,7 @@
 
 namespace App\Interfaces;
 
-interface IConsultingServices
+interface IConsultingIncrementServices
 {
   public static function get_consulting_increment($table, $field): string;
 }
