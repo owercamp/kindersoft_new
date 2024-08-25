@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\StatesNames;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -19,7 +20,7 @@ class IntelligenceFactory extends Factory
     return [
       'name' => $this->faker->word(),
       'register' => $this->faker->numberBetween(1000, 9999),
-      'status_id' => round($this->faker->numberBetween(1, 2)),
+      'status_id' => fn() => $this->faker->randomElement(StatesNames::pluck('id')->toArray()),
     ];
   }
 }
