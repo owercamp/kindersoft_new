@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Intelligence;
+use App\Models\StatesNames;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -54,14 +55,9 @@ class Achievement extends Model
    */
   public function intelligence(): BelongsTo
   {
-    return $this->belongsTo(Intelligence::class, 'id', 'intelligence_id');
+    return $this->belongsTo(Intelligence::class, 'intelligence_id', 'id');
   }
 
-  /**
-   * Retrieve the status associated with this achievement.
-   *
-   * @return \Illuminate\Database\Eloquent\Relations\HasOne The status relation.
-   */
   public function status(): HasOne
   {
     return $this->hasOne(StatesNames::class, 'id', 'status_id');
