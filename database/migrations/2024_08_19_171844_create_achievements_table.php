@@ -16,7 +16,7 @@ return new class extends Migration
       $table->foreignId('intelligence_id')->nullable()->constrained('intelligences', 'id')->onUpdate('cascade')->onDelete('set null');
       $table->unsignedBigInteger('register');
       $table->string('description');
-      $table->foreignId('status_id')->nullable()->constrained('states_names', 'id')->onUpdate('cascade')->onDelete('set null');
+      $table->foreignId('status_id')->nullable()->default(1)->constrained('states_names', 'id')->onUpdate('cascade')->onDelete('set null');
       $table->timestamps();
     });
   }
