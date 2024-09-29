@@ -45,12 +45,13 @@ class Achievements extends Component
     $this->dispatch('swal:modal', SuccessNotification::get_notifications('success', __('Successfully Imported Records'), 1500, 'completed'));
   }
 
-  public function increment()
+  public function search()
   {
-    $this->achievementForm->intelligence = 0;
-    $this->achievementForm->description = "";
-    $this->achievementForm->register = str_pad(AchievementService::get_consulting_increment('achievements', 'register'), 4, "0", STR_PAD_LEFT);
+    $register = AchievementService::searchingIntelligence($this->achievementForm->intelligence);
+    $this->achievementForm->register = str_pad($register, 4, '0', STR_PAD_LEFT);
   }
+
+  public function increment() {}
 
   public function excel()
   {

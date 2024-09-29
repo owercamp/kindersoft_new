@@ -67,4 +67,10 @@ class AchievementService extends ConsultingServices
   {
     return Achievement::with('status:id,name', 'intelligence:id,name')->find($id);
   }
+
+  public static function searchingIntelligence(int $id)
+  {
+    $intelligence = IntelligenceService::information($id);
+    return $intelligence->register;
+  }
 }
