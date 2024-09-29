@@ -28,6 +28,7 @@ use App\Livewire\Configurations\DatabaseStructure\HealthCareProvider;
 use App\Livewire\Configurations\GardenInformation\GeneralInformation;
 use App\Livewire\Configurations\ProductsAndServices\Extracurriculars;
 use App\Livewire\Configurations\DatabaseStructure\EmploymentPositions;
+use App\Livewire\Configurations\ProductsAndServices\Achievements;
 
 /*
 |--------------------------------------------------------------------------
@@ -114,4 +115,5 @@ Route::middleware([
   Route::get('/configurations/academic-programs/courses', AcademicCourse::class)->name('configurations.academic-programs.courses');
   Route::get('/configurations/academic-programs/periods', AcademicPeriod::class)->name('configurations.academic-programs.periods');
   Route::get('/configurations/academic-programs/intelligence', AcademicIntelligence::class)->name('configurations.academic-programs.intelligence');
+  Route::get('/configurations/academic-programs/Achievements', Achievements::class)->name('configurations.academic-programs.achievements');
 });

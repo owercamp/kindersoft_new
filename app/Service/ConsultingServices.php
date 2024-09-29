@@ -2,10 +2,15 @@
 
 namespace App\Service;
 
+use App\Interfaces\IConsultingIncrementServices;
+use App\Interfaces\IGetConsultingServices;
+use App\Interfaces\IGetExistsServices;
+use App\Interfaces\IStatusServices;
 use App\Models\StatesNames;
+
 use Illuminate\Support\Facades\DB;
 
-class ConsultingServices
+class ConsultingServices implements IConsultingIncrementServices, IGetExistsServices, IStatusServices, IGetConsultingServices
 {
   public static function get_consulting_increment($table, $field): string
   {
@@ -13,9 +18,9 @@ class ConsultingServices
     return $register;
   }
 
-  public static function get_exists($table, $field, $param): bool
+  public static function get_exists($table, $param): bool
   {
-    $exists = DB::table($table)->where($field, $param)->exists();
+    $exists = DB::table($table)->where($param)->exists();
     return $exists;
   }
 
@@ -23,5 +28,11 @@ class ConsultingServices
   {
     $status = StatesNames::pluck('name', 'id');
     return $status;
+  }
+
+  public static function get_consulting($table, $params): object
+  {
+    $information = DB::table($table)->where($params)->pluck('name', 'id');
+    return $information;
   }
 }

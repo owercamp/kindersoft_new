@@ -268,7 +268,7 @@
                   <x-nav-link href="{{ route('configurations.academic-programs.intelligence') }}">
                     {{ __('Intelligences') }}
                   </x-nav-link>
-                  <x-nav-link>
+                  <x-nav-link href="{{ route('configurations.academic-programs.achievements') }}">
                     {{ __('Achievements') }}
                   </x-nav-link>
                   <x-nav-link>

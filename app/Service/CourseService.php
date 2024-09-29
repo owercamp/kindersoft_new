@@ -18,7 +18,7 @@ class CourseService
 
   public static function exists($name): bool
   {
-    $exists = ConsultingServices::get_exists('courses', 'name', $name);
+    $exists = ConsultingServices::get_exists('courses', ['name' => $name]);
     return $exists;
   }
 

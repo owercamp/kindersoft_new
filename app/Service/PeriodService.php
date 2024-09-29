@@ -17,7 +17,7 @@ class PeriodService
 
   public static function exists($name): bool
   {
-    $exists = ConsultingServices::get_exists('periods', 'name', $name);
+    $exists = ConsultingServices::get_exists('periods', ['name' => $name]);
     return $exists;
   }
 
