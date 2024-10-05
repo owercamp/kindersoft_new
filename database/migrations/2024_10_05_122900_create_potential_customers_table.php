@@ -16,8 +16,8 @@ return new class extends Migration
       $table->unsignedBigInteger('register');
       $table->date('date');
       $table->string('name_attendant');
-      $table->unsignedInteger('phone');
-      $table->unsignedInteger('whatsapp');
+      $table->string('phone',50);
+      $table->string('whatsapp',50);
       $table->string('email', 50);
       $table->enum('applicants', [1, 2, 3, 4, 5, 6, 7, 8, 9])->default(1);
       $table->string('name_applicant');
