@@ -15,6 +15,7 @@ class RegistrationForm extends Form
   public string $email = '';
   public string $applicants = '';
   public string $applicant = '';
+  public string $birthday = '';
   public int $genre = 0;
 
   public function rules()
@@ -27,6 +28,7 @@ class RegistrationForm extends Form
       'email' => 'required|email',
       'applicants' => 'required|numeric',
       'applicant' => 'required|string',
+      'birthday' => 'required|date',
       'genre' => 'required|numeric|exists:genres,id'
     ];
   }
@@ -45,6 +47,7 @@ class RegistrationForm extends Form
       'phone' => __('Phone'),
       'email' => __('Email address'),
       'applicants' => __('Number of applicants'),
+      'birthday' => ucfirst(__('validation.attributes.date_of_birth')),
       'applicant' => __('Name') . ' ' . __('Applicant'),
       'genre' => __('Genre')
     ];
