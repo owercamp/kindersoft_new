@@ -26,7 +26,7 @@ class RegistrationForm extends Form
       'name' => 'required|string',
       'phone' => 'required|numeric',
       'email' => 'required|email',
-      'applicants' => 'required|numeric',
+      'applicants' => 'required|numeric|min:1|max:9',
       'applicant' => 'required|string',
       'birthday' => 'required|date',
       'genre' => 'required|numeric|exists:genres,id'
