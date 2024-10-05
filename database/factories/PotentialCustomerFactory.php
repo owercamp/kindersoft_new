@@ -25,7 +25,7 @@ class PotentialCustomerFactory extends Factory
       'phone' => $number,
       'whatsapp' => $number,
       'email' => $this->faker->email(),
-      'aplicants' => $this->faker->numberBetween(1, 9),
+      'applicants' => $this->faker->numberBetween(1, 9),
       'name_applicant' => $this->faker->name(),
       'gende_id' => fn() => $this->faker->randomElement(Genre::pluck('id')->toArray()),
       'birthdate' => $this->faker->date('Y-m-d', 'now')
