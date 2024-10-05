@@ -50,8 +50,10 @@
       <x-label>{{ __('Genre') }}</x-label>
       <x-select-options class="mt-1" title="genres" wire:model="registerForm.genre">
         <option value="">{{ __('Select') }}...</option>
-        @foreach ($genres as $genre)
-        <option value="{{ $genre }}">{{ $genre }}</option>
+        @foreach ($genres as $key => $genre)
+          @if ($genre != 'Otro')
+            <option value="{{ $key }}">{{ $genre }}</option>
+          @endif
         @endforeach
       </x-select-options>
       <x-input-error for="registerForm.genre" />
