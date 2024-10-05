@@ -17,7 +17,7 @@ class PotentialCustomerFactory extends Factory
    */
   public function definition(): array
   {
-    $number = $this->faker->phoneNumber();
+    $number = $this->faker->phoneNumber;
     return [
       'register' => $this->faker->numberBetween(1000, 9999),
       'date' => $this->faker->date('Y-m-d', 'now'),
