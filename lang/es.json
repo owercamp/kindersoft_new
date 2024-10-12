@@ -567,6 +567,8 @@
   "Consulting...": "Consultando...",
   "Removing...": "Eliminando...",
   "Saving...": "Guardando...",
+  "Exporting...": "Exportando...",
+  "Importing...": "Importando...",
   "Position": "Cargo",
   "Collaborator": "Colaborador",
   "Document Type": "Tipo de Documento",
@@ -617,5 +619,9 @@
   "Record Already Exists": "Registro ya existe",
   "The field is required": "El campo es obligatorio",
   "Template": "Plantilla",
-  "Successfully Imported Records": "Registros Importados Correctamente"
+  "Successfully Imported Records": "Registros Importados Correctamente",
+  "Number of applicants": "Número de aspirantes",
+  "Applicant": "Aspirante",
+  "Age": "Edad",
+  "Schedule": "Agendar"
 }
