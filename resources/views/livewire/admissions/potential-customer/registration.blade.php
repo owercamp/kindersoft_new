@@ -76,6 +76,37 @@
               </div>
             </div>
           </div>
+
+          <div x-data="{ modal: $wire.entangle('schedule').live }">
+            <div class="fixed inset-0 z-50 flex items-center justify-center overflow-auto bg-black bg-opacity-50" x-show="modal" id="edit">
+              <!-- Modal inner -->
+              <div class="max-w-3xl max-h-[42rem] px-6 py-4 mx-auto text-left text-gray-800 dark:text-gray-200 bg-white dark:bg-gray-800 rounded shadow-lg w-9/12 overflow-y-auto" @click.away="showModal = false" x-transition:enter="motion-safe:ease-out duration-300" x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100">
+                <!-- Title / Close-->
+                <div class="flex items-center justify-between my-4">
+                  <h5 class="mr-3 text-gray-800 dark:text-gray-200 max-w-none">{{ __('Scheduling') }}</h5>
+
+                  <button type="button" class="z-50 cursor-pointer" @click="modal = false">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </button>
+                </div>
+                <hr>
+
+                <!-- content -->
+                <div class="p-4">
+                  <form wire:submit.prevent="agent_schedule">
+                    @csrf
+                    @method('PUT')
+                    @include('livewire.admissions.potential-customer.partial-schedule')
+                    <div class="flex justify-end mt-1">
+                      <x-button class="bg-green-800 hover:bg-green-700 dark:bg-sky-800 dark:hover:bg-sky-600 w-full" type="submit">{{ __('Save') }}</x-button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div class="flex flex-row mt-3">
@@ -149,14 +180,14 @@
                         {{ __('Exporting...') }}
                       </div>
                     </x-button>
-                    <x-button class="bg-yellow-800 hover:bg-yellow-700 my-2 flex flex-row" wire:click="#">
+                    <x-button class="bg-yellow-800 hover:bg-yellow-700 my-2 flex flex-row" wire:click="schedule_model({{ $potential->id }})">
                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 mr-1">
                         <path fill-rule="evenodd" d="M2.625 6.75a1.125 1.125 0 1 1 2.25 0 1.125 1.125 0 0 1-2.25 0Zm4.875 0A.75.75 0 0 1 8.25 6h12a.75.75 0 0 1 0 1.5h-12a.75.75 0 0 1-.75-.75ZM2.625 12a1.125 1.125 0 1 1 2.25 0 1.125 1.125 0 0 1-2.25 0ZM7.5 12a.75.75 0 0 1 .75-.75h12a.75.75 0 0 1 0 1.5h-12A.75.75 0 0 1 7.5 12Zm-4.875 5.25a1.125 1.125 0 1 1 2.25 0 1.125 1.125 0 0 1-2.25 0Zm4.875 0a.75.75 0 0 1 .75-.75h12a.75.75 0 0 1 0 1.5h-12a.75.75 0 0 1-.75-.75Z" clip-rule="evenodd" />
                       </svg>
-                      <div wire:loading.class="hidden" wire:target="#">
+                      <div wire:loading.class="hidden" wire:target="schedule_model({{ $potential->id }})">
                         {{ __('Schedule') }}
                       </div>
-                      <div wire:loading wire:target="#">
+                      <div wire:loading wire:target="schedule_model({{ $potential->id }})">
                         {{ __('Scheduling') }}
                       </div>
                     </x-button>
