@@ -2,6 +2,9 @@
 
 namespace App\Models;
 
+use App\Models\Genre;
+use App\Models\Scheduling;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
@@ -83,5 +86,16 @@ class PotentialCustomer extends Model
   public function genre(): HasOne
   {
     return $this->hasOne(Genre::class, 'id', 'genre_id');
+  }
+
+  /**
+   * Get the Scheduling record associated with the PotentialCustomer
+   * that is registered.
+   *
+   * @return \Illuminate\Database\Eloquent\Relations\HasOne
+   */
+  public function asigned(): hasOne
+  {
+    return $this->hasOne(Scheduling::class, 'potential_customer_id', 'id');
   }
 }
