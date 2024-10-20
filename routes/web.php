@@ -6,6 +6,7 @@ use App\Livewire\Informations\Regime;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GeneralInformationController;
 use App\Livewire\Admissions\PotentialCustomer\Registration;
+use App\Livewire\Admissions\PotentialCustomer\Scheduling;
 use App\Livewire\Configurations\AcademicPrograms\AcademicCourse;
 use App\Livewire\Configurations\AcademicPrograms\AcademicGrade;
 use App\Livewire\Configurations\AcademicPrograms\AcademicIntelligence;
@@ -120,4 +121,5 @@ Route::middleware([
   Route::get('/configurations/academic-programs/Achievements', Achievements::class)->name('configurations.academic-programs.achievements');
   Route::get('/configurations/academic-programs/remarks', Observations::class)->name('configurations.academic-programs.remarks');
   Route::get('/admissions/potential-customer/registration', Registration::class)->name('admissions.potential-customer.registration');
+  Route::get('/admissions/potential-customer/scheduling', Scheduling::class)->name('admissions.potential-customer.scheduling');
 });

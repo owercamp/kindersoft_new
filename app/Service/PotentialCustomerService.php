@@ -3,7 +3,9 @@
 namespace App\Service;
 
 use App\Livewire\Forms\RegistrationForm;
+use App\Livewire\Forms\scheduleForm;
 use App\Models\PotentialCustomer;
+use App\Models\Scheduling;
 use App\Service\Notified\SuccessNotification;
 use Illuminate\Support\Facades\DB;
 
@@ -70,8 +72,22 @@ class PotentialCustomerService extends ConsultingServices
     return PotentialCustomer::with('genre')->find($id);
   }
 
+  public static function asigned(scheduleForm $schedule, int $id)
+  {
+    $new_schedule = new Scheduling();
+    $new_schedule->date = $schedule->date;
+    $new_schedule->time = $schedule->time;
+    $new_schedule->potential_customer_id = $id;
+    $new_schedule->save();
+    if ($new_schedule) {
+      return true;
+    }else{
+      return false;
+    }
+  }
+
   public static function all()
   {
-    return PotentialCustomer::with('genre')->paginate(10);
+    return PotentialCustomer::with('genre','asigned')->paginate(10);
   }
 }
