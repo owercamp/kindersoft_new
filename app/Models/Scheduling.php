@@ -30,7 +30,7 @@ class Scheduling extends Model
    */
   protected $casts = [
     'date' => 'date',
-    'time' => 'time',
+    'time' => 'string',
     'potential_customer_id' => 'integer',
   ];
 
