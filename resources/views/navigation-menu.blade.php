@@ -354,7 +354,7 @@
                     {{ __('Scheduling') }}
                   </x-nav-link>
                   <x-nav-link>
-                    {{ __('Programming') }}
+                    {{ __('Archive') }}
                   </x-nav-link>
                   <x-nav-link>
                     {{ __('Statistics') }}
