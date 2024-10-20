@@ -350,7 +350,7 @@
                   <x-nav-link href="{{ route('admissions.potential-customer.registration') }}">
                     {{ __('Registration') }}
                   </x-nav-link>
-                  <x-nav-link>
+                  <x-nav-link href="{{ route('admissions.potential-customer.scheduling') }}">
                     {{ __('Scheduling') }}
                   </x-nav-link>
                   <x-nav-link>
