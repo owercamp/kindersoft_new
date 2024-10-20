@@ -78,7 +78,7 @@
           </div>
 
           <div x-data="{ modal: $wire.entangle('schedule').live }">
-            <div class="fixed inset-0 z-50 flex items-center justify-center overflow-auto bg-black bg-opacity-50" x-show="modal" id="edit">
+            <div class="fixed inset-0 z-50 flex items-center justify-center overflow-auto bg-black bg-opacity-50" x-show="modal" id="schedule">
               <!-- Modal inner -->
               <div class="max-w-3xl max-h-[42rem] px-6 py-4 mx-auto text-left text-gray-800 dark:text-gray-200 bg-white dark:bg-gray-800 rounded shadow-lg w-9/12 overflow-y-auto" @click.away="showModal = false" x-transition:enter="motion-safe:ease-out duration-300" x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100">
                 <!-- Title / Close-->
@@ -228,8 +228,18 @@
       if (event.detail[0].success == 'completed') {
         document.getElementById('closedModal').click();
         document.getElementById('register').value = "";
-        document.getElementById('description').value = "";
-        document.getElementById('status').value = "";
+        document.getElementById('date').value = "";
+        document.getElementById('name').value = "";
+        document.getElementById('phone').value = "";
+        document.getElementById('whatsapp').value = "";
+        document.getElementById('email').value = "";
+        document.getElementById('applicants').value = "";
+        document.getElementById('applicant').value = "";
+        document.getElementById('genres').value = "";
+        document.getElementById('birthday').value = "";
+        document.getElementById('schedule').value = "";
+        document.querySelector('input[type="date"]').value = "";
+        document.getElementById('time').value = "";
       }
     })
   </script>
