@@ -88,6 +88,6 @@ class PotentialCustomerService extends ConsultingServices
 
   public static function all()
   {
-    return PotentialCustomer::with('genre')->paginate(10);
+    return PotentialCustomer::with('genre','asigned')->paginate(10);
   }
 }
