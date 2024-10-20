@@ -4,6 +4,7 @@ namespace App\Livewire\Admissions\PotentialCustomer;
 
 use App\Exports\PotentialCustomerExcel;
 use App\Livewire\Forms\RegistrationForm;
+use App\Livewire\Forms\scheduleForm;
 use App\Models\Genre;
 use App\Service\Notified\ErrorNotification;
 use App\Service\Notified\SuccessNotification;
@@ -17,11 +18,13 @@ class Registration extends Component
 {
   use WithPagination;
   public RegistrationForm $registerForm;
+  public scheduleForm $scheduleForm;
   public $genres = [];
   public string $age = "0";
   public $searching;
   public int $id;
   public bool $modal = false;
+  public bool $schedule = false;
 
   public function increment()
   {
@@ -126,6 +129,24 @@ class Registration extends Component
   public function export(int $id)
   {
     return Excel::download(new PotentialCustomerExcel($id), 'Cliente Potencial.xlsx');
+  }
+
+  public function schedule_model(int $id)
+  {
+    $this->id = $id;
+    $this->schedule = true;
+  }
+
+  public function agent_schedule()
+  {
+    $this->scheduleForm->validate();
+    $id = $this->id;
+    $schedule = PotentialCustomerService::asigned($this->scheduleForm, $id);
+    if ($schedule) {
+      $this->dispatch('swal:modal', SuccessNotification::get_notifications('success', __('Successfully Scheduled Record'), 1500, 'completed'));
+    } else {
+      $this->dispatch('swal:modal', ErrorNotification::get_notifications('error', __('An error has occurred'), 1500, 'completed'));
+    }
   }
 
   public function render()
