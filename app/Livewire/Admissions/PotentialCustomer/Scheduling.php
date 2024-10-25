@@ -9,6 +9,16 @@ use Livewire\WithPagination;
 class Scheduling extends Component
 {
   use WithPagination;
+
+  public bool $modal = false;
+  public object $info;
+
+  public function openModal(int $id)
+  {
+    $data = SchedulingService::show($id);
+    $this->info = $data;
+    $this->modal = true;
+  }
   public function render()
   {
     $registers = SchedulingService::all();
