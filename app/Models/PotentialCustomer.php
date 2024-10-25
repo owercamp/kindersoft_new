@@ -124,6 +124,6 @@ class PotentialCustomer extends Model
     } else {
       $message = str_pad($diffYears, 2, '0', STR_PAD_LEFT) . ' años y ' . str_pad($diffMonths, 2, '0', STR_PAD_LEFT) . ' meses';
     }
-    return $message;
+    return [$message, $value];
   }
 }
