@@ -16,16 +16,19 @@
               <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
                   <th scope="col" class="px-6 py-3 text-center">
-                    {{ __('Registration') }}
+                    {{ ucfirst(__('validation.attributes.date')) }}
+                  </th>
+                  <th scope="col" class="px-6 py-3 text-center">
+                    {{ ucfirst(__('validation.attributes.hour')) }}
                   </th>
                   <th scope="col" class="px-6 py-3 text-center">
                     {{ rtrim(__('Attendees'), 's') }}
                   </th>
                   <th scope="col" class="px-6 py-3 text-center">
-                    {{ __('Phone') }} - WhatsApp
+                    {{ __('Applicant') }}
                   </th>
                   <th scope="col" class="px-6 py-3 text-center">
-                    {{ __('Applicant') }}
+                    {{ ucfirst(__('validation.attributes.age')) }}
                   </th>
                   <th scope="col" class="px-6 py-3 text-center">
                     {{ __('Actions') }}
@@ -34,24 +37,25 @@
               </thead>
               <tbody>
                 @foreach ($registers as $potential)
-                @if (isset($potential->asigned))
                 <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600" wire:key="doc-{{ $potential->id }}">
                   <td scope="row" class="text-center px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    {{ str_pad($potential->register, 4, '0', STR_PAD_LEFT) }}
+                    {{ Carbon\Carbon::parse($potential->date)->format('d/m/Y') }}
                   </td>
                   <td class="text-center">
-                    {{ ucfirst($potential->name_attendant) }}
+                    {{ Carbon\Carbon::parse($potential->time)->format('h:i A') }}
                   </td>
                   <td class="text-center">
-                    {{ $potential->phone }} - {{ $potential->whatsapp }}
+                    {{ $potential->customer_client->name_attendant }}
                   </td>
                   <td class="text-center">
-                    {{ __($potential->name_applicant) }}
+                    {{ $potential->customer_client->name_applicant }}
+                  </td>
+                  <td class="text-center">
+                    {{ $potential->customer_client->birthdate }}
                   </td>
                   <td scope="row" class="flex justify-around justify-items-center">
                   </td>
                 </tr>
-                @endif
                 @endforeach
               </tbody>
             </table>
