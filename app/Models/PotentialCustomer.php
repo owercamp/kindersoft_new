@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\Genre;
 use App\Models\Scheduling;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -97,5 +98,32 @@ class PotentialCustomer extends Model
   public function asigned(): hasOne
   {
     return $this->hasOne(Scheduling::class, 'potential_customer_id', 'id');
+  }
+
+  /**
+   * Get the birthdate attribute.
+   *
+   * @param  date  $value
+   * @return string
+   */
+  public function getBirthdateAttribute($value)
+  {
+    $message = '';
+    $birthday = Carbon::parse($value);
+    $now = Carbon::now();
+
+    $diffYears = $now->diffInYears($birthday);
+    $diffMonths = $now->diffInMonths($birthday) % 12;
+    $diffDays = $now->diffInDays($birthday) % 30;
+    if ($diffYears == 0) {
+      if ($diffMonths == 0) {
+        $message = str_pad($diffDays, 2, '0', STR_PAD_LEFT) . ' dias';
+      } else {
+        $message = str_pad($diffMonths, 2, '0', STR_PAD_LEFT) . ' meses';
+      }
+    } else {
+      $message = str_pad($diffYears, 2, '0', STR_PAD_LEFT) . ' años y ' . str_pad($diffMonths, 2, '0', STR_PAD_LEFT) . ' meses';
+    }
+    return [$message, $value];
   }
 }

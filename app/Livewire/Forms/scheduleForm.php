@@ -14,7 +14,7 @@ class scheduleForm extends Form
   {
     return [
       'date' => 'required|date',
-      'time' => 'required|date_format:H:i',
+      'time' => 'required',
     ];
   }
 
