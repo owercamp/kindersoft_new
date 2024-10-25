@@ -1,9 +1,11 @@
 <?php
+
 namespace App\Service;
 
 use App\Models\Scheduling;
 
-class SchedulingService extends ConsultingServices{
+class SchedulingService
+{
 
   public static function all()
   {
@@ -11,4 +13,9 @@ class SchedulingService extends ConsultingServices{
     return $registers;
   }
 
+  public static function show(int $id): object
+  {
+    $info = Scheduling::with('customer_client')->where('id', $id)->first();
+    return $info;
+  }
 }
