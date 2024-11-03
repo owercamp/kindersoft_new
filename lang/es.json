@@ -625,5 +625,7 @@
   "Age": "Edad",
   "Schedule": "Agendar",
   "Successfully Scheduled Record": "Registro Agendado Correctamente",
-  "Observations": "Observaciones"
+  "Observations": "Observaciones",
+  "Attended": "Asistido",
+  "Not Attended": "No Asistido"
 }
