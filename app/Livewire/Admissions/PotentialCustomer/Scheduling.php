@@ -14,6 +14,10 @@ class Scheduling extends Component
 
   public bool $modal = false;
   public bool $edition = false;
+  public bool $comment = false;
+  public string $attended = "";
+  public string $name_status = "";
+  public string $obs = "";
   public scheduleForm $scheduleForm;
   public int $id;
   public object $info;
@@ -33,6 +37,23 @@ class Scheduling extends Component
     $this->scheduleForm->date = Carbon::parse($data->date)->format('Y-m-d');
     $this->scheduleForm->time = $data->time;
     $this->edition = true;
+  }
+
+  public function openComments(int $id, string $name)
+  {
+    $this->attended = __($name);
+    $this->id = $id;
+    $this->name_status = $name;
+    $this->comment = true;
+  }
+
+  public function commentary()
+  {
+    $this->validate(['obs' => 'required|max:500'], [], ['obs' => __('Observations')]);
+    $assistent = SchedulingService::attended($this->id, $this->name_status, $this->obs);
+    $this->dispatch('swal:modal', $assistent);
+    $this->comment = false;
+    $this->dispatch('saved');
   }
 
 
