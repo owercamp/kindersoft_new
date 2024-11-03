@@ -7,6 +7,7 @@ use App\Models\Scheduling;
 use App\Service\ConsultingServices;
 use App\Service\Notified\SuccessNotification;
 use Carbon\Carbon;
+use InfoNotification;
 
 class SchedulingService extends ConsultingServices
 {
@@ -34,5 +35,20 @@ class SchedulingService extends ConsultingServices
   {
     $info = Scheduling::with('customer_client')->where('id', $id)->first();
     return $info;
+  }
+
+  public static function attended(int $id, string $status, string $obs): array
+  {
+    $register = self::show($id);
+
+    if ($register) {
+      $register->attended = strtolower($status);
+      $register->observations = $obs;
+      if ($register->save()) {
+        return SuccessNotification::get_notifications('success', __('Successfully Updated Record'), 1500, 'completed');
+      }
+    } else {
+      return InfoNotification::get_notifications('info', __('Record Not Found'), 1500, 'completed');
+    }
   }
 }
