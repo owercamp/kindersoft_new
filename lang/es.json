@@ -624,5 +624,9 @@
   "Applicant": "Aspirante",
   "Age": "Edad",
   "Schedule": "Agendar",
-  "Successfully Scheduled Record": "Registro Agendado Correctamente"
+  "Successfully Scheduled Record": "Registro Agendado Correctamente",
+  "Observations": "Observaciones",
+  "Attended": "Asistido",
+  "Not Attended": "No Asistido",
+  "Record Not Found": "Registro no encontrado"
 }
