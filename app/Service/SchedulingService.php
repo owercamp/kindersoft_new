@@ -18,6 +18,12 @@ class SchedulingService extends ConsultingServices
     return $registers;
   }
 
+  public static function all_ordered()
+  {
+    $registers = Scheduling::with('customer_client')->orderBy('date', 'desc')->paginate(10);
+    return $registers;
+  }
+
   public static function edit(scheduleForm $schedule, int $id)
   {
     $register = self::get_exists('schedulings', ['id' => $id]);
