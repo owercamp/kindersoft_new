@@ -39,6 +39,10 @@
 
         <div class="flex flex-row mt-3">
           <div class="w-full">
+            <div class="flex flex-row gap-4 mb-4 w-full">
+              <x-input wire:model.live="search" type="text" class="w-full" placeholder="{{ __('Search') }}" />
+            </div>
+
             <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
               <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
