@@ -3,7 +3,7 @@
     <div
       class="grid grid-cols-1 gap-1 p-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4 even:dark:bg-gray-800">
       <dt class="font-medium text-gray-900 dark:text-white">{{ ucfirst(__('Status')) }}</dt>
-      <dd class="text-gray-700 sm:col-span-2 dark:text-gray-200 px-1 py-1"><x-badge class="rounded bg-green-800 hover:bg-green-700 dark:bg-sky-800 dark:hover:bg-sky-600 text-sm border-r-2">{{ isset($info->attended) ? __(ucwords($info->attended)) : '' }}</x-badge></dd>
+      <dd class="text-gray-700 sm:col-span-2 dark:text-gray-200 px-1 py-1"><x-badge class="rounded text-sm border-r-2" status="{{  (isset($info->attended) && $info->attended == 'attended') ? 'Active' : 'Inactive' }}">{{ isset($info->attended) ? __(ucwords($info->attended)) : '' }}</x-badge></dd>
     </div>
 
     <div
