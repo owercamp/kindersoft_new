@@ -3,12 +3,15 @@
 namespace App\Livewire\Admissions\PotentialCustomer;
 
 use App\Service\SchedulingService;
+use Livewire\Attributes\Url;
 use Livewire\Component;
 
 class Archive extends Component
 {
   public bool $modal = false;
   public object $info;
+  #[Url(as: 's')]
+  public string $search = '';
 
   public function openModal(int $id): void
   {
@@ -19,8 +22,7 @@ class Archive extends Component
 
   public function render()
   {
-    $registers = SchedulingService::all_ordered();
-    // dd($registers);
+    $registers = SchedulingService::all_ordered($this->search);
     return view('livewire.admissions.potential-customer.archive', compact('registers'));
   }
 }
