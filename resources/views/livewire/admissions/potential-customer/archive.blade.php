@@ -8,9 +8,41 @@
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
       <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-xl sm:rounded-lg py-6 px-5">
 
+        <div x-data="{ modal: $wire.entangle('modal').live }">
+          <div class="fixed inset-0 z-50 flex items-center justify-center overflow-auto bg-black bg-opacity-50" x-show="modal" id="edit">
+            <!-- Modal inner -->
+            <div class="max-w-3xl max-h-[42rem] px-6 py-4 mx-auto text-left text-gray-800 dark:text-gray-200 bg-white dark:bg-gray-800 rounded shadow-lg w-9/12 overflow-y-auto" @click.away="showModal = false" x-transition:enter="motion-safe:ease-out duration-300" x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100">
+              <!-- Title / Close-->
+              <div class="flex items-center justify-between my-4">
+                <h5 class="mr-3 text-gray-800 dark:text-gray-200 max-w-none">{{ __('actions.view') }}</h5>
+
+                <button type="button" class="z-50 cursor-pointer" @click="modal = false">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              </div>
+              <hr>
+
+              <!-- content -->
+              <div class="p-4">
+                @include('livewire.admissions.potential-customer.view-form')
+                @include('livewire.admissions.potential-customer.comments')
+              </div>
+              <div class="flex justify-end mt-1">
+                <x-button class="bg-green-800 hover:bg-green-700 dark:bg-sky-800 dark:hover:bg-sky-600 w-full" @click="modal = false">{{ __('Close') }}</x-button>
+              </div>
+            </div>
+          </div>
+        </div>
+
 
         <div class="flex flex-row mt-3">
           <div class="w-full">
+            <div class="flex flex-row gap-4 mb-4 w-full">
+              <x-input wire:model.live="search" type="text" class="w-full" placeholder="{{ __('Search') }}" />
+            </div>
+
             <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
               <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
@@ -31,6 +63,9 @@
                   </th>
                   <th scope="col" class="px-6 py-3 text-center">
                     WhatsApp
+                  </th>
+                  <th scope="col" class="px-6 py-3 text-center">
+                    {{ __('Status') }}
                   </th>
                   <th scope="col" class="px-6 py-3 text-center">
                     {{ __('Actions') }}
@@ -59,7 +94,24 @@
                   <td class="text-center">
                     {{ $potential->customer_client->whatsapp }}
                   </td>
+                  <td class="text-center">
+                    <x-badge class="w-full text-sm" status="{{ $potential->attended == 'attended' ? 'Active' : 'Inactive' }}">
+                      {{ __(ucwords($potential->attended)) }}
+                    </x-badge>
+                  </td>
                   <td scope="row" class="flex justify-around justify-items-center">
+                    <x-button class="bg-cyan-800 hover:bg-cyan-700 my-2 flex flex-row" wire:click="openModal({{ $potential->id }})" wire:loading.class="opacity-50" wire:loading.attr="disabled">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 mr-1">
+                        <path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+                        <path fill-rule="evenodd" d="M1.323 11.447C2.811 6.976 7.028 3.75 12.001 3.75c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113-1.487 4.471-5.705 7.697-10.677 7.697-4.97 0-9.186-3.223-10.675-7.69a1.762 1.762 0 0 1 0-1.113ZM17.25 12a5.25 5.25 0 1 1-10.5 0 5.25 5.25 0 0 1 10.5 0Z" clip-rule="evenodd" />
+                      </svg>
+                      <div wire:loading.class="hidden" wire:target="openModal({{ $potential->id }})">
+                        {{ __('information') }}
+                      </div>
+                      <div wire:loading wire:target="openModal({{ $potential->id }})">
+                        {{ __('Consulting...') }}
+                      </div>
+                    </x-button>
                   </td>
                 </tr>
                 @endif
