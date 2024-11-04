@@ -33,6 +33,9 @@
                     WhatsApp
                   </th>
                   <th scope="col" class="px-6 py-3 text-center">
+                    {{ __('Status') }}
+                  </th>
+                  <th scope="col" class="px-6 py-3 text-center">
                     {{ __('Actions') }}
                   </th>
                 </tr>
@@ -58,6 +61,11 @@
                   </td>
                   <td class="text-center">
                     {{ $potential->customer_client->whatsapp }}
+                  </td>
+                  <td class="text-center">
+                    <x-badge class="w-full text-sm" status="{{ $potential->attended == 'attended' ? 'Active' : 'Inactive' }}">
+                      {{ __(ucwords($potential->attended)) }}
+                    </x-badge>
                   </td>
                   <td scope="row" class="flex justify-around justify-items-center">
                   </td>
