@@ -18,9 +18,17 @@ class SchedulingService extends ConsultingServices
     return $registers;
   }
 
-  public static function all_ordered()
+  public static function all_ordered(string $search = "")
   {
-    $registers = Scheduling::with('customer_client')->orderBy('date', 'desc')->paginate(10);
+    $registers = Scheduling::with('customer_client')
+      ->when($search, function ($query) use ($search) {
+        $query->whereHas('customer_client', function ($subquery) use ($search) {
+          $subquery->where('name_attendant', 'like', '%' . $search . '%')
+            ->orWhere('name_applicant', 'like', '%' . $search . '%');
+        });
+      })
+      ->orderBy('date', 'desc')
+      ->paginate(10);
     return $registers;
   }
 
