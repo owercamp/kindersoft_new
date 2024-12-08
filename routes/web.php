@@ -8,6 +8,7 @@ use App\Http\Controllers\GeneralInformationController;
 use App\Livewire\Admissions\PotentialCustomer\Archive;
 use App\Livewire\Admissions\PotentialCustomer\Registration;
 use App\Livewire\Admissions\PotentialCustomer\Scheduling;
+use App\Livewire\Admissions\PotentialCustomer\Statistics;
 use App\Livewire\Configurations\AcademicPrograms\AcademicCourse;
 use App\Livewire\Configurations\AcademicPrograms\AcademicGrade;
 use App\Livewire\Configurations\AcademicPrograms\AcademicIntelligence;
@@ -124,4 +125,5 @@ Route::middleware([
   Route::get('/admissions/potential-customer/registration', Registration::class)->name('admissions.potential-customer.registration');
   Route::get('/admissions/potential-customer/scheduling', Scheduling::class)->name('admissions.potential-customer.scheduling');
   Route::get('/admissions/potential-customer/archive',Archive::class)->name('admissions.potential-customer.archive');
+  Route::get('/admissions/potential-customer/statistics', Statistics::class)->name('admissions.potential-customer.statistics');
 });
