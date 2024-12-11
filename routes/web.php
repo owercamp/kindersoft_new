@@ -5,6 +5,7 @@ use App\Http\Controllers\HandlingPDF;
 use App\Livewire\Informations\Regime;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GeneralInformationController;
+use App\Livewire\Admissions\CommercialProposal\Customers;
 use App\Livewire\Admissions\PotentialCustomer\Archive;
 use App\Livewire\Admissions\PotentialCustomer\Registration;
 use App\Livewire\Admissions\PotentialCustomer\Scheduling;
@@ -126,4 +127,5 @@ Route::middleware([
   Route::get('/admissions/potential-customer/scheduling', Scheduling::class)->name('admissions.potential-customer.scheduling');
   Route::get('/admissions/potential-customer/archive',Archive::class)->name('admissions.potential-customer.archive');
   Route::get('/admissions/potential-customer/statistics', Statistics::class)->name('admissions.potential-customer.statistics');
+  Route::get('/admissions/commercial-proposal/customers', Customers::class)->name('admissions.commercial-proposal.customers');
 });
