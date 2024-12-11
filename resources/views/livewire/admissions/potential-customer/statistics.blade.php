@@ -96,10 +96,13 @@
           }
         },
         legend: {
-          position: 'bottom',
-          horizontalAlign: 'center',
-          offsetX: 40,
-          color: ['#F44336', '#03A9F4']
+          show: true,
+          position: 'right',
+          floating: false,
+          itemMargin: {
+            horizontal: 2,
+            vertical: 5
+          }
         }
       };
 

@@ -13,7 +13,7 @@ return new class extends Migration
   {
     Schema::table('schedulings', function (Blueprint $table) {
       $table->enum('attended', ['attended', 'not attended'])->nullable()->after('potential_customer_id');
-      $table->text('observations', 510)->after('attended');
+      $table->text('observations', 510)->after('attended')->nullable();
     });
   }
 

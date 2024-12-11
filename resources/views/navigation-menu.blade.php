@@ -366,7 +366,7 @@
                   {{ __('Commercial Proposal') }}
                 </x-slot>
                 <x-slot name="content">
-                  <x-nav-link>
+                  <x-nav-link href="{{ route('admissions.commercial-proposal.customers') }}">
                     {{ __('Customers') }}
                   </x-nav-link>
                   <x-nav-link>
