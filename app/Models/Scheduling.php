@@ -23,7 +23,7 @@ class Scheduling extends Model
    *
    * @var array<string>
    */
-  protected $fillable = ['date', 'time', 'potential_customer_id'];
+  protected $fillable = ['date', 'time', 'potential_customer_id','attended','observations'];
 
   /**
    * The attributes that should be cast.
@@ -34,6 +34,8 @@ class Scheduling extends Model
     'date' => 'date',
     'time' => 'string',
     'potential_customer_id' => 'integer',
+    'attended' => 'string',
+    'observations' => 'string',
   ];
 
   /**
