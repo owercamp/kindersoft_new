@@ -7,8 +7,8 @@ use Livewire\Form;
 
 class scheduleForm extends Form
 {
-  public string $date;
-  public string $time;
+  public ?string $date = null;
+  public ?string $time = null;
 
   public function rules()
   {
