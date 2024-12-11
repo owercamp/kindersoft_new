@@ -147,6 +147,9 @@ class Registration extends Component
     } else {
       $this->dispatch('swal:modal', ErrorNotification::get_notifications('error', __('An error has occurred'), 1500, 'completed'));
     }
+    $this->schedule = false;
+    $this->scheduleForm->reset();
+    $this->dispatch('cleanForm', ['clean' => true]);
   }
 
   public function render()
