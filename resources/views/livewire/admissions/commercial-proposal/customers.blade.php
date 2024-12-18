@@ -9,6 +9,69 @@
       <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-xl sm:rounded-lg py-6 px-5">
         <div class="flex flex-row mt-3">
           <div class="w-full">
+
+            <div x-data="{ modal: $wire.entangle('modal').live }">
+              <div class="fixed inset-0 z-50 flex items-center justify-center overflow-auto bg-black bg-opacity-50" x-show="modal" id="edit">
+                <!-- Modal inner -->
+                <div class="max-w-3xl max-h-[42rem] px-6 py-4 mx-auto text-left text-gray-800 dark:text-gray-200 bg-white dark:bg-gray-800 rounded shadow-lg w-9/12 overflow-y-auto" @click.away="showModal = false" x-transition:enter="motion-safe:ease-out duration-300" x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100">
+                  <!-- Title / Close-->
+                  <div class="flex items-center justify-between my-4">
+                    <h5 class="mr-3 text-gray-800 dark:text-gray-200 max-w-none">{{ __('actions.view') }} {{ substr(ucfirst(__('Customers')),0,-1) }}</h5>
+
+                    <button type="button" class="z-50 cursor-pointer" @click="modal = false">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                      </svg>
+                    </button>
+                  </div>
+                  <hr>
+
+                  <!-- content -->
+                  <div class="p-4">
+                    <div>
+                      @include('livewire.admissions.commercial-proposal.partials.view-info')
+                      <div class="flex justify-end mt-1">
+                        <x-button class="bg-green-800 hover:bg-green-700 dark:bg-sky-800 dark:hover:bg-sky-600 w-full" @click="modal = false">{{ __('Close') }}</x-button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div x-data="{ modal: $wire.entangle('modal_edit').live }">
+              <div class="fixed inset-0 z-50 flex items-center justify-center overflow-auto bg-black bg-opacity-50" x-show="modal" id="edit">
+                <!-- Modal inner -->
+                <div class="max-w-3xl max-h-[42rem] px-6 py-4 mx-auto text-left text-gray-800 dark:text-gray-200 bg-white dark:bg-gray-800 rounded shadow-lg w-9/12 overflow-y-auto" @click.away="showModal = false" x-transition:enter="motion-safe:ease-out duration-300" x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100">
+                  <!-- Title / Close-->
+                  <div class="flex items-center justify-between my-4">
+                    <h5 class="mr-3 text-gray-800 dark:text-gray-200 max-w-none">{{ __('Edit') }} {{ ucfirst(__('Admissions')) }}</h5>
+
+                    <button type="button" class="z-50 cursor-pointer" @click="modal = false">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                      </svg>
+                    </button>
+                  </div>
+                  <hr>
+
+                  <!-- content -->
+                  <div class="p-4">
+                    <form wire:submit.prevent="edit">
+                      @csrf
+                      @method('PUT')
+                      @include('livewire.admissions.potential-customer.partial-form')
+                      <div class="flex justify-end mt-1">
+                        <x-button class="bg-green-800 hover:bg-green-700 dark:bg-sky-800 dark:hover:bg-sky-600 w-full" type="submit">{{ __('Save') }}</x-button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
             <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
               <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
@@ -80,14 +143,14 @@
                         {{ __('Consulting...') }}
                       </div>
                     </x-button>
-                    <x-button class="bg-red-800 hover:bg-red-700 my-2 flex flex-row" wire:click="openDelete({{ $potential->id }})" wire:loading.class="opacity-50" wire:loading.attr="disabled">
+                    <x-button class="bg-red-800 hover:bg-red-700 my-2 flex flex-row" wire:click="Delete({{ $potential->id }})" wire:loading.class="opacity-50" wire:loading.attr="disabled">
                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 mr-1">
                         <path fill-rule="evenodd" d="M1.5 7.125c0-1.036.84-1.875 1.875-1.875h6c1.036 0 1.875.84 1.875 1.875v3.75c0 1.036-.84 1.875-1.875 1.875h-6A1.875 1.875 0 0 1 1.5 10.875v-3.75Zm12 1.5c0-1.036.84-1.875 1.875-1.875h5.25c1.035 0 1.875.84 1.875 1.875v8.25c0 1.035-.84 1.875-1.875 1.875h-5.25a1.875 1.875 0 0 1-1.875-1.875v-8.25ZM3 16.125c0-1.036.84-1.875 1.875-1.875h5.25c1.036 0 1.875.84 1.875 1.875v2.25c0 1.035-.84 1.875-1.875 1.875h-5.25A1.875 1.875 0 0 1 3 18.375v-2.25Z" clip-rule="evenodd" />
                       </svg>
-                      <div wire:loading.class="hidden" wire:target="openDelete({{ $potential->id }})">
+                      <div wire:loading.class="hidden" wire:target="Delete({{ $potential->id }})">
                         {{ __('Delete') }}
                       </div>
-                      <div wire:loading wire:target="openDelete({{ $potential->id }})">
+                      <div wire:loading wire:target="Delete({{ $potential->id }})">
                         {{ __('Consulting...') }}
                       </div>
                     </x-button>
@@ -106,4 +169,40 @@
       </div>
     </div>
   </div>
+  <script>
+    window.addEventListener('swal:modal', event => {
+      let bgColor;
+      let theme = document.getElementsByTagName('html')[0].classList.contains('dark') ? 'dark' : 'light';
+
+      if (theme === 'dark') {
+        bgColor = '#e9f1f6';
+      } else {
+        bgColor = '#9cbfff';
+      }
+
+      Swal.fire({
+        icon: event.detail[0].type,
+        title: event.detail[0].message,
+        showConfirmButton: event.detail[0].showConfirmButton,
+        timer: event.detail[0].timer,
+        background: bgColor
+      });
+      if (event.detail[0].success == 'completed') {
+        document.getElementById('closedModal').click();
+        document.getElementById('register').value = "";
+        document.getElementById('date').value = "";
+        document.getElementById('name').value = "";
+        document.getElementById('phone').value = "";
+        document.getElementById('whatsapp').value = "";
+        document.getElementById('email').value = "";
+        document.getElementById('applicants').value = "";
+        document.getElementById('applicant').value = "";
+        document.getElementById('genres').value = "";
+        document.getElementById('birthday').value = "";
+        document.getElementById('schedule').value = "";
+        document.querySelector('input[type="date"]').value = "";
+        document.getElementById('time').value = "";
+      }
+    })
+  </script>
 </div>

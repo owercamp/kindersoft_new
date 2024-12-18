@@ -65,4 +65,19 @@ class SchedulingService extends ConsultingServices
       return InfoNotification::get_notifications('info', __('Record Not Found'), 1500, 'completed');
     }
   }
+
+  public static function delete(int $id): bool
+  {
+    $exists = ConsultingServices::get_exists('schedulings', [
+      ['id', $id]
+    ]);
+    if ($exists) {
+      $deleted = Scheduling::where('id', $id)->delete();
+      if ($deleted) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+  }
 }
