@@ -34,13 +34,13 @@ class QuoteForm extends Form
       'applicant_name' => 'required|string',
       'genre' => 'required|numeric|exists:genres,name',
       'birthday' => 'required|array',
-      'admissions' => 'required|numeric|exists:admissions,id',
-      'journal' => 'required|numeric|exists:journays,id',
-      'food' => 'required|numeric|exists:feedings,id',
-      'uniform' => 'required|numeric|exists:uniforms,id',
-      'add_time' => 'required|numeric|exists:extra_times,id',
-      'extracurricular' => 'required|numeric|exists:extracurriculars,id',
-      'transport' => 'required|numeric|exists:transports,id'
+      'admissions' => 'nullable|numeric|exists:admissions,id',
+      'journal' => 'nullable|numeric|exists:journays,id',
+      'food' => 'nullable|numeric|exists:feedings,id',
+      'uniform' => 'nullable|numeric|exists:uniforms,id',
+      'add_time' => 'nullable|numeric|exists:extra_times,id',
+      'extracurricular' => 'nullable|numeric|exists:extracurriculars,id',
+      'transport' => 'nullable|numeric|exists:transports,id'
     ];
   }
 
