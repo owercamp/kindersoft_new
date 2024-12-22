@@ -45,13 +45,13 @@
   <div class="flex flex-row gap-4 mb-4 w-full justify-center">
     <div class="mt-3">
       <x-label>{{ __('Admissions') }}</x-label>
-      <x-select-options class="mt-1" title="admission" wire:model="quoteForm.admission">
+      <x-select-options class="mt-1" title="admission" wire:model="quoteForm.admissions">
         <option value="">{{ __('Select') }}...</option>
         @foreach ($admissions as $key => $admission)
         <option value="{{ $key }}">{{ $admission }}</option>
         @endforeach
       </x-select-options>
-      <x-input-error for="quoteForm.admission" />
+      <x-input-error for="quoteForm.admissions" />
     </div>
     <div class="mt-3">
       <x-label>{{ __('Journays') }}</x-label>
