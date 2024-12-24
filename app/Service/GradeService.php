@@ -4,7 +4,9 @@ namespace App\Service;
 
 use App\Livewire\Forms\AcademicForm;
 use App\Models\Grade;
-use App\Models\StatesNames;
+use App\Service\Notified\ErrorNotification;
+use App\Service\Notified\SuccessNotification;
+use InfoNotification;
 
 class GradeService
 {
@@ -51,28 +53,28 @@ class GradeService
 
   public static function edit(AcademicForm $academicForm, int $id, int $status)
   {
-    $register = GradeService::information($id);
+    $register = self::information($id);
 
     if ($register) {
       $register->register = $academicForm->register;
       $register->name = $academicForm->description;
       $register->status_id = $status;
       if ($register->save()) {
-        return AlertService::info();
+        return SuccessNotification::get_notifications('success', __('Successfully Updated Record'), 1500, 'completed');
       }
     }
 
-    return AlertService::error();
+    return ErrorNotification::get_notifications('error', __('An error has occurred'), 1500, 'completed');
   }
 
   public static function destroy(int $id)
   {
-    $register = GradeService::information($id);
+    $register = self::information($id);
     if ($register) {
       if ($register->delete()) {
-        return AlertService::deleted();
+        return InfoNotification::get_notifications('info', __('Successfully Deleted Record'), 1500, 'completed');
       }
     }
-    return AlertService::error();
+    return ErrorNotification::get_notifications('error', __('An error has occurred'), 1500, 'completed');
   }
 }
