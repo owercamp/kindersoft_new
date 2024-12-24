@@ -3,10 +3,12 @@
 namespace App\Service;
 
 use App\Livewire\Forms\scheduleForm;
+use App\Models\Quotation;
 use App\Models\Scheduling;
 use App\Service\ConsultingServices;
 use App\Service\Notified\SuccessNotification;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 use InfoNotification;
 
 class SchedulingService extends ConsultingServices
@@ -15,6 +17,13 @@ class SchedulingService extends ConsultingServices
   public static function all()
   {
     $registers = Scheduling::with('customer_client')->paginate(10);
+    return $registers;
+  }
+
+  public static function filter_scheduling()
+  {
+    $quotation = DB::table('quotations')->get()->pluck('scheduling_id');
+    $registers = Scheduling::with('customer_client')->whereNotIn('id', $quotation)->paginate(10);
     return $registers;
   }
 

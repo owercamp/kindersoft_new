@@ -2,11 +2,20 @@
 
 namespace App\Livewire\Admissions\CommercialProposal;
 
+use App\Livewire\Forms\QuoteForm;
 use App\Livewire\Forms\RegistrationForm;
+use App\Models\Admissions;
+use App\Models\Extracurricular;
+use App\Models\ExtraTime;
+use App\Models\Feeding;
 use App\Models\Genre;
+use App\Models\Journays;
+use App\Models\Transport;
+use App\Models\Uniform;
 use App\Service\Notified\ErrorNotification;
 use App\Service\Notified\SuccessNotification;
 use App\Service\PotentialCustomerService;
+use App\Service\QuotationService;
 use App\Service\SchedulingService;
 use Carbon\Carbon;
 use Livewire\Component;
@@ -18,16 +27,32 @@ class Customers extends Component
 
   public ?bool $modal = false;
   public ?bool $modal_edit = false;
+  public ?bool $modal_quote = false;
   public ?array $information = [];
   public ?int $id = null;
   public RegistrationForm $registerForm;
+  public QuoteForm $quoteForm;
+  public $admissions = [];
+  public $journals = [];
+  public $feedings = [];
+  public $uniforms = [];
+  public $extra_times = [];
+  public $extracurriculars = [];
+  public $transports = [];
   public $genres = [];
+  public ?array $birthday = [];
   public ?string $age = "0";
 
   public function mount()
   {
-    $genres = Genre::pluck('name', 'id');
-    $this->genres = $genres;
+    $this->genres = Genre::pluck('name', 'id');
+    $this->admissions = Admissions::pluck('description', 'id');
+    $this->journals = Journays::pluck('description', 'id');
+    $this->feedings = Feeding::pluck('description', 'id');
+    $this->uniforms = Uniform::pluck('description', 'id');
+    $this->extra_times = ExtraTime::pluck('description', 'id');
+    $this->extracurriculars = Extracurricular::pluck('description', 'id');
+    $this->transports = Transport::pluck('description', 'id');
   }
 
   public function openModal(int $id)
@@ -103,7 +128,38 @@ class Customers extends Component
     $this->dispatch('saved');
   }
 
-  public function openQuote(int $id) {}
+  public function openQuote(int $id)
+  {
+    $this->reset(
+      '$quoteForm.register',
+      '$quoteForm.date',
+      '$quoteForm.attendant_name',
+      '$quoteForm.whatsapp',
+      '$quoteForm.email',
+      '$quoteForm.applicant_name',
+      '$quoteForm.genre',
+      '$quoteForm.birthday',
+      '$quoteForm.admissions',
+      '$quoteForm.journal',
+      '$quoteForm.food',
+      '$quoteForm.uniform',
+      '$quoteForm.add_time',
+      '$quoteForm.extracurricular',
+      '$quoteForm.transport',
+    );
+
+    $info = SchedulingService::show($id);
+    $this->id = $id;
+    $this->quoteForm->register = str_pad(QuotationService::get_consulting_increment('quotations', 'register'), 4, '0', STR_PAD_LEFT);
+    $this->quoteForm->date = Carbon::now()->format('Y-m-d');
+    $this->quoteForm->attendant_name = $info->customer_client->name_attendant;
+    $this->quoteForm->whatsapp = $info->customer_client->whatsapp;
+    $this->quoteForm->email = $info->customer_client->email;
+    $this->quoteForm->applicant_name = $info->customer_client->name_applicant;
+    $this->quoteForm->genre = $info->customer_client->genre->name;
+    $this->quoteForm->birthday = $info->customer_client->birthdate;
+    $this->modal_quote = true;
+  }
   public function Delete(int $id)
   {
     $deleted = SchedulingService::delete($id);
@@ -114,9 +170,28 @@ class Customers extends Component
     }
   }
 
+  public function quotation()
+  {
+    $this->quoteForm->validateOnly('admissions');
+    $this->quoteForm->validateOnly('journal');
+    $this->quoteForm->validateOnly('food');
+    $this->quoteForm->validateOnly('uniform');
+    $this->quoteForm->validateOnly('add_time');
+    $this->quoteForm->validateOnly('extracurricular');
+    $this->quoteForm->validateOnly('transport');
+    $response = QuotationService::create($this->quoteForm, $this->id);
+
+    if ($response) {
+      $this->dispatch('swal:modal', SuccessNotification::get_notifications('success', __('Successfully Created Record'), 1500, 'completed'));
+    } else {
+      $this->dispatch('swal:modal', ErrorNotification::get_notifications('error', __('An error has occurred'), 1500, 'completed'));
+    }
+    $this->modal_quote = false;
+  }
+
   public function render()
   {
-    $registers = SchedulingService::all();
+    $registers = SchedulingService::filter_scheduling();
     return view('livewire.admissions.commercial-proposal.customers', compact('registers'));
   }
 }

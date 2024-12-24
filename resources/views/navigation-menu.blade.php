@@ -369,7 +369,7 @@
                   <x-nav-link href="{{ route('admissions.commercial-proposal.customers') }}">
                     {{ __('Customers') }}
                   </x-nav-link>
-                  <x-nav-link>
+                  <x-nav-link href="{{ route('admissions.commercial-proposal.quotation') }}">
                     {{ __('Quote') }}
                   </x-nav-link>
                   <x-nav-link>
