@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Admissions;
 use App\Models\Extracurricular;
 use App\Models\ExtraTime;
 use App\Models\Feeding;
@@ -65,6 +66,11 @@ class Quotation extends Model
   public function scheduling(): HasOne
   {
     return $this->hasOne(Scheduling::class, 'id', 'scheduling_id');
+  }
+
+  public function admission(): HasOne
+  {
+    return $this->hasOne(Admissions::class, 'id', 'admission_id');
   }
 
   public function journal(): HasOne
