@@ -1,11 +1,9 @@
 <?php
 
-use Livewire\Livewire;
-use App\Http\Controllers\HandlingPDF;
-use App\Livewire\Informations\Regime;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GeneralInformationController;
+use App\Http\Controllers\HandlingPDF;
 use App\Livewire\Admissions\CommercialProposal\Customers;
+use App\Livewire\Admissions\CommercialProposal\Quotation;
 use App\Livewire\Admissions\PotentialCustomer\Archive;
 use App\Livewire\Admissions\PotentialCustomer\Registration;
 use App\Livewire\Admissions\PotentialCustomer\Scheduling;
@@ -14,27 +12,30 @@ use App\Livewire\Configurations\AcademicPrograms\AcademicCourse;
 use App\Livewire\Configurations\AcademicPrograms\AcademicGrade;
 use App\Livewire\Configurations\AcademicPrograms\AcademicIntelligence;
 use App\Livewire\Configurations\AcademicPrograms\AcademicPeriod;
-use App\Livewire\Configurations\HumanResources\Students;
-use App\Livewire\Configurations\HumanResources\Providers;
-use App\Livewire\Configurations\HumanResources\Attendants;
-use App\Livewire\Configurations\ProductsAndServices\Foods;
-use App\Livewire\Configurations\HumanResources\Collaborators;
-use App\Livewire\Configurations\ProductsAndServices\Journays;
-use App\Livewire\Configurations\ProductsAndServices\Uniforms;
-use App\Livewire\Configurations\ProductsAndServices\Admissions;
-use App\Livewire\Configurations\DatabaseStructure\SchoolCalendar;
-use App\Livewire\Configurations\GardenInformation\TaxInformation;
-use App\Livewire\Configurations\GardenInformation\CorporateImages;
 use App\Livewire\Configurations\DatabaseStructure\CreationDocument;
+use App\Livewire\Configurations\DatabaseStructure\EmploymentPositions;
+use App\Livewire\Configurations\DatabaseStructure\HealthCareProvider;
+use App\Livewire\Configurations\DatabaseStructure\SchoolCalendar;
+use App\Livewire\Configurations\GardenInformation\CorporateImages;
+use App\Livewire\Configurations\GardenInformation\GeneralInformation;
+use App\Livewire\Configurations\GardenInformation\TaxInformation;
+use App\Livewire\Configurations\HumanResources\Attendants;
+use App\Livewire\Configurations\HumanResources\Collaborators;
+use App\Livewire\Configurations\HumanResources\Providers;
+use App\Livewire\Configurations\HumanResources\Students;
+use App\Livewire\Configurations\ProductsAndServices\Achievements;
 use App\Livewire\Configurations\ProductsAndServices\AdditionalTime;
+use App\Livewire\Configurations\ProductsAndServices\Admissions;
+use App\Livewire\Configurations\ProductsAndServices\Extracurriculars;
+use App\Livewire\Configurations\ProductsAndServices\Foods;
+use App\Livewire\Configurations\ProductsAndServices\Journays;
+use App\Livewire\Configurations\ProductsAndServices\Observations;
 use App\Livewire\Configurations\ProductsAndServices\SchoolSupplies;
 use App\Livewire\Configurations\ProductsAndServices\Transportation;
-use App\Livewire\Configurations\DatabaseStructure\HealthCareProvider;
-use App\Livewire\Configurations\GardenInformation\GeneralInformation;
-use App\Livewire\Configurations\ProductsAndServices\Extracurriculars;
-use App\Livewire\Configurations\DatabaseStructure\EmploymentPositions;
-use App\Livewire\Configurations\ProductsAndServices\Achievements;
-use App\Livewire\Configurations\ProductsAndServices\Observations;
+use App\Livewire\Configurations\ProductsAndServices\Uniforms;
+use App\Livewire\Informations\Regime;
+use Illuminate\Support\Facades\Route;
+use Livewire\Livewire;
 
 /*
 |--------------------------------------------------------------------------
@@ -128,4 +129,5 @@ Route::middleware([
   Route::get('/admissions/potential-customer/archive',Archive::class)->name('admissions.potential-customer.archive');
   Route::get('/admissions/potential-customer/statistics', Statistics::class)->name('admissions.potential-customer.statistics');
   Route::get('/admissions/commercial-proposal/customers', Customers::class)->name('admissions.commercial-proposal.customers');
+  Route::get('/admissions/commercial-proposal/quotation', Quotation::class)->name('admissions.commercial-proposal.quotation');
 });
