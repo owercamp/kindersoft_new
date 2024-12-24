@@ -45,8 +45,11 @@
     <div
       class="grid grid-cols-1 gap-1 p-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4 even:dark:bg-gray-800">
       <dt class="font-medium text-gray-900 dark:text-white">{{ __('Attended') }}</dt>
-      <dd class="text-gray-700 sm:col-span-2 dark:text-gray-200">{{ isset($information["attended"]) ? $information["attended"] : '' }}</dd>
+      <dd class="text-gray-700 sm:col-span-2 dark:text-gray-200">
+        <span class="inline-block whitespace-nowrap rounded-[0.27rem] bg-danger-100 px-[0.65em] pb-[0.25em] pt-[0.35em] text-center align-baseline text-[0.75em] font-bold leading-none text-danger-700 dark:bg-orange-800 dark:text-danger-500">
+          {{ isset($information["attended"]) ? __(ucwords($information["attended"])) : '' }}
+        </span>
+      </dd>
     </div>
-
   </dl>
 </div>
