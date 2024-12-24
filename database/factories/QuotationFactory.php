@@ -33,7 +33,7 @@ class QuotationFactory extends Factory
       'feeding_id' => fn() => $this->faker->randomElement(Feeding::pluck('id')->toArray()),
       'uniform_id' => fn() => $this->faker->randomElement(Uniform::pluck('id')->toArray()),
       'extra_time_id' => fn() => $this->faker->randomElement(ExtraTime::pluck('id')->toArray()),
-      'extracurricular_id' => fn() => $this->faker->randomElement(Extracurricular::pluck('id')->toArray()),
+      'extra_curricular_id' => fn() => $this->faker->randomElement(Extracurricular::pluck('id')->toArray()),
       'transport_id' => fn() => $this->faker->randomElement(Transport::pluck('id')->toArray())
     ];
   }
