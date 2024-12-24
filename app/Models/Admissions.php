@@ -23,7 +23,7 @@ class Admissions extends Model
    *
    * @var array<string>
    */
-  protected $fillable = ['register', 'description', 'price', 'status'];
+  protected $fillable = ['register', 'description', 'price', 'status_id'];
 
   /**
    * Interact with the description attribute.
