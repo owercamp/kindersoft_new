@@ -51,4 +51,10 @@ class QuotationService extends ConsultingServices
       return ErrorNotification::get_notifications('error', __('Error Creating Record'), 1500, 'error');
     }
   }
+
+  public static function show()
+  {
+    $registers = Quotation::with('scheduling','scheduling.customer_client', 'admission', 'journal', 'feeding', 'uniform', 'extra_time', 'extra_curricular', 'transport')->paginate(10);
+    return $registers;
+  }
 }
