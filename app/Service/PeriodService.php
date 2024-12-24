@@ -6,6 +6,9 @@ use App\Livewire\Forms\AcademicForm;
 use App\Models\Period;
 use App\Service\AlertService;
 use App\Service\ConsultingServices;
+use App\Service\Notified\ErrorNotification;
+use App\Service\Notified\SuccessNotification;
+use InfoNotification;
 
 class PeriodService
 {
@@ -59,11 +62,11 @@ class PeriodService
       $register->name = $academicForm->description;
       $register->status_id = $status;
       if ($register->save()) {
-        return AlertService::info();
+        return SuccessNotification::get_notifications('success', __('Successfully Updated Record'), 1500, 'completed');
       }
     }
 
-    return AlertService::error();
+    return ErrorNotification::get_notifications('error', __('An error has occurred'), 1500, 'completed');
   }
 
   public static function destroy(int $id)
@@ -71,9 +74,9 @@ class PeriodService
     $register = PeriodService::information($id);
     if ($register) {
       if ($register->delete()) {
-        return AlertService::deleted();
+        return InfoNotification::get_notifications('info', __('Successfully Deleted Record'), 1500, 'completed');
       }
     }
-    return AlertService::error();
+    return ErrorNotification::get_notifications('error', __('An error has occurred'), 1500, 'completed');
   }
 }
