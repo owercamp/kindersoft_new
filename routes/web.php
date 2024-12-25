@@ -48,22 +48,6 @@ use Livewire\Livewire;
 |
 */
 
-Livewire::setScriptRoute(function ($handle) {
-  if (config('app.env') === 'prod') {
-    return Route::get('/kindersoft/livewire/livewire.js', $handle);
-  } else {
-    return Route::get('/kindersoft_new/public/livewire/livewire.js', $handle);
-  }
-});
-
-Livewire::setUpdateRoute(function ($handle) {
-  if (config('app.env') === 'prod') {
-    return Route::get('/kindersoft/livewire/update', $handle);
-  } else {
-    return Route::get('/kindersoft_new/public/livewire/update', $handle);
-  }
-});
-
 Route::get('/', function () {
   return view('auth.login');
 });
