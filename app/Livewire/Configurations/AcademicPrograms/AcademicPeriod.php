@@ -4,9 +4,9 @@ namespace App\Livewire\Configurations\AcademicPrograms;
 
 use App\Livewire\Forms\AcademicForm;
 use App\Service\Notified\ErrorNotification;
+use App\Service\Notified\InfoNotification;
 use App\Service\Notified\SuccessNotification;
 use App\Service\PeriodService;
-use InfoNotification;
 use Livewire\Component;
 use Livewire\WithPagination;
 
