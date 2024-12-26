@@ -38,7 +38,7 @@
     </tr>
     <tr>
       <td>{{ __('validation.attributes.date_of_birth') }}</td>
-      <td>{{ $potentialCustomer->birthdate }}</td>
+      <td>{{ $potentialCustomer->birthdate[1] }}</td>
     </tr>
   </tbody>
 </table>
