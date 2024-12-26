@@ -12,7 +12,7 @@ use App\Service\PotentialCustomerService;
 use Carbon\Carbon;
 use Livewire\Component;
 use Livewire\WithPagination;
-use Maatwebsite\Excel\Facades\Excel;
+use Maatwebsite\Excel\Facades\Excel as Excel;
 
 class Registration extends Component
 {
@@ -82,7 +82,7 @@ class Registration extends Component
     $this->registerForm->applicants = $register->applicants;
     $this->registerForm->applicant = $register->name_applicant;
     $this->registerForm->genre = $register->genre_id;
-    $this->registerForm->birthday = Carbon::parse($register->birthdate)->format('Y-m-d');
+    $this->registerForm->birthday = Carbon::parse($register->birthdate[1])->format('Y-m-d');
     $this->calculateAge();
 
     $this->modal = true;
