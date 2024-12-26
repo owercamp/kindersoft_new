@@ -20,7 +20,7 @@
     <div class="w-full">
       <div class="flex flex-col">
         <x-label class="ml-1">{{ __('Create') }} {{ $description }}:</x-label>
-        <x-input type="text" min="0" maxlength="35" class="border p-2 rounded w-full" wire:model="achievementForm.description" id="description" />
+        <x-input type="text" min="0" maxlength="310" class="border p-2 rounded w-full" wire:model="achievementForm.description" id="description" />
         <x-input-error for="achievementForm.description" />
       </div>
     </div>
