@@ -5,10 +5,10 @@ namespace App\Service;
 use App\Livewire\Forms\scheduleForm;
 use App\Models\Scheduling;
 use App\Service\ConsultingServices;
+use App\Service\Notified\InfoNotification;
 use App\Service\Notified\SuccessNotification;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
-use InfoNotification;
 
 class SchedulingService extends ConsultingServices
 {
