@@ -12,7 +12,7 @@ use App\Service\PotentialCustomerService;
 use Carbon\Carbon;
 use Livewire\Component;
 use Livewire\WithPagination;
-use Maatwebsite\Excel\Facades\Excel as Excel;
+use Maatwebsite\Excel\Facades\Excel;
 
 class Registration extends Component
 {
