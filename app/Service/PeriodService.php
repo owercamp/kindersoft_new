@@ -4,7 +4,6 @@ namespace App\Service;
 
 use App\Livewire\Forms\AcademicForm;
 use App\Models\Period;
-use App\Service\AlertService;
 use App\Service\ConsultingServices;
 use App\Service\Notified\ErrorNotification;
 use App\Service\Notified\SuccessNotification;
@@ -55,7 +54,7 @@ class PeriodService
 
   public static function edit(AcademicForm $academicForm, int $id, int $status)
   {
-    $register = PeriodService::information($id);
+    $register = self::information($id);
 
     if ($register) {
       $register->register = $academicForm->register;
@@ -71,7 +70,7 @@ class PeriodService
 
   public static function destroy(int $id)
   {
-    $register = PeriodService::information($id);
+    $register = self::information($id);
     if ($register) {
       if ($register->delete()) {
         return InfoNotification::get_notifications('info', __('Successfully Deleted Record'), 1500, 'completed');

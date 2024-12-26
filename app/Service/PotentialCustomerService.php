@@ -6,8 +6,8 @@ use App\Livewire\Forms\RegistrationForm;
 use App\Livewire\Forms\scheduleForm;
 use App\Models\PotentialCustomer;
 use App\Models\Scheduling;
+use App\Service\ConsultingServices;
 use App\Service\Notified\SuccessNotification;
-use Illuminate\Support\Facades\DB;
 
 class PotentialCustomerService extends ConsultingServices
 {
@@ -29,7 +29,7 @@ class PotentialCustomerService extends ConsultingServices
 
   public static function edit(RegistrationForm $registerForm, int $id)
   {
-    $exists = PotentialCustomerService::information($id);
+    $exists = self::information($id);
     if ($exists) {
       $exists->register = $registerForm->register;
       $exists->date = $registerForm->register;
