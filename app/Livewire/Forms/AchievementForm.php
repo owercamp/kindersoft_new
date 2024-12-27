@@ -7,9 +7,9 @@ use Livewire\Form;
 
 class AchievementForm extends Form
 {
-  public int $intelligence = 0;
-  public string $register = '';
-  public string $description = '';
+  public ?int $intelligence = 0;
+  public ?string $register = null;
+  public ?string $description = null;
 
   public function rules()
   {
