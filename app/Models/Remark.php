@@ -57,8 +57,8 @@ class Remark extends Model
     return $this->belongsTo(Intelligence::class, 'intelligence_id', 'id');
   }
 
-  public function status(): BelongsTo
+  public function status(): HasOne
   {
-    return $this->belongsTo(StatesNames::class, 'status_id', 'id');
+    return $this->hasOne(StatesNames::class, 'id', 'status_id');
   }
 }
