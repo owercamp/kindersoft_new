@@ -51,8 +51,6 @@ class Observations extends Component
     $this->achievementForm->register = str_pad($register, 4, '0', STR_PAD_LEFT);
   }
 
-  public function increment() {}
-
   public function excel()
   {
     return Excel::download(new AchievementExcel(), 'Plantilla Observaciones.xlsx');
@@ -89,7 +87,7 @@ class Observations extends Component
     $this->searching = RemarksService::get_consulting('intelligences', []);
     $this->id = $id;
     $register = RemarksService::information($id);
-    $this->achievementForm->intelligence = $register->intelligence_id;
+    $this->achievementForm->intelligence = isset($register->intelligence_id) ? $register->intelligence_id : 0;
     $this->achievementForm->register = str_pad($register->register, 4, '0', STR_PAD_LEFT);
     $this->achievementForm->description = $register->description;
     $this->status = $register->status_id;
