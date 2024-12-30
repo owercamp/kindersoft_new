@@ -47,8 +47,10 @@ class Observations extends Component
 
   public function search()
   {
-    $register = RemarksService::searchingIntelligence($this->achievementForm->intelligence);
-    $this->achievementForm->register = str_pad($register, 4, '0', STR_PAD_LEFT);
+    if (isset($this->achievementForm->intelligence)) {
+      $register = RemarksService::searchingIntelligence($this->achievementForm->intelligence);
+      $this->achievementForm->register = str_pad($register, 4, '0', STR_PAD_LEFT);
+    }
   }
 
   public function excel()
@@ -74,16 +76,39 @@ class Observations extends Component
       $achievement = RemarksService::store($this->achievementForm);
       if ($achievement) {
         $this->dispatch('swal:modal', SuccessNotification::get_notifications('success', __('Successfully Created Record'), 1500, 'completed'));
+        $this->achievementForm->reset();
       } else {
         $this->dispatch('swal:modal', ErrorNotification::get_notifications('error', __('An error has occurred'), 1500, 'completed'));
       }
     }
   }
 
+  public function updated($propertyName, $value)
+  {
+    if ($propertyName === 'modal' && $value === false) {
+      $this->achievementForm->reset();
+      $this->achievementForm->intelligence = 0;
+      $this->reset('status');
+    }
+
+    if ($propertyName === 'achievementForm.intelligence' && $value == null) {
+      $this->achievementForm->register = null;
+    }
+  }
+
+  public function updating($propertyName, $value)
+  {
+    $old = $this->achievementForm->intelligence;
+    if ($propertyName === 'achievementForm.intelligence' && $value == null) {
+      $this->achievementForm->register = $old;
+    }
+  }
+
   public function openModal($id)
   {
-    $this->reset('achievementForm.intelligence', 'achievementForm.register', 'achievementForm.description', 'status');
-    $this->reset('searching');
+    $this->achievementForm->reset();
+    $this->reset('status');
+    $this->dispatch('clean');
     $this->searching = RemarksService::get_consulting('intelligences', []);
     $this->id = $id;
     $register = RemarksService::information($id);
@@ -102,6 +127,7 @@ class Observations extends Component
     $edited = RemarksService::edit($this->achievementForm, $this->id, $this->status);
     $this->dispatch('swal:modal', $edited);
     $this->modal = false;
+    $this->achievementForm->reset();
     $this->dispatch('saved');
   }
 
