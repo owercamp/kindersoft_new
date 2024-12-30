@@ -4,9 +4,7 @@
       <div class="flex flex-col basis-3/6">
         <x-label class="ml-1">{{ __('actions.select') }} {{ $description_list }}:</x-label>
         <x-select-options title="achievements" wire:model="achievementForm.intelligence" wire:change="search" id="intelligence">
-          @if ( $achievementForm->intelligence == 0)
-            <option value="0">{{ __('Select') }}...</option>
-          @endif
+          <option value="">{{ __('Select') }}...</option>
           @foreach ($searching as $key => $search)
           <option value="{{ $key }}">{{ $search }}</option>
           @endforeach
