@@ -25,8 +25,8 @@
       <td>{{ $potentialCustomer->email }}</td>
     </tr>
     <tr>
-      <td>{{ __('Number of applicants') }}</td>
-      <td>{{ $potentialCustomer->applicants }}</td>
+      <td>{{ __('Registration') }} {{ __('Number') }}</td>
+      <td>{{ str_pad($potentialCustomer->register, 4, '0', STR_PAD_LEFT) }}</td>
     </tr>
     <tr>
       <td>{{ __('Applicant') }}</td>
