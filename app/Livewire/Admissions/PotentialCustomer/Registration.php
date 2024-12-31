@@ -3,6 +3,7 @@
 namespace App\Livewire\Admissions\PotentialCustomer;
 
 use App\Exports\PotentialCustomerExcel;
+use App\Livewire\Forms\CreateCustomerForm;
 use App\Livewire\Forms\RegistrationForm;
 use App\Livewire\Forms\scheduleForm;
 use App\Models\Genre;
@@ -19,6 +20,12 @@ class Registration extends Component
   use WithPagination;
   public RegistrationForm $registerForm;
   public scheduleForm $scheduleForm;
+  public CreateCustomerForm $createForm;
+  public ?array $applicant = [
+    'name' => '',
+    'genre' => '',
+    'birthday' => ''
+  ];
   public $genres = [];
   public string $age = "0";
   public $searching;
@@ -29,7 +36,8 @@ class Registration extends Component
   public function increment()
   {
     $register = PotentialCustomerService::get_consulting_increment('potential_customers', 'register');
-    $this->registerForm->register = str_pad($register, 4, '0', STR_PAD_LEFT);
+    $this->createForm->register = str_pad($register, 4, '0', STR_PAD_LEFT);
+    $this->createForm->date = Carbon::now()->format('Y-m-d');
   }
 
   public function mount()
@@ -38,9 +46,48 @@ class Registration extends Component
     $this->genres = $genres;
   }
 
+  public function genreName(int $id)
+  {
+    $genre = Genre::find($id);
+    return $genre->name;
+  }
+
+  public function addApplicant()
+  {
+    if (count($this->createForm->applicants_data['name']) <= $this->createForm->applicants) {
+      $this->createForm->applicants_data['name'][] = $this->applicant['name'];
+      $temp = [];
+
+      array_push($temp, $this->applicant['genre']);
+      array_push($temp, $this->genreName($this->applicant['genre']));
+      $this->createForm->applicants_data['genre'][] = $temp;
+      $temp = [];
+      array_push($temp, $this->applicant['birthday']);
+      array_push($temp, $this->age);
+      $this->createForm->applicants_data['birthday'][] = $temp;
+      $this->applicant = [
+        'name' => '',
+        'genre' => '',
+        'birthday' => ''
+      ];
+      $this->age = "0";
+    }
+  }
+
+  public function updated($propertyName, $value)
+  {
+    if ($propertyName == 'modal' && $value == false) {
+      $this->createForm->reset();
+      $this->registerForm->reset();
+      $this->age = "0";
+    }
+  }
+
+
   public function calculateAge()
   {
-    $birthday = Carbon::parse($this->registerForm->birthday);
+    $date = ($this->registerForm->birthday) ? $this->registerForm->birthday : $this->applicant['birthday'];
+    $birthday = Carbon::parse($date);
     $now = Carbon::now();
 
     $diffYears = $now->diffInYears($birthday);
@@ -109,19 +156,21 @@ class Registration extends Component
 
   public function save()
   {
-    $this->registerForm->validate();
+    $this->createForm->validate();
 
-    $exists = PotentialCustomerService::get_exists('potential_customers', [
-      ['name_attendant', $this->registerForm->register],
-      ['name_applicant', $this->registerForm->applicant],
-    ]);
+    for ($item = 0; $item < count($this->createForm->applicants_data['name']); $item++) {
+      $exists = PotentialCustomerService::get_exists('potential_customers', [
+        ['name_attendant', $this->createForm->name],
+        ['name_applicant', $this->createForm->applicants_data['name'][$item]]
+      ]);
 
-    if (!$exists) {
-      $saved = PotentialCustomerService::store($this->registerForm);
-      if ($saved) {
-        $this->dispatch('swal:modal', SuccessNotification::get_notifications('success', __('Successfully Created Record'), 1500, 'completed'));
-      } else {
-        $this->dispatch('swal:modal', ErrorNotification::get_notifications('error', __('An error has occurred'), 1500, 'completed'));
+      if (!$exists) {
+        $saved = PotentialCustomerService::store($this->createForm, $item);
+        if ($saved) {
+          $this->dispatch('swal:modal', SuccessNotification::get_notifications('success', __('Successfully Created Record'), 1500, 'completed'));
+        } else {
+          $this->dispatch('swal:modal', ErrorNotification::get_notifications('error', __('An error has occurred'), 1500, 'completed'));
+        }
       }
     }
   }
