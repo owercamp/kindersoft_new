@@ -121,7 +121,7 @@ class Customers extends Component
 
   public function edit()
   {
-    $this->validate();
+    $this->registerForm->validate();
     $edited = PotentialCustomerService::edit($this->registerForm, $this->id);
     $this->dispatch('swal:modal', $edited);
     $this->modal_edit = false;
