@@ -37,7 +37,7 @@
                 <form wire:submit.prevent="save">
                   @csrf
                   @method('POST')
-                  @include('livewire.admissions.potential-customer.partial-form')
+                  @include('livewire.admissions.potential-customer.create-customer-form')
                   <div class="flex justify-end mt-1">
                     <x-button class="bg-green-800 hover:bg-green-700 dark:bg-sky-800 dark:hover:bg-sky-600 w-full" type="submit">{{ __('Save') }}</x-button>
                   </div>
