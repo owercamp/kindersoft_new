@@ -2,6 +2,7 @@
 
 namespace App\Service;
 
+use App\Livewire\Forms\CreateCustomerForm;
 use App\Livewire\Forms\RegistrationForm;
 use App\Livewire\Forms\scheduleForm;
 use App\Models\PotentialCustomer;
@@ -47,7 +48,7 @@ class PotentialCustomerService extends ConsultingServices
     }
   }
 
-  public static function store(RegistrationForm $registerForm)
+  public static function store(CreateCustomerForm $registerForm, int $index)
   {
     $new_register = new PotentialCustomer();
     $new_register->register = $registerForm->register;
@@ -57,9 +58,9 @@ class PotentialCustomerService extends ConsultingServices
     $new_register->whatsapp = ($registerForm->whatsapp != '') ? $registerForm->whatsapp : $registerForm->phone;
     $new_register->email = $registerForm->email;
     $new_register->applicants = $registerForm->applicants;
-    $new_register->name_applicant = $registerForm->applicant;
-    $new_register->genre_id = $registerForm->genre;
-    $new_register->birthdate = $registerForm->birthday;
+    $new_register->name_applicant = $registerForm->applicants_data['name'][$index];
+    $new_register->genre_id = $registerForm->applicants_data['genre'][$index][0];
+    $new_register->birthdate = $registerForm->applicants_data['birthday'][$index][0];
     if ($new_register->save()) {
       return true;
     } else {
