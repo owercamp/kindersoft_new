@@ -7,6 +7,7 @@ use App\Models\Quotation;
 use App\Service\ConsultingServices;
 use App\Service\Notified\ErrorNotification;
 use App\Service\Notified\SuccessNotification;
+use Illuminate\Support\Facades\DB;
 
 class QuotationService extends ConsultingServices
 {
@@ -50,6 +51,12 @@ class QuotationService extends ConsultingServices
     } else {
       return ErrorNotification::get_notifications('error', __('Error Creating Record'), 1500, 'error');
     }
+  }
+
+  public static function get_consulting($table, $params): object
+  {
+    $information = DB::table($table)->where($params)->select('description', 'price')->get();
+    return $information;
   }
 
   public static function show()
