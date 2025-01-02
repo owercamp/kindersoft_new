@@ -21,7 +21,7 @@ class FeedingFactory extends Factory
     return [
       'register' => $this->faker->numberBetween(1000, 9999),
       'description' => $this->faker->word(),
-      'price' => $this->faker->numberBetween(1000, 9999),
+      'price' => $this->faker->randomNumber(5),
       'status_id' => fn () => $this->faker->randomElement(StatesNames::pluck('id')->toArray())
     ];
   }
