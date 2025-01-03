@@ -5,6 +5,7 @@ namespace App\Service;
 use App\Livewire\Forms\AchievementForm;
 use App\Models\Remark;
 use App\Service\ConsultingServices;
+use App\Service\IntelligenceService;
 use App\Service\Notified\SuccessNotification;
 
 class RemarksService extends ConsultingServices
@@ -39,7 +40,7 @@ class RemarksService extends ConsultingServices
 
   public static function edit(AchievementForm $achievementForm, int $id, int $status)
   {
-    $exists = RemarksService::information($id);
+    $exists = self::information($id);
     if ($exists) {
       $exists->intelligence_id = $achievementForm->intelligence;
       $exists->register = $achievementForm->register;

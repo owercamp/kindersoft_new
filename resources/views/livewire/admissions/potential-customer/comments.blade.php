@@ -9,7 +9,7 @@
     <div
       class="grid grid-cols-1 gap-1 p-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4 even:dark:bg-gray-800">
       <dt class="font-medium text-gray-900 dark:text-white">{{ __('Observations') }}</dt>
-      <dd class="text-gray-700 sm:col-span-2 dark:text-gray-200">{{ isset($info->observations) ? $info->observations : '' }}</dd>
+      <dd class="text-gray-700 sm:col-span-2 dark:text-gray-200 flex flex-wrap overflow-x-auto pb-2">{{ isset($info->observations) ? $info->observations : '' }}</dd>
     </div>
   </dl>
 </div>

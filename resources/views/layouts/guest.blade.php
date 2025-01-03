@@ -12,7 +12,7 @@
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
         @if (config('app.env') == 'prod')
-          <link rel="stylesheet" href="{{ asset('../build/assets/app.css') }}">
+          <link rel="stylesheet" href="{{ asset('../kindersoft/build/assets/app.css') }}">
         @else
           <!-- Scripts -->
           @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -28,7 +28,7 @@
 
         <x-footer />
         @if (config('app.env') == 'prod')
-          <script src="{{ asset('../build/assets/app.js') }}"></script>
+          <script src="{{ asset('../kindersoft/build/assets/app.js') }}"></script>
         @else
           @livewireScripts
         @endif

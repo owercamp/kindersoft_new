@@ -38,7 +38,7 @@
                 {{ str_pad($quote->register, 4, '0', STR_PAD_LEFT) }}
               </td>
               <td class="text-center">
-                {{ $quote->scheduling->customer_client->name_applicant }}
+                {{ $quote->scheduling->customer_client->name_attendant }}
               </td>
               <td class="text-center">
                 {{ $quote->scheduling->customer_client->name_applicant }}

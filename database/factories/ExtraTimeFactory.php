@@ -2,14 +2,13 @@
 
 namespace Database\Factories;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
-use App\Models\Feeding;
 use App\Models\StatesNames;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Feeding>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\ExtraTime>
  */
-class FeedingFactory extends Factory
+class ExtraTimeFactory extends Factory
 {
   /**
    * Define the model's default state.
@@ -22,7 +21,7 @@ class FeedingFactory extends Factory
       'register' => $this->faker->numberBetween(1000, 9999),
       'description' => $this->faker->word(),
       'price' => $this->faker->randomNumber(5),
-      'status_id' => fn () => $this->faker->randomElement(StatesNames::pluck('id')->toArray())
+      'status_id' => fn() => $this->faker->randomElement(StatesNames::pluck('id')->toArray())
     ];
   }
 }
