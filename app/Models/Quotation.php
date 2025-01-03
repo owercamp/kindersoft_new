@@ -60,4 +60,25 @@ class Quotation extends Model
   {
     return $this->hasOne(Scheduling::class, 'id', 'scheduling_id');
   }
+
+  public function quotationable()
+  {
+    return $this->morphedByMany(Admissions::class, 'quotationable');
+  }
+
+  public function loadQuotationable()
+  {
+    return $this->load([
+      'quotationable' => function ($query) {
+        $query->with([
+          Journays::class,
+          Feeding::class,
+          Uniform::class,
+          ExtraTime::class,
+          Extracurricular::class,
+          Transport::class
+        ]);
+      }
+    ])->get();
+  }
 }
