@@ -629,5 +629,6 @@
   "Attended": "Asistido",
   "Not Attended": "No Asistido",
   "Record Not Found": "Registro no encontrado",
-  "information": "Información"
+  "information": "Información",
+  "No data found for invoice": "No se encontraron datos para la factura"
 }

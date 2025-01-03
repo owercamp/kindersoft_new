@@ -5,6 +5,7 @@ namespace App\Service;
 use App\Livewire\Forms\AchievementForm;
 use App\Models\Achievement;
 use App\Service\ConsultingServices;
+use App\Service\IntelligenceService;
 use App\Service\Notified\SuccessNotification;
 
 class AchievementService extends ConsultingServices

@@ -48,6 +48,22 @@ use Livewire\Livewire;
 |
 */
 
+Livewire::setScriptRoute(function ($handle) {
+  if (config('app.env') === 'prod') {
+    return Route::get('/kindersoft/livewire/livewire.js', $handle);
+  } else {
+    return Route::get('/kindersoft_new/public/livewire/livewire.js', $handle);
+  }
+});
+
+Livewire::setUpdateRoute(function ($handle) {
+  if (config('app.env') === 'prod') {
+    return Route::get('/kindersoft/livewire/update', $handle);
+  } else {
+    return Route::get('/kindersoft_new/public/livewire/update', $handle);
+  }
+});
+
 Route::get('/', function () {
   return view('auth.login');
 });
@@ -91,7 +107,7 @@ Route::middleware([
   Route::get('/configurations/databases/health-care-provider', HealthCareProvider::class)->name('configurations.databases.health-care-provider');
   Route::get('configurations/databases/employment-positions', EmploymentPositions::class)->name('configurations.databases.employment-positions');
   Route::get('configurations/human-resources/collaborators', Collaborators::class)->name('configurations.human-resources.collaborators');
-  Route::get('/configurations/human-resources/attendants',Attendants::class)->name('configurations.human-resources.attendants');
+  Route::get('/configurations/human-resources/attendants', Attendants::class)->name('configurations.human-resources.attendants');
   Route::get('/configurations/human-resources/students', Students::class)->name('configurations.human-resources.students');
   Route::get('/configurations/human-resources/providers', Providers::class)->name('configurations.human-resources.providers');
   Route::get('/configurations/products-and-services/admissions', Admissions::class)->name('configurations.products-and-services.admissions');
@@ -110,7 +126,7 @@ Route::middleware([
   Route::get('/configurations/academic-programs/remarks', Observations::class)->name('configurations.academic-programs.remarks');
   Route::get('/admissions/potential-customer/registration', Registration::class)->name('admissions.potential-customer.registration');
   Route::get('/admissions/potential-customer/scheduling', Scheduling::class)->name('admissions.potential-customer.scheduling');
-  Route::get('/admissions/potential-customer/archive',Archive::class)->name('admissions.potential-customer.archive');
+  Route::get('/admissions/potential-customer/archive', Archive::class)->name('admissions.potential-customer.archive');
   Route::get('/admissions/potential-customer/statistics', Statistics::class)->name('admissions.potential-customer.statistics');
   Route::get('/admissions/commercial-proposal/customers', Customers::class)->name('admissions.commercial-proposal.customers');
   Route::get('/admissions/commercial-proposal/quotation', Quotation::class)->name('admissions.commercial-proposal.quotation');

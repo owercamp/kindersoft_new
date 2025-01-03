@@ -15,7 +15,7 @@ return new class extends Migration
       $table->id();
       $table->unsignedBigInteger('register');
       $table->string('name', 35);
-      $table->foreignId('status_id')->nullable()->constrained('states_names', 'id')->onUpdate('cascade')->onDelete('set null')->default(1);
+      $table->foreignId("status_id")->default(1)->nullable()->constrained("states_names","id")->onUpdate("cascade")->onDelete("set null");
       $table->timestamps();
     });
   }

@@ -34,11 +34,6 @@
     </div>
   </div>
   <div class="flex flex-row gap-4 mb-4 w-full">
-    <div class="max-w-[9rem]">
-      <x-label>{{ __('Number of applicants') }}</x-label>
-      <x-input type="number" class="mt-1 block w-full" wire:model="registerForm.applicants" id="applicants" />
-      <x-input-error for="registerForm.applicants" />
-    </div>
     <div class="w-full">
       <x-label>{{ __('Name') }} {{ __('Applicant') }}</x-label>
       <x-input type="text" class="mt-1 block w-full" wire:model="registerForm.applicant" id="applicant" />

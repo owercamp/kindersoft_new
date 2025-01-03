@@ -42,6 +42,8 @@ class Customers extends Component
   public $genres = [];
   public ?array $birthday = [];
   public ?string $age = "0";
+  public ?array $factures = [];
+  public ?int $total = 0;
 
   public function mount()
   {
@@ -121,7 +123,7 @@ class Customers extends Component
 
   public function edit()
   {
-    $this->validate();
+    $this->registerForm->validate();
     $edited = PotentialCustomerService::edit($this->registerForm, $this->id);
     $this->dispatch('swal:modal', $edited);
     $this->modal_edit = false;
@@ -172,21 +174,105 @@ class Customers extends Component
 
   public function quotation()
   {
-    $this->quoteForm->validateOnly('admissions');
-    $this->quoteForm->validateOnly('journal');
-    $this->quoteForm->validateOnly('food');
-    $this->quoteForm->validateOnly('uniform');
-    $this->quoteForm->validateOnly('add_time');
-    $this->quoteForm->validateOnly('extracurricular');
-    $this->quoteForm->validateOnly('transport');
-    $response = QuotationService::create($this->quoteForm, $this->id);
+    if (count($this->factures) > 0) {
+      // dd($this->quoteForm, $this->factures);
+      $response = QuotationService::create($this->quoteForm, $this->id, $this->factures);
 
-    if ($response) {
-      $this->dispatch('swal:modal', SuccessNotification::get_notifications('success', __('Successfully Created Record'), 1500, 'completed'));
+      if ($response) {
+        $this->dispatch('swal:modal', SuccessNotification::get_notifications('success', __('Successfully Created Record'), 1500, 'completed'));
+      } else {
+        $this->dispatch('swal:modal', ErrorNotification::get_notifications('error', __('An error has occurred'), 1500, 'completed'));
+      }
+      $this->modal_quote = false;
     } else {
-      $this->dispatch('swal:modal', ErrorNotification::get_notifications('error', __('An error has occurred'), 1500, 'completed'));
+      $this->dispatch('swal:modal', ErrorNotification::get_notifications('error', __('No data found for invoice'), 1500, 'completed'));
     }
-    $this->modal_quote = false;
+  }
+
+  public function sum()
+  {
+    $total = 0;
+    foreach ($this->factures as $key => $value) {
+      $total += $value['price'];
+    }
+
+    $this->total = $total;
+  }
+
+  public function removeFacture(int $index)
+  {
+    unset($this->factures[$index]);
+    $this->sum();
+  }
+
+  public function addAdmission()
+  {
+    if ($this->quoteForm->admissions) {
+      $price = QuotationService::get_consulting_array('admissions', ['id' => $this->quoteForm->admissions]);
+      $this->factures[] = $price;
+      $this->sum();
+      $this->quoteForm->reset('admissions');
+    }
+  }
+
+  public function addJournal()
+  {
+    if ($this->quoteForm->journal) {
+      $price = QuotationService::get_consulting_array('journays', ['id' => $this->quoteForm->journal]);
+      $this->factures[] = $price;
+      $this->sum();
+      $this->quoteForm->reset('journal');
+    }
+  }
+
+  public function addFood()
+  {
+    if ($this->quoteForm->food) {
+      $price = QuotationService::get_consulting_array('feedings', ['id' => $this->quoteForm->food]);
+      $this->factures[] = $price;
+      $this->sum();
+      $this->quoteForm->reset('food');
+    }
+  }
+
+  public function addUniform()
+  {
+    if ($this->quoteForm->uniform) {
+      $price = QuotationService::get_consulting_array('uniforms', ['id' => $this->quoteForm->uniform]);
+      $this->factures[] = $price;
+      $this->sum();
+      $this->quoteForm->reset('uniform');
+    }
+  }
+
+  public function addExtratime()
+  {
+    if ($this->quoteForm->add_time) {
+      $price = QuotationService::get_consulting_array('extra_times', ['id' => $this->quoteForm->add_time]);
+      $this->factures[] = $price;
+      $this->sum();
+      $this->quoteForm->reset('add_time');
+    }
+  }
+
+  public function addExtracurricular()
+  {
+    if ($this->quoteForm->extracurricular) {
+      $price = QuotationService::get_consulting_array('extracurriculars', ['id' => $this->quoteForm->extracurricular]);
+      $this->factures[] = $price;
+      $this->sum();
+      $this->quoteForm->reset('extracurricular');
+    }
+  }
+
+  public function addTransport()
+  {
+    if ($this->quoteForm->transport) {
+      $price = QuotationService::get_consulting_array('transports', ['id' => $this->quoteForm->transport]);
+      $this->factures[] = $price;
+      $this->sum();
+      $this->quoteForm->reset('transport');
+    }
   }
 
   public function render()
