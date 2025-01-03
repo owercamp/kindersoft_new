@@ -2,11 +2,13 @@
 
 namespace App\Models;
 
+use App\Models\Quotation;
 use App\Models\StatesNames;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Casts\Attribute;
-use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\MorphToMany;
 
 class Extracurricular extends Model
 {
@@ -33,8 +35,8 @@ class Extracurricular extends Model
   public function description(): Attribute
   {
     return Attribute::make(
-      get: fn ($value) => trim($value),
-      set: fn ($value) => trim(ucfirst(strtolower($value))),
+      get: fn($value) => trim($value),
+      set: fn($value) => trim(ucfirst(strtolower($value))),
     );
   }
 
@@ -53,5 +55,15 @@ class Extracurricular extends Model
   public function status(): HasOne
   {
     return $this->hasOne(StatesNames::class, 'id', 'status_id');
+  }
+
+  /**
+   * Retrieve the quotations associated with this model.
+   *
+   * @return \Illuminate\Database\Eloquent\Relations\MorphToMany The quotations relation.
+   */
+  public function quotation(): MorphToMany
+  {
+    return $this->morphToMany(Quotation::class, 'quotationable');
   }
 }
