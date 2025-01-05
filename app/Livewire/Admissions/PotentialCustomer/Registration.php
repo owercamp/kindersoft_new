@@ -32,6 +32,7 @@ class Registration extends Component
   public int $id;
   public bool $modal = false;
   public bool $schedule = false;
+  public string $visible = "hidden";
 
   public function increment()
   {
@@ -54,6 +55,10 @@ class Registration extends Component
 
   public function addApplicant()
   {
+    if(count($this->createForm->applicants_data['name']) + 1 > 0){
+      $this->visible = 'flex';
+    }
+
     if (count($this->createForm->applicants_data['name']) <= $this->createForm->applicants) {
       $this->createForm->applicants_data['name'][] = $this->applicant['name'];
       $temp = [];
