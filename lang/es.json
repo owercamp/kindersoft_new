@@ -630,5 +630,6 @@
   "Not Attended": "No Asistido",
   "Record Not Found": "Registro no encontrado",
   "information": "Información",
-  "No data found for invoice": "No se encontraron datos para la factura"
+  "No data found for invoice": "No se encontraron datos para la factura",
+  "Please validate the data to be imported": "Por favor valide los datos a importar"
 }
