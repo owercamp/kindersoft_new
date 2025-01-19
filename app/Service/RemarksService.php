@@ -25,7 +25,7 @@ class RemarksService extends ConsultingServices
 
   public static function delete(int $id): bool
   {
-    $exists = ConsultingServices::get_exists('achievements', [
+    $exists = ConsultingServices::get_exists('remarks', [
       ['id', $id]
     ]);
     if ($exists) {
