@@ -34,15 +34,25 @@ class Observations extends Component
 
   public function cargar()
   {
+    $current = RemarksService::all()->count();
     $this->validate([
       'archivo' => 'required|file|mimes:xlsx,xls,csv|max:2048',
     ]);
 
     Excel::import(new RemarkImport, $this->archivo->getRealPath());
 
-    $this->dispatch('saved');
+    $inserted = RemarksService::all()->count();
 
-    $this->dispatch('swal:modal', SuccessNotification::get_notifications('success', __('Successfully Imported Records'), 1500, 'completed'));
+    if ($current == $inserted) {
+      $this->dispatch('saved');
+
+      $this->dispatch('swal:modal', ErrorNotification::get_notifications('error', __('An error has occurred') . ", " . __('Please validate the data to be imported'), 3500, 'completed'));
+    }
+
+    if ($current != $inserted) {
+      $this->dispatch('saved');
+      $this->dispatch('swal:modal', SuccessNotification::get_notifications('success', __('Successfully Imported Records'), 1500, 'completed'));
+    }
   }
 
   public function search()
