@@ -46,7 +46,7 @@ class Observations extends Component
     if ($current == $inserted) {
       $this->dispatch('saved');
 
-      $this->dispatch('swal:modal', ErrorNotification::get_notifications('Error', __('An error has occurred') . ", " . __('Please validate the data to be imported'), 3500, 'completed'));
+      $this->dispatch('swal:modal', ErrorNotification::get_notifications('error', __('An error has occurred') . ", " . __('Please validate the data to be imported'), 3500, 'completed'));
     }
 
     if ($current != $inserted) {
