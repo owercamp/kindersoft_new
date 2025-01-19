@@ -16,7 +16,7 @@ class AchievementForm extends Form
     return [
       'intelligence' => 'required|exists:intelligences,id',
       'register' => 'required',
-      'description' => 'required|string|max:35',
+      'description' => 'required|string|max:300',
     ];
   }
 
