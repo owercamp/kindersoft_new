@@ -34,15 +34,25 @@ class Achievements extends Component
 
   public function cargar()
   {
+    $current = AchievementService::all()->count();
     $this->validate([
       'archivo' => 'required|file|mimes:xlsx,xls,csv|max:2048',
     ]);
 
     Excel::import(new AchievementImport, $this->archivo->getRealPath());
 
-    $this->dispatch('saved');
+    $inserted = AchievementService::all()->count();
 
-    $this->dispatch('swal:modal', SuccessNotification::get_notifications('success', __('Successfully Imported Records'), 1500, 'completed'));
+    if ($current == $inserted) {
+      $this->dispatch('saved');
+      $this->dispatch('swal:modal', ErrorNotification::get_notifications('error', __('An error has occurred') . ", " . __('Please validate the data to be imported'), 1500, 'completed'));
+    }
+
+    if ($current != $inserted) {
+      $this->dispatch('saved');
+      $this->dispatch('swal:modal', SuccessNotification::get_notifications('success', __('Successfully Imported Records'), 1500, 'completed'));
+    }
+
   }
 
   public function search()
@@ -52,8 +62,6 @@ class Achievements extends Component
       $this->achievementForm->register = str_pad($register, 4, '0', STR_PAD_LEFT);
     }
   }
-
-  public function increment() {}
 
   public function excel()
   {
@@ -66,7 +74,8 @@ class Achievements extends Component
 
     $exists = AchievementService::get_exists('achievements', [
       ['intelligence_id', $this->achievementForm->intelligence],
-      ['register', $this->achievementForm->register]
+      ['register', $this->achievementForm->register],
+      ['description', $this->achievementForm->description],
     ]);
 
     if ($exists) {

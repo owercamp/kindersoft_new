@@ -74,7 +74,8 @@ class Observations extends Component
 
     $exists = RemarksService::get_exists('remarks', [
       ['intelligence_id', $this->achievementForm->intelligence],
-      ['register', $this->achievementForm->register]
+      ['register', $this->achievementForm->register],
+      ['description', $this->achievementForm->description]
     ]);
 
     if ($exists) {
