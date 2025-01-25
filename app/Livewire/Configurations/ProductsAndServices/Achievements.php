@@ -74,7 +74,8 @@ class Achievements extends Component
 
     $exists = AchievementService::get_exists('achievements', [
       ['intelligence_id', $this->achievementForm->intelligence],
-      ['register', $this->achievementForm->register]
+      ['register', $this->achievementForm->register],
+      ['description', $this->achievementForm->description],
     ]);
 
     if ($exists) {
