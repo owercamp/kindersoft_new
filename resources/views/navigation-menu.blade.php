@@ -154,7 +154,7 @@
                       {{ __('Notifications and Mail') }}
                     </x-slot>
                     <x-slot name="content">
-                      <x-nav-link>
+                      <x-nav-link href="{{ route('notification-administrative') }}">
                         {{ __('Administrative Notifications') }}
                       </x-nav-link>
                       <x-nav-link>
