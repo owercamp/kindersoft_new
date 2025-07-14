@@ -633,5 +633,7 @@
   "No data found for invoice": "No se encontraron datos para la factura",
   "Please validate the data to be imported": "Por favor valide los datos a importar",
   "Important": "Importante",
-  "The maximum import limit from Excel is 500 registers.": "El límite máximo de importación desde Excel es de 500 registros."
+  "The maximum import limit from Excel is 500 registers.": "El límite máximo de importación desde Excel es de 500 registros.",
+  "Shipping address": "Correo de envío",
+  "Message": "Mensaje"
 }
