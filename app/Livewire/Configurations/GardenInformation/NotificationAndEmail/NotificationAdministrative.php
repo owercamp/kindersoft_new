@@ -13,10 +13,16 @@ class NotificationAdministrative extends Component
   use WithFileUploads;
 
   public string $title;
-  public string $text;
+  public string $content = '';
 
   #[Rule('nullable|image|max:2048|extensions:jpg')]
   public $firm;
+
+
+  public function save()
+  {
+    dd($this->title, $this->content, $this->firm);
+  }
 
   public function render(): View
   {
