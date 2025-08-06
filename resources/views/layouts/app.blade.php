@@ -53,6 +53,7 @@
     @else
         @livewireScripts
     @endif
+    <script src="{{ asset('/build/tinymce/js/tinymce/tinymce.js') }}"></script>
 </body>
 
 </html>
