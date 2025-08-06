@@ -10,7 +10,7 @@
             <div class="overflow-hidden bg-white px-5 py-6 shadow-xl dark:bg-gray-800 sm:rounded-lg">
                 <div x-data="{ 'showModal': false }" class="flex justify-center">
                     <!-- Trigger for Modal -->
-                    <x-button type="button" @click="showModal = true"
+                    <x-button type="button" @click="showModal = true; Livewire.dispatch('resetTinyMCE')"
                         class="mx-auto flex flex-row bg-green-800 text-white hover:bg-green-700 dark:bg-sky-800 dark:hover:bg-sky-600">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="h-4 w-4">
@@ -42,7 +42,18 @@
                             </div>
                             <hr>
 
-                            @include('livewire.configurations.garden-information.notification-and-email.partials._partial-form')
+                            <div class="p-4">
+                                <form wire:submit.prevent="save">
+                                    @csrf
+                                    @include('livewire.configurations.garden-information.notification-and-email.partials._partial-form')
+                                    <div class="mt-1 flex justify-end">
+                                        <x-button
+                                            class="w-full bg-green-800 hover:bg-green-700 dark:bg-sky-800 dark:hover:bg-sky-600"
+                                            type="submit">{{ __('Save') }}</x-button>
+                                    </div>
+                                </form>
+                            </div>
+
 
                         </div>
                     </div>
