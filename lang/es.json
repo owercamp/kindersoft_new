@@ -635,5 +635,6 @@
   "Important": "Importante",
   "The maximum import limit from Excel is 500 registers.": "El límite máximo de importación desde Excel es de 500 registros.",
   "Shipping address": "Correo de envío",
-  "Message": "Mensaje"
+  "Message": "Mensaje",
+  "Select a firm": "Seleccione una firma"
 }
