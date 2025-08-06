@@ -11,17 +11,35 @@
     </label>
 
     <div class="mt-2">
-        <textarea class="myeditor"></textarea>
+        <div x-data="{
+            content: $persist('').as('editorContent'),
+            init() {
+                const editor = tinymce.get('tinymce-editor');
+                editor.on('input change undo redo', () => {
+                    this.content = editor.getContent();
+                    @this.set('content', this.content);
+                });
+                Livewire.on('resetTinyMCE', () => {
+                    editor.setContent('');
+                    this.content = '';
+                    Alpine.$persist('').as('editorContent');
+                })
+            }
+        }" wire:ignore class="mt-4">
+            <textarea id="tinymce-editor" x-model="content" class="myeditor">{{ $content }}</textarea>
+        </div>
     </div>
 
-    <div class="mt-2" wire:ignore>
-        <x-input-file class="mt-3" wire:model.live="firm" label="{{ __('File') }}"
-            placeholder="{{ __('Select a firm') }}" accept="image/*" />
+    <div class="mt-2">
+        <x-input-file class="mt-3" wire:model="firm" label="{{ __('File') }}"
+            placeholder="{{ __('Select a firm') }}" accept="image/jpg, image/jpeg, image/png" />
     </div>
+
+
 
     @if ($firm)
-        <div class="mt-2">
-            <img src="{{ $firm->temporaryUrl() }}" alt="" class="h-32 w-32 rounded-lg shadow-md">
+        <div class="mt-2 flex justify-center">
+            <img src="{{ $firm->temporaryUrl() }}" alt="" class="h-32 w-7/12 rounded-lg shadow-md">
         </div>
     @endif
 
