@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Models\City;
 use App\Models\Postal;
 use App\Models\Country;
+use App\Models\Providers;
 use App\Models\Departament;
 use App\Models\Municipality;
 use App\Models\Neighborhood;
@@ -95,8 +96,8 @@ class Person extends Model
   public function first_name(): Attribute
   {
     return Attribute::make(
-      get: fn ($value) => trim($value),
-      set: fn ($value) => trim(ucfirst(strtolower($value))),
+      get: fn($value) => trim($value),
+      set: fn($value) => trim(ucfirst(strtolower($value))),
     );
   }
 
@@ -108,8 +109,8 @@ class Person extends Model
   public function middle_name(): Attribute
   {
     return Attribute::make(
-      get: fn ($value) => trim($value),
-      set: fn ($value) => trim(ucfirst(strtolower($value))),
+      get: fn($value) => trim($value),
+      set: fn($value) => trim(ucfirst(strtolower($value))),
     );
   }
 
@@ -121,8 +122,8 @@ class Person extends Model
   public function last_name(): Attribute
   {
     return Attribute::make(
-      get: fn ($value) => trim($value),
-      set: fn ($value) => trim(ucfirst(strtolower($value))),
+      get: fn($value) => trim($value),
+      set: fn($value) => trim(ucfirst(strtolower($value))),
     );
   }
 
@@ -134,8 +135,8 @@ class Person extends Model
   public function middle_last_name(): Attribute
   {
     return Attribute::make(
-      get: fn ($value) => trim($value),
-      set: fn ($value) => trim(ucfirst(strtolower($value))),
+      get: fn($value) => trim($value),
+      set: fn($value) => trim(ucfirst(strtolower($value))),
     );
   }
 
@@ -216,14 +217,14 @@ class Person extends Model
    */
   public function provider(): HasOne
   {
-    return $this->hasOne(Provider::class, 'id', 'provider_id');
+    return $this->hasOne(Providers::class, 'id', 'provider_id');
   }
 
-    /**
-     * Retrieves the full name of the person.
-     *
-     * @return string The full name of the person, including the first name, middle name, last name, and middle last name.
-     */
+  /**
+   * Retrieves the full name of the person.
+   *
+   * @return string The full name of the person, including the first name, middle name, last name, and middle last name.
+   */
   public function getFullNameAttribute()
   {
     return "$this->first_name $this->middle_name $this->last_name $this->middle_last_name";
