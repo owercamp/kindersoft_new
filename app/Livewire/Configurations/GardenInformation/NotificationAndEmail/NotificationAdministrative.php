@@ -2,26 +2,23 @@
 
 namespace App\Livewire\Configurations\GardenInformation\NotificationAndEmail;
 
-use Illuminate\Contracts\View\View;
 use Livewire\Component;
-use Livewire\WithFileUploads;
 use Livewire\WithPagination;
+use Livewire\WithFileUploads;
+use Illuminate\Contracts\View\View;
+use App\Livewire\Forms\AdministrativeForm;
 
 class NotificationAdministrative extends Component
 {
   use WithPagination;
   use WithFileUploads;
 
-  public string $title;
-  public string $content = '';
-
-  #[Rule('nullable|image|max:2048|extensions:jpg')]
-  public $firm;
-
+  public AdministrativeForm $formAdmin;
 
   public function save()
   {
-    dd($this->title, $this->content, $this->firm);
+    $this->formAdmin->validate();
+    dd($this->formAdmin->email, $this->formAdmin->content, $this->formAdmin->firm);
   }
 
   public function render(): View
