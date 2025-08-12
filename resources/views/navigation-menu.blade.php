@@ -1,149 +1,149 @@
-<nav x-data="{ open: false }" class="bg-white dark:bg-gray-900 border-b-4 border-gray-100 dark:border-cyan-600">
+<nav class="border-b-4 border-gray-100 bg-white dark:border-cyan-600 dark:bg-gray-900" x-data="{ open: false }">
   <!-- Primary Navigation Menu -->
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex justify-between h-16">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="flex h-16 justify-between">
       <div class="flex">
         <!-- Logo -->
-        <div class="shrink-0 flex items-center">
+        <div class="flex shrink-0 items-center">
           <a href="{{ route('dashboard') }}">
             <x-application-logo class="block h-9 w-auto fill-current text-gray-800" />
           </a>
         </div>
 
         <!-- Navigation Links -->
-        <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex text-center">
+        <div class="hidden space-x-8 text-center sm:-my-px sm:ms-10 sm:flex">
 
           <x-dropdown-first-level>
             <x-slot name="trigger">
-              {{ __('Configuration') }}
+              {{ trans('Configuration') }}
             </x-slot>
             <x-slot name="content">
               <x-dropdown-second-level>
                 <x-slot name="trigger">
-                  {{ __('Kindergarten Information') }}
+                  {{ trans('Kindergarten Information') }}
                 </x-slot>
                 <x-slot name="content">
                   <x-nav-link href="{{ route('general-information') }}">
-                    {{ __('General Information') }}
+                    {{ trans('General Information') }}
                   </x-nav-link>
                   <x-nav-link href="{{ route('tax-information') }}">
-                    {{ __('Tax Information') }}
+                    {{ trans('Tax Information') }}
                   </x-nav-link>
                   <x-nav-link href="{{ route('corporate-images') }}">
-                    {{ __('Corporate Images') }}
+                    {{ trans('Corporate Images') }}
                   </x-nav-link>
                   <x-dropdown-second-level>
                     <x-slot name="trigger">
-                      {{ __('Printing Templates') }}
+                      {{ trans('Printing Templates') }}
                     </x-slot>
                     <x-slot name="content">
                       <x-dropdown-second-level>
                         <x-slot name="trigger">
-                          {{ __('Admissions Templates') }}
+                          {{ trans('Admissions Templates') }}
                         </x-slot>
                         <x-slot name="content">
                           <x-nav-link href="{{ route('downloadCommercial') }}">
-                            {{ __('Commercial Proposal') }}
+                            {{ trans('Commercial Proposal') }}
                           </x-nav-link>
                           <x-nav-link href="{{ route('downloadCooperative') }}">
-                            {{ __('Educational Cooperation Contract') }}
+                            {{ trans('Educational Cooperation Contract') }}
                           </x-nav-link>
                           <x-nav-link href="{{ route('downloadLegal') }}">
-                            {{ __('Guarantee Document Promissory Note') }}
+                            {{ trans('Guarantee Document Promissory Note') }}
                           </x-nav-link>
                           <x-nav-link href="{{ route('downloadAuthorization') }}">
-                            {{ __('Data Processing Authorization') }}
+                            {{ trans('Data Processing Authorization') }}
                           </x-nav-link>
                         </x-slot>
                       </x-dropdown-second-level>
                       <x-dropdown-second-level>
                         <x-slot name="trigger">
-                          {{ __('Administrative Templates') }}
+                          {{ trans('Administrative Templates') }}
                         </x-slot>
                         <x-slot name="content">
                           <x-nav-link href="{{ route('downloadIndefiniteTermContract') }}">
-                            {{ __('Indefinite Term Contract') }}
+                            {{ trans('Indefinite Term Contract') }}
                           </x-nav-link>
                           <x-nav-link href="{{ route('downloadFixedTermContract') }}">
-                            {{ __('Fixed Term Contract') }}
+                            {{ trans('Fixed Term Contract') }}
                           </x-nav-link>
                           <x-nav-link href="{{ route('downloadContractTerminalWorkLaborContract') }}">
-                            {{ __('Contract Work or Labor') }}
+                            {{ trans('Contract Work or Labor') }}
                           </x-nav-link>
                           <x-nav-link href="{{ route('downloadPerformaneEvaluation') }}">
-                            {{ __('Performance Evaluation') }}
+                            {{ trans('Performance Evaluation') }}
                           </x-nav-link>
                           <x-nav-link href="{{ route('downloadPayrollReport') }}">
-                            {{ __('Payroll Report') }}
+                            {{ trans('Payroll Report') }}
                           </x-nav-link>
                           <x-nav-link href="{{ route('downloadAdministrativeReport') }}">
-                            {{ __('Administrative Report') }}
+                            {{ trans('Administrative Report') }}
                           </x-nav-link>
                         </x-slot>
                       </x-dropdown-second-level>
                       <x-dropdown-second-level>
                         <x-slot name="trigger">
-                          {{ __('Academic Templates') }}
+                          {{ trans('Academic Templates') }}
                         </x-slot>
                         <x-slot name="content">
                           <x-nav-link href="{{ route('downloadCertificationSchool') }}">
-                            {{ __('School Certification') }}
+                            {{ trans('School Certification') }}
                           </x-nav-link>
                           <x-nav-link href="{{ route('downloadPlanningWeekly') }}">
-                            {{ __('Weekly Planning') }}
+                            {{ trans('Weekly Planning') }}
                           </x-nav-link>
                           <x-nav-link href="{{ route('downloadPeriodReport') }}">
-                            {{ __('Period Report') }}
+                            {{ trans('Period Report') }}
                           </x-nav-link>
                           <x-nav-link href="{{ route('downloadSchoolBulletin') }}">
-                            {{ __('School Newsletter') }}
+                            {{ trans('School Newsletter') }}
                           </x-nav-link>
                         </x-slot>
                       </x-dropdown-second-level>
                       <x-dropdown-second-level>
                         <x-slot name="trigger">
-                          {{ __('Logistics Templates') }}
+                          {{ trans('Logistics Templates') }}
                         </x-slot>
                         <x-slot name="content">
                           <x-nav-link href="{{ route('downloadAttendanceControl') }}">
-                            {{ __('Attendance Control') }}
+                            {{ trans('Attendance Control') }}
                           </x-nav-link>
                           <x-nav-link href="{{ route('downloadNewsDaily') }}">
-                            {{ __('Daily News') }}
+                            {{ trans('Daily News') }}
                           </x-nav-link>
                           <x-nav-link href="{{ route('downloadGrowthAndDevelopment') }}">
-                            {{ __('Growth and Development') }}
+                            {{ trans('Growth and Development') }}
                           </x-nav-link>
                           <x-nav-link href="{{ route('downloadSpecialReports') }}">
-                            {{ __('Special Reports') }}
+                            {{ trans('Special Reports') }}
                           </x-nav-link>
                           <x-nav-link href="{{ route('downloadInformativeCirculars') }}">
-                            {{ __('Informative Circulars') }}
+                            {{ trans('Informative Circulars') }}
                           </x-nav-link>
                           <x-nav-link href="{{ route('downloadSchoolAgenda') }}">
-                            {{ __('School Agenda') }}
+                            {{ trans('School Agenda') }}
                           </x-nav-link>
                         </x-slot>
                       </x-dropdown-second-level>
                       <x-dropdown-second-level>
                         <x-slot name="trigger">
-                          {{ __('Financial Templates') }}
+                          {{ trans('Financial Templates') }}
                         </x-slot>
                         <x-slot name="content">
                           <x-nav-link>
-                            {{ __('Electronic Invoice') }}
+                            {{ trans('Electronic Invoice') }}
                           </x-nav-link>
                           <x-nav-link>
-                            {{ __('Debit Note') }}
+                            {{ trans('Debit Note') }}
                           </x-nav-link>
                           <x-nav-link>
-                            {{ __('Credit Note') }}
+                            {{ trans('Credit Note') }}
                           </x-nav-link>
                           <x-nav-link>
-                            {{ __('Income Voucher') }}
+                            {{ trans('Income Voucher') }}
                           </x-nav-link>
                           <x-nav-link>
-                            {{ __('Proof of Expenditure') }}
+                            {{ trans('Proof of Expenditure') }}
                           </x-nav-link>
                         </x-slot>
                       </x-dropdown-second-level>
@@ -151,23 +151,23 @@
                   </x-dropdown-second-level>
                   <x-dropdown-second-level>
                     <x-slot name="trigger">
-                      {{ __('Notifications and Mail') }}
+                      {{ trans('Notifications and Mail') }}
                     </x-slot>
                     <x-slot name="content">
-                      <x-nav-link>
-                        {{ __('Administrative Notifications') }}
+                      <x-nav-link href="{{ route('notification-administrative') }}">
+                        {{ trans('Administrative Notifications') }}
                       </x-nav-link>
                       <x-nav-link>
-                        {{ __('Notifications Admissions') }}
+                        {{ trans('Notifications Admissions') }}
                       </x-nav-link>
                       <x-nav-link>
-                        {{ __('Academic Notifications') }}
+                        {{ trans('Academic Notifications') }}
                       </x-nav-link>
                       <x-nav-link>
-                        {{ __('Logistics Notifications') }}
+                        {{ trans('Logistics Notifications') }}
                       </x-nav-link>
                       <x-nav-link>
-                        {{ __('Financial Notifications') }}
+                        {{ trans('Financial Notifications') }}
                       </x-nav-link>
                     </x-slot>
                   </x-dropdown-second-level>
@@ -175,104 +175,104 @@
               </x-dropdown-second-level>
               <x-dropdown-second-level>
                 <x-slot name="trigger">
-                  {{ __('Database Structure') }}
+                  {{ trans('Database Structure') }}
                 </x-slot>
                 <x-slot name="content">
                   <x-nav-link>
-                    {{ __('Access Security') }}
+                    {{ trans('Access Security') }}
                   </x-nav-link>
                   <x-nav-link href="{{ route('structure.calendar') }}">
-                    {{ __('School Calendar') }}
+                    {{ trans('School Calendar') }}
                   </x-nav-link>
                   <x-nav-link href="{{ route('configurations.databases.creation-document') }}">
-                    {{ __('Document Creation') }}
+                    {{ trans('Document Creation') }}
                   </x-nav-link>
                   <x-nav-link href="{{ route('configurations.databases.health-care-provider') }}">
-                    {{ __('Health Care Provider') }}
+                    {{ trans('Health Care Provider') }}
                   </x-nav-link>
                   <x-nav-link href="{{ route('configurations.databases.employment-positions') }}">
-                    {{ __('Employment Positions') }}
+                    {{ trans('Employment Positions') }}
                   </x-nav-link>
                   <x-nav-link>
-                    {{ __('School Contract Minutes') }}
+                    {{ trans('School Contract Minutes') }}
                   </x-nav-link>
                   <x-nav-link>
-                    {{ __('Transportation Contract Minutes') }}
+                    {{ trans('Transportation Contract Minutes') }}
                   </x-nav-link>
                 </x-slot>
               </x-dropdown-second-level>
               <x-dropdown-second-level>
                 <x-slot name="trigger">
-                  {{ __('Human Resources')}}
+                  {{ trans('Human Resources') }}
                 </x-slot>
                 <x-slot name="content">
                   <x-nav-link href="{{ route('configurations.human-resources.collaborators') }}">
-                    {{ __('Collaborators') }}
+                    {{ trans('Collaborators') }}
                   </x-nav-link>
                   <x-nav-link href="{{ route('configurations.human-resources.attendants') }}">
-                    {{ __('Attendees') }}
+                    {{ trans('Attendees') }}
                   </x-nav-link>
                   <x-nav-link href="{{ route('configurations.human-resources.students') }}">
-                    {{ __('Students') }}
+                    {{ trans('Students') }}
                   </x-nav-link>
                   <x-nav-link href="{{ route('configurations.human-resources.providers') }}">
-                    {{ __('Suppliers') }}
+                    {{ trans('Suppliers') }}
                   </x-nav-link>
                 </x-slot>
               </x-dropdown-second-level>
               <x-dropdown-second-level>
                 <x-slot name="trigger">
-                  {{ __('Products and Services')}}
+                  {{ trans('Products and Services') }}
                 </x-slot>
                 <x-slot name="content">
                   <x-nav-link href="{{ route('configurations.products-and-services.admissions') }}">
-                    {{ __('Admissions') }}
+                    {{ trans('Admissions') }}
                   </x-nav-link>
                   <x-nav-link href="{{ route('configurations.products-and-services.journays') }}">
-                    {{ __('Journays') }}
+                    {{ trans('Journays') }}
                   </x-nav-link>
                   <x-nav-link href="{{ route('configurations.products-and-services.feeding') }}">
-                    {{ __('Feeding') }}
+                    {{ trans('Feeding') }}
                   </x-nav-link>
                   <x-nav-link href="{{ route('configurations.products-and-services.uniforms') }}">
-                    {{ __('Uniforms') }}
+                    {{ trans('Uniforms') }}
                   </x-nav-link>
                   <x-nav-link href="{{ route('configurations.products-and-services.school-supplies') }}">
-                    {{ __('School Supplies') }}
+                    {{ trans('School Supplies') }}
                   </x-nav-link>
                   <x-nav-link href="{{ route('configurations.products-and-services.extratimes') }}">
-                    {{ __('Additional Time') }}
+                    {{ trans('Additional Time') }}
                   </x-nav-link>
                   <x-nav-link href="{{ route('configurations.products-and-services.extracurriculars') }}">
-                    {{ __('Extracurricular') }}
+                    {{ trans('Extracurricular') }}
                   </x-nav-link>
                   <x-nav-link href="{{ route('configurations.products-and-services.transportation') }}">
-                    {{ __('Transportation') }}
+                    {{ trans('Transportation') }}
                   </x-nav-link>
                 </x-slot>
               </x-dropdown-second-level>
               <x-dropdown-second-level>
                 <x-slot name="trigger">
-                  {{ __('Academic Programs')}}
+                  {{ trans('Academic Programs') }}
                 </x-slot>
                 <x-slot name="content">
                   <x-nav-link href="{{ route('configurations.academic-programs.grades') }}">
-                    {{ __('Grades') }}
+                    {{ trans('Grades') }}
                   </x-nav-link>
                   <x-nav-link href="{{ route('configurations.academic-programs.courses') }}">
-                    {{ __('Courses') }}
+                    {{ trans('Courses') }}
                   </x-nav-link>
                   <x-nav-link href="{{ route('configurations.academic-programs.periods') }}">
-                    {{ __('Periods') }}
+                    {{ trans('Periods') }}
                   </x-nav-link>
                   <x-nav-link href="{{ route('configurations.academic-programs.intelligence') }}">
-                    {{ __('Intelligences') }}
+                    {{ trans('Intelligences') }}
                   </x-nav-link>
                   <x-nav-link href="{{ route('configurations.academic-programs.achievements') }}">
-                    {{ __('Achievements') }}
+                    {{ trans('Achievements') }}
                   </x-nav-link>
                   <x-nav-link href="{{ route('configurations.academic-programs.remarks') }}">
-                    {{ __('Remarks') }}
+                    {{ trans('Remarks') }}
                   </x-nav-link>
                 </x-slot>
               </x-dropdown-second-level>
@@ -281,56 +281,56 @@
 
           <x-dropdown-first-level>
             <x-slot name="trigger">
-              {{ __('Administrative') }}
+              {{ trans('Administrative') }}
             </x-slot>
             <x-slot name="content">
               <x-dropdown-second-level>
                 <x-slot name="trigger">
-                  {{ __('Personnel Selection') }}
+                  {{ trans('Personnel Selection') }}
                 </x-slot>
                 <x-slot name="content">
                   <x-nav-link>
-                    {{ __('item') }}
+                    {{ trans('item') }}
                   </x-nav-link>
                 </x-slot>
               </x-dropdown-second-level>
               <x-dropdown-second-level>
                 <x-slot name="trigger">
-                  {{ __('Recruitment of Personnel') }}
+                  {{ trans('Recruitment of Personnel') }}
                 </x-slot>
                 <x-slot name="content">
                   <x-nav-link>
-                    {{ __('item') }}
+                    {{ trans('item') }}
                   </x-nav-link>
                 </x-slot>
               </x-dropdown-second-level>
               <x-dropdown-second-level>
                 <x-slot name="trigger">
-                  {{ __('Performance Evaluation') }}
+                  {{ trans('Performance Evaluation') }}
                 </x-slot>
                 <x-slot name="content">
                   <x-nav-link>
-                    {{ __('item') }}
+                    {{ trans('item') }}
                   </x-nav-link>
                 </x-slot>
               </x-dropdown-second-level>
               <x-dropdown-second-level>
                 <x-slot name="trigger">
-                  {{ __('Payroll Report') }}
+                  {{ trans('Payroll Report') }}
                 </x-slot>
                 <x-slot name="content">
                   <x-nav-link>
-                    {{ __('item') }}
+                    {{ trans('item') }}
                   </x-nav-link>
                 </x-slot>
               </x-dropdown-second-level>
               <x-dropdown-second-level>
                 <x-slot name="trigger">
-                  {{ __('Administrative Reports') }}
+                  {{ trans('Administrative Reports') }}
                 </x-slot>
                 <x-slot name="content">
                   <x-nav-link>
-                    {{ __('item') }}
+                    {{ trans('item') }}
                   </x-nav-link>
                 </x-slot>
               </x-dropdown-second-level>
@@ -339,153 +339,91 @@
 
           <x-dropdown-first-level>
             <x-slot name="trigger">
-              {{ __('Admissions') }}
+              {{ trans('Admissions') }}
             </x-slot>
             <x-slot name="content">
               <x-dropdown-second-level>
                 <x-slot name="trigger">
-                  {{ __('Potential Customer') }}
+                  {{ trans('Potential Customer') }}
                 </x-slot>
                 <x-slot name="content">
                   <x-nav-link href="{{ route('admissions.potential-customer.registration') }}">
-                    {{ __('Registration') }}
+                    {{ trans('Registration') }}
                   </x-nav-link>
                   <x-nav-link href="{{ route('admissions.potential-customer.scheduling') }}">
-                    {{ __('Scheduling') }}
+                    {{ trans('Scheduling') }}
                   </x-nav-link>
                   <x-nav-link href="{{ route('admissions.potential-customer.archive') }}">
-                    {{ __('Archive') }}
+                    {{ trans('Archive') }}
                   </x-nav-link>
                   <x-nav-link href="{{ route('admissions.potential-customer.statistics') }}">
-                    {{ __('Statistics') }}
+                    {{ trans('Statistics') }}
                   </x-nav-link>
                 </x-slot>
               </x-dropdown-second-level>
               <x-dropdown-second-level>
                 <x-slot name="trigger">
-                  {{ __('Commercial Proposal') }}
+                  {{ trans('Commercial Proposal') }}
                 </x-slot>
                 <x-slot name="content">
                   <x-nav-link href="{{ route('admissions.commercial-proposal.customers') }}">
-                    {{ __('Customers') }}
+                    {{ trans('Customers') }}
                   </x-nav-link>
                   <x-nav-link href="{{ route('admissions.commercial-proposal.quotation') }}">
-                    {{ __('Quote') }}
+                    {{ trans('Quote') }}
                   </x-nav-link>
                   <x-nav-link>
-                    {{ __('Follow-up') }}
+                    {{ trans('Follow-up') }}
                   </x-nav-link>
                   <x-nav-link>
-                    {{ __('Archive') }}
+                    {{ trans('Archive') }}
                   </x-nav-link>
                   <x-nav-link>
-                    {{ __('Statistics') }}
-                  </x-nav-link>
-                </x-slot>
-              </x-dropdown-second-level>
-              <x-dropdown-second-level>
-                <x-slot name="trigger">
-                  {{ __('Enrollment Form') }}
-                </x-slot>
-                <x-slot name="content">
-                  <x-nav-link>
-                    {{ __('Registration') }}
-                  </x-nav-link>
-                  <x-nav-link>
-                    {{ __('Approval') }}
-                  </x-nav-link>
-                  <x-nav-link>
-                    {{ __('Payment Support') }}
-                  </x-nav-link>
-                  <x-nav-link>
-                    {{ __('Migration') }}
-                  </x-nav-link>
-                  <x-nav-link>
-                    {{ __('Archive') }}
+                    {{ trans('Statistics') }}
                   </x-nav-link>
                 </x-slot>
               </x-dropdown-second-level>
               <x-dropdown-second-level>
                 <x-slot name="trigger">
-                  {{ __('Enrollment Process') }}
+                  {{ trans('Enrollment Form') }}
                 </x-slot>
                 <x-slot name="content">
                   <x-nav-link>
-                    {{ __('Order of Enrollment') }}
+                    {{ trans('Registration') }}
                   </x-nav-link>
                   <x-nav-link>
-                    {{ __('Legalization of Registration') }}
+                    {{ trans('Approval') }}
                   </x-nav-link>
                   <x-nav-link>
-                    {{ __('Contract Generation') }}
+                    {{ trans('Payment Support') }}
                   </x-nav-link>
                   <x-nav-link>
-                    {{ __('School Certifications') }}
+                    {{ trans('Migration') }}
                   </x-nav-link>
                   <x-nav-link>
-                    {{ __('Archive') }}
-                  </x-nav-link>
-                </x-slot>
-              </x-dropdown-second-level>
-            </x-slot>
-          </x-dropdown-first-level>
-
-          <x-dropdown-first-level>
-            <x-slot name="trigger">
-              {{ __('Academic') }}
-            </x-slot>
-            <x-slot name="content">
-              <x-dropdown-second-level>
-                <x-slot name="trigger">
-                  {{ __('School Structure') }}
-                </x-slot>
-                <x-slot name="content">
-                  <x-nav-link>
-                    {{ __('Course Assignment') }}
-                  </x-nav-link>
-                  <x-nav-link>
-                    {{ __('Activity Space') }}
-                  </x-nav-link>
-                  <x-nav-link>
-                    {{ __('Classes and Activities') }}
+                    {{ trans('Archive') }}
                   </x-nav-link>
                 </x-slot>
               </x-dropdown-second-level>
               <x-dropdown-second-level>
                 <x-slot name="trigger">
-                  {{ __('School Programming') }}
+                  {{ trans('Enrollment Process') }}
                 </x-slot>
                 <x-slot name="content">
                   <x-nav-link>
-                    {{ __('Academic Periods') }}
+                    {{ trans('Order of Enrollment') }}
                   </x-nav-link>
                   <x-nav-link>
-                    {{ __('Weekly Schedule') }}
+                    {{ trans('Legalization of Registration') }}
                   </x-nav-link>
                   <x-nav-link>
-                    {{ __('Activity Basis') }}
+                    {{ trans('Contract Generation') }}
                   </x-nav-link>
                   <x-nav-link>
-                    {{ __('Chronological Planning') }}
-                  </x-nav-link>
-                </x-slot>
-              </x-dropdown-second-level>
-              <x-dropdown-second-level>
-                <x-slot name="trigger">
-                  {{ __('School Evaluation') }}
-                </x-slot>
-                <x-slot name="content">
-                  <x-nav-link>
-                    {{ __('Weekly Follow-up') }}
+                    {{ trans('School Certifications') }}
                   </x-nav-link>
                   <x-nav-link>
-                    {{ __('Closing Period') }}
-                  </x-nav-link>
-                  <x-nav-link>
-                    {{ __('Period Report') }}
-                  </x-nav-link>
-                  <x-nav-link>
-                    {{ __('School Newsletter') }}
+                    {{ trans('Archive') }}
                   </x-nav-link>
                 </x-slot>
               </x-dropdown-second-level>
@@ -494,139 +432,60 @@
 
           <x-dropdown-first-level>
             <x-slot name="trigger">
-              {{ __('Logistics') }}
+              {{ trans('Academic') }}
             </x-slot>
             <x-slot name="content">
               <x-dropdown-second-level>
                 <x-slot name="trigger">
-                  {{ __('Attendance Control') }}
+                  {{ trans('School Structure') }}
                 </x-slot>
                 <x-slot name="content">
                   <x-nav-link>
-                    {{ __('Attendance Record') }}
+                    {{ trans('Course Assignment') }}
                   </x-nav-link>
                   <x-nav-link>
-                    {{ __('Absence Record') }}
+                    {{ trans('Activity Space') }}
                   </x-nav-link>
                   <x-nav-link>
-                    {{ __('Statistics') }}
+                    {{ trans('Classes and Activities') }}
                   </x-nav-link>
                 </x-slot>
               </x-dropdown-second-level>
               <x-dropdown-second-level>
                 <x-slot name="trigger">
-                  {{ __('Daily News') }}
+                  {{ trans('School Programming') }}
                 </x-slot>
                 <x-slot name="content">
                   <x-nav-link>
-                    {{ __('Additional Control') }}
+                    {{ trans('Academic Periods') }}
                   </x-nav-link>
                   <x-nav-link>
-                    {{ __('Food Control') }}
+                    {{ trans('Weekly Schedule') }}
                   </x-nav-link>
                   <x-nav-link>
-                    {{ __('Sphincter Control') }}
+                    {{ trans('Activity Basis') }}
                   </x-nav-link>
                   <x-nav-link>
-                    {{ __('Nursing Control') }}
-                  </x-nav-link>
-                  <x-nav-link>
-                    {{ __('Closing Daily Report') }}
+                    {{ trans('Chronological Planning') }}
                   </x-nav-link>
                 </x-slot>
               </x-dropdown-second-level>
               <x-dropdown-second-level>
                 <x-slot name="trigger">
-                  {{ __('Event Programming') }}
+                  {{ trans('School Evaluation') }}
                 </x-slot>
                 <x-slot name="content">
                   <x-nav-link>
-                    {{ __('Event Creation') }}
+                    {{ trans('Weekly Follow-up') }}
                   </x-nav-link>
                   <x-nav-link>
-                    {{ __('Event Scheduling') }}
+                    {{ trans('Closing Period') }}
                   </x-nav-link>
                   <x-nav-link>
-                    {{ __('Event Tracking') }}
+                    {{ trans('Period Report') }}
                   </x-nav-link>
                   <x-nav-link>
-                    {{ __('Statistics') }}
-                  </x-nav-link>
-                </x-slot>
-              </x-dropdown-second-level>
-              <x-dropdown-second-level>
-                <x-slot name="trigger">
-                  {{ __('Growth and Development') }}
-                </x-slot>
-                <x-slot name="content">
-                  <x-nav-link>
-                    {{ __('Healthcare Professional') }}
-                  </x-nav-link>
-                  <x-nav-link>
-                    {{ __('Health Observations') }}
-                  </x-nav-link>
-                  <x-nav-link>
-                    {{ __('Vaccination Scheme') }}
-                  </x-nav-link>
-                  <x-nav-link>
-                    {{ __('Periodic Valuations') }}
-                  </x-nav-link>
-                  <x-nav-link>
-                    {{ __('Statistics') }}
-                  </x-nav-link>
-                </x-slot>
-              </x-dropdown-second-level>
-              <x-dropdown-second-level>
-                <x-slot name="trigger">
-                  {{ __('Special Reports') }}
-                </x-slot>
-                <x-slot name="content">
-                  <x-nav-link>
-                    {{ __('Report Configuration') }}
-                  </x-nav-link>
-                  <x-nav-link>
-                    {{ __('List of Courses') }}
-                  </x-nav-link>
-                  <x-nav-link>
-                    {{ __('Customer Reports') }}
-                  </x-nav-link>
-                  <x-nav-link>
-                    {{ __('Carnetization') }}
-                  </x-nav-link>
-                </x-slot>
-              </x-dropdown-second-level>
-              <x-dropdown-second-level>
-                <x-slot name="trigger">
-                  {{ __('Informative Circulars') }}
-                </x-slot>
-                <x-slot name="content">
-                  <x-nav-link>
-                    {{ __('Body Creation') }}
-                  </x-nav-link>
-                  <x-nav-link>
-                    {{ __('Creation of Circular') }}
-                  </x-nav-link>
-                  <x-nav-link>
-                    {{ __('Archive') }}
-                  </x-nav-link>
-                </x-slot>
-              </x-dropdown-second-level>
-              <x-dropdown-second-level>
-                <x-slot name="trigger">
-                  {{ __('School Diary') }}
-                </x-slot>
-                <x-slot name="content">
-                  <x-nav-link>
-                    {{ __('Greeting Template') }}
-                  </x-nav-link>
-                  <x-nav-link>
-                    {{ __('Subject Template') }}
-                  </x-nav-link>
-                  <x-nav-link>
-                    {{ __('Daily Information') }}
-                  </x-nav-link>
-                  <x-nav-link>
-                    {{ __('Archive') }}
+                    {{ trans('School Newsletter') }}
                   </x-nav-link>
                 </x-slot>
               </x-dropdown-second-level>
@@ -635,105 +494,246 @@
 
           <x-dropdown-first-level>
             <x-slot name="trigger">
-              {{ __('Financial') }}
+              {{ trans('Logistics') }}
             </x-slot>
             <x-slot name="content">
               <x-dropdown-second-level>
                 <x-slot name="trigger">
-                  {{ __('Statement of Account') }}
+                  {{ trans('Attendance Control') }}
                 </x-slot>
                 <x-slot name="content">
                   <x-nav-link>
-                    {{ __('January') }}
+                    {{ trans('Attendance Record') }}
                   </x-nav-link>
                   <x-nav-link>
-                    {{ __('February') }}
+                    {{ trans('Absence Record') }}
                   </x-nav-link>
                   <x-nav-link>
-                    {{ __('March') }}
-                  </x-nav-link>
-                  <x-nav-link>
-                    {{ __('April') }}
-                  </x-nav-link>
-                  <x-nav-link>
-                    {{ __('May') }}
-                  </x-nav-link>
-                  <x-nav-link>
-                    {{ __('June') }}
-                  </x-nav-link>
-                  <x-nav-link>
-                    {{ __('July') }}
-                  </x-nav-link>
-                  <x-nav-link>
-                    {{ __('August') }}
-                  </x-nav-link>
-                  <x-nav-link>
-                    {{ __('September') }}
-                  </x-nav-link>
-                  <x-nav-link>
-                    {{ __('October') }}
-                  </x-nav-link>
-                  <x-nav-link>
-                    {{ __('November') }}
-                  </x-nav-link>
-                  <x-nav-link>
-                    {{ __('December') }}
+                    {{ trans('Statistics') }}
                   </x-nav-link>
                 </x-slot>
               </x-dropdown-second-level>
               <x-dropdown-second-level>
                 <x-slot name="trigger">
-                  {{ __('Accounting') }}
+                  {{ trans('Daily News') }}
                 </x-slot>
                 <x-slot name="content">
                   <x-nav-link>
-                    {{ __('Electronic Invoicing') }}
+                    {{ trans('Additional Control') }}
                   </x-nav-link>
                   <x-nav-link>
-                    {{ __('Accounts Receivable') }}
+                    {{ trans('Food Control') }}
                   </x-nav-link>
                   <x-nav-link>
-                    {{ __('Debit Notes') }}
+                    {{ trans('Sphincter Control') }}
                   </x-nav-link>
                   <x-nav-link>
-                    {{ __('Credit Notes') }}
+                    {{ trans('Nursing Control') }}
                   </x-nav-link>
                   <x-nav-link>
-                    {{ __('Revenue Vouchers') }}
-                  </x-nav-link>
-                  <x-nav-link>
-                    {{ __('Egress Vouchers') }}
-                  </x-nav-link>
-                  <x-nav-link>
-                    {{ __('Bank Reconciliation') }}
-                  </x-nav-link>
-                  <x-nav-link>
-                    {{ __('Canceled Invoices') }}
-                  </x-nav-link>
-                  <x-nav-link>
-                    {{ __('Sales Statistics') }}
+                    {{ trans('Closing Daily Report') }}
                   </x-nav-link>
                 </x-slot>
               </x-dropdown-second-level>
               <x-dropdown-second-level>
                 <x-slot name="trigger">
-                  {{ __('Budget') }}
+                  {{ trans('Event Programming') }}
                 </x-slot>
                 <x-slot name="content">
                   <x-nav-link>
-                    {{ __('Cost Structure') }}
+                    {{ trans('Event Creation') }}
                   </x-nav-link>
                   <x-nav-link>
-                    {{ __('Description of Costs') }}
+                    {{ trans('Event Scheduling') }}
                   </x-nav-link>
                   <x-nav-link>
-                    {{ __('Annual Budget') }}
+                    {{ trans('Event Tracking') }}
                   </x-nav-link>
                   <x-nav-link>
-                    {{ __('Monthly Follow-Up') }}
+                    {{ trans('Statistics') }}
+                  </x-nav-link>
+                </x-slot>
+              </x-dropdown-second-level>
+              <x-dropdown-second-level>
+                <x-slot name="trigger">
+                  {{ trans('Growth and Development') }}
+                </x-slot>
+                <x-slot name="content">
+                  <x-nav-link>
+                    {{ trans('Healthcare Professional') }}
                   </x-nav-link>
                   <x-nav-link>
-                    {{ __('Annual Closing') }}
+                    {{ trans('Health Observations') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ trans('Vaccination Scheme') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ trans('Periodic Valuations') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ trans('Statistics') }}
+                  </x-nav-link>
+                </x-slot>
+              </x-dropdown-second-level>
+              <x-dropdown-second-level>
+                <x-slot name="trigger">
+                  {{ trans('Special Reports') }}
+                </x-slot>
+                <x-slot name="content">
+                  <x-nav-link>
+                    {{ trans('Report Configuration') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ trans('List of Courses') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ trans('Customer Reports') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ trans('Carnetization') }}
+                  </x-nav-link>
+                </x-slot>
+              </x-dropdown-second-level>
+              <x-dropdown-second-level>
+                <x-slot name="trigger">
+                  {{ trans('Informative Circulars') }}
+                </x-slot>
+                <x-slot name="content">
+                  <x-nav-link>
+                    {{ trans('Body Creation') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ trans('Creation of Circular') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ trans('Archive') }}
+                  </x-nav-link>
+                </x-slot>
+              </x-dropdown-second-level>
+              <x-dropdown-second-level>
+                <x-slot name="trigger">
+                  {{ trans('School Diary') }}
+                </x-slot>
+                <x-slot name="content">
+                  <x-nav-link>
+                    {{ trans('Greeting Template') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ trans('Subject Template') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ trans('Daily Information') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ trans('Archive') }}
+                  </x-nav-link>
+                </x-slot>
+              </x-dropdown-second-level>
+            </x-slot>
+          </x-dropdown-first-level>
+
+          <x-dropdown-first-level>
+            <x-slot name="trigger">
+              {{ trans('Financial') }}
+            </x-slot>
+            <x-slot name="content">
+              <x-dropdown-second-level>
+                <x-slot name="trigger">
+                  {{ trans('Statement of Account') }}
+                </x-slot>
+                <x-slot name="content">
+                  <x-nav-link>
+                    {{ trans('January') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ trans('February') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ trans('March') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ trans('April') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ trans('May') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ trans('June') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ trans('July') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ trans('August') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ trans('September') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ trans('October') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ trans('November') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ trans('December') }}
+                  </x-nav-link>
+                </x-slot>
+              </x-dropdown-second-level>
+              <x-dropdown-second-level>
+                <x-slot name="trigger">
+                  {{ trans('Accounting') }}
+                </x-slot>
+                <x-slot name="content">
+                  <x-nav-link>
+                    {{ trans('Electronic Invoicing') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ trans('Accounts Receivable') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ trans('Debit Notes') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ trans('Credit Notes') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ trans('Revenue Vouchers') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ trans('Egress Vouchers') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ trans('Bank Reconciliation') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ trans('Canceled Invoices') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ trans('Sales Statistics') }}
+                  </x-nav-link>
+                </x-slot>
+              </x-dropdown-second-level>
+              <x-dropdown-second-level>
+                <x-slot name="trigger">
+                  {{ trans('Budget') }}
+                </x-slot>
+                <x-slot name="content">
+                  <x-nav-link>
+                    {{ trans('Cost Structure') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ trans('Description of Costs') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ trans('Annual Budget') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ trans('Monthly Follow-Up') }}
+                  </x-nav-link>
+                  <x-nav-link>
+                    {{ trans('Annual Closing') }}
                   </x-nav-link>
                 </x-slot>
               </x-dropdown-second-level>
@@ -742,110 +742,122 @@
         </div>
       </div>
 
-      <div class="hidden sm:flex sm:items-center sm:ms-6">
+      <div class="hidden sm:ms-6 sm:flex sm:items-center">
         <!-- Teams Dropdown -->
         @if (Laravel\Jetstream\Jetstream::hasTeamFeatures())
-        <div class="ms-3 relative">
-          <x-dropdown align="right" width="60">
-            <x-slot name="trigger">
-              <span class="inline-flex rounded-md">
-                <button type="button" class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none focus:bg-gray-50 dark:focus:bg-gray-700 active:bg-gray-50 dark:active:bg-gray-700 transition ease-in-out duration-150">
-                  {{ Auth::user()->currentTeam->name }}
+          <div class="relative ms-3">
+            <x-dropdown align="right" width="60">
+              <x-slot name="trigger">
+                <span class="inline-flex rounded-md">
+                  <button
+                    class="inline-flex items-center rounded-md border border-transparent bg-white px-3 py-2 text-sm font-medium leading-4 text-gray-500 transition duration-150 ease-in-out hover:text-gray-700 focus:bg-gray-50 focus:outline-none active:bg-gray-50 dark:bg-gray-800 dark:text-gray-400 dark:hover:text-gray-300 dark:focus:bg-gray-700 dark:active:bg-gray-700"
+                    type="button">
+                    {{ Auth::user()->currentTeam->name }}
 
-                  <svg class="ms-2 -me-0.5 h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 15L12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9" />
-                  </svg>
-                </button>
-              </span>
-            </x-slot>
+                    <svg class="-me-0.5 ms-2 h-4 w-4" fill="none" stroke-width="1.5" stroke="currentColor"
+                      viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M8.25 15L12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    </svg>
+                  </button>
+                </span>
+              </x-slot>
 
-            <x-slot name="content">
-              <div class="w-60">
-                <!-- Team Management -->
-                <div class="block px-4 py-2 text-xs text-gray-400">
-                  {{ __('Manage Team') }}
+              <x-slot name="content">
+                <div class="w-60">
+                  <!-- Team Management -->
+                  <div class="block px-4 py-2 text-xs text-gray-400">
+                    {{ trans('Manage Team') }}
+                  </div>
+
+                  <!-- Team Settings -->
+                  <x-dropdown-link href="{{ route('teams.show', Auth::user()->currentTeam->id) }}">
+                    {{ trans('Team Settings') }}
+                  </x-dropdown-link>
+
+                  @can('create', Laravel\Jetstream\Jetstream::newTeamModel())
+                    <x-dropdown-link href="{{ route('teams.create') }}">
+                      {{ trans('Create New Team') }}
+                    </x-dropdown-link>
+                  @endcan
+
+                  <!-- Team Switcher -->
+                  @if (Auth::user()->allTeams()->count() > 1)
+                    <div class="border-t border-gray-200 dark:border-gray-600"></div>
+
+                    <div class="block px-4 py-2 text-xs text-gray-400">
+                      {{ trans('Switch Teams') }}
+                    </div>
+
+                    @foreach (Auth::user()->allTeams() as $team)
+                      <x-switchable-team :team="$team" />
+                    @endforeach
+                  @endif
                 </div>
-
-                <!-- Team Settings -->
-                <x-dropdown-link href="{{ route('teams.show', Auth::user()->currentTeam->id) }}">
-                  {{ __('Team Settings') }}
-                </x-dropdown-link>
-
-                @can('create', Laravel\Jetstream\Jetstream::newTeamModel())
-                <x-dropdown-link href="{{ route('teams.create') }}">
-                  {{ __('Create New Team') }}
-                </x-dropdown-link>
-                @endcan
-
-                <!-- Team Switcher -->
-                @if (Auth::user()->allTeams()->count() > 1)
-                <div class="border-t border-gray-200 dark:border-gray-600"></div>
-
-                <div class="block px-4 py-2 text-xs text-gray-400">
-                  {{ __('Switch Teams') }}
-                </div>
-
-                @foreach (Auth::user()->allTeams() as $team)
-                <x-switchable-team :team="$team" />
-                @endforeach
-                @endif
-              </div>
-            </x-slot>
-          </x-dropdown>
-        </div>
+              </x-slot>
+            </x-dropdown>
+          </div>
         @endif
 
         <!-- Settings Dropdown -->
-        <div class="ms-3 relative">
+        <div class="relative ms-3">
           <x-dropdown align="right" width="48">
             <x-slot name="trigger">
               @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
-              <button class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition">
-                <img class="h-8 w-8 rounded-full object-cover" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
-              </button>
-              @else
-              <span class="inline-flex rounded-md">
-                <button type="button" class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-900 hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none focus:bg-gray-50 dark:focus:bg-gray-900 active:bg-gray-50 dark:active:bg-gray-900 transition ease-in-out duration-150 gap-1">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M10.343 3.94c.09-.542.56-.94 1.11-.94h1.093c.55 0 1.02.398 1.11.94l.149.894c.07.424.384.764.78.93.398.164.855.142 1.205-.108l.737-.527a1.125 1.125 0 0 1 1.45.12l.773.774c.39.389.44 1.002.12 1.45l-.527.737c-.25.35-.272.806-.107 1.204.165.397.505.71.93.78l.893.15c.543.09.94.559.94 1.109v1.094c0 .55-.397 1.02-.94 1.11l-.894.149c-.424.07-.764.383-.929.78-.165.398-.143.854.107 1.204l.527.738c.32.447.269 1.06-.12 1.45l-.774.773a1.125 1.125 0 0 1-1.449.12l-.738-.527c-.35-.25-.806-.272-1.203-.107-.398.165-.71.505-.781.929l-.149.894c-.09.542-.56.94-1.11.94h-1.094c-.55 0-1.019-.398-1.11-.94l-.148-.894c-.071-.424-.384-.764-.781-.93-.398-.164-.854-.142-1.204.108l-.738.527c-.447.32-1.06.269-1.45-.12l-.773-.774a1.125 1.125 0 0 1-.12-1.45l.527-.737c.25-.35.272-.806.108-1.204-.165-.397-.506-.71-.93-.78l-.894-.15c-.542-.09-.94-.56-.94-1.109v-1.094c0-.55.398-1.02.94-1.11l.894-.149c.424-.07.765-.383.93-.78.165-.398.143-.854-.108-1.204l-.526-.738a1.125 1.125 0 0 1 .12-1.45l.773-.773a1.125 1.125 0 0 1 1.45-.12l.737.527c.35.25.807.272 1.204.107.397-.165.71-.505.78-.929l.15-.894Z" />
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-                  </svg>
-                  <div class="flex flex-col gap-1">
-                    <p>{{ __('Welcome')}} (a)</p>
-                    <p>{{ Auth::user()->name }}</p>
-                  </div>
-                  <svg class="ms-2 -me-0.5 h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                  </svg>
+                <button
+                  class="flex rounded-full border-2 border-transparent text-sm transition focus:border-gray-300 focus:outline-none">
+                  <img alt="{{ Auth::user()->name }}" class="h-8 w-8 rounded-full object-cover"
+                    src="{{ Auth::user()->profile_photo_url }}" />
                 </button>
-              </span>
+              @else
+                <span class="inline-flex rounded-md">
+                  <button
+                    class="inline-flex items-center gap-1 rounded-md border border-transparent bg-white px-3 py-2 text-sm font-medium leading-4 text-gray-500 transition duration-150 ease-in-out hover:text-gray-700 focus:bg-gray-50 focus:outline-none active:bg-gray-50 dark:bg-gray-900 dark:text-gray-400 dark:hover:text-gray-300 dark:focus:bg-gray-900 dark:active:bg-gray-900"
+                    type="button">
+                    <svg class="h-6 w-6" fill="none" stroke-width="1.5" stroke="currentColor"
+                      viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M10.343 3.94c.09-.542.56-.94 1.11-.94h1.093c.55 0 1.02.398 1.11.94l.149.894c.07.424.384.764.78.93.398.164.855.142 1.205-.108l.737-.527a1.125 1.125 0 0 1 1.45.12l.773.774c.39.389.44 1.002.12 1.45l-.527.737c-.25.35-.272.806-.107 1.204.165.397.505.71.93.78l.893.15c.543.09.94.559.94 1.109v1.094c0 .55-.397 1.02-.94 1.11l-.894.149c-.424.07-.764.383-.929.78-.165.398-.143.854.107 1.204l.527.738c.32.447.269 1.06-.12 1.45l-.774.773a1.125 1.125 0 0 1-1.449.12l-.738-.527c-.35-.25-.806-.272-1.203-.107-.398.165-.71.505-.781.929l-.149.894c-.09.542-.56.94-1.11.94h-1.094c-.55 0-1.019-.398-1.11-.94l-.148-.894c-.071-.424-.384-.764-.781-.93-.398-.164-.854-.142-1.204.108l-.738.527c-.447.32-1.06.269-1.45-.12l-.773-.774a1.125 1.125 0 0 1-.12-1.45l.527-.737c.25-.35.272-.806.108-1.204-.165-.397-.506-.71-.93-.78l-.894-.15c-.542-.09-.94-.56-.94-1.109v-1.094c0-.55.398-1.02.94-1.11l.894-.149c.424-.07.765-.383.93-.78.165-.398.143-.854-.108-1.204l-.526-.738a1.125 1.125 0 0 1 .12-1.45l.773-.773a1.125 1.125 0 0 1 1.45-.12l.737.527c.35.25.807.272 1.204.107.397-.165.71-.505.78-.929l.15-.894Z"
+                        stroke-linecap="round" stroke-linejoin="round" />
+                      <path d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    <div class="flex flex-col gap-1">
+                      <p>{{ trans('Welcome') }} (a)</p>
+                      <p>{{ Auth::user()->name }}</p>
+                    </div>
+                    <svg class="-me-0.5 ms-2 h-4 w-4" fill="none" stroke-width="1.5" stroke="currentColor"
+                      viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M19.5 8.25l-7.5 7.5-7.5-7.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                  </button>
+                </span>
               @endif
             </x-slot>
 
             <x-slot name="content">
               <!-- Account Management -->
               <div class="block px-4 py-2 text-xs text-gray-400">
-                {{ __('Manage Account') }}
+                {{ trans('Manage Account') }}
               </div>
 
               <x-dropdown-link href="{{ route('profile.show') }}">
-                {{ __('Profile') }}
+                {{ trans('Profile') }}
               </x-dropdown-link>
 
               @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
-              <x-dropdown-link href="{{ route('api-tokens.index') }}">
-                {{ __('API Tokens') }}
-              </x-dropdown-link>
+                <x-dropdown-link href="{{ route('api-tokens.index') }}">
+                  {{ trans('API Tokens') }}
+                </x-dropdown-link>
               @endif
 
               <div class="border-t border-gray-200 dark:border-gray-600"></div>
 
               <!-- Authentication -->
-              <form method="POST" action="{{ route('logout') }}" x-data>
+              <form action="{{ route('logout') }}" method="POST" x-data>
                 @csrf
 
-                <x-dropdown-link href="{{ route('logout') }}" @click.prevent="$root.submit();">
-                  {{ __('Log Out') }}
+                <x-dropdown-link @click.prevent="$root.submit();" href="{{ route('logout') }}">
+                  {{ trans('Log Out') }}
                 </x-dropdown-link>
               </form>
             </x-slot>
@@ -855,10 +867,13 @@
 
       <!-- Hamburger -->
       <div class="-me-2 flex items-center sm:hidden">
-        <button @click="open = ! open" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 dark:text-gray-500 hover:text-gray-500 dark:hover:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-900 focus:outline-none focus:bg-gray-100 dark:focus:bg-gray-900 focus:text-gray-500 dark:focus:text-gray-400 transition duration-150 ease-in-out">
-          <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
-            <path :class="{'hidden': open, 'inline-flex': ! open }" class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-            <path :class="{'hidden': ! open, 'inline-flex': open }" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        <button @click="open = ! open"
+          class="inline-flex items-center justify-center rounded-md p-2 text-gray-400 transition duration-150 ease-in-out hover:bg-gray-100 hover:text-gray-500 focus:bg-gray-100 focus:text-gray-500 focus:outline-none dark:text-gray-500 dark:hover:bg-gray-900 dark:hover:text-gray-400 dark:focus:bg-gray-900 dark:focus:text-gray-400">
+          <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path :class="{ 'hidden': open, 'inline-flex': !open }" class="inline-flex" d="M4 6h16M4 12h16M4 18h16"
+              stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+            <path :class="{ 'hidden': !open, 'inline-flex': open }" class="hidden" d="M6 18L18 6M6 6l12 12"
+              stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
           </svg>
         </button>
       </div>
@@ -866,80 +881,81 @@
   </div>
 
   <!-- Responsive Navigation Menu -->
-  <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
-    <div class="pt-2 pb-3 space-y-1">
-      <x-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-        {{ __('Dashboard') }}
+  <div :class="{ 'block': open, 'hidden': !open }" class="hidden sm:hidden">
+    <div class="space-y-1 pb-3 pt-2">
+      <x-responsive-nav-link :active="request()->routeIs('dashboard')" href="{{ route('dashboard') }}">
+        {{ trans('Dashboard') }}
       </x-responsive-nav-link>
     </div>
 
     <!-- Responsive Settings Options -->
-    <div class="pt-4 pb-1 border-t border-gray-200 dark:border-gray-600">
+    <div class="border-t border-gray-200 pb-1 pt-4 dark:border-gray-600">
       <div class="flex items-center px-4">
         @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
-        <div class="shrink-0 me-3">
-          <img class="h-10 w-10 rounded-full object-cover" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
-        </div>
+          <div class="me-3 shrink-0">
+            <img alt="{{ Auth::user()->name }}" class="h-10 w-10 rounded-full object-cover"
+              src="{{ Auth::user()->profile_photo_url }}" />
+          </div>
         @endif
 
         <div>
-          <div class="font-medium text-base text-gray-800 dark:text-gray-200">{{ Auth::user()->name }}</div>
-          <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
+          <div class="text-base font-medium text-gray-800 dark:text-gray-200">{{ Auth::user()->name }}</div>
+          <div class="text-sm font-medium text-gray-500">{{ Auth::user()->email }}</div>
         </div>
       </div>
 
       <div class="mt-3 space-y-1">
         <!-- Account Management -->
-        <x-responsive-nav-link href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')">
-          {{ __('Profile') }}
+        <x-responsive-nav-link :active="request()->routeIs('profile.show')" href="{{ route('profile.show') }}">
+          {{ trans('Profile') }}
         </x-responsive-nav-link>
 
         @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
-        <x-responsive-nav-link href="{{ route('api-tokens.index') }}" :active="request()->routeIs('api-tokens.index')">
-          {{ __('API Tokens') }}
-        </x-responsive-nav-link>
+          <x-responsive-nav-link :active="request()->routeIs('api-tokens.index')" href="{{ route('api-tokens.index') }}">
+            {{ trans('API Tokens') }}
+          </x-responsive-nav-link>
         @endif
 
         <!-- Authentication -->
-        <form method="POST" action="{{ route('logout') }}" x-data>
+        <form action="{{ route('logout') }}" method="POST" x-data>
           @csrf
 
-          <x-responsive-nav-link href="{{ route('logout') }}" @click.prevent="$root.submit();">
-            {{ __('Log Out') }}
+          <x-responsive-nav-link @click.prevent="$root.submit();" href="{{ route('logout') }}">
+            {{ trans('Log Out') }}
           </x-responsive-nav-link>
         </form>
 
         <!-- Team Management -->
         @if (Laravel\Jetstream\Jetstream::hasTeamFeatures())
-        <div class="border-t border-gray-200 dark:border-gray-600"></div>
+          <div class="border-t border-gray-200 dark:border-gray-600"></div>
 
-        <div class="block px-4 py-2 text-xs text-gray-400">
-          {{ __('Manage Team') }}
-        </div>
+          <div class="block px-4 py-2 text-xs text-gray-400">
+            {{ trans('Manage Team') }}
+          </div>
 
-        <!-- Team Settings -->
-        <x-responsive-nav-link href="{{ route('teams.show', Auth::user()->currentTeam->id) }}" :active="request()->routeIs('teams.show')">
-          {{ __('Team Settings') }}
-        </x-responsive-nav-link>
+          <!-- Team Settings -->
+          <x-responsive-nav-link :active="request()->routeIs('teams.show')" href="{{ route('teams.show', Auth::user()->currentTeam->id) }}">
+            {{ trans('Team Settings') }}
+          </x-responsive-nav-link>
 
-        @can('create', Laravel\Jetstream\Jetstream::newTeamModel())
-        <x-responsive-nav-link href="{{ route('teams.create') }}" :active="request()->routeIs('teams.create')">
-          {{ __('Create New Team') }}
-        </x-responsive-nav-link>
-        @endcan
+          @can('create', Laravel\Jetstream\Jetstream::newTeamModel())
+            <x-responsive-nav-link :active="request()->routeIs('teams.create')" href="{{ route('teams.create') }}">
+              {{ trans('Create New Team') }}
+            </x-responsive-nav-link>
+          @endcan
 
-        <!-- Team Switcher -->
-        @if (Auth::user()->allTeams()->count() > 1)
-        <div class="border-t border-gray-200 dark:border-gray-600"></div>
+          <!-- Team Switcher -->
+          @if (Auth::user()->allTeams()->count() > 1)
+            <div class="border-t border-gray-200 dark:border-gray-600"></div>
 
-        <div class="block px-4 py-2 text-xs text-gray-400">
-          {{ __('Switch Teams') }}
-        </div>
+            <div class="block px-4 py-2 text-xs text-gray-400">
+              {{ trans('Switch Teams') }}
+            </div>
 
-        @foreach (Auth::user()->allTeams() as $team)
-        <x-switchable-team :team="$team" component="responsive-nav-link" />
-        @endforeach
-        @endif
+            @foreach (Auth::user()->allTeams() as $team)
+              <x-switchable-team :team="$team" component="responsive-nav-link" />
+            @endforeach
+          @endif
         @endif
       </div>
     </div>
