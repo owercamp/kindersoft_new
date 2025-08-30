@@ -7,7 +7,7 @@ use Livewire\Form;
 
 class AdministrativeForm extends Form
 {
-  public string $email;
+  public string $email = '';
   public string $content = '';
   public $firm;
 
@@ -16,7 +16,7 @@ class AdministrativeForm extends Form
     return [
       'email' => 'required|string|max:60|email',
       'content' => 'required|string|max:1100',
-      'firm' => 'nullable|image|mimes:jpeg,jpg|max:2048',
+      'firm' => 'nullable|image|mimes:jpeg,jpg,png|max:2048',
     ];
   }
 
