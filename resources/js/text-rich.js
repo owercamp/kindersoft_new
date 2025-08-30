@@ -15,25 +15,32 @@ import 'tinymce/plugins/searchreplace';
 import 'tinymce/plugins/wordcount';
 
 // Inicializar editor
-tinymce.init({
-  selector: 'textarea.myeditor',
-  plugins: 'link lists advlist emoticons table insertdatetime searchreplace wordcount',
-  toolbar: 'undo redo | styles | bold italic | alignleft aligncenter alignright | outdent indent | link | bullist numlist | table searchreplace | emoticons',
-  promotion: false,
-  skin: (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'tinymce-5-dark' : 'tinymce-5'),
-  content_css: (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'tinymce-5-dark' : 'tinymce-5'),
-  onboarding: false,
-  license_key: 'gpl',
-  language: "es_MX",
-  a11y_advanced_options: true,
-  image_caption: true,
-  image_advtab: true,
-  image_uploadtab: true,
-  automatic_uploads: true
+document.addEventListener('DOMContentLoaded', function () {
+  // Solo inicializar editores que no estén dentro de modales de Livewire
+  const standaloneEditors = document.querySelectorAll('textarea.myeditor:not([x-data])');
+
+  if (standaloneEditors.length > 0) {
+    tinymce.init({
+      selector: 'textarea.myeditor:not([x-data])',
+      plugins: 'link lists advlist emoticons table insertdatetime searchreplace wordcount',
+      toolbar: 'undo redo | styles | bold italic | alignleft aligncenter alignright | outdent indent | link | bullist numlist | table searchreplace | emoticons',
+      promotion: false,
+      branding: false,
+      skin: (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'tinymce-5-dark' : 'tinymce-5'),
+      content_css: (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'tinymce-5-dark' : 'tinymce-5'),
+      onboarding: false,
+      license_key: 'gpl',
+      language: "es_MX",
+      a11y_advanced_options: true
+    });
+  }
+
+  // Ocultar branding
+  hideTinyBranding();
 });
 
 function hideTinyBranding() {
-  const branding = document.querySelector('#modal .tox-statusbar__right-container span.tox-statusbar__branding');
+  const branding = document.querySelector('.tox-statusbar__right-container span.tox-statusbar__branding');
   if (branding) {
     branding.hidden = true;
     return true; // Element found and hidden
@@ -57,3 +64,5 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
+
+window.tinymce = tinymce;
