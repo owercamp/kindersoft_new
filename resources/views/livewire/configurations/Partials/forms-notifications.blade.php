@@ -97,7 +97,8 @@
 
   @if ($formAdmin->firm)
     <div class="mt-2 flex justify-center">
-      <img alt="" class="h-32 w-7/12 rounded-lg shadow-md" src="{{ $formAdmin->firm->temporaryUrl() }}">
+      <img alt="" class="h-32 w-7/12 rounded-lg shadow-md"
+        src="{{ isset($formAdmin->firm) ? (is_string($formAdmin->firm) ? asset($formAdmin->firm) : $formAdmin->firm->temporaryUrl()) : '' }}">
     </div>
   @endif
 
