@@ -7,14 +7,14 @@ use Livewire\WithPagination;
 use Livewire\WithFileUploads;
 use Illuminate\Contracts\View\View;
 use App\Service\AdministrativeService;
-use App\Livewire\Forms\AdministrativeForm;
+use App\Livewire\Forms\NotificationForm;
 
 class NotificationAdministrative extends Component
 {
   use WithPagination;
   use WithFileUploads;
 
-  public AdministrativeForm $formAdmin;
+  public NotificationForm $formAdmin;
   public bool $modal = false;
   public ?int $id = null;
 
