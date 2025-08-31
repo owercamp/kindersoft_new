@@ -35,4 +35,10 @@ class ConsultingServices implements IConsultingIncrementServices, IGetExistsServ
     $information = DB::table($table)->where($params)->pluck('name', 'id');
     return $information;
   }
+
+  public static function get_consulting_all($table, $params): object
+  {
+    $information = DB::table($table)->where($params)->get();
+    return $information;
+  }
 }

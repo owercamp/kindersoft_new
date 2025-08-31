@@ -4,9 +4,10 @@ import './bootstrap';
 import focus from '@alpinejs/focus';
 import persist from '@alpinejs/persist';
 import Swal from 'sweetalert2';
+import Alpine from 'alpinejs';
 import './main';
 import './text-rich';
-import Alpine from 'alpinejs';
+import './modal-handler';
 // window.Alpine = Alpine;
 window.Swal = Swal;
 
