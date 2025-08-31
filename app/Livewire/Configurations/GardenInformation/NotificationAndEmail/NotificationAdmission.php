@@ -5,23 +5,23 @@ namespace App\Livewire\Configurations\GardenInformation\NotificationAndEmail;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Livewire\WithFileUploads;
-use Illuminate\Contracts\View\View;
-use App\Service\AdministrativeService;
+use App\Service\AdmissionService;
 use App\Livewire\Forms\NotificationForm;
 
-class NotificationAdministrative extends Component
+class NotificationAdmission extends Component
 {
   use WithPagination;
   use WithFileUploads;
 
   public NotificationForm $formAdmin;
+
   public bool $modal = false;
   public ?int $id = null;
 
   public function save()
   {
     $this->formAdmin->validate();
-    $success = AdministrativeService::saveAdministrative($this->formAdmin);
+    $success = AdmissionService::saveAdmission($this->formAdmin);
     if ($success) {
       $this->dispatch('swal:modal', $success);
     }
@@ -31,7 +31,7 @@ class NotificationAdministrative extends Component
   {
     $this->formAdmin->reset();
     $this->dispatch('resetTinyMCE');
-    $exists = AdministrativeService::getInformation($id);
+    $exists = AdmissionService::getInformation($id);
 
     if ($exists) {
       $this->formAdmin->email = $exists->email;
@@ -45,21 +45,21 @@ class NotificationAdministrative extends Component
 
   public function edit()
   {
-    $edited = AdministrativeService::editAdministrative($this->formAdmin, $this->id);
+    $edited = AdmissionService::editAdmission($this->formAdmin, $this->id);
     $this->modal =  false;
     $this->dispatch('swal:modal', $edited);
   }
 
   public function delete(int $id)
   {
-    $destroy = AdministrativeService::destroyAdministrative($id);
+    $destroy = AdmissionService::destroyAdmission($id);
     $this->dispatch('swal:modal', $destroy);
   }
 
-  public function render(): View
+  public function render()
   {
-    $informations = AdministrativeService::getAdministrative();
+    $informations = AdmissionService::getAdmissions();
 
-    return view('livewire.configurations.garden-information.notification-and-email.notification-administrative', compact('informations'));
+    return view('livewire.configurations.garden-information.notification-and-email.notification-admission', compact('informations'));
   }
 }

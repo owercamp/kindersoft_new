@@ -157,7 +157,7 @@
                       <x-nav-link href="{{ route('notification-administrative') }}">
                         {{ trans('Administrative Notifications') }}
                       </x-nav-link>
-                      <x-nav-link>
+                      <x-nav-link href="{{ route('notification-admission') }}">
                         {{ trans('Notifications Admissions') }}
                       </x-nav-link>
                       <x-nav-link>

@@ -5,7 +5,7 @@ namespace App\Livewire\Forms;
 use Livewire\Attributes\Validate;
 use Livewire\Form;
 
-class AdministrativeForm extends Form
+class NotificationForm extends Form
 {
   public string $email = '';
   public string $content = '';

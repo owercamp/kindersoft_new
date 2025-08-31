@@ -2,17 +2,19 @@
 
 namespace App\Service;
 
-use DB;
 use App\Models\Notification;
+use App\Service\SanitizeService;
+use Illuminate\Support\Facades\DB;
+use App\Service\ConsultingServices;
 use App\Service\Uploads\UploadService;
 use App\Livewire\Forms\NotificationForm;
-use App\Service\Notified\ErrorNotification;
 use App\Service\Notified\InfoNotification;
+use App\Service\Notified\ErrorNotification;
 use App\Service\Notified\SuccessNotification;
 
-class AdministrativeService
+class AdmissionService
 {
-  static function saveAdministrative(NotificationForm $form)
+  static function saveAdmission(NotificationForm $form)
   {
     $path = null;
     DB::beginTransaction();
@@ -40,7 +42,7 @@ class AdministrativeService
     }
   }
 
-  static function editAdministrative(NotificationForm $form, int $id)
+  static function editAdmission(NotificationForm $form, int $id)
   {
     $path = null;
 
@@ -65,7 +67,7 @@ class AdministrativeService
       $information->firm = ($path) ? $path : $information->firm;
       if ($information->save()) {
         DB::commit();
-        return SuccessNotification::get_notifications('success', __('Successfully Created Record'), 1500, 'completed');
+        return SuccessNotification::get_notifications('success', __('Successfully Updated Record'), 1500, 'completed');
       }
     } catch (\Throwable $th) {
       DB::rollBack();
@@ -73,7 +75,7 @@ class AdministrativeService
     }
   }
 
-  static function destroyAdministrative(int $id)
+  static function destroyAdmission(int $id)
   {
     $exists = ConsultingServices::get_exists('notifications', ['id' => $id]);
     if (!$exists) {
@@ -84,9 +86,9 @@ class AdministrativeService
     }
   }
 
-  static function getAdministrative()
+  static function getAdmissions()
   {
-    $registers = Notification::where('type', 'administrative')->paginate(10);
+    $registers = Notification::where('type', 'admission')->paginate(10);
     return $registers;
   }
 
