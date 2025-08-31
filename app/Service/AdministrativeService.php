@@ -5,14 +5,14 @@ namespace App\Service;
 use DB;
 use App\Models\Notification;
 use App\Service\Uploads\UploadService;
-use App\Livewire\Forms\AdministrativeForm;
+use App\Livewire\Forms\NotificationForm;
 use App\Service\Notified\ErrorNotification;
 use App\Service\Notified\InfoNotification;
 use App\Service\Notified\SuccessNotification;
 
 class AdministrativeService
 {
-  static function saveAdministrative(AdministrativeForm $form)
+  static function saveAdministrative(NotificationForm $form)
   {
     $path = null;
     DB::beginTransaction();
@@ -40,7 +40,7 @@ class AdministrativeService
     }
   }
 
-  static function editAdministrative(AdministrativeForm $form, int $id)
+  static function editAdministrative(NotificationForm $form, int $id)
   {
     $path = null;
 
@@ -82,7 +82,6 @@ class AdministrativeService
     if (Notification::destroy($id)) {
       return SuccessNotification::get_notifications('success', __('Successfully Deleted Record'), 1500, 'completed');
     }
-    dd($exists);
   }
 
   static function getAdministrative()
