@@ -189,32 +189,31 @@
         </div>
       </div>
     </div>
+    <script>
+      window.addEventListener('swal:modal', event => {
+        let bgColor;
+        let theme = document.getElementsByTagName('html')[0].classList.contains('dark') ? 'dark' : 'light';
+
+        if (theme === 'dark') {
+          bgColor = '#e9f1f6';
+        } else {
+          bgColor = '#9cbfff';
+        }
+
+        if (event.detail[0].type === 'success') {
+          document.getElementById('closedModal').click();
+        }
+
+        Swal.fire({
+          icon: event.detail[0].type,
+          title: event.detail[0].message,
+          showConfirmButton: event.detail[0].showConfirmButton,
+          timer: event.detail[0].timer,
+          background: bgColor
+        });
+        if (event.detail[0].success == 'completed') {
+          document.getElementById('Email').value = "";
+        }
+      })
+    </script>
   </div>
-  <script>
-    window.addEventListener('swal:modal', event => {
-      let bgColor;
-      let theme = document.getElementsByTagName('html')[0].classList.contains('dark') ? 'dark' : 'light';
-
-      if (theme === 'dark') {
-        bgColor = '#e9f1f6';
-      } else {
-        bgColor = '#9cbfff';
-      }
-
-      if (event.detail[0].type === 'success') {
-        document.getElementById('closedModal').click();
-      }
-
-      Swal.fire({
-        icon: event.detail[0].type,
-        title: event.detail[0].message,
-        showConfirmButton: event.detail[0].showConfirmButton,
-        timer: event.detail[0].timer,
-        background: bgColor
-      });
-      if (event.detail[0].success == 'completed') {
-        document.getElementById('Email').value = "";
-      }
-    })
-  </script>
-</div>
