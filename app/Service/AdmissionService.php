@@ -30,7 +30,7 @@ class AdmissionService
       $administrative->email = $email;
       $administrative->content = $content;
       $administrative->firm = $path;
-      $administrative->type = 'administrative';
+      $administrative->type = 'admission';
 
       if ($administrative->save()) {
         DB::commit();
