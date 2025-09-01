@@ -2,17 +2,19 @@
 
 namespace App\Service;
 
-use DB;
 use App\Models\Notification;
+use App\Service\SanitizeService;
+use Illuminate\Support\Facades\DB;
+use App\Service\ConsultingServices;
 use App\Service\Uploads\UploadService;
 use App\Livewire\Forms\NotificationForm;
-use App\Service\Notified\ErrorNotification;
 use App\Service\Notified\InfoNotification;
+use App\Service\Notified\ErrorNotification;
 use App\Service\Notified\SuccessNotification;
 
-class AdministrativeService
+class AcademicService
 {
-  static function saveAdministrative(NotificationForm $form)
+  static function saveAcademic(NotificationForm $form)
   {
     $path = null;
     DB::beginTransaction();
@@ -28,7 +30,7 @@ class AdministrativeService
       $administrative->email = $email;
       $administrative->content = $content;
       $administrative->firm = $path;
-      $administrative->type = 'administrative';
+      $administrative->type = 'academic';
 
       if ($administrative->save()) {
         DB::commit();
@@ -40,7 +42,7 @@ class AdministrativeService
     }
   }
 
-  static function editAdministrative(NotificationForm $form, int $id)
+  static function editAcademic(NotificationForm $form, int $id)
   {
     $path = null;
 
@@ -73,7 +75,7 @@ class AdministrativeService
     }
   }
 
-  static function destroyAdministrative(int $id)
+  static function destroyAcademic(int $id)
   {
     $exists = ConsultingServices::get_exists('notifications', ['id' => $id]);
     if (!$exists) {
@@ -84,9 +86,9 @@ class AdministrativeService
     }
   }
 
-  static function getAdministrative()
+  static function getAcademic()
   {
-    $registers = Notification::where('type', 'administrative')->paginate(10);
+    $registers = Notification::where('type', 'academic')->paginate(10);
     return $registers;
   }
 

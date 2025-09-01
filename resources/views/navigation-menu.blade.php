@@ -160,7 +160,7 @@
                       <x-nav-link href="{{ route('notification-admission') }}">
                         {{ trans('Notifications Admissions') }}
                       </x-nav-link>
-                      <x-nav-link>
+                      <x-nav-link href="{{ route('notification-academic') }}">
                         {{ trans('Academic Notifications') }}
                       </x-nav-link>
                       <x-nav-link>
