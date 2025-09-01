@@ -65,7 +65,7 @@ class AdministrativeService
       $information->firm = ($path) ? $path : $information->firm;
       if ($information->save()) {
         DB::commit();
-        return SuccessNotification::get_notifications('success', __('Successfully Created Record'), 1500, 'completed');
+        return SuccessNotification::get_notifications('success', __('Successfully Updated Record'), 1500, 'completed');
       }
     } catch (\Throwable $th) {
       DB::rollBack();
