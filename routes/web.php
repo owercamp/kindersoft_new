@@ -18,6 +18,7 @@ use App\Livewire\Configurations\DatabaseStructure\HealthCareProvider;
 use App\Livewire\Configurations\DatabaseStructure\SchoolCalendar;
 use App\Livewire\Configurations\GardenInformation\CorporateImages;
 use App\Livewire\Configurations\GardenInformation\GeneralInformation;
+use App\Livewire\Configurations\GardenInformation\NotificationAndEmail\NotificationAcademic;
 use App\Livewire\Configurations\GardenInformation\NotificationAndEmail\NotificationAdministrative;
 use App\Livewire\Configurations\GardenInformation\NotificationAndEmail\NotificationAdmission;
 use App\Livewire\Configurations\GardenInformation\TaxInformation;
@@ -134,4 +135,5 @@ Route::middleware([
   Route::get('/admissions/commercial-proposal/quotation', Quotation::class)->name('admissions.commercial-proposal.quotation');
   Route::get('/configurations/garden-information/notification and-email/notification-administrative', NotificationAdministrative::class)->name('notification-administrative');
   Route::get('/configurations/garden-information/notification and-email/notification-admission', NotificationAdmission::class)->name('notification-admission');
+  Route::get('/configurations/garden-information/notification and-email/notification-academic', NotificationAcademic::class)->name('notification-academic');
 });
