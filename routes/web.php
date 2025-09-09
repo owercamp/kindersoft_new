@@ -21,6 +21,7 @@ use App\Livewire\Configurations\GardenInformation\GeneralInformation;
 use App\Livewire\Configurations\GardenInformation\NotificationAndEmail\NotificationAcademic;
 use App\Livewire\Configurations\GardenInformation\NotificationAndEmail\NotificationAdministrative;
 use App\Livewire\Configurations\GardenInformation\NotificationAndEmail\NotificationAdmission;
+use App\Livewire\Configurations\GardenInformation\NotificationAndEmail\NotificationFinance;
 use App\Livewire\Configurations\GardenInformation\TaxInformation;
 use App\Livewire\Configurations\HumanResources\Attendants;
 use App\Livewire\Configurations\HumanResources\Collaborators;
@@ -136,4 +137,5 @@ Route::middleware([
   Route::get('/configurations/garden-information/notification and-email/notification-administrative', NotificationAdministrative::class)->name('notification-administrative');
   Route::get('/configurations/garden-information/notification and-email/notification-admission', NotificationAdmission::class)->name('notification-admission');
   Route::get('/configurations/garden-information/notification and-email/notification-academic', NotificationAcademic::class)->name('notification-academic');
+  Route::get('/configurations/garden-information/notification and-email/notification-finance', NotificationFinance::class)->name("notification-finance");
 });

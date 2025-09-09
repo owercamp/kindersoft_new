@@ -166,7 +166,7 @@
                       <x-nav-link>
                         {{ trans('Logistics Notifications') }}
                       </x-nav-link>
-                      <x-nav-link>
+                      <x-nav-link href="{{ route('notification-finance') }}">
                         {{ trans('Financial Notifications') }}
                       </x-nav-link>
                     </x-slot>
