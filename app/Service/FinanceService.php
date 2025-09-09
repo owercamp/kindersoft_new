@@ -12,8 +12,6 @@ use App\Service\Notified\InfoNotification;
 use App\Service\Notified\ErrorNotification;
 use App\Service\Notified\SuccessNotification;
 
-use function Laravel\Prompts\form;
-
 class FinanceService
 {
   static function saveFinance(NotificationForm $form)
