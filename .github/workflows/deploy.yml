@@ -1,0 +1,48 @@
+name: Deploy KindersoftNew (Laravel)
+
+on:
+  pull_request:
+    branches:
+      - main
+      - master
+    types:
+      - closed   # solo cuando el PR se cierra
+
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    if: github.event.pull_request.merged == true && github.event.pull_request.head.ref == 'developer'
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout del repositorio
+      uses: actions/checkout@v2
+
+    - name: Configurar entorno PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '8.2.6'
+        extensions: mbstring, bcmath, curl, intl, pdo_mysql, exif, fileinfo, gd, mysqli, openssl, xsl, zip
+
+    - name: Instalar dependencias de Composer
+      run: composer install --no-dev --prefer-dist --no-scripts --no-progress --no-suggest
+
+    - name: Deploy to shared hosting (Laravel optimized)
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      with:
+        server: ${{ secrets.FTP_HOST }}
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
+        server-dir: ${{ secrets.FTP_DESTINATION }}
+        exclude: |
+          **/.git*
+          **/.github*
+          **/.env
+          **/tests/**
+          **/docs/**
+          **/node_modules/**
+          **/storage/logs/**
+          **/storage/framework/cache/**
+          **/storage/framework/testing/**
+          **/vendor/bin/**

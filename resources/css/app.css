@@ -5,3 +5,7 @@
 [x-cloak] {
     display: none;
 }
+
+ol, ul {
+  list-style: inside;
+}

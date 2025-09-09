@@ -1,55 +1,59 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="dark">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
+<html class="dark" lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <meta content="{{ csrf_token() }}" name="csrf-token">
 
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+  <title>{{ config('app.name', 'Laravel') }}</title>
 
-        <!-- Scripts -->
-        @if (config('app.env') == 'prod')
-          <link rel="stylesheet" href="{{ asset('../kindersoft/build/assets/app.css') }}">
-        @else
-          <!-- Scripts -->
-          @vite(['resources/css/app.css', 'resources/js/app.js'])
-        @endif
+  <!-- Fonts -->
+  <link href="https://fonts.bunny.net" rel="preconnect">
+  <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
-        <!-- Styles -->
-        @livewireStyles
-    </head>
-    <body class="font-sans antialiased">
-        <x-banner />
+  <!-- Scripts -->
+  @if (config('app.env') == 'prod')
+    <link href="{{ asset('../kindersoft/build/assets/app.css') }}" rel="stylesheet">
+  @else
+    <!-- Scripts -->
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+  @endif
 
-        <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
-            @livewire('navigation-menu')
+  <!-- Styles -->
+  @livewireStyles
+</head>
 
-            <!-- Page Heading -->
-            @if (isset($header))
-                <header class="bg-white dark:bg-gray-800 shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        {{ $header }}
-                    </div>
-                </header>
-            @endif
+<body class="font-sans antialiased">
+  <x-banner />
 
-            <!-- Page Content -->
-            <main>
-                {{ $slot }}
-            </main>
+  <div class="mb-8 min-h-screen bg-gray-100 dark:bg-gray-900">
+    @livewire('navigation-menu')
+
+    <!-- Page Heading -->
+    @if (isset($header))
+      <header class="bg-white shadow dark:bg-gray-800">
+        <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+          {{ $header }}
         </div>
+      </header>
+    @endif
 
-        @stack('modals')
+    <!-- Page Content -->
+    <main>
+      {{ $slot }}
+    </main>
+  </div>
+  <x-footer />
 
-        <x-footer />
-        @if (config('app.env') == 'prod')
-          <script src="{{ asset('../kindersoft/build/assets/app.js') }}"></script>
-        @else
-          @livewireScripts
-        @endif
-    </body>
+  @stack('modals')
+
+  @if (config('app.env') == 'prod')
+    <script src="{{ asset('../kindersoft/build/assets/app.js') }}"></script>
+  @else
+    @livewireScripts
+  @endif
+  <script src="{{ asset('/build/tinymce/js/tinymce/tinymce.js') }}"></script>
+</body>
+
 </html>

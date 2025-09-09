@@ -51,6 +51,7 @@ class Achievements extends Component
     if ($current != $inserted) {
       $this->dispatch('saved');
       $this->dispatch('swal:modal', SuccessNotification::get_notifications('success', __('Successfully Imported Records'), 1500, 'completed'));
+      $this->dispatch('reload');
     }
 
   }
