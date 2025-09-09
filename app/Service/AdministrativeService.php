@@ -53,7 +53,7 @@ class AdministrativeService
 
     DB::beginTransaction();
     try {
-      if ($form->firm) {
+      if ($form->firm && $form->firm instanceof \Illuminate\Http\UploadedFile) {
         $path = UploadService::upload('Firmas', $form->firm);
       }
 
