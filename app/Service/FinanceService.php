@@ -12,6 +12,8 @@ use App\Service\Notified\InfoNotification;
 use App\Service\Notified\ErrorNotification;
 use App\Service\Notified\SuccessNotification;
 
+use function Laravel\Prompts\form;
+
 class FinanceService
 {
   static function saveFinance(NotificationForm $form)
@@ -55,7 +57,7 @@ class FinanceService
 
     DB::beginTransaction();
     try {
-      if ($form->firm) {
+      if ($form->firm && $form->firm instanceof \Illuminate\Http\UploadedFile) {
         $path = UploadService::upload('Firmas', $form->firm);
       }
 
