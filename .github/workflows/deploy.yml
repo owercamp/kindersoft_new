@@ -7,6 +7,8 @@ on:
     types:
       - closed   # solo cuando el PR se cierra
 
+  workflow_dispatch:
+
 jobs:
   deploy:
     if: github.event.pull_request.merged == true && github.event.pull_request.head.ref == 'developer'
