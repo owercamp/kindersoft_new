@@ -28,7 +28,7 @@ jobs:
     - name: Instalar dependencias de Composer
       run: composer install --prefer-dist --no-scripts --no-progress --no-suggest
 
-    - name: Deploy to shared hosting (Laravel optimized)
+    - name: Deploy to shared hosting (Laravel)
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
       with:
         server: ${{ secrets.FTP_HOST }}
