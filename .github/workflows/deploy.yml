@@ -36,11 +36,12 @@ jobs:
         password: ${{ secrets.FTP_PASSWORD }}
         server-dir: ${{ secrets.FTP_DESTINATION }}
         exclude: |
-          **/.git*
-          **/.github*
+          **/.git/**
+          **/.github/**
           **/.env
           **/tests/**
           **/docs/**
+          **/public/**
           **/node_modules/**
           **/storage/logs/**
           **/storage/framework/cache/**
