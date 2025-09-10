@@ -26,7 +26,7 @@ jobs:
         extensions: mbstring, bcmath, curl, intl, pdo_mysql, exif, fileinfo, gd, mysqli, openssl, xsl, zip
 
     - name: Instalar dependencias de Composer
-      run: composer install --no-dev --prefer-dist --no-scripts --no-progress --no-suggest
+      run: composer install --prefer-dist --no-scripts --no-progress --no-suggest
 
     - name: Deploy to shared hosting (Laravel optimized)
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
@@ -36,11 +36,12 @@ jobs:
         password: ${{ secrets.FTP_PASSWORD }}
         server-dir: ${{ secrets.FTP_DESTINATION }}
         exclude: |
-          **/.git*
-          **/.github*
+          **/.git/**
+          **/.github/**
           **/.env
           **/tests/**
           **/docs/**
+          **/public/**
           **/node_modules/**
           **/storage/logs/**
           **/storage/framework/cache/**
